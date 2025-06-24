@@ -35,3 +35,13 @@ main {
   justify-content: flex-start;
   /* font-size: 64px; */
 }
+
+a.card {
+  text-decoration:  none !important;
+}
+
+.card-subtitle {
+  font-weight: 400 !important;
+  color: gray !important;
+  font-size: 0.75em !important;
+}
