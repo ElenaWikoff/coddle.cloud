@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <footer className='bg-body-tertiary'>
             <Container fluid>
-                <p>Footer</p>
+                <a href="http://www.freepik.com">Fish designs by rawpixel.com / Freepik</a>
             </Container>
         </footer>
     );
