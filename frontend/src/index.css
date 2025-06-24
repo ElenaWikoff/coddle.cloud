@@ -33,5 +33,5 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  font-size: 64px;
+  /* font-size: 64px; */
 }

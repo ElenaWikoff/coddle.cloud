@@ -1,0 +1,92 @@
+{
+   "results": [
+      {
+         "id": 1,
+         "name": "berkley flicker shad medium diving crankbaits",
+         "type": "crankbait",
+         "brand": "berkley",
+         "application": ["casting", "trolling"],
+         "fish_types": [
+            "bass",
+            "walleye",
+            "trout",
+            "salmon",
+            "steelhead",
+            "pike",
+            "muskie",
+            "crappie"
+         ]
+      },
+      {
+         "id": 2,
+         "name": "northland fishing tackle baitfish spinner harness",
+         "type": "jig",
+         "brand": "northland fishing tackle",
+         "application": ["casting", "trolling", "ice fishing"],
+         "fish_types": [
+            "bass",
+            "walleye",
+            "trout",
+            "crappie",
+            "perch",
+            "panfish",
+            "sunfish",
+            "stripers"
+         ]
+      },
+      {
+         "id": 3,
+         "name": "mepps aglia inline spinner",
+         "type": "inline spinner",
+         "brand": "mepps lures",
+         "application": ["casting", "trolling"],
+         "fish_types": [
+            "trout",
+            "bass",
+            "walleye",
+            "pike",
+            "muskie",
+            "crappie",
+            "salmon"
+         ]
+      },
+      {
+         "id": 4,
+         "name": "cotton cordell micky spoon",
+         "type": "spoon",
+         "brand": "cotton cordell",
+         "application": ["casting", "trolling", "ice fishing"],
+         "fish_types": [
+            "bass",
+            "walleye",
+            "pike",
+            "muskie",
+            "salmon",
+            "steelhead",
+            "kokanee",
+            "stripers"
+         ]
+      },
+      {
+         "id": 5,
+         "name": "river2sea whopper plopper 90 topwater hard bait",
+         "type": "topwaters",
+         "brand": "river2sea",
+         "application": ["casting"],
+         "fish_types": [
+            "bass",
+            "trout",
+            "pike",
+            "muskie",
+            "stripers"
+         ]
+      }
+   ],
+   "pagination": {
+      "total_records": 5,
+      "current_page": 1,
+      "total_pages": 1,
+      "next_page": 1,
+      "prev_page": null
+   }
+}

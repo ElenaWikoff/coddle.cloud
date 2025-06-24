@@ -12,6 +12,20 @@ import Lures from './pages/Lures.jsx'
 import Spot from './pages/Spot.jsx';
 import Fish from './pages/Fish.jsx';
 import Lure from './pages/Lure.jsx'
+import { spotsLoader, fishSpeciesLoader, luresLoader } from './utils/actions/loaders.jsx';
+
+export async function fishLoader({ params }) {
+  const res = await fetch(`https://www.coddle.cloud/api/fish/${params.id}`);
+  const fish = await res.json();
+  return fish;
+}
+
+export async function fishesLoader({ params }) {
+  const res = 
+  await fetch(`https://www.coddle.cloud/api/fishes/q=${params.q}&`);
+  const fish = await res.json();
+  return fish;
+}
 
 const router = createBrowserRouter([
   {
@@ -25,6 +39,7 @@ const router = createBrowserRouter([
       {
         path: '/spots',
         element: <Spots />,
+        loader: spotsLoader,
       },
       {
         path: '/spots/:id',
@@ -33,6 +48,7 @@ const router = createBrowserRouter([
       {
         path: '/fish-species',
         element: <FishSpecies />,
+        loader: fishSpeciesLoader,
       },
       {
         path: '/fish-species/:id',
@@ -41,6 +57,7 @@ const router = createBrowserRouter([
       {
         path: '/lures',
         element: <Lures />,
+        loader: luresLoader,
       },
       {
         path: '/lures/:id',
