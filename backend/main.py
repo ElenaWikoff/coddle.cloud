@@ -18,9 +18,9 @@ def index():
 
 @app.route('/about')
 def aboutIndex():
-    members = gl.projects.get(PROJECT_ID).members_all.list(get_all=True)
+    members = gl.projects.get(PROJECT_ID).members.list(get_all=True)
     members_json = [member.attributes for member in members]
-    return jsonify(members_json)
+    return members_json
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080)
