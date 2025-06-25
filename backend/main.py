@@ -1,5 +1,9 @@
 from flask import Flask, render_template
 from flask_cors import CORS
+import gitlab
+
+PROJECT_ID = 71006060
+gl = gitlab.Gitlab('http://10.0.0.1', private_token='glpat-WYswdfja-RfLBggGwHq9')
 
 app = Flask(__name__)
 CORS(app)
@@ -11,6 +15,10 @@ def splash():
 @app.route('/frontendhitme')
 def index():
     return "Im static... but awesome."
+
+@app.route('/about')
+def aboutIndex():
+    return gl.projects.get(PROJECT_ID).repository_contributors
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080)

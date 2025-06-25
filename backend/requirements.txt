@@ -1,4 +1,5 @@
-Flask
+flask
 Flask-SQLAlchemy
-Flask_cors
+flask_cors
 psycopg2
+python-gitlab
