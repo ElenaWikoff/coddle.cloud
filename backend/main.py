@@ -3,7 +3,7 @@ from flask_cors import CORS
 import gitlab
 
 PROJECT_ID = 71006060
-gl = gitlab.Gitlab('http://10.0.0.1', private_token='glpat-WYswdfja-RfLBggGwHq9')
+gl = gitlab.Gitlab('https://gitlab.com', private_token='glpat-WYswdfja-RfLBggGwHq9')
 
 app = Flask(__name__)
 CORS(app)
