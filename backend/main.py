@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 from flask_cors import CORS
 import gitlab
 
@@ -18,7 +18,9 @@ def index():
 
 @app.route('/about')
 def aboutIndex():
-    return gl.projects.get(PROJECT_ID).repository_contributors
+    members = gl.projects.get(PROJECT_ID).members_all.list(get_all=True)
+    members_json = [member.attributes for member in members]
+    return jsonify(members_json)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080)
