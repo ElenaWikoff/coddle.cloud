@@ -3,9 +3,9 @@ import "./footer.css"
 
 const Footer = () => {
     return (
-        <footer className='bg-body-tertiary'>
-            <Container fluid>
-                <a href="http://www.freepik.com">Fish designs by rawpixel.com / Freepik</a>
+        <footer className=''>
+            <Container fluid className='p-2 d-flex flex-column align-items-center'>
+                Footer
             </Container>
         </footer>
     );

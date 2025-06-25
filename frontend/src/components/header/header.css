@@ -1,0 +1,16 @@
+.navbar {
+  background-color: var(--brand-primary);
+}
+
+.navbar * {
+  color: white;
+}
+
+.navbar .nav-link:focus,
+.navbar .navbar-brand:focus,
+.navbar .nav-link:active,
+.navbar .navbar-brand:active,
+.navbar .nav-link:hover,
+.navbar .navbar-brand:hover {
+  color: skyblue;
+}

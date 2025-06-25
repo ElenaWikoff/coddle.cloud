@@ -12,7 +12,7 @@ import Lures from './pages/Lures.jsx'
 import Spot from './pages/Spot.jsx';
 import Fish from './pages/Fish.jsx';
 import Lure from './pages/Lure.jsx'
-import { spotsLoader, fishSpeciesLoader, luresLoader, fishLoader } from './utils/actions/loaders.jsx';
+import { spotsLoader, fishSpeciesLoader, luresLoader, fishLoader, aboutLoader } from './utils/actions/loaders.jsx';
 
 const router = createBrowserRouter([
   {
@@ -54,6 +54,7 @@ const router = createBrowserRouter([
       {
         path: '/about',
         element: <About />,
+        loader: aboutLoader,
       },
     ],
   },

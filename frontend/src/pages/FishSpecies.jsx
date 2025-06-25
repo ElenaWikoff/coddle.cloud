@@ -34,7 +34,7 @@ const FishSpecies = () => {
                         <Col key={fish.id} className="">
                            <Card
                               key={fish.id}
-                              className=""
+                              className="h-100"
                               as={Link}
                               to={`/fish-species/${fish.id}`}
                            >
