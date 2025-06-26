@@ -1,0 +1,91 @@
+{
+   "results": [
+      {
+         "id": 1,
+         "common_name": "largemouth black bass",
+         "scientific_name": "micropterus salmoides",
+         "type": "bass",
+         "environment": "freshwater",
+         "distribution": "north america",
+         "max_sizes": {
+            "length": 97.0,
+            "weight": 10.1
+         },
+         "max_sizes_units": {
+            "length": "cm",
+            "weight": "kg"
+         }
+      },
+      {
+         "id": 2,
+         "common_name": "channel catfish",
+         "scientific_name": "ictalurus punctatus",
+         "type": "catfish",
+         "environment": "freshwater",
+         "distribution": "north america",
+         "max_sizes": {
+            "length": 132.0,
+            "weight": 26.3
+         },
+         "max_sizes_units": {
+            "length": "cm",
+            "weight": "kg"
+         }
+      },
+      {
+         "id": 3,
+         "common_name": "sockeye salmon",
+         "scientific_name": "oncorhynchus nerka",
+         "type": "salmon",
+         "environment": "marine",
+         "distribution": "north pacific",
+         "max_sizes": {
+            "length": 84.0,
+            "weight": 7.7
+         },
+         "max_sizes_units": {
+            "length": "cm",
+            "weight": "kg"
+         }
+      },
+      {
+         "id": 4,
+         "common_name": "alligator gar",
+         "scientific_name": "atractosteus spatula",
+         "type": "gar",
+         "environment": "freshwater",
+         "distribution": "north america",
+         "max_sizes": {
+            "length": 305.0,
+            "weight": 137.0
+         },
+         "max_sizes_units": {
+            "length": "cm",
+            "weight": "kg"
+         }
+      },
+      {
+         "id": 5,
+         "common_name": "bluegill",
+         "scientific_name": "lepomis macrochirus",
+         "type": "sunfish",
+         "environment": "freshwater",
+         "distribution": "north america",
+         "max_sizes": {
+            "length": 97.0,
+            "weight": 10.5
+         },
+         "max_sizes_units": {
+            "length": "cm",
+            "weight": "kg"
+         }
+      }
+   ],
+   "pagination": {
+      "total_records": 5,
+      "current_page": 1,
+      "total_pages": 1,
+      "next_page": 1,
+      "prev_page": null
+   }
+}
