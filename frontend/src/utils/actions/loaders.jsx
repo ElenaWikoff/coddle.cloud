@@ -29,9 +29,3 @@ export async function fishLoader({ params }) {
    console.log(data.results.find((fish) => fish.id == params.id));
    return data.results.find((fish) => fish.id == params.id);
 }
-
-export async function aboutLoader({ params }) {
-   const res = await fetch(`http://localhost:8080/about`);
-   const data = res.json();
-   return data;
-}
