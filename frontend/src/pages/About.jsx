@@ -11,10 +11,10 @@ const About = () => {
 
    useEffect(() => {
       console.log(
-         `Attempting to fetch from: http://${window.location.hostname}:8080/about`
+         `Attempting to fetch from: http://${window.location.hostname}:8080/api/about`
       );
       setLoading(true);
-      fetch(`http://${window.location.hostname}:8080/about`)
+      fetch(`http://${window.location.hostname}:8080/api/about`)
          .then((res) => res.json())
          .then((data) => {
             setData(data);

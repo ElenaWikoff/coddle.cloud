@@ -4,7 +4,7 @@ const Splash = () => {
     const [text, setText] = useState("not received");
 
     useEffect(() => {
-        fetch('http://localhost:8080/frontendhitme')
+        fetch(`http://${window.location.hostname}:8080/api`)
         .then((res) => res.text())
         .then((text) => setText(text));
     }, []);

@@ -2,6 +2,10 @@ runtime: python310
 entrypoint: gunicorn -b :$PORT backend.main:app
 
 handlers:
+  # API routes handled by Flask (FIRST)
+  - url: /api/.*
+    script: auto
+
   # Serve static folders from Vite build
   - url: /assets
     static_dir: frontend/dist/assets
@@ -25,7 +29,3 @@ handlers:
   - url: /.*
     static_files: frontend/dist/index.html
     upload: frontend/dist/index.html
-
-  # API routes handled by Flask
-  - url: /api/.*
-    script: auto
