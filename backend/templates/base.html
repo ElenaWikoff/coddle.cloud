@@ -1,0 +1,25 @@
+<!doctype html>
+<title>{% block title %}Documentation | Coddle.cloud API{% endblock %}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+<header>
+    <h1 class="sr-only">Coddle.cloud API</h1>
+    <div class="logo-wrapper">
+        <img class="logo" src="{{ url_for('static', filename='images/logo.svg') }}" alt="Coddle.cloud Light Logo" title="Coddle.cloud">
+    </div>
+</header>
+
+<main>
+    <!-- Sidebar -->
+    <nav>
+        <h2>Documentation</h2>
+        <a href="#">Test</a>
+    </nav>
+
+    <section class="page">
+        {% block content %}
+        <!-- Child templates will inject content here -->
+        {% endblock %}
+    </section>
+</main>

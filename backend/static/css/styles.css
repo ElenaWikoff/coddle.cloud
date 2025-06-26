@@ -1,0 +1,111 @@
+.sr-only:not(:focus):not(:active) {
+   clip: rect(0 0 0 0);
+   clip-path: inset(50%);
+   height: 1px;
+   overflow: hidden;
+   position: absolute;
+   white-space: nowrap;
+   width: 1px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header {
+   display: flex;
+   height: 100px;
+   border-bottom: 1px solid #eaecef;
+}
+
+header .logo-wrapper {
+   width: 200px;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   /* overflow: hidden; */
+   aspect-ratio: 16/9;
+}
+
+header .logo {
+   width: 100%;
+   height: auto;
+   object-fit: contain;
+}
+
+main {
+   display: flex;
+}
+
+/* Sidebar */
+nav {
+   flex: 0 1 auto;
+   margin: 0;
+   padding: 20px;
+   width: 200px;
+   height: 100%;
+   overflow: auto;
+   border-right: 1px solid #eaecef;
+}
+
+nav h2 {
+   border-bottom: 1px solid #eaecef;
+}
+
+/* Sidebar links */
+nav a {
+   display: block;
+   color: black;
+   margin: 5px 0;
+   padding-left: 15px;
+   text-decoration: none;
+   border-left: 5px solid transparent;
+}
+
+/* Active/current link */
+nav a.active {
+   border-left: 5px solid black;
+}
+
+/* Links on mouse-over */
+nav a:hover {
+   border-left: 5px solid black;
+}
+
+nav h2 {
+    font-weight: bold;
+    font-size: 1em;
+    border-bottom: 1px solid #eaecef;
+}
+
+.page {
+   padding: 20px 32px;
+   flex: 1 1 0;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: flex-start;
+}
+
+.content {
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: flex-start;
+   gap: 1em;
+}
+
+.content h3 {
+   font-weight: 200;
+   font-size: 2em;
+   display: block;
+   width: 100%;
+   border-bottom: 1px solid #eaecef;
+   padding-bottom: 0.5em;
+}
