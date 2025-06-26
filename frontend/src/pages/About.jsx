@@ -11,10 +11,11 @@ const About = () => {
 
    useEffect(() => {
       console.log(
-         `Attempting to fetch from: http://${window.location.hostname}:8080/api/about`
+         `Attempting to fetch from endpoint: /api/about`
       );
       setLoading(true);
-      fetch(`http://${window.location.hostname}:8080/api/about`)
+      // http://${window.location.hostname}:8080/api/about should work locally without this but we will see
+      fetch(`/api/about`)
          .then((res) => res.json())
          .then((data) => {
             setData(data);

@@ -4,7 +4,8 @@ const Splash = () => {
     const [text, setText] = useState("not received");
 
     useEffect(() => {
-        fetch(`http://${window.location.hostname}:8080/api`)
+        // http://${window.location.hostname}:8080/api should work locally without this but we will see
+        fetch(`/api`)
         .then((res) => res.text())
         .then((text) => setText(text));
     }, []);
