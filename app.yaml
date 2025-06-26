@@ -13,7 +13,7 @@ handlers:
     static_dir: frontend/dist/images
 
   # Serve specific static files
-  - url: logo.svg
+  - url: /logo\.svg
     static_files: frontend/dist/logo.svg
     upload: frontend/dist/logo\.svg
 
