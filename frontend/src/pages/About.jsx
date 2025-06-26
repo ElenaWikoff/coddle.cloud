@@ -21,10 +21,12 @@ const About = () => {
                               <Card.Title>{user.name}</Card.Title>
                               <Card.Subtitle></Card.Subtitle>
                               <Card.Text>
-                                <strong>Username: </strong>
-                                {user.username}<br/>
+                                 <strong>Username: </strong>
+                                 {user.username}
+                                 <br />
                                  <strong>Gitlab: </strong>
-                                 {user.web_url}<br/>
+                                 {user.web_url}
+                                 <br />
                               </Card.Text>
                            </Card.Body>
                         </Card>
