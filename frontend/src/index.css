@@ -147,6 +147,7 @@ a.card {
 }
 
 .cta {
+   color: var(--brand-primaryLight);
    font-weight: 600;
    text-decoration: none;
 }

@@ -1,20 +1,34 @@
-import { useLoaderData, useParams } from "react-router";
+import { Link, useLoaderData, useParams } from "react-router";
 import Container from "react-bootstrap/esm/Container";
 import ListGroup from "react-bootstrap/esm/ListGroup";
-import ListGroupItem from "react-bootstrap/esm/ListGroupItem";
-import { capitalizeEachWord } from "../utils/functions.jsx"
+import { capitalizeEachWord } from "../utils/functions.jsx";
 import PageContainer from "../components/PageContainer";
+import Ratio from 'react-bootstrap/Ratio';
+import { BsArrowLeft } from "react-icons/bs";
 
 const Fish = () => {
    const data = useLoaderData();
-//    console.log(data);
 
    return (
       <PageContainer>
          {data && (
-            <Container className="mt-4 g-4">
-               <h2 className="page-title">{capitalizeEachWord(data.common_name)}</h2>
-               <h3 className="page-subtitle">{data.scientific_name[0].toUpperCase() + data.scientific_name.slice(1)}</h3>
+            <Container className="m-4 g-4">
+               <Link className="cta" to="/fish-species"><BsArrowLeft /> Go Back</Link>
+               <Ratio style={{maxWidth: "800px", margin: "0 auto"}} aspectRatio="16x9">
+                  <img
+                  style={{objectFit: "contain"}}
+                     src={`/images/${data.image.filename}`}
+                     alt={capitalizeEachWord(data.common_name)}
+                  />
+               </Ratio>
+
+               <h2 className="page-title mt-4">
+                  {capitalizeEachWord(data.common_name)}
+               </h2>
+               <h3 className="page-subtitle">
+                  {data.scientific_name[0].toUpperCase() +
+                     data.scientific_name.slice(1)}
+               </h3>
                <ListGroup>
                   <ListGroup.Item>Type: {data.type}</ListGroup.Item>
                   <ListGroup.Item>

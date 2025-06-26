@@ -23,12 +23,7 @@ const FishSpecies = () => {
          <Container className="mt-4 g-4">
             <h1>Fish Species</h1>
             <Row xs={2} sm={3} md={4} className="g-3">
-               {results &&
-                  imageData &&
-                  results.map((fish) => {
-                     const { filename } = imageData.find(
-                        (item) => fish.id === item.id
-                     );
+               {results && results.map((fish) => {
                      return (
                         <Col key={fish.id} className="">
                            <Card
@@ -37,12 +32,12 @@ const FishSpecies = () => {
                               as={Link}
                               to={`/fish-species/${fish.id}`}
                            >
-                              {imageData && (
+                              {fish.image && (
                                  <Ratio aspectRatio="16x9">
                                     <Card.Img
                                        className="ratio-16x9"
                                        variant="top"
-                                       src={`/images/${filename}`}
+                                       src={`/images/${fish.image.filename}`}
                                     />
                                  </Ratio>
                               )}
