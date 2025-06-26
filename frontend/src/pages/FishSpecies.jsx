@@ -10,13 +10,6 @@ import PageContainer from "../components/PageContainer";
 
 const FishSpecies = () => {
    const { results, pagination } = useLoaderData();
-   const [imageData, setImageData] = useState(null);
-
-   useEffect(() => {
-      fetch("/data/captions.json")
-         .then((res) => res.json())
-         .then((data) => setImageData(data));
-   });
 
    return (
       <PageContainer>

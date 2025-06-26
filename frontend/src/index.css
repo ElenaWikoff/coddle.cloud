@@ -159,3 +159,14 @@ a.card {
 .cta:hover {
    text-decoration: underline;
 }
+
+figure {
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+}
+
+figcaption {
+   font-size: 0.9em;
+   font-style: italic;
+}
