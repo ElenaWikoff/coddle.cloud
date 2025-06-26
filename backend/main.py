@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, redirect
 from flask_cors import CORS
 import gitlab
 
@@ -10,7 +10,11 @@ CORS(app)
 
 @app.route('/api')
 def splash():
-    return "backend splash"
+    return redirect('/api/docs/')
+
+@app.route('/api/docs/')
+def docs():
+    return render_template('introduction.html')
 
 @app.route('/api/ping')
 def ping():
