@@ -3,6 +3,8 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/esm/Container";
 import PageContainer from "../components/PageContainer";
+import { capitalizeEachWord } from "../utils/functions.jsx";
+import { BsArrowRight } from "react-icons/bs";
 
 const Spots = () => {
    const { results, pagination } = useLoaderData();
@@ -17,18 +19,21 @@ const Spots = () => {
                      return (
                         <ListGroup.Item
                            key={spot.id}
-                           className="row"
+                           className="row d-flex justify-content-between"
                            as={Link}
                            to={`/spots/${spot.id}`}
                         >
-                           <Col xs="auto">{spot.id}</Col>
-                           <Col>{`lattitude: ${spot.coordinates.lattitude}, longitude: ${spot.coordinates.longitude}`}</Col>
-                           <Col>{spot.feature_name}</Col>
-                           <Col>{spot.type}</Col>
-                           <Col>{spot.city}</Col>
-                           <Col>{spot.zip_code}</Col>
-                           <Col>{spot.fish_species}</Col>
-                           <Col>{spot.last_updated}</Col>
+                           <span className="w-auto" style={{ fontWeight: "600" }}>
+                              {capitalizeEachWord(spot.feature_name)}
+                           </span>
+                           <span className="w-auto" style={{fontWeight: "300"}}>
+                              {` (${spot.coordinates.lattitude.toFixed()}, ${spot.coordinates.longitude.toFixed(
+                                 3
+                              )})`}
+                           </span>
+                           {/* <span className="w-auto" >
+                              {new Date(spot.last_updated).toLocaleDateString()}
+                           </span> */}
                         </ListGroup.Item>
                      );
                   })}
