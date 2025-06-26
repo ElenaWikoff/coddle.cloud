@@ -9,7 +9,7 @@ const Spots = () => {
 
    return (
       <PageContainer>
-         <Container className="mt-4">
+         <Container className="m-4">
             <h1>Fishing Spots</h1>
             <ListGroup>
                {results &&

@@ -68,6 +68,10 @@ main {
    justify-content: flex-start;
 }
 
+a {
+   cursor: pointer;
+}
+
 a.card {
    text-decoration: none !important;
 }

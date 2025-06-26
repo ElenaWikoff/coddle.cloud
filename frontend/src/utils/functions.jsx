@@ -8,5 +8,7 @@ export function capitalizeEachWord(str) {
     return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
   });
 
-  return capitalizedWords.join(' ');
+  const result = capitalizedWords.join(' ').replace(/^([a-z])|[ (]+([a-z])/g, l => l.toUpperCase())
+
+  return result;
 }

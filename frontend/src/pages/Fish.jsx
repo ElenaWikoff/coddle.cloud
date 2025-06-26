@@ -1,4 +1,4 @@
-import { Link, useLoaderData, useParams } from "react-router";
+import { Link, useLoaderData, useNavigate } from "react-router";
 import Container from "react-bootstrap/esm/Container";
 import ListGroup from "react-bootstrap/esm/ListGroup";
 import { capitalizeEachWord } from "../utils/functions.jsx";
@@ -7,13 +7,14 @@ import Ratio from 'react-bootstrap/Ratio';
 import { BsArrowLeft } from "react-icons/bs";
 
 const Fish = () => {
+   const navigate = useNavigate();
    const data = useLoaderData();
 
    return (
       <PageContainer>
          {data && (
             <Container className="m-4 g-4">
-               <Link className="cta" to="/fish-species"><BsArrowLeft /> Go Back</Link>
+               <a className="cta" onClick={() => navigate(-1)}><BsArrowLeft /> Go Back</a>
                <Ratio style={{maxWidth: "800px", margin: "0 auto"}} aspectRatio="16x9">
                   <img
                   style={{objectFit: "contain"}}
