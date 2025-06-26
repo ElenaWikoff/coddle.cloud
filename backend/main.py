@@ -19,32 +19,43 @@ def ping():
 @app.route('/api/about')
 def aboutIndex():
     excluded_names = {"Kevin Xu", "cs373-idb-gitlab-rest", "GCP Token"}
-
+    EMAIL_MAP = {
+        "Elena Avery Wikoff": ["elenawikoff@utexas.edu", "elenawikoff@gmail.com"],
+        "Jane Huynh": ["janehuynh1411@gmail.com"],
+        "Perry Ehimuh": ["perryehimuh@gmail.com"],
+        "Yifan Guo": ["yifan.guo.3517@gmail.com"],
+        "Ethan Do": ["ethando767243@gmail.com"],
+        "LegendaryFoxFire": ["jtbukoski@gmail.com"]
+    }
     members = gl.projects.get(PROJECT_ID).members.list(get_all=True)
-    members_json = [
-        {
-            "name": member.attributes.get("name"),
-            "username": member.attributes.get("username"),
-            "web_url": member.attributes.get("web_url")
-        }
-        for member in members
-        if member.attributes.get("name") not in excluded_names
-    ]
-    return members_json
+    all_commits = gl.projects.get(PROJECT_ID).commits.list(get_all=True)
+    
+    about_json = []
+
+    for member in members:
+        name = member.attributes.get("name")
+        username = member.attributes.get("username")
+        web_url = member.attributes.get("web_url")
+
+        if name in excluded_names:
+            continue
+
+        emails = EMAIL_MAP.get(name)
+        commit_count = 0
+
+        if emails:
+            commit_count = sum(
+                1 for commit in all_commits if commit.attributes.get("committer_email") in emails
+            )
+        
+        about_json.append({
+            "name": name,
+            "username": username,
+            "web_url": web_url,
+            "commits": commit_count
+        })
+
+    return about_json
 
 if __name__ == "__main__":
-    # testing filtered output below
-    # excluded_names = {"Kevin Xu", "cs373-idb-gitlab-rest"}
-
-    # members = gl.projects.get(PROJECT_ID).members.list(get_all=True)
-    # members_json = [
-    #     {
-    #         "name": member.attributes.get("name"),
-    #         "username": member.attributes.get("username"),
-    #         "web_url": member.attributes.get("web_url")
-    #     }
-    #     for member in members
-    #     if member.attributes.get("name") not in excluded_names
-    # ]
-    # print(members_json)
     app.run(host='0.0.0.0', port=8080)
