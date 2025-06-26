@@ -3,13 +3,14 @@ import Container from "react-bootstrap/esm/Container";
 import ListGroup from "react-bootstrap/esm/ListGroup";
 import ListGroupItem from "react-bootstrap/esm/ListGroupItem";
 import { capitalizeEachWord } from "../utils/functions.jsx"
+import PageContainer from "../components/PageContainer";
 
 const Fish = () => {
    const data = useLoaderData();
 //    console.log(data);
 
    return (
-      <main>
+      <PageContainer>
          {data && (
             <Container className="mt-4 g-4">
                <h2 className="page-title">{capitalizeEachWord(data.common_name)}</h2>
@@ -27,7 +28,7 @@ const Fish = () => {
                </ListGroup>
             </Container>
          )}
-      </main>
+      </PageContainer>
    );
 };
 

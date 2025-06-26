@@ -2,12 +2,13 @@ import { Link, useLoaderData } from "react-router";
 import ListGroup from "react-bootstrap/ListGroup";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/esm/Container";
+import PageContainer from "../components/PageContainer";
 
 const Lures = () => {
     const { results, pagination } = useLoaderData();
 
     return (
-        <main>
+        <PageContainer>
             <Container className="mt-4">
             <h1>Lures</h1>
             <ListGroup>
@@ -30,7 +31,7 @@ const Lures = () => {
                   })}
             </ListGroup>
          </Container>
-        </main>
+        </PageContainer>
     );
 };
 

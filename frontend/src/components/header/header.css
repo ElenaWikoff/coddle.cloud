@@ -1,9 +1,10 @@
+
 .navbar {
-  background-color: var(--brand-primary);
+   background-color: var(--brand-primary);
 }
 
-.navbar * {
-  color: white;
+.navbar a {
+   color: white;
 }
 
 .navbar .nav-link:focus,
@@ -12,20 +13,20 @@
 .navbar .navbar-brand:active,
 .navbar .nav-link:hover,
 .navbar .navbar-brand:hover {
-  color: skyblue;
+   color: skyblue;
 }
 
 .navbar .logo-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  aspect-ratio: 2/1;
-  overflow: hidden;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   aspect-ratio: 2/1;
+   overflow: hidden;
 }
 
 .navbar .header-logo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
 }

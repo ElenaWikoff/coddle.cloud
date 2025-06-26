@@ -1,11 +1,12 @@
 import { useParams } from "react-router";
+import PageContainer from "../components/PageContainer";
 
 const Spot = () => {
     const {id} = useParams();
     return (
-        <main>
+        <PageContainer>
             Spot Page, id {id}
-        </main>
+        </PageContainer>
     )
 };
 

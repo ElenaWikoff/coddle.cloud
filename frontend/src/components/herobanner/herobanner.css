@@ -1,0 +1,83 @@
+.hero-banner {
+    color: white;
+    background-color: var(--brand-secondary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    padding: 64px;
+    height: calc(100dvh - 100px);
+    position: relative;
+}
+
+.hero-banner h2,
+.hero-banner h3 {
+    color: white;
+}
+
+.hero-banner video {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    object-fit: cover;
+}
+
+.hero-banner * {
+    z-index: 1;
+}
+
+.hero-banner h2 {
+    font-size: 64px;
+}
+
+.hero-banner h3 {
+    font-weight: 400;
+    font-size: 32px;
+}
+
+.hero-banner .btn-hero {
+    font-size: 24px;
+}
+
+.hero-banner h2,
+.hero-banner h3 {
+    filter: drop-shadow(10px 4px 4px rgba(0, 0, 0, 0.5))
+}
+
+.btn-hero {
+    background-color: var(--brand-primary);
+    color: white;
+    font-weight: bold;
+}
+
+.btn-hero:focus,
+.btn-hero:active,
+.btn-hero:hover {
+    background-color: var(--brand-primaryLight);
+}
+
+@media screen and (max-width: 1024px) {
+    .hero-banner {
+        text-align: center;
+        height: auto;
+        padding: 32px;
+    }
+
+    .hero-banner h2 {
+        font-size: 32px;
+    }
+
+    .hero-banner h3 {
+        font-size: 20px;;
+    }
+
+    .hero-banner .btn-hero {
+        font-size: 18px;
+    }
+}

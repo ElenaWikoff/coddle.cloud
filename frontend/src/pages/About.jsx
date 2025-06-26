@@ -4,6 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Spinner from "react-bootstrap/Spinner";
 import { useEffect, useState } from "react";
+import PageContainer from "../components/PageContainer";
 
 const About = () => {
    const [loading, setLoading] = useState(true);
@@ -28,7 +29,7 @@ const About = () => {
    }, []);
 
    return (
-      <main>
+      <PageContainer>
          {loading && (
             <div className="spinner-wrapper">
                <Spinner className="spinner" animation="border" role="status">
@@ -64,7 +65,7 @@ const About = () => {
                   })}
             </Row>
          </Container>
-      </main>
+      </PageContainer>
    );
 };
 

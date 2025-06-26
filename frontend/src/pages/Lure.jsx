@@ -1,11 +1,12 @@
 import { useParams } from "react-router";
+import PageContainer from "../components/PageContainer";
 
 const Lure = () => {
     const {id} = useParams();
     return (
-        <main>
+        <PageContainer>
             Lure Page, id {id}
-        </main>
+        </PageContainer>
     )
 };
 
