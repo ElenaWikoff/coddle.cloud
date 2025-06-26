@@ -1,8 +1,4 @@
 :root {
-   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-   line-height: 1.5;
-   font-weight: 400;
-
    color-scheme: light dark;
    color: rgba(255, 255, 255, 0.87);
    background-color: #242424;
@@ -13,9 +9,11 @@
    -moz-osx-font-smoothing: grayscale;
 
    --brand-primary: #0a3d62;
+   --brand-primaryLight: #00adef;
    --brand-secondary: #2e5635;
-   --accent-gold: #d9913c;
-   --accent-beige: #cbbba0;
+   --brand-accentYellow: #ffe15c;
+   --brand-accentGold: #d9913c;
+   --brand-accentBeige: #cbbba0;
    --brand-secondarySlate: #505a64;
 }
 
@@ -39,17 +37,21 @@ h3,
 h4,
 h5,
 h6 {
-   color: var(--brand-secondarySlate) !important;
+   color: var(--brand-secondarySlate);
 }
 
 * {
+   font-family: "Roboto", sans-serif;
+   font-optical-sizing: auto;
+   line-height: 1.5;
    margin: 0;
    padding: 0;
    box-sizing: border-box;
 }
 
 body {
-   min-height: 100vh;
+   /* min-height: 100vh; */
+   overflow: auto;
 }
 
 .layout {
@@ -58,6 +60,7 @@ body {
 }
 
 main {
+   padding: 0;
    position: relative;
    flex: 1 1 0;
    display: flex;
@@ -83,4 +86,71 @@ a.card {
    .card-subtitle.h6 {
       font-size: 0.75em;
    }
+}
+
+.columns {
+   flex: 1 1 0;
+   text-align: center;
+   margin: 0;
+   padding: 0;
+   display: flex;
+   flex-flow: row wrap;
+   height: auto;
+}
+
+.columns.light {
+   color: white;
+   background-color: var(--brand-primaryLight);
+}
+
+.columns .flex-item {
+   position: relative;
+   flex: 1 1 0;
+   min-width: 100px;
+   height: auto;
+   margin: 0;
+   padding: 32px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   gap: 1em;
+}
+
+.columns .flex-item::after {
+   content: "";
+   position: absolute;
+   top: 0;
+   right: 0;
+   width: 1px;
+   height: 100%;
+   background: white;
+   z-index: 1;
+}
+
+.columns .flex-item:last-child::after {
+   display: none;
+}
+
+@media screen and (max-width: 1024px) {
+   .columns .flex-item::after {
+      display: none;
+   }
+
+   .columns .flex-item {
+      align-items: stretch;
+      flex: 1 1 auto;
+   }
+}
+
+.columns .flex-item a {
+   color: inherit;
+}
+
+.cta {
+   font-weight: 600;
+   text-decoration: none;
+}
+
+.cta:hover {
+   text-decoration: underline;
 }

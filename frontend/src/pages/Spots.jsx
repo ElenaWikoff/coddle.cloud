@@ -2,12 +2,13 @@ import { Link, useLoaderData } from "react-router";
 import ListGroup from "react-bootstrap/ListGroup";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/esm/Container";
+import PageContainer from "../components/PageContainer";
 
 const Spots = () => {
    const { results, pagination } = useLoaderData();
 
    return (
-      <main>
+      <PageContainer>
          <Container className="mt-4">
             <h1>Fishing Spots</h1>
             <ListGroup>
@@ -33,7 +34,7 @@ const Spots = () => {
                   })}
             </ListGroup>
          </Container>
-      </main>
+      </PageContainer>
    );
 };
 

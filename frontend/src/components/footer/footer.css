@@ -1,5 +1,8 @@
 footer {
+    flex: 1 0 auto;
     background-color: var(--brand-primary);
+    padding: 64px;
+    max-height: 200px;
 }
 
 footer * {

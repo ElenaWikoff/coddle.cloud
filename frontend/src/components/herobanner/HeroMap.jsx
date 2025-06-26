@@ -1,10 +1,12 @@
+import "herobanner.css"
 
 const HeroMap = () => {
+
     return (
-        <>
-            Hero Map
-        </>
-    )
+        <section class="hero-map">
+            
+        </section>
+    );
 }
 
 export default HeroMap;

@@ -1,13 +1,12 @@
 import { Link, useLoaderData } from "react-router";
 import { useState, useEffect } from "react";
-import ListGroup from "react-bootstrap/ListGroup";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/esm/Container";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Ratio from 'react-bootstrap/Ratio';
-import CardGroup from "react-bootstrap/CardGroup";
 import { capitalizeEachWord } from "../utils/functions.jsx"
+import PageContainer from "../components/PageContainer";
 
 const FishSpecies = () => {
    const { results, pagination } = useLoaderData();
@@ -20,7 +19,7 @@ const FishSpecies = () => {
    });
 
    return (
-      <main>
+      <PageContainer>
          <Container className="mt-4 g-4">
             <h1>Fish Species</h1>
             <Row xs={2} sm={3} md={4} className="g-3">
@@ -59,7 +58,7 @@ const FishSpecies = () => {
                   })}
             </Row>
          </Container>
-      </main>
+      </PageContainer>
    );
 };
 

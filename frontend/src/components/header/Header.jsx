@@ -9,7 +9,7 @@ import "./header.css";
 
 const Header = () => {
    return (
-      <Navbar expand="lg" className="">
+      <Navbar expand="lg" variant="dark">
          <Container fluid>
             <Navbar.Brand as={Link} to="/">
                <ReactSVG
