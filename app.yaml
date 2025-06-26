@@ -1,11 +1,4 @@
 runtime: python310
-<<<<<<< HEAD
-entrypoint: python main.py
-
-handlers:
-- url: /.*
-  script: auto
-=======
 entrypoint: gunicorn -b :$PORT backend.main:app
 
 handlers:
@@ -36,4 +29,3 @@ handlers:
   # API routes handled by Flask
   - url: /api/.*
     script: auto
->>>>>>> phase-1
