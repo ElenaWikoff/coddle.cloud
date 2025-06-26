@@ -15,7 +15,6 @@ const About = () => {
          `Attempting to fetch from endpoint: /api/about`
       );
       setLoading(true);
-      // http://${window.location.hostname}:8080/api/about should work locally without this but we will see
       fetch(`/api/about`)
          .then((res) => res.json())
          .then((data) => {
@@ -57,6 +56,8 @@ const About = () => {
                                     <strong>Gitlab: </strong>
                                     {user.web_url}
                                     <br />
+                                    <strong>Commits: </strong>
+                                    {user.commits}
                                  </Card.Text>
                               </Card.Body>
                            </Card>
