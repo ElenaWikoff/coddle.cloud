@@ -26,26 +26,18 @@ const Header = () => {
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-               <Nav className="me-auto">
+               <Nav className="ms-auto d-flex w-100">
                   <Nav.Link as={Link} to="/spots">
-                     Nearby
-                     <br />
                      Fishing Spots
                   </Nav.Link>
                   <Nav.Link as={Link} to="/fish-species">
-                     Nearby
-                     <br />
-                     Fish Species
+                     FishDB
                   </Nav.Link>
                   <Nav.Link as={Link} to="/lures">
-                     Lure
-                     <br />
-                     Options
+                     Lure Options
                   </Nav.Link>
                   <Nav.Link as={Link} to="/about">
                      About
-                     <br />
-                     Coddle.me
                   </Nav.Link>
                </Nav>
             </Navbar.Collapse>
