@@ -16,6 +16,9 @@ handlers:
   - url: /images
     static_dir: frontend/dist/images
 
+  - url: /videos
+    static_dir: frontend/dist/videos
+
   # Serve specific static files
   - url: /logo\.svg
     static_files: frontend/dist/logo.svg
