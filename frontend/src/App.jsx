@@ -12,6 +12,7 @@ import Lures from "./pages/Lures.jsx";
 import Spot from "./pages/Spot.jsx";
 import Fish from "./pages/Fish.jsx";
 import Lure from "./pages/Lure.jsx";
+import NotFound from "./pages/NotFound.jsx"
 import {
    spotsLoader,
    spotLoader,
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
          {
             path: "/about",
             element: <About />,
+         },
+         {
+            path: "*",
+            element: <NotFound/>
          },
       ],
    },

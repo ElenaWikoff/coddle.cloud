@@ -29,6 +29,7 @@ const HeroBanner = ({ title, subtitle, buttons, video }) => {
          {video && (
             <video>
                <source
+                  loop
                   autoPlay
                   muted
                   src={`/videos/${video.filename}`}
