@@ -1,10 +1,15 @@
-.image-wrapper {
-    aspect-ratio: 16/9;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 16px;
+a.card {
+   outline: 1px solid rgba(0, 0, 0, 0.175);
+   border: none;
+   transition: all 0.2s ease-in-out;
+   border-bottom: 10px solid transparent;
+}
+
+a.card:hover {
+   outline: 1px solid var(--brand-accentYellow);
+   transform: translateY(-5px);
+   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+   border-bottom: 10px solid var(--brand-accentYellow);
 }
 
 a.card.in-carousel {
