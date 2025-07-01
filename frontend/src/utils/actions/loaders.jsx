@@ -11,7 +11,7 @@ export async function spotLoader({ params }) {
 }
 
 export async function fishSpeciesLoader({ params }) {
-   const res = await fetch(`/data/fish_species.json`);
+   const res = await fetch(`/data/fish_pagination.json`);
    const data = res.json();
    return data;
 }
