@@ -3,11 +3,11 @@ import { Link } from "react-router";
 import { capitalizeEachWord } from "../../utils/functions.jsx";
 import "./card.css";
 
-const FishCard = ({ fish, inCarousel=false }) => {
+const FishCard = ({ fish, inCarousel = false }) => {
    return (
       <Card
          key={`card-${fish.id}`}
-         className={`${inCarousel ? 'in-carousel' : ''} h-100`}
+         className={`${inCarousel ? "in-carousel" : ""} h-100`}
          as={Link}
          to={`/fish-species/${fish.id}`}
       >
@@ -23,10 +23,12 @@ const FishCard = ({ fish, inCarousel=false }) => {
          </div>
          <Card.Body>
             <Card.Title>{capitalizeEachWord(fish.common_name)}</Card.Title>
-            <Card.Subtitle>
-               {fish.scientific_name[0].toUpperCase() +
-                  fish.scientific_name.slice(1)}
-            </Card.Subtitle>
+            {!inCarousel && (
+               <Card.Subtitle>
+                  {fish.scientific_name[0].toUpperCase() +
+                     fish.scientific_name.slice(1)}
+               </Card.Subtitle>
+            )}
          </Card.Body>
       </Card>
    );

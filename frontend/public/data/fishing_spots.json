@@ -2,10 +2,10 @@
    "results": [
       {
          "id": 1,
-         "coordinates": {
-            "lattitude": 30.28089805,
-            "longitude": -97.78057337
-         },
+         "coordinates": [
+            30.28089805,
+            -97.78057337
+         ],
          "feature_name": "colorado river (texas)",
          "type": "river",
          "city": "austin",
@@ -15,10 +15,10 @@
       },
       {
          "id": 2,
-         "coordinates": {
-            "lattitude": 30.29670756,
-            "longitude": -97.70636737
-         },
+         "coordinates": [
+            30.29670756,
+            -97.70636737
+         ],
          "feature_name": "mueller lake",
          "type": "lake",
          "city": "austin",
@@ -28,10 +28,10 @@
       },
       {
          "id": 3,
-         "coordinates": {
-            "lattitude": 30.50570575,
-            "longitude": -97.77462959
-         },
+         "coordinates": [
+            30.50570575,
+            -97.77462959
+         ],
          "feature_name": "south brushy creek",
          "type": "creek",
          "city": "austin",

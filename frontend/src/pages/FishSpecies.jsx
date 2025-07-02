@@ -11,7 +11,7 @@ const FishSpecies = () => {
 
    return (
       <PageContainer>
-         <Container className="mt-4 g-4">
+         <Container className="mt-4 g-4 p-4">
             <h1>Fish Species</h1>
             <Row xs={2} sm={3} md={4} className="g-3">
                {results && results.map((fish) => {

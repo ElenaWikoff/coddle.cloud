@@ -18,6 +18,11 @@ a.card.in-carousel {
     border: none !important;
     box-shadow: none !important;
     transform: none !important;
+    background-color: transparent !important;
+}
+
+a.card.in-carousel .card-title {
+    font-size: 16px;
 }
 
 a.card.in-carousel:focus *,

@@ -10,7 +10,7 @@ const Lures = () => {
 
    return (
       <PageContainer>
-         <Container className="mt-4">
+         <Container className="mt-4 p-4">
             <h1>Lures</h1>
             <ListGroup>
                {results &&
