@@ -22,9 +22,9 @@ def ping():
 
 @app.route('/api/about')
 def aboutIndex():
-    excluded_names = {"Kevin Xu", "cs373-idb-gitlab-rest", "GCP Token"}
+    excluded_names = {"Kevin Xu", "Sohil Patel", "cs373-idb-gitlab-rest", "GCP Token"}
     EMAIL_MAP = {
-        "Elena Avery Wikoff": ["elenawikoff@utexas.edu", "elenawikoff@gmail.com"],
+        "Elena Wikoff": ["elenawikoff@utexas.edu", "elenawikoff@gmail.com"],
         "Jane Huynh": ["janehuynh1411@gmail.com"],
         "Perry Ehimuh": ["perryehimuh@gmail.com"],
         "Yifan Guo": ["yifan.guo.3517@gmail.com"],
