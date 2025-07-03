@@ -31,39 +31,60 @@ const responsive = {
 
 const Spots = () => {
    const params = useParams();
-   const { results, pagination } = useLoaderData();
+   const [loading, setLoading] = useState(true);
+   const [data, setData] = useState(null);
+   const [error, setError] = useState(null);
    const [fishSpecies, setFishSpecies] = useState(null);
    const [carousel, setCarousel] = useState(null);
 
    const handleSelectSpot = (spot) => {
       console.log(spot);
-      setFishSpecies(spot.fish_species);
+      setFishSpecies(spot.fish_ids);
    };
 
    useEffect(() => {
+      setLoading(true);
+      fetch(`/api/locations`)
+         .then((res) => res.json())
+         .then((data) => {
+            console.log(data);
+            setData(data);
+            setLoading(false);
+         })
+         .catch((error) => {
+            setError(`Fetching locations info failed: ${error}`);
+            setLoading(false);
+            console.error(`Fetching locations info failed: ${error}`);
+         });
+   }, []);
+
+   useEffect(() => {
       if (fishSpecies) {
-         fetch(`/data/fish.json`)
+         fetch(`/api/fish`)
             .then((res) => res.json())
             .then((data) => {
                const f = data.filter(({ id }) => fishSpecies.includes(id));
                console.log(f);
                setCarousel(f);
+            })
+            .catch((error) => {
+               setError(`Fetching location fish info failed: ${error}`);
+               setLoading(false);
+               console.error(`Fetching location fish info failed: ${error}`);
             });
       }
    }, [fishSpecies]);
 
    return (
       <PageContainer>
-         {results && <HeroMap spots={results} onSelect={handleSelectSpot} />}
+         {(!loading && data) && <HeroMap spots={data} onSelect={handleSelectSpot} />}
          <Container fluid>
             {carousel && (
                <Carousel responsive={responsive}>
-                  {/* <div className="d-flex flex-wrap"> */}
                   {carousel &&
                      carousel.map((fish) => {
                         return <FishCard fish={fish} inCarousel={true} />;
                      })}
-                  {/* </div> */}
                </Carousel>
             )}
          </Container>

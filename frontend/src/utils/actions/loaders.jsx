@@ -11,23 +11,23 @@ export async function spotLoader({ params }) {
 }
 
 export async function fishSpeciesLoader({ params }) {
-   const res = await fetch(`/data/fish_pagination.json`);
+   const res = await fetch(`/api/fish`);
    const data = res.json();
    return data;
 }
 
 export async function fishLoader({ params }) {
    const data = await fishSpeciesLoader(params);
-   return data.results.find((fish) => fish.id == params.id);
+   return data.find((fish) => fish.id == params.id);
 }
 
 export async function luresLoader({ params }) {
-   const res = await fetch(`/data/lures.json`);
+   const res = await fetch(`/api/lures`);
    const data = res.json();
    return data;
 }
 
 export async function lureLoader({ params }) {
    const data = await luresLoader(params);
-   return data.results.find((lure) => lure.id == params.id);
+   return data.find((lure) => lure.id == params.id);
 }
