@@ -2,7 +2,7 @@
 # imports
 #-----------
 import json
-from models import app, db, Fish, Lures
+from models import app, db, Fish, Lures, Locations
 
 # ------------------------------------------------------------------
 # Loads and parses a JSON file; returns parsed data
@@ -22,7 +22,9 @@ def load_json(filename, fallback):
 def create_fish():
     data = load_json('Fish.json', 'Fish')
     for entry in data.get('Fish', []):
-        new_fish = Fish(id=entry['id'], state=entry['state'], common_name=entry['common_name'], scientific_name=entry['scientific_name'], image_url=entry['image_url'], year=entry['year'])
+        new_fish = Fish(id=entry['id'], common_name=entry['common_name'], scientific_name=entry['scientific_name'], type=entry['type'], environment=entry['environment'],
+                        distribution=entry['distribution'], length=entry['length'], weight=entry['weight'], depth_min=entry['depth_min'], depth_max=entry['depth_max'],
+                        temp_min=entry['temp_min'], temp_max=entry['temp_max'], image_attribution=entry['image_attribution'], ref=entry['ref'])
         db.session.add(new_fish)
     db.session.commit()  # Commit all additions once after the loop
 
@@ -34,6 +36,17 @@ def create_lures():
     for entry in data.get('Lures', []):
         new_lure = Lures(id=entry['id'], name=entry['name'], type=entry['type'], application=entry['application'], fish_types=entry['fish_types'], image_url=entry['image_url'])
         db.session.add(new_lure)
+    db.session.commit()  # Commit all additions once after the loop
+
+# ------------------------------------------------------------------
+# Iterates through the loaded locations data and inserts each entry into the database
+# ------------------------------------------------------------------
+def create_locations():
+    data = load_json('Locations.json', 'Locations')
+    for entry in data.get('Locations', []):
+        new_location = Locations(id=entry['id'], location_name=entry['location_name'], feature_name=entry['feature_name'], coordinates=entry['coordinates'], state=entry['state'],
+                         city=entry['city'], type=entry['type'], fish_ids=entry['fish_ids'])
+        db.session.add(new_location)
     db.session.commit()  # Commit all additions once after the loop
 
 # ------------------------------------------------------------------
@@ -63,8 +76,9 @@ def create_fish_lures_relationships():
 # ------------------------------------------------------------------
 if __name__ == "__main__":
     with app.app_context():  # Ensure proper Flask app context for DB access
-        db.create_all()       # Create tables if they don't exist
-        create_fish()        # Populate the table with data from Fish.json
-        create_lures()        # Populate the table with data from Lures.json
+        db.create_all()      # Create tables if they don't exist
+        create_fish()        # Populate the Fish table with data from Fish.json
+        create_lures()       # Populate the Lures table with data from Lures.json
+        create_locations()   # Populate the Locations table with data from Locations.json
         create_fish_lures_relationships() # Create fish to lures relationship
         print("Database initialized and models loaded.")

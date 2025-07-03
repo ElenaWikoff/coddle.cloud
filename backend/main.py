@@ -1,5 +1,5 @@
 from flask import render_template, jsonify, redirect
-from models import app, db, Fish, Lures  # Import app, database, and models from models.py
+from models import app, db, Fish, Lures, Locations  # Import app, database, and models from models.py
 import gitlab
 
 PROJECT_ID = 71006060
@@ -26,8 +26,14 @@ def fishIndex():
 @app.route('/api/lures')
 def luresIndex():
     lures = db.session.query(Lures).all()
-    lures_json = [l.to_dict() for l in lures]
+    lures_json = [lure.to_dict() for lure in lures]
     return lures_json
+
+@app.route('/api/locations')
+def locationsIndex():
+    locations = db.session.query(Locations).all()
+    locations_json = [location.to_dict() for location in locations]
+    return locations_json
 
 @app.route('/api/about')
 def aboutIndex():
@@ -71,4 +77,4 @@ def aboutIndex():
     return about_json
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8080, debug=True)
+    app.run(host='0.0.0.0', port=8080)
