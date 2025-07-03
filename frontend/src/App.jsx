@@ -44,7 +44,7 @@ const router = createBrowserRouter([
          {
             path: "/fish-species",
             element: <FishSpecies />,
-            loader: fishSpeciesLoader,
+            // loader: fishSpeciesLoader,
          },
          {
             path: "/fish-species/:id",
