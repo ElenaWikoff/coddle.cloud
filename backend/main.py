@@ -20,13 +20,13 @@ def ping():
 @app.route('/api/fish')
 def fishIndex():
     fish = db.session.query(Fish).all()
-    fish_json = jsonify([f.to_dict() for f in fish])
+    fish_json = [f.to_dict() for f in fish]
     return fish_json
 
 @app.route('/api/lures')
 def luresIndex():
-    lures = db.session.query(Fish).all()
-    lures_json = jsonify([l.to_dict() for l in lures])
+    lures = db.session.query(Lures).all()
+    lures_json = [l.to_dict() for l in lures]
     return lures_json
 
 @app.route('/api/about')
