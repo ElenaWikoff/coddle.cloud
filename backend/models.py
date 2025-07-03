@@ -60,6 +60,16 @@ class Fish(db.Model):
 
     lures = db.relationship('Lures', secondary=fish_lures, backref='fish')
 
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'state': self.state,
+            'common_name': self.common_name,
+            'scientific_name': self.scientific_name,
+            'image_url': self.image_url,
+            'year': self.year
+        }
+
 # ----------------------
 # Define Lures model
 # ----------------------
@@ -71,6 +81,16 @@ class Lures(db.Model):
     application = db.Column(db.ARRAY(db.String(80)), nullable=False)
     fish_types = db.Column(db.ARRAY(db.String(80)), nullable=False)
     image_url = db.Column(db.String(), nullable=False)
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'type': self.type,
+            'application': self.application,
+            'fish_types': self.fish_types,
+            'image_url': self.image_url
+        }
 
 
 # TODO: Define Locations model after making Locations.json
