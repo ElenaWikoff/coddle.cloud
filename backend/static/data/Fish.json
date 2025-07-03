@@ -1,717 +1,1026 @@
-{
-   "Fish": [
-      {
-         "id": 1,
-         "state": "Alabama",
-         "common_name": "Largemouth bass",
-         "scientific_name": "Micropterus salmoides",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/1351_largemouth_bass_%28Micropterus_salmoides%29_300_dpi.jpg/1200px-1351_largemouth_bass_%28Micropterus_salmoides%29_300_dpi.jpg",
-         "year": "1975",
-         "lure_ids": [
-            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-            20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 34, 35, 36, 37,
-            38, 39, 40, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 2,
-         "state": "Alabama",
-         "common_name": "Fighting tarpon",
-         "scientific_name": "Megalops atlanticus",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Atlantic_tarpon.jpg",
-         "year": "1955",
-         "lure_ids": [
-            15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 39, 40
-         ]
-      },
-      {
-         "id": 3,
-         "state": "Alaska",
-         "common_name": "King salmon",
-         "scientific_name": "Oncorhynchus tshawytscha",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Chinook_salmon.jpg",
-         "year": "1962",
-         "lure_ids": [
-            1, 3, 11, 15, 16, 17, 18, 19, 27, 28, 29, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 4,
-         "state": "Arizona",
-         "common_name": "Apache trout",
-         "scientific_name": "Oncorhynchus gilae (subspecies apache)",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Apache_trout_%28Oncorhynchus_apache%29_%2812435087154%29.jpg",
-         "year": "1986",
-         "lure_ids": [
-            1, 2, 3, 4, 11, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32,
-            34, 35, 36, 37, 38, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 5,
-         "state": "Arkansas",
-         "common_name": "Alligator gar",
-         "scientific_name": "Atractosteus spatula",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Alligator_Gar_10.JPG/1200px-Alligator_Gar_10.JPG",
-         "year": "2019",
-         "lure_ids": [15, 16, 17, 18, 19, 27, 28, 29]
-      },
-      {
-         "id": 6,
-         "state": "California",
-         "common_name": "Golden trout",
-         "scientific_name": "Oncorhynchus mykiss (subspecies aguabonita)",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Small_Golden_Trout.jpg",
-         "year": "1947",
-         "lure_ids": [
-            1, 2, 3, 4, 11, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32,
-            34, 35, 36, 37, 38, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 7,
-         "state": "California",
-         "common_name": "Garibaldi",
-         "scientific_name": "Hypsypops rubicundus",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Hypsypops_rubicundus_adult.jpg",
-         "year": "1995",
-         "lure_ids": [30, 31, 32, 34, 35, 36, 37, 38]
-      },
-      {
-         "id": 8,
-         "state": "Colorado",
-         "common_name": "Greenback cutthroat trout",
-         "scientific_name": "Oncorhynchus clarkii (subspecies stomias)",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Greenbackcutthroat.jpg",
-         "year": "1994",
-         "lure_ids": [
-            1, 2, 3, 4, 11, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32,
-            34, 35, 36, 37, 38, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 9,
-         "state": "Connecticut",
-         "common_name": "American shad",
-         "scientific_name": "Alosa sapidissima",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Dentonshad1904.jpg",
-         "year": "2003",
-         "lure_ids": [11, 15, 16, 17, 18, 19, 27, 28, 29, 43]
-      },
-      {
-         "id": 10,
-         "state": "Delaware",
-         "common_name": "Weakfish",
-         "scientific_name": "Cynoscion regalis",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Cynoscion_regalis_%28line_art%29.jpg",
-         "year": "1981",
-         "lure_ids": [
-            15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 39, 40
-         ]
-      },
-      {
-         "id": 11,
-         "state": "District of Columbia",
-         "common_name": "American shad",
-         "scientific_name": "Alosa sapidissima",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Dentonshad1904.jpg",
-         "year": "2016",
-         "lure_ids": [11, 15, 16, 17, 18, 19, 27, 28, 29, 43]
-      },
-      {
-         "id": 12,
-         "state": "Florida",
-         "common_name": "Florida largemouth bass",
-         "scientific_name": "Micropterus floridanus",
-         "image_url": "https://www.floridamuseum.ufl.edu/wp-content/uploads/sites/20/2017/03/floridabass_davidsnyder.jpg",
-         "year": "2007",
-         "lure_ids": [
-            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-            20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 34, 35, 36, 37,
-            38, 39, 40, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 13,
-         "state": "Florida",
-         "common_name": "Atlantic sailfish",
-         "scientific_name": "Istiophorus albicans",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/PSM_V26_D359_The_american_sailfish_istiophorus_americanus.jpg/1200px-PSM_V26_D359_The_american_sailfish_istiophorus_americanus.jpg",
-         "year": "2007",
-         "lure_ids": [15, 16, 17, 18, 19, 27, 28, 29, 46]
-      },
-      {
-         "id": 14,
-         "state": "Georgia",
-         "common_name": "Largemouth bass",
-         "scientific_name": "Micropterus salmoides",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2d/LargemouthBass.jpg",
-         "year": "1970",
-         "lure_ids": [
-            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-            20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 34, 35, 36, 37,
-            38, 39, 40, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 15,
-         "state": "Georgia",
-         "common_name": "Southern Appalachian brook trout",
-         "scientific_name": "Salvelinus fontinalis",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Brook_trout_1918.jpg",
-         "year": "2006",
-         "lure_ids": [
-            1, 2, 3, 4, 11, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32,
-            34, 35, 36, 37, 38, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 16,
-         "state": "Georgia",
-         "common_name": "Red drum",
-         "scientific_name": "Sciaenops ocellatus",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Red_Drum_%28Sciaenops_ocellatus%29.jpg/1200px-Red_Drum_%28Sciaenops_ocellatus%29.jpg",
-         "year": "2006",
-         "lure_ids": [
-            15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 39, 40
-         ]
-      },
-      {
-         "id": 17,
-         "state": "Hawaii",
-         "common_name": "Reef triggerfish",
-         "scientific_name": "Rhinecanthus rectangulus",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/52/Reef_Triggerfish_1.JPG",
-         "year": "2006",
-         "lure_ids": [30, 31, 32, 34, 35, 36, 37, 38]
-      },
-      {
-         "id": 18,
-         "state": "Idaho",
-         "common_name": "Cutthroat trout",
-         "scientific_name": "Oncorhynchus clarkii",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Yellowstone_Cutthroat_Trout.jpg",
-         "year": "1990",
-         "lure_ids": [
-            1, 2, 3, 4, 11, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32,
-            34, 35, 36, 37, 38, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 19,
-         "state": "Illinois",
-         "common_name": "Bluegill",
-         "scientific_name": "Lepomis macrochirus",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Lepomis_macrochirus_UMFS_2014_2.JPG/1200px-Lepomis_macrochirus_UMFS_2014_2.JPG",
-         "year": "1986",
-         "lure_ids": [2, 5, 6, 7, 8, 9, 10, 30, 31, 32, 34, 35, 36, 37, 38]
-      },
-      {
-         "id": 20,
-         "state": "Kansas",
-         "common_name": "Channel catfish",
-         "scientific_name": "Ictalurus punctatus",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Channelcat.jpg",
-         "year": "2018",
-         "lure_ids": [30, 31, 32, 34, 35, 36, 37, 38]
-      },
-      {
-         "id": 21,
-         "state": "Kentucky",
-         "common_name": "Kentucky spotted bass",
-         "scientific_name": "Micropterus punctulatus",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Channelcat.jpg",
-         "year": "1956",
-         "lure_ids": [
-            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-            20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 34, 35, 36, 37,
-            38, 39, 40, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 22,
-         "state": "Louisiana",
-         "common_name": "White crappie",
-         "scientific_name": "Pomoxis annularis",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/White_Crappie.jpg",
-         "year": "1993",
-         "lure_ids": [
-            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 30, 31, 32, 34, 35, 36, 37, 38
-         ]
-      },
-      {
-         "id": 23,
-         "state": "Louisiana",
-         "common_name": "Spotted sea trout",
-         "scientific_name": "Cynoscion nebulosus",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Spotted_seatrout_fish_cynoscion_nebulosus.jpg/1200px-Spotted_seatrout_fish_cynoscion_nebulosus.jpg",
-         "year": "2001",
-         "lure_ids": [
-            15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 39, 40
-         ]
-      },
-      {
-         "id": 24,
-         "state": "Maine",
-         "common_name": "Landlocked Atlantic salmon",
-         "scientific_name": "Salmo salar sebago",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/24/Atlantischer_Lachs.jpg",
-         "year": "1969",
-         "lure_ids": [
-            1, 3, 11, 15, 16, 17, 18, 19, 27, 28, 29, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 25,
-         "state": "Maryland",
-         "common_name": "Rockfish",
-         "scientific_name": "Morone saxatilis",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Striped_bass_FWS_1.jpg/1200px-Striped_bass_FWS_1.jpg",
-         "year": "1965",
-         "lure_ids": [
-            4, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 39,
-            40
-         ]
-      },
-      {
-         "id": 26,
-         "state": "Massachusetts",
-         "common_name": "Cod",
-         "scientific_name": "Gadmus morhua",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Atlantic_cod.jpg",
-         "year": "1974",
-         "lure_ids": [15, 16, 17, 18, 19, 27, 28, 29]
-      },
-      {
-         "id": 27,
-         "state": "Michigan",
-         "common_name": "Brook trout",
-         "scientific_name": "Salvelinus fontinalis",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Salvelinus_fontinalis.jpg/1200px-Salvelinus_fontinalis.jpg",
-         "year": "1988",
-         "lure_ids": [
-            1, 2, 3, 4, 11, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32,
-            34, 35, 36, 37, 38, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 28,
-         "state": "Minnesota",
-         "common_name": "Walleye",
-         "scientific_name": "Sander vitreus",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sander_vitreus.jpg/1199px-Sander_vitreus.jpg",
-         "year": "1965",
-         "lure_ids": [
-            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 15, 16, 17, 18, 19, 27, 28, 29,
-            30, 31, 32, 34, 35, 36, 37, 38
-         ]
-      },
-      {
-         "id": 29,
-         "state": "Mississippi",
-         "common_name": "Largemouth bass",
-         "scientific_name": "Micropterus salmoides",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/1351_largemouth_bass_%28Micropterus_salmoides%29_300_dpi.jpg/1200px-1351_largemouth_bass_%28Micropterus_salmoides%29_300_dpi.jpg",
-         "year": "1974",
-         "lure_ids": [
-            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-            20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 34, 35, 36, 37,
-            38, 39, 40, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 30,
-         "state": "Missouri",
-         "common_name": "Channel catfish",
-         "scientific_name": "Ictalurus punctatus",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Ictalurus_punctatus1.jpg/1200px-Ictalurus_punctatus1.jpg",
-         "year": "1997",
-         "lure_ids": [30, 31, 32, 34, 35, 36, 37, 38]
-      },
-      {
-         "id": 31,
-         "state": "Missouri",
-         "common_name": "Paddlefish",
-         "scientific_name": "Polyodon spathula",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Paddlefish_Polyodon_spathula.jpg/1200px-Paddlefish_Polyodon_spathula.jpg",
-         "year": "1997",
-         "lure_ids": ""
-      },
-      {
-         "id": 32,
-         "state": "Montana",
-         "common_name": "Blackspotted cutthroat trout",
-         "scientific_name": "Oncorhynchus clarkii lewisi",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Westslope_cutthroat_trout_USGS.jpg",
-         "year": "1977",
-         "lure_ids": [
-            1, 2, 3, 4, 11, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32,
-            34, 35, 36, 37, 38, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 33,
-         "state": "Nebraska",
-         "common_name": "Channel catfish",
-         "scientific_name": "Ictalurus punctatus",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Ictalurus_punctatus.jpg",
-         "year": "1997",
-         "lure_ids": [30, 31, 32, 34, 35, 36, 37, 38]
-      },
-      {
-         "id": 34,
-         "state": "Nevada",
-         "common_name": "Lahontan cutthroat trout",
-         "scientific_name": "Oncorhynchus clarkii henshawi",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/45/Lahontan_pyramid.jpg",
-         "year": "1981",
-         "lure_ids": [
-            1, 2, 3, 4, 11, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32,
-            34, 35, 36, 37, 38, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 35,
-         "state": "New Hampshire",
-         "common_name": "Brook trout",
-         "scientific_name": "Salvelinus fontinalis",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Salvelinus_fontinalis.jpg/1200px-Salvelinus_fontinalis.jpg",
-         "year": "1994",
-         "lure_ids": [
-            1, 2, 3, 4, 11, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32,
-            34, 35, 36, 37, 38, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 36,
-         "state": "New Hampshire",
-         "common_name": "Striped bass",
-         "scientific_name": "Morone saxatilis",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Striped_bass_FWS_1.jpg/1200px-Striped_bass_FWS_1.jpg",
-         "year": "1994",
-         "lure_ids": [
-            4, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 39,
-            40
-         ]
-      },
-      {
-         "id": 37,
-         "state": "New Jersey",
-         "common_name": "Brook trout",
-         "scientific_name": "Salvelinus fontinalis",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Salvelinus_fontinalis.jpg/1200px-Salvelinus_fontinalis.jpg",
-         "year": "1991",
-         "lure_ids": [
-            1, 2, 3, 4, 11, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32,
-            34, 35, 36, 37, 38, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 38,
-         "state": "New Jersey",
-         "common_name": "Striped bass",
-         "scientific_name": "Morone saxatilis",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Striped_bass_FWS_1.jpg/1200px-Striped_bass_FWS_1.jpg",
-         "year": "2017",
-         "lure_ids": [
-            4, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 39,
-            40
-         ]
-      },
-      {
-         "id": 39,
-         "state": "New Mexico",
-         "common_name": "Rio Grande cutthroat trout",
-         "scientific_name": "Oncorhynchus clarkii virginalis",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Oncorhynchus_clarkii_virginalis.jpg/1200px-Oncorhynchus_clarkii_virginalis.jpg",
-         "year": "2005",
-         "lure_ids": [
-            1, 2, 3, 4, 11, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32,
-            34, 35, 36, 37, 38, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 40,
-         "state": "New York",
-         "common_name": "Brook trout",
-         "scientific_name": "Salvelinus fontinalis",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Salvelinus_fontinalis.jpg",
-         "year": "1975",
-         "lure_ids": [
-            1, 2, 3, 4, 11, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32,
-            34, 35, 36, 37, 38, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 41,
-         "state": "New York",
-         "common_name": "Striped bass",
-         "scientific_name": "Morone saxatilis",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Striped_bass_FWS_1.jpg/1200px-Striped_bass_FWS_1.jpg",
-         "year": "2006",
-         "lure_ids": [
-            4, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 39,
-            40
-         ]
-      },
-      {
-         "id": 42,
-         "state": "North Carolina",
-         "common_name": "Channel bass (Red drum)",
-         "scientific_name": "Sciaenops ocellatus",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Channelbass.jpg/960px-Channelbass.jpg",
-         "year": "1971",
-         "lure_ids": [
-            15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 39, 40
-         ]
-      },
-      {
-         "id": 43,
-         "state": "North Carolina",
-         "common_name": "Southern Appalachian brook trout",
-         "scientific_name": "Salvelinus fontinalis",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Brook_Trout_Salvelinus_fontinalis_2900px.jpg/1200px-Brook_Trout_Salvelinus_fontinalis_2900px.jpg",
-         "year": "2005",
-         "lure_ids": [
-            1, 2, 3, 4, 11, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32,
-            34, 35, 36, 37, 38, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 44,
-         "state": "North Dakota",
-         "common_name": "Northern pike",
-         "scientific_name": "Esox lucius",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Europaeischer_Hecht.jpg/1200px-Europaeischer_Hecht.jpg",
-         "year": "1969",
-         "lure_ids": [
-            1, 3, 4, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25,
-            26, 27, 28, 29, 39, 40, 43
-         ]
-      },
-      {
-         "id": 45,
-         "state": "Oklahoma",
-         "common_name": "White bass",
-         "scientific_name": "Morone chrysops",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/59/Morone_chrysops1.jpg",
-         "year": "1974",
-         "lure_ids": [
-            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 15, 16, 17, 18, 19, 27, 28, 29,
-            30, 31, 32, 34, 35, 36, 37, 38, 39, 40
-         ]
-      },
-      {
-         "id": 46,
-         "state": "Oregon",
-         "common_name": "Chinook salmon",
-         "scientific_name": "Oncorhynchus tshawytscha",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Chinook_salmon.jpg",
-         "year": "1961",
-         "lure_ids": [
-            1, 3, 11, 15, 16, 17, 18, 19, 27, 28, 29, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 47,
-         "state": "Pennsylvania",
-         "common_name": "Brook trout",
-         "scientific_name": "Salvelinus fontinalis",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Salvelinus_fontinalis.jpg/1200px-Salvelinus_fontinalis.jpg",
-         "year": "1970",
-         "lure_ids": [
-            1, 2, 3, 4, 11, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32,
-            34, 35, 36, 37, 38, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 48,
-         "state": "Rhode Island",
-         "common_name": "Striped bass",
-         "scientific_name": "Morone saxatilis",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Striped_bass_FWS_1.jpg/1200px-Striped_bass_FWS_1.jpg",
-         "year": "2000",
-         "lure_ids": [
-            4, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 39,
-            40
-         ]
-      },
-      {
-         "id": 49,
-         "state": "South Carolina",
-         "common_name": "Striped bass",
-         "scientific_name": "Morone saxatilis",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Striped_bass_FWS_1.jpg/1200px-Striped_bass_FWS_1.jpg",
-         "year": "1972",
-         "lure_ids": [
-            4, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 39,
-            40
-         ]
-      },
-      {
-         "id": 50,
-         "state": "South Dakota",
-         "common_name": "Walleye",
-         "scientific_name": "Sander vitreus",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sander_vitreus.jpg/1199px-Sander_vitreus.jpg",
-         "year": "1992",
-         "lure_ids": [
-            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 15, 16, 17, 18, 19, 27, 28, 29,
-            30, 31, 32, 34, 35, 36, 37, 38
-         ]
-      },
-      {
-         "id": 51,
-         "state": "Tennessee",
-         "common_name": "Smallmouth bass (sport fish)",
-         "scientific_name": "Micropterus dolomieu",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Smallmouth_bass.png",
-         "year": "2005",
-         "lure_ids": [
-            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-            20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 34, 35, 36, 37,
-            38, 39, 40, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 52,
-         "state": "Tennessee",
-         "common_name": "Channel catfish (state commercial fish)",
-         "scientific_name": "Ictalurus punctatus",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Ictalurus_punctatus.jpg",
-         "year": "1987",
-         "lure_ids": [30, 31, 32, 34, 35, 36, 37, 38]
-      },
-      {
-         "id": 53,
-         "state": "Texas",
-         "common_name": "Guadalupe bass (freshwater)",
-         "scientific_name": "Micropterus treculii",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/89/Guadalupe_bass_-_Micropterus_treculii.jpg",
-         "year": "1989",
-         "lure_ids": [
-            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-            20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 34, 35, 36, 37,
-            38, 39, 40, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 54,
-         "state": "Texas",
-         "common_name": "Red drum (saltwater)",
-         "scientific_name": "Sciaenops ocellatus",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Red_Drum_%28Sciaenops_ocellatus%29.jpg/1200px-Red_Drum_%28Sciaenops_ocellatus%29.jpg",
-         "year": "2011",
-         "lure_ids": [
-            15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 39, 40
-         ]
-      },
-      {
-         "id": 55,
-         "state": "Utah",
-         "common_name": "Bonneville cutthroat trout",
-         "scientific_name": "Oncorhynchus clarkii utah",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Bonneville_cutthroat.jpg",
-         "year": "1997",
-         "lure_ids": [
-            1, 2, 3, 4, 11, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32,
-            34, 35, 36, 37, 38, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 56,
-         "state": "Vermont",
-         "common_name": "Brook trout (cold water)",
-         "scientific_name": "Salvelinus fontinalis",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Brook_Trout_Salvelinus_fontinalis_2900px.jpg/1200px-Brook_Trout_Salvelinus_fontinalis_2900px.jpg",
-         "year": "1978 (2012)",
-         "lure_ids": [
-            1, 2, 3, 4, 11, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32,
-            34, 35, 36, 37, 38, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 57,
-         "state": "Vermont",
-         "common_name": "Walleye (warm water)",
-         "scientific_name": "Sander vitreus",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sander_vitreus.jpg/1199px-Sander_vitreus.jpg",
-         "year": "2012",
-         "lure_ids": [
-            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 15, 16, 17, 18, 19, 27, 28, 29,
-            30, 31, 32, 34, 35, 36, 37, 38
-         ]
-      },
-      {
-         "id": 58,
-         "state": "Virginia",
-         "common_name": "Brook trout (fresh water)",
-         "scientific_name": "Salvelinus fontinalis",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Salvelinus_fontinalis.jpg/1200px-Salvelinus_fontinalis.jpg",
-         "year": "2011",
-         "lure_ids": [
-            1, 2, 3, 4, 11, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32,
-            34, 35, 36, 37, 38, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 59,
-         "state": "Virginia",
-         "common_name": "Striped bass (salt water)",
-         "scientific_name": "Morone saxatilis",
-         "image_url": "https://upload.wikimedia.org/wikipedia/en/b/b7/Striped_Bass_2.jpg?20080901191018",
-         "year": "2011",
-         "lure_ids": [
-            4, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 39,
-            40
-         ]
-      },
-      {
-         "id": 60,
-         "state": "Washington",
-         "common_name": "Steelhead trout",
-         "scientific_name": "Oncorhynchus mykiss",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Oncorhynchus_mykiss.jpg/1200px-Oncorhynchus_mykiss.jpg",
-         "year": "1969",
-         "lure_ids": [
-            1, 3, 11, 15, 16, 17, 18, 19, 27, 28, 29, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 61,
-         "state": "West Virginia",
-         "common_name": "Brook trout",
-         "scientific_name": "Salvelinus fontinalis",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Salvelinus_fontinalis.jpg/1200px-Salvelinus_fontinalis.jpg",
-         "year": "1973",
-         "lure_ids": [
-            1, 2, 3, 4, 11, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32,
-            34, 35, 36, 37, 38, 41, 42, 43, 44, 45, 46
-         ]
-      },
-      {
-         "id": 62,
-         "state": "Wisconsin",
-         "common_name": "Muskellunge",
-         "scientific_name": "Esox masquinongy",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Muskellunge_USFWS.jpg/1200px-Muskellunge_USFWS.jpg",
-         "year": "1955",
-         "lure_ids": [
-            1, 3, 4, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25,
-            26, 27, 28, 29, 39, 40, 43
-         ]
-      },
-      {
-         "id": 63,
-         "state": "Wyoming",
-         "common_name": "Cutthroat trout",
-         "scientific_name": "Oncorhynchus clarkii",
-         "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Yellowstone_Cutthroat_Trout.jpg",
-         "year": "1987",
-         "lure_ids": [
-            1, 2, 3, 4, 11, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32,
-            34, 35, 36, 37, 38, 41, 42, 43, 44, 45, 46
-         ]
-      }
-   ]
-}
+[
+ {
+   "id": 1,
+   "common_name": "largemouth bass",
+   "scientific_name": "micropterus salmoides",
+   "type": "bass",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 97,
+   "weight": 10.1,
+   "depth_min": 0,
+   "depth_max": 6,
+   "temp_min": 42,
+   "temp_max": 92,
+   "image_attribution": "<a href=\"https://commons.wikimedia.org/wiki/File:FMIB_43013_Large-Mouthed_Black_Bass_(Micropterus_salmoides).jpeg\">University of Washington</a>, Public domain, via Wikimedia Commons",
+   "ref": "Page, L.M. and B.M. Burr, 2011. A field guide to freshwater fishes of North America north of Mexico. Boston : Houghton Mifflin Harcourt, 663p."
+ },
+ {
+   "id": 2,
+   "common_name": "smallmouth bass",
+   "scientific_name": "micropterus dolomieu",
+   "type": "bass",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 68,
+   "weight": 5.4,
+   "depth_min": 1,
+   "depth_max": 7,
+   "temp_min": 42,
+   "temp_max": 86,
+   "image_attribution": "<a href=\"https://commons.wikimedia.org/wiki/File:Smallmouth_bass.png\">Ianaré Sévi (for modifications only)Duane Raver, U.S. Fish and Wildlife Service</a>, Public domain, via Wikimedia Commons",
+   "ref": "Page, L.M. and B.M. Burr, 2011. A field guide to freshwater fishes of North America north of Mexico. Boston : Houghton Mifflin Harcourt, 663p."
+ },
+ {
+   "id": 3,
+   "common_name": "spotted bass",
+   "scientific_name": "micropterus punctulatus",
+   "type": "bass",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 63.5,
+   "weight": 4.7,
+   "depth_min": 3,
+   "depth_max": 9,
+   "temp_min": 43,
+   "temp_max": 87,
+   "image_attribution": "AI-generated image (ChatGPT), OpenAI",
+   "ref": "Page, L.M. and B.M. Burr, 1991. A field guide to freshwater fishes of North America north of Mexico. Houghton Mifflin Company, Boston. 432p."
+ },
+ {
+   "id": 4,
+   "common_name": "guadalupe bass",
+   "scientific_name": "micropterus treculii",
+   "type": "bass",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 46.4,
+   "weight": 1.7,
+   "depth_min": 1,
+   "depth_max": null,
+   "temp_min": null,
+   "temp_max": null,
+   "image_attribution": "AI-generated image (ChatGPT), OpenAI",
+   "ref": "Page, L.M. and B.M. Burr, 1991. A field guide to freshwater fishes of North America north of Mexico. Houghton Mifflin Company, Boston. 432p."
+ },
+ {
+   "id": 5,
+   "common_name": "white bass",
+   "scientific_name": "morone chrysops",
+   "type": "bass",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 45,
+   "weight": 3.1,
+   "depth_min": 0,
+   "depth_max": 13,
+   "temp_min": 51,
+   "temp_max": 87,
+   "image_attribution": "Public domain, via <a href=\"https://www.rawpixel.com/image/6024812/photo-image-public-domain-art-illustration\">RawPixel</a>",
+   "ref": "Page, L.M. and B.M. Burr, 2011. A field guide to freshwater fishes of North America north of Mexico. Boston : Houghton Mifflin Harcourt, 663p."
+ },
+ {
+   "id": 6,
+   "common_name": "yellow bass",
+   "scientific_name": "morone mississippiensis",
+   "type": "striper",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 46,
+   "weight": 11,
+   "depth_min": 0,
+   "depth_max": 15,
+   "temp_min": 42,
+   "temp_max": 94,
+   "image_attribution": "<a href=\\\"https://commons.wikimedia.org/wiki/File:Yellow_Bass.gif\\\">Iowa Department of Natural Resources</a>, Attribution, via Wikimedia Commons, Image Upscaled",
+   "ref": "Page, L.M. and B.M. Burr, 1991. A field guide to freshwater fishes of North America north of Mexico. Houghton Mifflin Company, Boston. 432p."
+ },
+ {
+   "id": 7,
+   "common_name": "striped bass",
+   "scientific_name": "morone saxatilis",
+   "type": "striper",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 200,
+   "weight": 57,
+   "depth_min": 30,
+   "depth_max": null,
+   "temp_min": 40,
+   "temp_max": 87,
+   "image_attribution": "<a href=\"https://www.flickr.com/photos/153584064@N07/38977334251\">Sherman F. Denton</a>, Public Domain, via RawPixel",
+   "ref": "Heemstra, P.C., 1995. Moronidae. Lubinas. p. 1289-1292. In W. Fischer, F. Krupp, W. Schneider, C. Sommer, K.E. Carpenter and V. Niem (eds.) Guia FAO para Identification de Especies para lo Fines de la Pesca. Pacifico Centro-Oriental. 3 Vols. FAO, Rome."
+ },
+ {
+   "id": 8,
+   "common_name": "blue catfish",
+   "scientific_name": "ictalurus furcatus",
+   "type": "catfish",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 165,
+   "weight": 68,
+   "depth_min": null,
+   "depth_max": 50,
+   "temp_min": 40,
+   "temp_max": 84,
+   "image_attribution": "By Duane Raver - U.S. Fish and Wildlife Service - Scan of art commissioned by the Fish and Wildlife Service. Art is kept at DC Booth Fish Hatchery in Spearfish, SD. Originates from the National Digital Library of the United States Fish and Wildlife, Public Domain, Image Upscaled ",
+   "ref": "Page, L.M. and B.M. Burr, 2011. A field guide to freshwater fishes of North America north of Mexico. Boston : Houghton Mifflin Harcourt, 663p."
+ },
+ {
+   "id": 9,
+   "common_name": "channel catfish",
+   "scientific_name": "ictalurus punctatus",
+   "type": "catfish",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 132,
+   "weight": 26.3,
+   "depth_min": 0,
+   "depth_max": 15,
+   "temp_min": 41,
+   "temp_max": 90,
+   "image_attribution": "",
+   "ref": "Page, L.M. and B.M. Burr, 2011. A field guide to freshwater fishes of North America north of Mexico. Boston : Houghton Mifflin Harcourt, 663p."
+ },
+ {
+   "id": 10,
+   "common_name": "flathead catfish",
+   "scientific_name": "pylodictis olivaris",
+   "type": "catfish",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 155,
+   "weight": 55.8,
+   "depth_min": 3,
+   "depth_max": 6,
+   "temp_min": 57,
+   "temp_max": 93,
+   "image_attribution": "",
+   "ref": "Page, L.M. and B.M. Burr, 2011. A field guide to freshwater fishes of North America north of Mexico. Boston : Houghton Mifflin Harcourt, 663p."
+ },
+ {
+   "id": 11,
+   "common_name": "black bullhead",
+   "scientific_name": "ameiurus melas",
+   "type": "catfish",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 66,
+   "weight": 3.6,
+   "depth_min": 10,
+   "depth_max": null,
+   "temp_min": 36,
+   "temp_max": 91,
+   "image_attribution": "",
+   "ref": "Page, L.M. and B.M. Burr, 1991. A field guide to freshwater fishes of North America north of Mexico. Houghton Mifflin Company, Boston. 432p."
+ },
+ {
+   "id": 12,
+   "common_name": "yellow bullhead",
+   "scientific_name": "ameiurus natalis",
+   "type": "catfish",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 60,
+   "weight": 1.9,
+   "depth_min": 10,
+   "depth_max": null,
+   "temp_min": null,
+   "temp_max": null,
+   "image_attribution": "",
+   "ref": "Page, L.M. and B.M. Burr, 1991. A field guide to freshwater fishes of North America north of Mexico. Houghton Mifflin Company, Boston. 432p."
+ },
+ {
+   "id": 13,
+   "common_name": "black crappie",
+   "scientific_name": "pomoxis nigromaculatus",
+   "type": "crappie",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 49,
+   "weight": 2.7,
+   "depth_min": 0,
+   "depth_max": null,
+   "temp_min": 18,
+   "temp_max": 89,
+   "image_attribution": "",
+   "ref": "Page, L.M. and B.M. Burr, 2011. A field guide to freshwater fishes of North America north of Mexico. Boston : Houghton Mifflin Harcourt, 663p."
+ },
+ {
+   "id": 14,
+   "common_name": "white crappie",
+   "scientific_name": "pomoxis annularis",
+   "type": "crappie",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 53,
+   "weight": 2.4,
+   "depth_min": 0,
+   "depth_max": 4,
+   "temp_min": 52,
+   "temp_max": 86,
+   "image_attribution": "",
+   "ref": "Page, L.M. and B.M. Burr, 1991. A field guide to freshwater fishes of North America north of Mexico. Houghton Mifflin Company, Boston. 432p."
+ },
+ {
+   "id": 15,
+   "common_name": "bluegill",
+   "scientific_name": "lepomis macrochirus",
+   "type": "sunfish",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 41,
+   "weight": 2.2,
+   "depth_min": 0,
+   "depth_max": 11,
+   "temp_min": 59,
+   "temp_max": 87,
+   "image_attribution": "",
+   "ref": "Page, L.M. and B.M. Burr, 1991. A field guide to freshwater fishes of North America north of Mexico. Houghton Mifflin Company, Boston. 432p."
+ },
+ {
+   "id": 16,
+   "common_name": "green sunfish",
+   "scientific_name": "lepomis cyanellus",
+   "type": "sunfish",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 31,
+   "weight": 0.96,
+   "depth_min": 0,
+   "depth_max": 1,
+   "temp_min": 59,
+   "temp_max": 92,
+   "image_attribution": "",
+   "ref": "Page, L.M. and B.M. Burr, 1991. A field guide to freshwater fishes of North America north of Mexico. Houghton Mifflin Company, Boston. 432p."
+ },
+ {
+   "id": 17,
+   "common_name": "longear sunfish",
+   "scientific_name": "lepomis megalotis",
+   "type": "sunfish",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 24,
+   "weight": 0.79,
+   "depth_min": 0,
+   "depth_max": 1,
+   "temp_min": 46,
+   "temp_max": 97,
+   "image_attribution": "",
+   "ref": "Page, L.M. and B.M. Burr, 1991. A field guide to freshwater fishes of North America north of Mexico. Houghton Mifflin Company, Boston. 432p."
+ },
+ {
+   "id": 18,
+   "common_name": "redbreast sunfish",
+   "scientific_name": "lepomis auritus",
+   "type": "sunfish",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 30.5,
+   "weight": 0.79,
+   "depth_min": 0,
+   "depth_max": 1,
+   "temp_min": 42,
+   "temp_max": 93,
+   "image_attribution": "",
+   "ref": "Page, L.M. and B.M. Burr, 1991. A field guide to freshwater fishes of North America north of Mexico. Houghton Mifflin Company, Boston. 432p."
+ },
+ {
+   "id": 19,
+   "common_name": "redear sunfish",
+   "scientific_name": "lepomis microlophus",
+   "type": "sunfish",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 43.2,
+   "weight": 0.22,
+   "depth_min": 0,
+   "depth_max": 2,
+   "temp_min": 46,
+   "temp_max": 86,
+   "image_attribution": "",
+   "ref": "Page, L.M. and B.M. Burr, 1991. A field guide to freshwater fishes of North America north of Mexico. Houghton Mifflin Company, Boston. 432p."
+ },
+ {
+   "id": 20,
+   "common_name": "warmouth",
+   "scientific_name": "lepomis gulosus",
+   "type": "sunfish",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 31,
+   "weight": 1.1,
+   "depth_min": 0,
+   "depth_max": 2,
+   "temp_min": 62,
+   "temp_max": 81,
+   "image_attribution": "",
+   "ref": "Robins, C.R., R.M. Bailey, C.E. Bond, J.R. Brooker, E.A. Lachner, R.N. Lea and W.B. Scott, 1991. Common and scientific names of fishes from the United States and Canada. Am. Fish. Soc. Spec. Publ. (20):183 p."
+ },
+ {
+   "id": 21,
+   "common_name": "common carp",
+   "scientific_name": "cyprinus carpio",
+   "type": "carp",
+   "environment": "freshwater",
+   "distribution": "es",
+   "length": 120,
+   "weight": 40.1,
+   "depth_min": 0,
+   "depth_max": 29,
+   "temp_min": 56,
+   "temp_max": 89,
+   "image_attribution": "",
+   "ref": "Kottelat, M. and J. Freyhof, 2007. Handbook of European freshwater fishes. Publications Kottelat, Cornol and Freyhof, Berlin. 646 pp."
+ },
+ {
+   "id": 22,
+   "common_name": "grass carp",
+   "scientific_name": "ctenopharyngodon idella",
+   "type": "carp",
+   "environment": "freshwater",
+   "distribution": "as",
+   "length": 150,
+   "weight": 45,
+   "depth_min": 0,
+   "depth_max": 30,
+   "temp_min": 59,
+   "temp_max": 102,
+   "image_attribution": "",
+   "ref": "Shireman, J.V. and C.R. Smith, 1983. Synopsis of biological data on the grass carp, Ctenopharyngodon idella (Cuvier and Valenciennes, 1884). FAO Fish. Synop. No.135, 86 p."
+ },
+ {
+   "id": 23,
+   "common_name": "pacific halibut",
+   "scientific_name": "hippoglossus stenolepis",
+   "type": "halibut",
+   "environment": "marine",
+   "distribution": "as",
+   "length": 258,
+   "weight": 363,
+   "depth_min": 0,
+   "depth_max": 1200,
+   "temp_min": 36,
+   "temp_max": 72,
+   "image_attribution": "",
+   "ref": "Vinnikov, K.A., R.C. Thomson and T.A. Munroe, 2018. Revised classification of the righteye flounders (Teleostei: Pleuronectidae) based on multilocus phylogeny with complete taxon sampling. Molecular phylogenetics and evolution, 125:147-162."
+ },
+ {
+   "id": 24,
+   "common_name": "atlantic halibut",
+   "scientific_name": "hippoglossus hippoglossus",
+   "type": "halibut",
+   "environment": "marine",
+   "distribution": "at",
+   "length": 470,
+   "weight": 320,
+   "depth_min": 50,
+   "depth_max": 2000,
+   "temp_min": 50,
+   "temp_max": 94,
+   "image_attribution": "",
+   "ref": "Vinnikov, K.A., R.C. Thomson and T.A. Munroe, 2018. Revised classification of the righteye flounders (Teleostei: Pleuronectidae) based on multilocus phylogeny with complete taxon sampling. Molecular phylogenetics and evolution, 125:147-162."
+ },
+ {
+   "id": 25,
+   "common_name": "california flounder",
+   "scientific_name": "paralichthys californicus",
+   "type": "halibut",
+   "environment": "marine",
+   "distribution": "pa",
+   "length": 152,
+   "weight": 33,
+   "depth_min": 0,
+   "depth_max": 183,
+   "temp_min": 45,
+   "temp_max": 86,
+   "image_attribution": "",
+   "ref": "Eschmeyer, W.N., E.S. Herald and H. Hammann, 1983. A field guide to Pacific coast fishes of North America. Boston (MA, USA): Houghton Mifflin Company. xii+336 p."
+ },
+ {
+   "id": 26,
+   "common_name": "atlantic bluefin tuna",
+   "scientific_name": "thunnus thynnus",
+   "type": "tuna",
+   "environment": "marine",
+   "distribution": "at",
+   "length": 458,
+   "weight": 684,
+   "depth_min": 0,
+   "depth_max": 985,
+   "temp_min": 55,
+   "temp_max": 84,
+   "image_attribution": "",
+   "ref": "Collette, B.B., 1999. Mackerels, molecules, and morphology. p. 149-164. In B. Séret and J.-Y. Sire (eds.) Proc. 5th Indo-Pac. Fish Conf., Noumea, Paris."
+ },
+ {
+   "id": 27,
+   "common_name": "yellowfin tuna",
+   "scientific_name": "thunnus albacares",
+   "type": "tuna",
+   "environment": "marine",
+   "distribution": "aa",
+   "length": 239,
+   "weight": 200,
+   "depth_min": 1,
+   "depth_max": 1602,
+   "temp_min": 53,
+   "temp_max": 89,
+   "image_attribution": "",
+   "ref": "Collette, B.B. and C.E. Nauen, 1983. FAO Species Catalogue. Vol. 2. Scombrids of the world. An annotated and illustrated catalogue of tunas, mackerels, bonitos and related species known to date. Rome: FAO. FAO Fish. Synop. 125(2):137 p."
+ },
+ {
+   "id": 28,
+   "common_name": "alligator gar",
+   "scientific_name": "atractosteus spatula",
+   "type": "gar",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 305,
+   "weight": 137,
+   "depth_min": 0,
+   "depth_max": null,
+   "temp_min": 41,
+   "temp_max": 103,
+   "image_attribution": "",
+   "ref": "Etnier, D.A. and W.C. Starnes, 1993. The fishes of Tennessee. The University of Tennessee Press, Knoxville, Tennessee, USA. (pls. check date)."
+ },
+ {
+   "id": 29,
+   "common_name": "longnose gar",
+   "scientific_name": "lepisosteus osseus",
+   "type": "gar",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 200,
+   "weight": 22.8,
+   "depth_min": 0,
+   "depth_max": null,
+   "temp_min": 69,
+   "temp_max": 90,
+   "image_attribution": "",
+   "ref": "Robins, C.R., R.M. Bailey, C.E. Bond, J.R. Brooker, E.A. Lachner, R.N. Lea and W.B. Scott, 1991. Common and scientific names of fishes from the United States and Canada. Am. Fish. Soc. Spec. Publ. (20): 183 p."
+ },
+ {
+   "id": 30,
+   "common_name": "shortnose gar",
+   "scientific_name": "lepisosteus platostomus",
+   "type": "gar",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 88,
+   "weight": 2.6,
+   "depth_min": 0,
+   "depth_max": 2,
+   "temp_min": 54,
+   "temp_max": 92,
+   "image_attribution": "",
+   "ref": "Robins, C.R., R.M. Bailey, C.E. Bond, J.R. Brooker, E.A. Lachner, R.N. Lea and W.B. Scott, 1991. Common and scientific names of fishes from the United States and Canada. Am. Fish. Soc. Spec. Publ. (20): 183 p."
+ },
+ {
+   "id": 31,
+   "common_name": "spotted gar",
+   "scientific_name": "lepisosteus oculatus",
+   "type": "gar",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 150,
+   "weight": 4.4,
+   "depth_min": 3,
+   "depth_max": 5,
+   "temp_min": 58,
+   "temp_max": 90,
+   "image_attribution": "",
+   "ref": "Robins, C.R., R.M. Bailey, C.E. Bond, J.R. Brooker, E.A. Lachner, R.N. Lea and W.B. Scott, 1991. Common and scientific names of fishes from the United States and Canada. Am. Fish. Soc. Spec. Publ. (20): 183 p."
+ },
+ {
+   "id": 32,
+   "common_name": "bigmouth buffalo",
+   "scientific_name": "ictiobus cyprinellus",
+   "type": "sucker",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 123,
+   "weight": 31.9,
+   "depth_min": 4,
+   "depth_max": null,
+   "temp_min": 40,
+   "temp_max": 97,
+   "image_attribution": "",
+   "ref": "Page, L.M. and B.M. Burr, 2011. A field guide to freshwater fishes of North America north of Mexico. Boston : Houghton Mifflin Harcourt, 663p."
+ },
+ {
+   "id": 33,
+   "common_name": "black buffalo",
+   "scientific_name": "ictiobus niger",
+   "type": "sucker",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 123,
+   "weight": 28.7,
+   "depth_min": 1,
+   "depth_max": null,
+   "temp_min": null,
+   "temp_max": null,
+   "image_attribution": "",
+   "ref": "Page, L.M. and B.M. Burr, 1991. A field guide to freshwater fishes of North America north of Mexico. Houghton Mifflin Company, Boston. 432p."
+ },
+ {
+   "id": 34,
+   "common_name": "smallmouth buffalo",
+   "scientific_name": "ictiobus bubalus",
+   "type": "sucker",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 112,
+   "weight": 37.3,
+   "depth_min": 1,
+   "depth_max": 6,
+   "temp_min": 37,
+   "temp_max": 89,
+   "image_attribution": "",
+   "ref": "Page, L.M. and B.M. Burr, 1991. A field guide to freshwater fishes of North America north of Mexico. Houghton Mifflin Company, Boston. 432p."
+ },
+ {
+   "id": 35,
+   "common_name": "rainbow trout",
+   "scientific_name": "oncorhynchus mykiss",
+   "type": "trout",
+   "environment": "anadromous",
+   "distribution": "pa",
+   "length": 122,
+   "weight": 25.9,
+   "depth_min": 0,
+   "depth_max": 200,
+   "temp_min": 31,
+   "temp_max": 91,
+   "image_attribution": "",
+   "ref": "Page, L.M. and B.M. Burr, 2011. A field guide to freshwater fishes of North America north of Mexico. Boston : Houghton Mifflin Harcourt, 663p."
+ },
+ {
+   "id": 36,
+   "common_name": "cutthrout trout",
+   "scientific_name": "oncorhynchus clarkii",
+   "type": "trout",
+   "environment": "freshwater",
+   "distribution": "pa",
+   "length": 99,
+   "weight": 18.6,
+   "depth_min": 0,
+   "depth_max": 200,
+   "temp_min": 32,
+   "temp_max": 94,
+   "image_attribution": "",
+   "ref": "Coad, B.W., 1995. Encyclopedia of Canadian fishes. Canadian Museum of Nature and Canadian Sportfishing Productions Inc. Singapore."
+ },
+ {
+   "id": 37,
+   "common_name": "swordfish",
+   "scientific_name": "xiphias gladius",
+   "type": "billfish",
+   "environment": "marine",
+   "distribution": "aa",
+   "length": 455,
+   "weight": 650,
+   "depth_min": 0,
+   "depth_max": 2878,
+   "temp_min": 63,
+   "temp_max": 87,
+   "image_attribution": "",
+   "ref": "Nakamura, I., 1985. FAO species catalogue. Vol. 5. Billfishes of the world. An annotated and illustrated catalogue of marlins, sailfishes, spearfishes and swordfishes known to date. FAO Fish. Synop. 125(5):65p. Rome: FAO."
+ },
+ {
+   "id": 38,
+   "common_name": "atlantic sailfish",
+   "scientific_name": "istiophorus albicans",
+   "type": "billfish",
+   "environment": "marine",
+   "distribution": "at",
+   "length": 315,
+   "weight": 58.1,
+   "depth_min": 0,
+   "depth_max": 200,
+   "temp_min": 61,
+   "temp_max": 97,
+   "image_attribution": "",
+   "ref": "Nakamura, I., 1985. FAO species catalogue. Vol. 5. Billfishes of the world. An annotated and illustrated catalogue of marlins, sailfishes, spearfishes and swordfishes known to date. FAO Fish. Synop. 125(5):65p. Rome: FAO."
+ },
+ {
+   "id": 39,
+   "common_name": "brown trout",
+   "scientific_name": "salmo trutta",
+   "type": "trout",
+   "environment": "anadromous",
+   "distribution": "es",
+   "length": 140,
+   "weight": 50,
+   "depth_min": 0,
+   "depth_max": 28,
+   "temp_min": 31,
+   "temp_max": 88,
+   "image_attribution": "",
+   "ref": "Svetovidov, A.N., 1984. Salmonidae. p. 373-385. In P.J.P. Whitehead, M.-L. Bauchot, J.-C. Hureau, J. Nielsen and E. Tortonese (eds.) Fishes of the north-eastern Atlantic and the Mediterranean. UNESCO, Paris. vol. 1."
+ },
+ {
+   "id": 40,
+   "common_name": "atlantic salmon",
+   "scientific_name": "salmo salar",
+   "type": "salmon",
+   "environment": "anadromous",
+   "distribution": "at",
+   "length": 150,
+   "weight": 46.8,
+   "depth_min": 0,
+   "depth_max": 210,
+   "temp_min": 22,
+   "temp_max": 85,
+   "image_attribution": "",
+   "ref": "Page, L.M. and B.M. Burr, 2011. A field guide to freshwater fishes of North America north of Mexico. Boston : Houghton Mifflin Harcourt, 663p."
+ },
+ {
+   "id": 42,
+   "common_name": "coho salmon",
+   "scientific_name": "oncorhynchus kisutch",
+   "type": "salmon",
+   "environment": "anadromous",
+   "distribution": "pa",
+   "length": 108,
+   "weight": 15.2,
+   "depth_min": 0,
+   "depth_max": 250,
+   "temp_min": 31,
+   "temp_max": 76,
+   "image_attribution": "",
+   "ref": "Page, L.M. and B.M. Burr, 2011. A field guide to freshwater fishes of North America north of Mexico. Boston : Houghton Mifflin Harcourt, 663p."
+ },
+ {
+   "id": 43,
+   "common_name": "pink salmon",
+   "scientific_name": "oncorhynchus gorbuscha",
+   "type": "salmon",
+   "environment": "anadromous",
+   "distribution": "pa",
+   "length": 76,
+   "weight": 7,
+   "depth_min": 0,
+   "depth_max": 250,
+   "temp_min": 12,
+   "temp_max": 92,
+   "image_attribution": "",
+   "ref": "Page, L.M. and B.M. Burr, 2011. A field guide to freshwater fishes of North America north of Mexico. Boston : Houghton Mifflin Harcourt, 663p."
+ },
+ {
+   "id": 44,
+   "common_name": "sockeye salmon",
+   "scientific_name": "oncorhynchus nerka",
+   "type": "salmon",
+   "environment": "anadromous",
+   "distribution": "pa",
+   "length": 84,
+   "weight": 7.7,
+   "depth_min": 0,
+   "depth_max": 250,
+   "temp_min": 24,
+   "temp_max": 83,
+   "image_attribution": "",
+   "ref": "Page, L.M. and B.M. Burr, 2011. A field guide to freshwater fishes of North America north of Mexico. Boston : Houghton Mifflin Harcourt, 663p."
+ },
+ {
+   "id": 45,
+   "common_name": "chain pickerel",
+   "scientific_name": "esox niger",
+   "type": "pike",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 99,
+   "weight": 4.3,
+   "depth_min": null,
+   "depth_max": 6,
+   "temp_min": 16,
+   "temp_max": 92,
+   "image_attribution": "",
+   "ref": "Crossman, E.J., 1996. Taxonomy and distribution. p. 1-11. In J.F. Craig (ed.) Pike biology and exploration. Chapman and Hall, London. 298p."
+ },
+ {
+   "id": 46,
+   "common_name": "walleye",
+   "scientific_name": "sander vitreus",
+   "type": "pike",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 107,
+   "weight": 11.3,
+   "depth_min": 0,
+   "depth_max": 27,
+   "temp_min": 27,
+   "temp_max": 85,
+   "image_attribution": "",
+   "ref": "Page, L.M. and B.M. Burr, 2011. A field guide to freshwater fishes of North America north of Mexico. Boston : Houghton Mifflin Harcourt, 663p."
+ },
+ {
+   "id": 47,
+   "common_name": "northern pike",
+   "scientific_name": "esox lucius",
+   "type": "pike",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 137,
+   "weight": 28.4,
+   "depth_min": 0,
+   "depth_max": 30,
+   "temp_min": 3,
+   "temp_max": 86,
+   "image_attribution": "",
+   "ref": "Crossman, E.J., 1996. Taxonomy and distribution. p. 1-11. In J.F. Craig (ed.) Pike biology and exploration. Chapman and Hall, London. 298p."
+ },
+ {
+   "id": 48,
+   "common_name": "silver perch",
+   "scientific_name": "bidyanus bidyanus",
+   "type": "perch",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 40,
+   "weight": 1.5,
+   "depth_min": 10,
+   "depth_max": null,
+   "temp_min": 50,
+   "temp_max": 86,
+   "image_attribution": "",
+   "ref": "Paxton, J.R., D.F. Hoese, G.R. Allen and J.E. Hanley, 1989. Pisces. Petromyzontidae to Carangidae. Zoological Catalogue of Australia, Vol. 7. Australian Government Publishing Service, Canberra, 665 p."
+ },
+ {
+   "id": 49,
+   "common_name": "white perch",
+   "scientific_name": "morone americana",
+   "type": "perch",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 58,
+   "weight": 2.7,
+   "depth_min": 0,
+   "depth_max": 10,
+   "temp_min": 18,
+   "temp_max": 103,
+   "image_attribution": "",
+   "ref": "Page, L.M. and B.M. Burr, 2011. A field guide to freshwater fishes of North America north of Mexico. Boston : Houghton Mifflin Harcourt, 663p."
+ },
+ {
+   "id": 50,
+   "common_name": "yellow perch",
+   "scientific_name": "perca flavescens",
+   "type": "perch",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 50,
+   "weight": 1.9,
+   "depth_min": 0,
+   "depth_max": 56,
+   "temp_min": 2,
+   "temp_max": 83,
+   "image_attribution": "",
+   "ref": "Page, L.M. and B.M. Burr, 2011. A field guide to freshwater fishes of North America north of Mexico. Boston : Houghton Mifflin Harcourt, 663p."
+ },
+ {
+   "id": 51,
+   "common_name": "tarpon",
+   "scientific_name": "megalops atlanticus",
+   "type": "tarpon",
+   "environment": "marine",
+   "distribution": "at",
+   "length": 250,
+   "weight": 161,
+   "depth_min": 1,
+   "depth_max": 40,
+   "temp_min": 70,
+   "temp_max": 92,
+   "image_attribution": "",
+   "ref": "Hureau, J.-C., 1984. Megalopidae. p. 226-227. In P.J.P. Whitehead, M.-L. Bauchot, J.-C. Hureau, J. Nielsen and E. Tortonese (eds.) Fishes of the north-eastern Atlantic and Mediterranean. UNESCO, Paris. Vol. 1."
+ },
+ {
+   "id": 52,
+   "common_name": "apache trout",
+   "scientific_name": "oncorhynchus apache",
+   "type": "tarpon",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 58,
+   "weight": 2.4,
+   "depth_min": 0,
+   "depth_max": 1,
+   "temp_min": 50,
+   "temp_max": 88,
+   "image_attribution": "",
+   "ref": "Page, L.M. and B.M. Burr, 1991. A field guide to freshwater fishes of North America north of Mexico. Houghton Mifflin Company, Boston. 432 p."
+ },
+ {
+   "id": 53,
+   "common_name": "golden trout",
+   "scientific_name": "oncorhynchus aguabonita",
+   "type": "trout",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 58,
+   "weight": 5,
+   "depth_min": 0,
+   "depth_max": 1,
+   "temp_min": 48,
+   "temp_max": 91,
+   "image_attribution": "",
+   "ref": "Page, L.M. and B.M. Burr, 1991. A field guide to freshwater fishes of North America north of Mexico. Houghton Mifflin Company, Boston. 432 p."
+ },
+ {
+   "id": 53,
+   "common_name": "garibaldi",
+   "scientific_name": "Hypsypops rubicundus",
+   "type": "damselfish",
+   "environment": "marine",
+   "distribution": "pa",
+   "length": 30,
+   "weight": null,
+   "depth_min": 0,
+   "depth_max": 30,
+   "temp_min": null,
+   "temp_max": null,
+   "image_attribution": "",
+   "ref": "Allen, G.R., 1991. Damselfishes of the world. Mergus Publishers, Melle, Germany. 271 p."
+ },
+ {
+   "id": 54,
+   "common_name": "american shad",
+   "scientific_name": "alosa sapidissima",
+   "type": "shad",
+   "environment": "anadromous",
+   "distribution": "na",
+   "length": 76,
+   "weight": 5.5,
+   "depth_min": 0,
+   "depth_max": 250,
+   "temp_min": 47,
+   "temp_max": 91,
+   "image_attribution": "",
+   "ref": "Whitehead, P.J.P., 1985. FAO Species Catalogue. Vol. 7. Clupeoid fishes of the world (suborder Clupeoidei). An annotated and illustrated catalogue of the herrings, sardines, pilchards, sprats, shads, anchovies and wolf-herrings. FAO Fish. Synop. 125(7/1):1-303. Rome: FAO."
+ },
+ {
+   "id": 55,
+   "common_name": "weakfish",
+   "scientific_name": "cynoscion regalis",
+   "type": "weakfish",
+   "environment": "marine",
+   "distribution": "at",
+   "length": 98,
+   "weight": 8.9,
+   "depth_min": 10,
+   "depth_max": 26,
+   "temp_min": 51,
+   "temp_max": 83,
+   "image_attribution": "",
+   "ref": "Robins, C.R. and G.C. Ray, 1986. A field guide to Atlantic coast fishes of North America. Houghton Mifflin Company, Boston, U.S.A. 354 p."
+ },
+ {
+   "id": 56,
+   "common_name": "florida largemouth bass",
+   "scientific_name": "micropterus floridanus",
+   "type": "bass",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 5.4,
+   "weight": 10.12,
+   "depth_min": 0,
+   "depth_max": 3,
+   "temp_min": null,
+   "temp_max": null,
+   "image_attribution": "",
+   "ref": "Eschmeyer, W.N. (ed.), 2005. Catalog of fishes. Updated database version of May 2005. Database dump. Catalog databases as made available to FishBase in May 2005."
+ },
+ {
+   "id": 57,
+   "common_name": "brook trout",
+   "scientific_name": "salvelinus fontinalis",
+   "type": "trout",
+   "environment": "anadromous",
+   "distribution": "na",
+   "length": 86,
+   "weight": 8,
+   "depth_min": 15,
+   "depth_max": 27,
+   "temp_min": 40,
+   "temp_max": 86,
+   "image_attribution": "",
+   "ref": "Page, L.M. and B.M. Burr, 2011. A field guide to freshwater fishes of North America north of Mexico. Boston : Houghton Mifflin Harcourt, 663p."
+ },
+ {
+   "id": 58,
+   "common_name": "red drum",
+   "scientific_name": "sciaenops ocellatus",
+   "type": "drum",
+   "environment": "marine",
+   "distribution": "at",
+   "length": 155,
+   "weight": 45,
+   "depth_min": 10,
+   "depth_max": null,
+   "temp_min": 55,
+   "temp_max": 91,
+   "image_attribution": "",
+   "ref": "Robins, C.R. and G.C. Ray, 1986. A field guide to Atlantic coast fishes of North America. Houghton Mifflin Company, Boston, U.S.A. 354 p."
+ },
+ {
+   "id": 59,
+   "common_name": "reef triggerfish",
+   "scientific_name": "rhinecanthus rectangulus",
+   "type": "triggerfish",
+   "environment": "marine",
+   "distribution": "pacific",
+   "length": 30,
+   "weight": null,
+   "depth_min": 0,
+   "depth_max": 20,
+   "temp_min": 53,
+   "temp_max": 85,
+   "image_attribution": "",
+   "ref": "Matsuura, K., 2001. Balistidae. Triggerfishes. p. 3911-3928. In K.E. Carpenter and V. Niem (eds.) FAO species identification guide for fishery purposes. The living marine resources of the Western Central Pacific. Vol. 6. Bony fishes part 4 (Labridae to Latimeriidae), estuarine crocodiles. FAO, Rome."
+ },
+ {
+   "id": 60,
+   "common_name": "reef triggerfish",
+   "scientific_name": "rhinecanthus rectangulus",
+   "type": "triggerfish",
+   "environment": "marine",
+   "distribution": "pacific",
+   "length": 30,
+   "weight": null,
+   "depth_min": 0,
+   "depth_max": 20,
+   "temp_min": 53,
+   "temp_max": 85,
+   "image_attribution": "",
+   "ref": "Matsuura, K., 2001. Balistidae. Triggerfishes. p. 3911-3928. In K.E. Carpenter and V. Niem (eds.) FAO species identification guide for fishery purposes. The living marine resources of the Western Central Pacific. Vol. 6. Bony fishes part 4 (Labridae to Latimeriidae), estuarine crocodiles. FAO, Rome."
+ },
+ {
+   "id": 61,
+   "common_name": "spotted weakfish",
+   "scientific_name": "cynoscion nebulosus",
+   "type": "weakfish",
+   "environment": "marine",
+   "distribution": "at",
+   "length": 100,
+   "weight": 7.9,
+   "depth_min": 10,
+   "depth_max": null,
+   "temp_min": 51,
+   "temp_max": 83,
+   "image_attribution": "",
+   "ref": "Robins, C.R. and G.C. Ray, 1986. A field guide to Atlantic coast fishes of North America. Houghton Mifflin Company, Boston, U.S.A. 354 p."
+ },
+ {
+   "id": 62,
+   "common_name": "atlantic cod",
+   "scientific_name": "gadmus morhua",
+   "type": "cod",
+   "environment": "marine",
+   "distribution": "at",
+   "length": 200,
+   "weight": 96,
+   "depth_min": 0,
+   "depth_max": 600,
+   "temp_min": 30,
+   "temp_max": 80,
+   "image_attribution": "",
+   "ref": "Cohen, D.M., T. Inada, T. Iwamoto and N. Scialabba, 1990. FAO species catalogue. Vol. 10. Gadiform fishes of the world (Order Gadiformes). An annotated and illustrated catalogue of cods, hakes, grenadiers and other gadiform fishes known to date. FAO Fish. Synop. 125(10). Rome: FAO. 442 p."
+ },
+ {
+   "id": 63,
+   "common_name": "mississippi paddlefish",
+   "scientific_name": "polyodon spathula",
+   "type": "paddlefish",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 221,
+   "weight": 90.7,
+   "depth_min": 2,
+   "depth_max": null,
+   "temp_min": 28,
+   "temp_max": 86,
+   "image_attribution": "",
+   "ref": "Page, L.M. and B.M. Burr, 2011. A field guide to freshwater fishes of North America north of Mexico. Boston : Houghton Mifflin Harcourt, 663p."
+ },
+ {
+   "id": 64,
+   "common_name": "muskellunge",
+   "scientific_name": "esox masquinongy",
+   "type": "muskie",
+   "environment": "freshwater",
+   "distribution": "na",
+   "length": 183,
+   "weight": 31.8,
+   "depth_min": 2,
+   "depth_max": 6,
+   "temp_min": 33,
+   "temp_max": 86,
+   "image_attribution": "",
+   "ref": "Crossman, E.J., 1996. Taxonomy and distribution. p. 1-11. In J.F. Craig (ed.) Pike biology and exploration. Chapman and Hall, London. 298 p."
+ }
+]
