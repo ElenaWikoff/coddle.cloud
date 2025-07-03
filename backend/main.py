@@ -1,12 +1,9 @@
-from flask import Flask, render_template, jsonify, redirect
-from flask_cors import CORS
+from flask import render_template, jsonify, redirect
+from models import app, db, Fish, Lures  # Import app, database, and models from models.py
 import gitlab
 
 PROJECT_ID = 71006060
 gl = gitlab.Gitlab('https://gitlab.com', private_token='glpat-WYswdfja-RfLBggGwHq9')
-
-app = Flask(__name__)
-CORS(app)
 
 @app.route('/api')
 def splash():
@@ -19,6 +16,16 @@ def docs():
 @app.route('/api/ping')
 def ping():
     return jsonify({"status": "backend alive"})
+
+@app.route('/api/fish')
+def fishIndex():
+    fish = db.session.query(Fish).all()
+    return fish
+
+@app.route('/api/lures')
+def luresIndex():
+    lures = db.session.query(Lures).all()
+    return lures
 
 @app.route('/api/about')
 def aboutIndex():
