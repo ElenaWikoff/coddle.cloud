@@ -86,7 +86,7 @@ class Fish(db.Model):
             'temp_max': self.temp_max,
             'image_attribution': self.image_attribution,
             'ref': self.ref,
-            'lures': [lure.to_dict() for lure in self.lures]
+            'lures': [{'id': lure.id, 'name': lure.name} for lure in self.lures]
         }
 
 # ----------------------
