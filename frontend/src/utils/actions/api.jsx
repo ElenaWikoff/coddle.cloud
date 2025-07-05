@@ -2,19 +2,21 @@ const base_url = '/api/';
 
 export async function fetch_instance(route, id=null) {
     const url = `${base_url}/${route}/${id}`;
+    let result = undefined;
 
-    fetch(url)
+    await fetch(url)
     .then((res) => res.json())
-    .then((data) => {return data})
+    .then((data) => {
+        result = data;
+    })
     .catch((error) => {
         console.error(`Failed to fetch from ${url}: ${error}`);
     });
+    return result;
 }
 
 export async function fetch_data(route, searchParams) {
     const url = `${base_url}/${route}?${searchParams.toString()}`;
-    console.log(url);
-    // const url = `/data/fish_pagination.json`;
     let result = undefined;
 
     await fetch(url)
@@ -39,6 +41,6 @@ export async function fishLoader({ params }) {
 }
 
 export async function lureLoader({ params }) {
-   const data = await fetch_instance('fish', params.id);
+   const data = await fetch_instance('lures', params.id);
    return data;
 }
