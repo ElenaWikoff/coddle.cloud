@@ -15,16 +15,13 @@ env_variables:
 beta_settings:
   cloud_sql_instances: coddle-463619:us-central1:fishingdb
 
-# API routes handled by Flask (FIRST)
+# API routes handled by Flask (FIRST) & Frontend Routes from frontend/dist
 handlers:
   - url: /api/.*
     script: auto
 
   - url: /static
     static_dir: backend/static
-  
-# Frontend Routes from frontend/dist
-handlers:
   
   # Serve static folders from Vite build
   - url: /assets
