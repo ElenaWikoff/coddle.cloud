@@ -73,10 +73,10 @@
     {
       "id": 8,
       "location_name": "Jones Brothers Park",
-      "feature_name": "Jonestown",
+      "feature_name": "Lake Travis",
       "coordinates": [30.4906, -97.9170],
       "state": "Texas",
-      "city": "Austin",
+      "city": "Jonestown",
       "type": "lake",
       "fish_ids": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 13, 14, 15, 16, 18, 19, 21, 22, 28, 29, 30, 31, 32, 33, 34, 46]
     },
