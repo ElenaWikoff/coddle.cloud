@@ -6,7 +6,7 @@ import "./pagination.css";
 
 const CoddlePagination = ({ page, pages, onNext, onPrev, onFirst, onLast }) => {
    return (
-      <Pagination className="p-4">
+      <Pagination className="mt-4">
          <Pagination.First disabled={page === 1} onClick={onFirst} />
          <Pagination.Prev disabled={page === 1} onClick={onPrev} />
          <Pagination.Item active>{page}</Pagination.Item>
