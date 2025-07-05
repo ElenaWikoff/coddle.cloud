@@ -53,7 +53,7 @@ def fishIndex():
 @app.route('/api/fish/<int:id>')
 def specificFishIndex(id):
     specific_fish = db.session.query(Fish).get(id)
-    return specific_fish
+    return specific_fish.to_dict()
 
 @app.route('/api/lures')
 def luresIndex():
@@ -91,7 +91,7 @@ def luresIndex():
 @app.route('/api/lures/<int:id>')
 def specificLuresIndex(id):
     specific_lure = db.session.query(Lures).get(id)
-    return specific_lure
+    return specific_lure.to_dict()
 
 @app.route('/api/locations')
 def locationsIndex():
@@ -102,7 +102,7 @@ def locationsIndex():
 @app.route('/api/locations/<int:id>')
 def specificLocationIndex(id):
     specific_location = db.session.query(Locations).get(id)
-    return specific_location
+    return specific_location.to_dict()
 
 @app.route('/api/about')
 def aboutIndex():
