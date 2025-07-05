@@ -19,14 +19,36 @@ def ping():
 
 @app.route('/api/fish')
 def fishIndex():
+    fish_query = db.session.query(Fish)
+
     page = request.args.get('page', default=1, type=int)
     limit = request.args.get('limit', default=12, type=int)
+    fish_total = fish_query.count()
+    pages = (fish_total + limit - 1) // limit # Always round up
+    
+    next_page = page + 1 if page < pages else None
+    prev_page = page - 1 if page > 1 else None
 
     offset = (page - 1) * limit
 
-    fish = db.session.query(Fish).offset(offset).limit(limit).all()
+    fish = fish_query.offset(offset).limit(limit).all()
     fish_json = [f.to_dict() for f in fish]
-    return fish_json
+
+    fish_response = {
+        "pagination": {
+            "limit": limit,
+            "page": page,
+            "pages": pages,
+            "total": fish_total,
+            "first": "/fish-species?page=1" if pages > 0 else None,
+            "last": f"/fish-species?page={pages}" if pages > 0 else None,
+            "next": f"/fish-species?page={next_page}" if next_page else None,
+            "prev": f"/fish-species?page={prev_page}" if prev_page else None
+        },
+        "results": fish_json
+    }
+
+    return fish_response
 
 @app.route('/api/fish/<int:id>')
 def specificFishIndex(id):
@@ -35,14 +57,36 @@ def specificFishIndex(id):
 
 @app.route('/api/lures')
 def luresIndex():
+    lures_query = db.session.query(Lures)
+
     page = request.args.get('page', default=1, type=int)
     limit = request.args.get('limit', default=12, type=int)
+    lures_total = lures_query.count()
+    pages = (lures_total + limit - 1) // limit # Always round up
+    
+    next_page = page + 1 if page < pages else None
+    prev_page = page - 1 if page > 1 else None
 
     offset = (page - 1) * limit
 
     lures = db.session.query(Lures).offset(offset).limit(limit).all()
     lures_json = [lure.to_dict() for lure in lures]
-    return lures_json
+
+    lures_response = {
+        "pagination": {
+            "limit": limit,
+            "page": page,
+            "pages": pages,
+            "total": lures_total,
+            "first": "/fish-species?page=1" if pages > 0 else None,
+            "last": f"/fish-species?page={pages}" if pages > 0 else None,
+            "next": f"/fish-species?page={next_page}" if next_page else None,
+            "prev": f"/fish-species?page={prev_page}" if prev_page else None
+        },
+        "results": lures_json
+    }
+
+    return lures_response
 
 @app.route('/api/lures/<int:id>')
 def specificLuresIndex(id):
