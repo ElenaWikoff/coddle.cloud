@@ -14,13 +14,10 @@ import Fish from "./pages/Fish.jsx";
 import Lure from "./pages/Lure.jsx";
 import NotFound from "./pages/NotFound.jsx"
 import {
-   spotsLoader,
    spotLoader,
-   fishSpeciesLoader,
    fishLoader,
-   luresLoader,
    lureLoader,
-} from "./utils/actions/loaders.jsx";
+} from "./utils/actions/api.jsx";
 
 const router = createBrowserRouter([
    {
@@ -34,7 +31,6 @@ const router = createBrowserRouter([
          {
             path: "/spots",
             element: <Spots />,
-            loader: spotsLoader,
          },
          {
             path: "/spots/:id",
@@ -44,7 +40,6 @@ const router = createBrowserRouter([
          {
             path: "/fish-species",
             element: <FishSpecies />,
-            // loader: fishSpeciesLoader,
          },
          {
             path: "/fish-species/:id",
@@ -54,7 +49,6 @@ const router = createBrowserRouter([
          {
             path: "/lures",
             element: <Lures />,
-            loader: luresLoader,
          },
          {
             path: "/lures/:id",

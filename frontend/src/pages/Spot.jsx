@@ -5,7 +5,6 @@ import PageContainer from "../components/PageContainer";
 import { BsArrowLeft } from "react-icons/bs";
 import { capitalizeEachWord } from "../utils/functions.jsx";
 import { useEffect, useState } from "react";
-import { fishSpeciesLoader } from "../utils/actions/loaders.jsx";
 
 const Spot = () => {
    const navigate = useNavigate();
@@ -13,17 +12,17 @@ const Spot = () => {
    const data = useLoaderData();
    const [fishData, setFishData] = useState();
 
-   useEffect(() => {
-      if (data && data.fish_species) {
-         fishSpeciesLoader(params).then((species) => {
-            setFishData(
-               species.results.filter((fish) =>
-                  data.fish_species.includes(fish.id)
-               )
-            );
-         });
-      }
-   }, [data]);
+   // useEffect(() => {
+   //    if (data && data.fish_species) {
+   //       fishSpeciesLoader(params).then((species) => {
+   //          setFishData(
+   //             species.results.filter((fish) =>
+   //                data.fish_species.includes(fish.id)
+   //             )
+   //          );
+   //       });
+   //    }
+   // }, [data]);
 
    return (
       <PageContainer>
@@ -49,7 +48,7 @@ const Spot = () => {
                   </h3>
                )}
 
-               <ListGroup>
+               {/* <ListGroup>
                   <ListGroup.Item>
                      Type: {capitalizeEachWord(data.type)}
                   </ListGroup.Item>
@@ -71,7 +70,7 @@ const Spot = () => {
                            );
                         })}
                   </ListGroup.Item>
-               </ListGroup>
+               </ListGroup> */}
             </Container>
          )}
       </PageContainer>

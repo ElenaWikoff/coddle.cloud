@@ -7,7 +7,7 @@ import HeroMap from "../components/herobanner/HeroMap.jsx";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import FishCard from "../components/card/FishCard.jsx";
-import { fishLoader } from "../utils/actions/loaders.jsx";
+import { fishLoader } from "../utils/actions/api.jsx";
 
 const responsive = {
    superLargeDesktop: {
