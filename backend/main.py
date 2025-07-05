@@ -78,10 +78,10 @@ def luresIndex():
             "page": page,
             "pages": pages,
             "total": lures_total,
-            "first": "/fish-species?page=1" if pages > 0 else None,
-            "last": f"/fish-species?page={pages}" if pages > 0 else None,
-            "next": f"/fish-species?page={next_page}" if next_page else None,
-            "prev": f"/fish-species?page={prev_page}" if prev_page else None
+            "first": "/lures?page=1" if pages > 0 else None,
+            "last": f"/lures?page={pages}" if pages > 0 else None,
+            "next": f"/lures?page={next_page}" if next_page else None,
+            "prev": f"/lures?page={prev_page}" if prev_page else None
         },
         "results": lures_json
     }
