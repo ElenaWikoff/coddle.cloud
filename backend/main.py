@@ -1,4 +1,4 @@
-from flask import render_template, jsonify, redirect
+from flask import render_template, jsonify, redirect, request
 from models import app, db, Fish, Lures, Locations  # Import app, database, and models from models.py
 import gitlab
 
@@ -19,21 +19,46 @@ def ping():
 
 @app.route('/api/fish')
 def fishIndex():
-    fish = db.session.query(Fish).all()
+    page = request.args.get('page', default=1, type=int)
+    limit = request.args.get('limit', default=12, type=int)
+
+    offset = (page - 1) * limit
+
+    fish = db.session.query(Fish).offset(offset).limit(limit).all()
     fish_json = [f.to_dict() for f in fish]
     return fish_json
 
+@app.route('/api/fish/<int:id>')
+def specificFishIndex(id):
+    specific_fish = db.session.query(Fish).get(id)
+    return specific_fish
+
 @app.route('/api/lures')
 def luresIndex():
-    lures = db.session.query(Lures).all()
+    page = request.args.get('page', default=1, type=int)
+    limit = request.args.get('limit', default=12, type=int)
+
+    offset = (page - 1) * limit
+
+    lures = db.session.query(Lures).offset(offset).limit(limit).all()
     lures_json = [lure.to_dict() for lure in lures]
     return lures_json
+
+@app.route('/api/lures/<int:id>')
+def specificLuresIndex(id):
+    specific_lure = db.session.query(Lures).get(id)
+    return specific_lure
 
 @app.route('/api/locations')
 def locationsIndex():
     locations = db.session.query(Locations).all()
     locations_json = [location.to_dict() for location in locations]
     return locations_json
+
+@app.route('/api/locations/<int:id>')
+def specificLocationIndex(id):
+    specific_location = db.session.query(Locations).get(id)
+    return specific_location
 
 @app.route('/api/about')
 def aboutIndex():
