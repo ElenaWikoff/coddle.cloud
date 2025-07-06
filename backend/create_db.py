@@ -3,6 +3,7 @@
 #-----------
 import json
 from backend.models import app, db, Fish, Lures, Locations
+import os
 
 # ------------------------------------------------------------------
 # Loads and parses a JSON file; returns parsed data
@@ -10,7 +11,9 @@ from backend.models import app, db, Fish, Lures, Locations
 # ------------------------------------------------------------------
 def load_json(filename, fallback):
     try:
-        with open(filename) as file:
+        base_path = os.path.dirname(__file__)
+        full_path = os.path.join(base_path, filename)
+        with open(full_path) as file:
             return json.load(file)
     except (FileNotFoundError, json.JSONDecodeError) as e:
         print(f"Error loading JSON: {e}")
