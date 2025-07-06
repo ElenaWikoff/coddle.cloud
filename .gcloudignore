@@ -13,7 +13,9 @@
 .git
 .gitignore
 
-# Python pycache:
-__pycache__/
 # Ignored by the build system
 /setup.cfg
+# Ignore src and node_modules as they are not for production
+frontend/node_modules/
+frontend/src/
+frontend/public/
