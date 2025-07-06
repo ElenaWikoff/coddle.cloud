@@ -1,5 +1,5 @@
 from flask import render_template, jsonify, redirect, request
-from models import app, db, Fish, Lures, Locations  # Import app, database, and models from models.py
+from backend.models import app, db, Fish, Lures, Locations  # Import app, database, and models from models.py
 import gitlab
 
 PROJECT_ID = 71006060

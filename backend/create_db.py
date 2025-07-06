@@ -2,7 +2,7 @@
 # imports
 #-----------
 import json
-from models import app, db, Fish, Lures, Locations
+from backend.models import app, db, Fish, Lures, Locations
 
 # ------------------------------------------------------------------
 # Loads and parses a JSON file; returns parsed data
