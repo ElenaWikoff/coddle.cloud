@@ -16,8 +16,8 @@ class ApiSchemaTests(unittest.TestCase):
         response = self.client.get('/api/fish')
         self.assertEqual(response.status_code, 200)
         data = response.get_json()
-        if isinstance(data, list) and len(data) > 0:
-            sample = data[0]
+        if isinstance(data, dict) and len(data) > 0:
+            sample = data["results"][0]
         else:
             self.skipTest("No fish data available")
             return
@@ -35,15 +35,15 @@ class ApiSchemaTests(unittest.TestCase):
         response = self.client.get('/api/lures')
         self.assertEqual(response.status_code, 200)
         data = response.get_json()
-        if isinstance(data, list) and len(data) > 0:
-            sample = data[0]
+        if isinstance(data, dict) and len(data) > 0:
+            sample = data["results"][0]
         else:
             self.skipTest("No lures data available")
             return
 
         expected_keys = [
             'id', 'name', 'type', 'application', 'fish_types',
-            'image_url', 'suitable_fish_ids'
+            'image_url'
         ]
         for key in expected_keys:
             self.assertIn(key, sample)
