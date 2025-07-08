@@ -11,6 +11,10 @@
     position: relative;
 }
 
+.map-hero-banner {
+    height: calc(100dvh - 300px);
+}
+
 .hero-banner h2,
 .hero-banner h3 {
     color: white;

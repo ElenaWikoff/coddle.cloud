@@ -66,7 +66,7 @@ const Search = ({ type }) => {
 
    return (
       <PageContainer>
-         <Container fluid className="p-5">
+         <Container className="p-5">
             <h1>{getTitle()}</h1>
             <ResultsContainer
                data={data}

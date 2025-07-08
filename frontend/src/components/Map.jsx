@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
    MapContainer,
    TileLayer,
@@ -9,6 +9,16 @@ import {
 } from "react-leaflet";
 import { LatLngBounds } from "leaflet";
 import { capitalizeEachWord } from "../utils/functions";
+import Form from "react-bootstrap/Form";
+
+const POSITION_CLASSES = {
+   bottomleft: "leaflet-bottom leaflet-left",
+   bottomright: "leaflet-bottom leaflet-right",
+   topleft: "leaflet-top leaflet-left",
+   topright: "leaflet-top leaflet-right",
+};
+
+const BOUNDS_STYLE = { weight: 1 };
 
 function getCentroid(spots) {
    let sumX = 0;
@@ -46,7 +56,10 @@ const SpotMarkers = ({ spots, onSelect }) => {
                   <Marker
                      key={`spot-${index}`}
                      position={spot.coordinates}
-                     eventHandlers={{ click: () => onSelect(spot) }}
+                     eventHandlers={{
+                        click: () => onSelect(spot),
+                        touch: () => onSelect(spot),
+                     }}
                   >
                      <Popup>
                         {capitalizeEachWord(spot.feature_name)}
@@ -62,6 +75,38 @@ const SpotMarkers = ({ spots, onSelect }) => {
    );
 };
 
+const FilterControl = ({ position, onClick }) => {
+   const map = useMap();
+
+   const filter = useMemo(() => (
+      <div className="map-filter py-2 px-4 d-flex flex-column align-items-center">
+         <h5 className="fw-light">Filter</h5>
+         <Form>
+            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+               <Form.Label>Feature</Form.Label>
+               <Form.Check type="checkbox" label="River" />
+               <Form.Check type="checkbox" label="Lake" />
+               <Form.Check type="checkbox" label="Pond" />
+            </Form.Group>
+         </Form>
+         <small>Under Construction</small>
+      </div>
+   ));
+
+   const positionClass =
+      (position && POSITION_CLASSES[position]) || POSITION_CLASSES.topright;
+   return (
+      <div className={`${positionClass}`}>
+         <div
+            className="leaflet-control leaflet-bar"
+            style={{ backgroundColor: "white" }}
+         >
+            {filter}
+         </div>
+      </div>
+   );
+};
+
 const Map = ({ spots, onSelect }) => {
    const centroid = getCentroid(spots);
 
@@ -72,6 +117,7 @@ const Map = ({ spots, onSelect }) => {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
          />
          <SpotMarkers spots={spots} onSelect={onSelect} />
+         <FilterControl position="topright" />
       </MapContainer>
    );
 };

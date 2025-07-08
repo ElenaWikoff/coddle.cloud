@@ -8,7 +8,7 @@ const ResultsContainer = ({ data, type, loading, error }) => {
    const navigate = useNavigate();
 
    const handleNavigate = (url) => {
-      navigate(url);
+      navigate(url, { resetScroll: false });
    };
 
    return (

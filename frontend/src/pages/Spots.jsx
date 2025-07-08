@@ -1,43 +1,25 @@
 import { useEffect, useState } from "react";
-import { Link, useLoaderData, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import Container from "react-bootstrap/esm/Container";
 import PageContainer from "../components/PageContainer";
-import { capitalizeEachWord } from "../utils/functions.jsx";
 import HeroMap from "../components/herobanner/HeroMap.jsx";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import FishCard from "../components/card/FishCard.jsx";
-import { fishLoader } from "../utils/actions/api.jsx";
-
-const responsive = {
-   superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 1024 },
-      items: 5,
-   },
-   desktop: {
-      breakpoint: { max: 1024, min: 768 },
-      items: 3,
-   },
-   tablet: {
-      breakpoint: { max: 768, min: 464 },
-      items: 2,
-   },
-   mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-   },
-};
+import FishCarousel from "../components/carousel/fishcarousel.jsx";
 
 const Spots = () => {
+   const navigate = useNavigate();
    const params = useParams();
    const [loading, setLoading] = useState(true);
    const [data, setData] = useState(null);
    const [error, setError] = useState(null);
    const [fishSpecies, setFishSpecies] = useState(null);
    const [carousel, setCarousel] = useState(null);
+   const [carouselLoading, setCarouselLoading] = useState(false);
 
    const handleSelectSpot = (spot) => {
+      navigate(`/spots/${spot.id}`);
       setFishSpecies(spot.fish_ids);
    };
 
@@ -58,16 +40,19 @@ const Spots = () => {
 
    useEffect(() => {
       if (fishSpecies) {
-         fetch(`/api/fish`)
+         setCarouselLoading(true);
+         fetch(`/api/fish?page=1&limit=100`)
             .then((res) => res.json())
             .then((data) => {
-               const f = data.filter(({ id }) => fishSpecies.includes(id));
-               console.log(f);
+               const f = data.results.filter(({ id }) =>
+                  fishSpecies.includes(id)
+               );
+               setCarouselLoading(false);
                setCarousel(f);
             })
             .catch((error) => {
+               setCarouselLoading(false);
                setError(`Fetching location fish info failed: ${error}`);
-               setLoading(false);
                console.error(`Fetching location fish info failed: ${error}`);
             });
       }
@@ -75,17 +60,10 @@ const Spots = () => {
 
    return (
       <PageContainer>
-         {(!loading && data) && <HeroMap spots={data} onSelect={handleSelectSpot} />}
-         <Container fluid>
-            {carousel && (
-               <Carousel responsive={responsive}>
-                  {carousel &&
-                     carousel.map((fish) => {
-                        return <FishCard fish={fish} inCarousel={true} />;
-                     })}
-               </Carousel>
-            )}
-         </Container>
+         {!loading && data && (
+            <HeroMap spots={data} onSelect={handleSelectSpot} />
+         )}
+         <FishCarousel items={carousel} loading={carouselLoading} />
       </PageContainer>
    );
 };

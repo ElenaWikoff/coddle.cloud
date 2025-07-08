@@ -33,8 +33,7 @@ const router = createBrowserRouter([
          },
          {
             path: "/spots/:id",
-            element: <Spot />,
-            loader: spotLoader,
+            element: <Spots />
          },
          {
             path: "/fish-species",
