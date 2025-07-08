@@ -5,7 +5,7 @@ import PageContainer from "../components/PageContainer";
 import { fetch_data } from "../utils/actions/api.jsx";
 import ResultsContainer from "../components/search/ResultsContainer.jsx";
 
-const Search = ({type}) => {
+const Search = ({ type }) => {
    const [searchParams, setSearchParams] = useSearchParams();
    const [loading, setLoading] = useState(true);
    const [data, setData] = useState(null);
@@ -31,20 +31,21 @@ const Search = ({type}) => {
       } else if (type) {
          fetch_data(type, searchParams)
             .then((data) => {
-               setData(data);
                setLoading(false);
+               setData(data);
             })
             .catch((error) => {
+               setLoading(false);
                setError(error);
             });
       }
 
       // This cleanup when unmounts
       return () => {
-        setLoading(true);
-        setData(null);
-        setError(null);
-    };
+         setLoading(true);
+         setData(null);
+         setError(null);
+      };
    }, [searchParams, setSearchParams]);
 
    const handleChange = (key, value) => {

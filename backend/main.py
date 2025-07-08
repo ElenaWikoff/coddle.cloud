@@ -64,30 +64,31 @@ def luresIndex():
     limit = request.args.get('limit', default=12, type=int)
     lures_total = lures_query.count()
     pages = (lures_total + limit - 1) // limit # Always round up
-    
-    next_page = page + 1 if page < pages else None
-    prev_page = page - 1 if page > 1 else None
 
-    offset = (page - 1) * limit
+    if (page <= pages):
+        next_page = page + 1 if page < pages else None
+        prev_page = page - 1 if page > 1 else None
 
-    lures = db.session.query(Lures).offset(offset).limit(limit).all()
-    lures_json = [lure.to_dict() for lure in lures]
+        offset = (page - 1) * limit
 
-    lures_response = {
-        "pagination": {
-            "limit": limit,
-            "page": page,
-            "pages": pages,
-            "total": lures_total,
-            "first": f"/lures?page=1" if page != 1 else None,
-            "last": f"/lures?page={pages}" if page != pages else None,
-            "next": f"/lures?page={next_page}" if next_page else None,
-            "prev": f"/lures?page={prev_page}" if prev_page else None
-        },
-        "results": lures_json
-    }
+        lures = db.session.query(Lures).offset(offset).limit(limit).all()
+        lures_json = [lure.to_dict() for lure in lures]
 
-    return lures_response
+        lures_response = {
+            "pagination": {
+                "limit": limit,
+                "page": page,
+                "pages": pages,
+                "total": lures_total,
+                "first": f"/lures?page=1" if page != 1 else None,
+                "last": f"/lures?page={pages}" if page != pages else None,
+                "next": f"/lures?page={next_page}" if next_page else None,
+                "prev": f"/lures?page={prev_page}" if prev_page else None
+            },
+            "results": lures_json
+        }
+
+        return lures_response
 
 @app.route('/api/lures/<int:id>')
 def specificLuresIndex(id):

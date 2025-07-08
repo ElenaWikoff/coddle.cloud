@@ -8,9 +8,6 @@ export async function fetch_instance(route, id=null) {
     .then((res) => res.json())
     .then((data) => {
         result = data;
-    })
-    .catch((error) => {
-        console.error(`Failed to fetch from ${url}: ${error}`);
     });
     return result;
 }
@@ -23,9 +20,6 @@ export async function fetch_data(route, searchParams) {
     .then((res) => res.json())
     .then((data) => {
         result = data;
-    })
-    .catch((error) => {
-        console.error(`Failed to fetch from ${url}: ${error}`);
     });
     return result;
 }
