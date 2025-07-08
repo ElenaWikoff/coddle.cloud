@@ -7,8 +7,7 @@ import RootLayout from "./RootLayout";
 import Splash from "./pages/Splash.jsx";
 import About from "./pages/About.jsx";
 import Spots from "./pages/Spots.jsx";
-import FishSpecies from "./pages/FishSpecies.jsx";
-import Lures from "./pages/Lures.jsx";
+import Search from "./pages/Search.jsx";
 import Spot from "./pages/Spot.jsx";
 import Fish from "./pages/Fish.jsx";
 import Lure from "./pages/Lure.jsx";
@@ -39,7 +38,7 @@ const router = createBrowserRouter([
          },
          {
             path: "/fish-species",
-            element: <FishSpecies />,
+            element: <Search key="fish" type="fish" />,
          },
          {
             path: "/fish-species/:id",
@@ -48,7 +47,7 @@ const router = createBrowserRouter([
          },
          {
             path: "/lures",
-            element: <Lures />,
+            element: <Search key="lures" type="lures" />,
          },
          {
             path: "/lures/:id",

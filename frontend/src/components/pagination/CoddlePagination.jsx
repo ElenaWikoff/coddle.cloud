@@ -4,14 +4,14 @@ import { capitalizeEachWord } from "../../utils/functions.jsx";
 import Pagination from "react-bootstrap/Pagination";
 import "./pagination.css";
 
-const CoddlePagination = ({ page, pages, onNext, onPrev, onFirst, onLast }) => {
+const CoddlePagination = ({ page, pages, onNext, onPrev, onFirst, onLast, onClick }) => {
    return (
       <Pagination className="mt-4">
-         <Pagination.First disabled={page === 1} onClick={onFirst} />
-         <Pagination.Prev disabled={page === 1} onClick={onPrev} />
+         <Pagination.First disabled={!onFirst} onClick={() => onClick(onFirst)} />
+         <Pagination.Prev disabled={!onPrev} onClick={() => onClick(onPrev)} />
          <Pagination.Item active>{page}</Pagination.Item>
-         <Pagination.Next disabled={page === pages} onClick={onNext} />
-         <Pagination.Last disabled={page === pages} onClick={onLast} />
+         <Pagination.Next disabled={!onNext} onClick={() => onClick(onNext)} />
+         <Pagination.Last disabled={!onLast} onClick={() => onClick(onLast)} />
       </Pagination>
    );
 };

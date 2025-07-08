@@ -1,3 +1,4 @@
+// Deprecated by Search.jsx
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router";
 import ListGroup from "react-bootstrap/ListGroup";

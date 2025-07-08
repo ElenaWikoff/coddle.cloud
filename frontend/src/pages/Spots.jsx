@@ -38,7 +38,6 @@ const Spots = () => {
    const [carousel, setCarousel] = useState(null);
 
    const handleSelectSpot = (spot) => {
-      console.log(spot);
       setFishSpecies(spot.fish_ids);
    };
 
@@ -47,7 +46,6 @@ const Spots = () => {
       fetch(`/api/locations`)
          .then((res) => res.json())
          .then((data) => {
-            console.log(data);
             setData(data);
             setLoading(false);
          })

@@ -1,6 +1,6 @@
 .hero-banner {
     color: white;
-    background-color: var(--brand-secondary);
+    /* background-color: var(--brand-secondary); */
     display: flex;
     flex-direction: column;
     justify-content: center;

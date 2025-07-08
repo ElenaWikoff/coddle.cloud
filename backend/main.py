@@ -1,5 +1,5 @@
 from flask import render_template, jsonify, redirect, request
-from backend.models import app, db, Fish, Lures, Locations  # Import app, database, and models from models.py
+from models import app, db, Fish, Lures, Locations  # Import app, database, and models from models.py
 import gitlab
 
 PROJECT_ID = 71006060
@@ -25,30 +25,31 @@ def fishIndex():
     limit = request.args.get('limit', default=12, type=int)
     fish_total = fish_query.count()
     pages = (fish_total + limit - 1) // limit # Always round up
-    
-    next_page = page + 1 if page < pages else None
-    prev_page = page - 1 if page > 1 else None
 
-    offset = (page - 1) * limit
+    if (page <= pages):
+        next_page = page + 1 if page < pages else None
+        prev_page = page - 1 if page > 1 else None
 
-    fish = fish_query.offset(offset).limit(limit).all()
-    fish_json = [f.to_dict() for f in fish]
+        offset = (page - 1) * limit
 
-    fish_response = {
-        "pagination": {
-            "limit": limit,
-            "page": page,
-            "pages": pages,
-            "total": fish_total,
-            "first": "/fish-species?page=1" if pages > 0 else None,
-            "last": f"/fish-species?page={pages}" if pages > 0 else None,
-            "next": f"/fish-species?page={next_page}" if next_page else None,
-            "prev": f"/fish-species?page={prev_page}" if prev_page else None
-        },
-        "results": fish_json
-    }
+        fish = fish_query.offset(offset).limit(limit).all()
+        fish_json = [f.to_dict() for f in fish]
 
-    return fish_response
+        fish_response = {
+            "pagination": {
+                "limit": limit,
+                "page": page,
+                "pages": pages,
+                "total": fish_total,
+                "first": "/fish-species?page=1" if page != 1 else None,
+                "last": f"/fish-species?page={pages}" if page != pages else None,
+                "next": f"/fish-species?page={next_page}" if next_page else None,
+                "prev": f"/fish-species?page={prev_page}" if prev_page else None
+            },
+            "results": fish_json
+        }
+
+        return fish_response
 
 @app.route('/api/fish/<int:id>')
 def specificFishIndex(id):
@@ -78,8 +79,8 @@ def luresIndex():
             "page": page,
             "pages": pages,
             "total": lures_total,
-            "first": "/lures?page=1" if pages > 0 else None,
-            "last": f"/lures?page={pages}" if pages > 0 else None,
+            "first": f"/lures?page=1" if page != 1 else None,
+            "last": f"/lures?page={pages}" if page != pages else None,
             "next": f"/lures?page={next_page}" if next_page else None,
             "prev": f"/lures?page={prev_page}" if prev_page else None
         },
