@@ -1,0 +1,328 @@
+{
+	"info": {
+		"_postman_id": "cd8fb56a-be99-4df0-8ffe-71b9ff9b8254",
+		"name": "Locations",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "46076704-cd8fb56a-be99-4df0-8ffe-71b9ff9b8254"
+	},
+	"item": [
+		{
+			"name": "locations",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "0f4f0fb9-c46b-47ab-bd0c-d351272b240d",
+						"exec": [
+							"// Filter",
+							"const types = [\"lake\", \"river\", \"creek\", \"reservoir\"];",
+							"const cities = [\"Austin\", \"Cedar Park\", \"Round Rock\", \"Pflugerville\"];",
+							"const states = [\"Texas\", \"Oklahoma\", \"Louisiana\"];",
+							"",
+							"// Testing",
+							"const selectedType = types[Math.floor(Math.random() * types.length)];",
+							"const selectedCity = cities[Math.floor(Math.random() * cities.length)];",
+							"const selectedState = states[Math.floor(Math.random() * states.length)];",
+							"",
+							"// Postman variables",
+							"pm.variables.set(\"location_type\", selectedType);",
+							"pm.variables.set(\"location_city\", selectedCity);",
+							"pm.variables.set(\"location_state\", selectedState);",
+							"",
+							"// Log",
+							"console.log(\"Selected type:\", selectedType);",
+							"console.log(\"Selected city:\", selectedCity);",
+							"console.log(\"Selected state:\", selectedState);",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "1bc95c44-4f29-4c8b-a50e-b3868a02a752",
+						"exec": [
+							"// Check status code",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"// Check response time",
+							"pm.test(\"Response time is under 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"// Check non-empty array",
+							"pm.test(\"Response is a non-empty array\", function () {",
+							"    const data = pm.response.json();",
+							"    pm.expect(data).to.be.an(\"array\").that.is.not.empty;",
+							"});",
+							"",
+							"// Check data structure",
+							"pm.test(\"Each location object has required fields\", function () {",
+							"    const data = pm.response.json();",
+							"",
+							"    pm.expect(data).to.be.an(\"array\").that.is.not.empty;",
+							"",
+							"    data.forEach(loc => {",
+							"        pm.expect(loc).to.be.an(\"object\");",
+							"        pm.expect(loc).to.have.all.keys(",
+							"            \"id\",",
+							"            \"location_name\",",
+							"            \"feature_name\",",
+							"            \"coordinates\",",
+							"            \"state\",",
+							"            \"city\",",
+							"            \"type\",",
+							"            \"fish_ids\"",
+							"        );",
+							"",
+							"        pm.expect(loc.id).to.be.a(\"number\");",
+							"        pm.expect(loc.location_name).to.be.a(\"string\").and.not.empty;",
+							"        pm.expect(loc.feature_name).to.be.a(\"string\").and.not.empty;",
+							"        pm.expect(loc.coordinates).to.be.an(\"array\").with.lengthOf(2);",
+							"        pm.expect(loc.coordinates[0]).to.be.a(\"number\");",
+							"        pm.expect(loc.coordinates[1]).to.be.a(\"number\");",
+							"        pm.expect(loc.state).to.be.a(\"string\").and.not.empty;",
+							"        pm.expect(loc.city).to.be.a(\"string\").and.not.empty;",
+							"        pm.expect(loc.type).to.be.a(\"string\").and.not.empty;",
+							"        pm.expect(loc.fish_ids).to.be.an(\"array\");",
+							"    });",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "b6d368f6-875c-4337-b17f-5fd34205c8c4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/locations",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"locations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "locations",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "29421b15-f449-4955-a853-169853ccb2e0",
+						"exec": [
+							"const timestamp = Date.now();",
+							"const types = ['river', 'lake', 'creek'];",
+							"const names = ['colorado river', 'mueller lake', 'walter e. long', 'south brushy creek', 'lady bird lake'];",
+							"const cities = ['austin', 'round rock', 'cedar park', 'georgetown'];",
+							"const zipCodes = ['78703-3609', '78741-1102', '78723-5398', '78724-6381', '78613-4102'];",
+							"",
+							"function randomPick(arr) {",
+							"    return arr[Math.floor(Math.random() * arr.length)];",
+							"}",
+							"",
+							"// Generate values",
+							"const type = randomPick(types);",
+							"const city = randomPick(cities);",
+							"const zip = randomPick(zipCodes);",
+							"const name = `${randomPick(names)} (${city})`;",
+							"const isoTimestamp = new Date().toISOString();",
+							"",
+							"// Set as environment variables",
+							"pm.environment.set(\"location_name\", name);",
+							"pm.environment.set(\"location_type\", type);",
+							"pm.environment.set(\"location_city\", city);",
+							"pm.environment.set(\"location_zip\", zip);",
+							"pm.environment.set(\"last_updated\", isoTimestamp);",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "9f67f85c-0301-4a7d-9123-f9ec5429e526",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/locations",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"locations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "locations",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5df58fdd-1b5c-41f2-a766-9347507e4964",
+						"exec": [
+							"const locationId = 3;",
+							"pm.environment.set(\"location_id\", locationId);",
+							"",
+							"const timestamp = Date.now();",
+							"const types = ['river', 'lake', 'creek'];",
+							"const names = ['Colorado River', 'Mueller Lake', 'South Brushy Creek', 'Walter E. Long', 'Lake Travis'];",
+							"const cities = ['austin', 'round rock', 'georgetown', 'cedar park'];",
+							"const zipCodes = ['78703-3609', '78741-1102', '78723-5398', '78724-6381', '78613-4102'];",
+							"",
+							"function randomPick(arr) {",
+							"  return arr[Math.floor(Math.random() * arr.length)];",
+							"}",
+							"",
+							"pm.environment.set(\"location_name\", `Updated ${randomPick(names)}`);",
+							"pm.environment.set(\"location_type\", randomPick(types));",
+							"pm.environment.set(\"location_city\", randomPick(cities));",
+							"pm.environment.set(\"location_zip\", randomPick(zipCodes));",
+							"pm.environment.set(\"last_updated\", new Date().toISOString());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "28783bfe-d7cd-48bf-9f2b-d4d5193dd24b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/locations/&lt;id>",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"locations",
+						"&lt;id>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "locations",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "245d8dc9-b98b-4a96-a479-8d3f27a26a2e",
+						"exec": [
+							"// List of known location IDs",
+							"const existingLocationIds = [1, 2, 3, 4, 5];",
+							"",
+							"const randomLocationId = existingLocationIds[Math.floor(Math.random() * existingLocationIds.length)];",
+							"",
+							"pm.environment.set(\"location_id\", randomLocationId);",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "d419a6b3-277a-4049-b6ae-dbf440edf8b6",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/locations/&lt;id>",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"locations",
+						"&lt;id>"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "e67d6022-703b-4d13-a6b8-f9f7dfd85a2b"
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "129038d2-4f41-488e-8c2f-a4c3da12a1cb"
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "43f85c7c-8c4f-4543-9b6f-208aa5d537e8",
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"id": "9c9ff9dc-2dd1-4fa8-886a-b723f986400a",
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+}

@@ -1,0 +1,422 @@
+{
+	"info": {
+		"_postman_id": "d1462371-de45-4404-ae82-750ca92a751f",
+		"name": "Fish",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "46076704-d1462371-de45-4404-ae82-750ca92a751f"
+	},
+	"item": [
+		{
+			"name": "fish",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "d0422695-7e9d-443d-acec-7867dc30a55f",
+						"exec": [
+							"// Filters",
+							"const types = [\"bass\", \"trout\", \"catfish\", \"salmon\"];",
+							"const environments = [\"freshwater\", \"saltwater\", \"brackish\"];",
+							"",
+							"// Testing",
+							"const selectedType = types[Math.floor(Math.random() * types.length)];",
+							"const selectedEnv = environments[Math.floor(Math.random() * environments.length)];",
+							"const minLength = Math.floor(Math.random() * 100); // e.g. 0 to 100 inches",
+							"",
+							"// Postman variables",
+							"pm.variables.set(\"fish_type\", selectedType);",
+							"pm.variables.set(\"fish_environment\", selectedEnv);",
+							"pm.variables.set(\"fish_min_length\", minLength);",
+							"",
+							"// Log",
+							"console.log(\"Requesting fish of type:\", selectedType);",
+							"console.log(\"In environment:\", selectedEnv);",
+							"console.log(\"With minimum length:\", minLength);",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "7515aaa1-02cb-4524-afe2-65845b0e6245",
+						"exec": [
+							"// Check status code",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"// Check response time",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"// Check fish data structure",
+							"pm.test(\"Fish array exists and is valid\", function () {",
+							"    const data = pm.response.json();",
+							"",
+							"    pm.expect(data.Fish).to.be.an(\"array\").that.is.not.empty;",
+							"",
+							"    data.Fish.forEach(fish => {",
+							"        pm.expect(fish).to.have.all.keys(",
+							"            \"id\",",
+							"            \"common_name\",",
+							"            \"scientific_name\",",
+							"            \"type\",",
+							"            \"environment\",",
+							"            \"distribution\",",
+							"            \"length\",",
+							"            \"weight\",",
+							"            \"depth_min\",",
+							"            \"depth_max\",",
+							"            \"temp_min\",",
+							"            \"temp_max\",",
+							"            \"image_attribution\",",
+							"            \"ref\"",
+							"        );",
+							"",
+							"        pm.expect(fish.id).to.be.a(\"number\");",
+							"        pm.expect(fish.common_name).to.be.a(\"string\").and.not.empty;",
+							"        pm.expect(fish.scientific_name).to.be.a(\"string\").and.not.empty;",
+							"        pm.expect(fish.type).to.be.a(\"string\");",
+							"        pm.expect(fish.environment).to.be.a(\"string\");",
+							"        pm.expect(fish.distribution).to.be.a(\"string\");",
+							"",
+							"        pm.expect(fish.length).to.be.a(\"number\").and.to.be.above(0);",
+							"        pm.expect(fish.weight).to.be.a(\"number\").and.to.be.above(0);",
+							"",
+							"        pm.expect(fish.depth_min).to.be.a(\"number\");",
+							"        pm.expect(fish.depth_max).to.be.a(\"number\");",
+							"        pm.expect(fish.temp_min).to.be.a(\"number\");",
+							"        pm.expect(fish.temp_max).to.be.a(\"number\");",
+							"",
+							"        pm.expect(fish.image_attribution).to.be.a(\"string\");",
+							"        pm.expect(fish.ref).to.be.a(\"string\").and.not.empty;",
+							"    });",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "d8beb5ec-6cb1-4c30-adee-79d6a0f69d34",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/fish",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fish"
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": []
+		},
+		{
+			"name": "fish",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5d3c2a6a-9111-464f-ab00-1a632e22d803",
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "b3716728-3315-491a-ba33-a11178eb47f7",
+						"exec": [
+							"const timestamp = Date.now();",
+							"const scientificName = `species_${timestamp}`;",
+							"",
+							"const types = ['bass', 'catfish', 'salmon', 'gar', 'sunfish'];",
+							"const environments = ['freshwater', 'marine'];",
+							"const distributions = ['north america', 'north pacific'];",
+							"const commonNames = ['largemouth bass', 'channel catfish', 'sockeye salmon', 'alligator gar', 'bluegill'];",
+							"",
+							"function getRandom(arr) {",
+							"    return arr[Math.floor(Math.random() * arr.length)];",
+							"}",
+							"",
+							"pm.environment.set(\"scientific_name\", scientificName);",
+							"pm.environment.set(\"type\", getRandom(types));",
+							"pm.environment.set(\"environment\", getRandom(environments));",
+							"pm.environment.set(\"distribution\", getRandom(distributions));",
+							"pm.environment.set(\"common_name\", getRandom(commonNames));",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "c7399aa6-f542-460d-bc37-1f3471d57b28",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/fish",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fish"
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "fish",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bd90e7ad-0e32-4988-a9f5-040b650c1e02",
+						"exec": [
+							"pm.test(\"Successful PUT request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "31dc4f87-7ccc-4ffd-a89c-87cd26ccf0ea",
+						"exec": [
+							"const fishId = 1;",
+							"pm.environment.set(\"fish_id\", fishId);",
+							"",
+							"const timestamp = Date.now();",
+							"const types = ['bass', 'catfish', 'salmon', 'gar', 'sunfish'];",
+							"const environments = ['freshwater', 'marine'];",
+							"const distributions = ['north america', 'north pacific'];",
+							"const commonNames = ['largemouth bass', 'channel catfish', 'sockeye salmon', 'alligator gar', 'bluegill'];",
+							"",
+							"function randomPick(arr) {",
+							"    return arr[Math.floor(Math.random() * arr.length)];",
+							"}",
+							"",
+							"pm.environment.set(\"scientific_name\", `updated_species_${timestamp}`);",
+							"pm.environment.set(\"type\", randomPick(types));",
+							"pm.environment.set(\"environment\", randomPick(environments));",
+							"pm.environment.set(\"distribution\", randomPick(distributions));",
+							"pm.environment.set(\"common_name\", randomPick(commonNames));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "5d5562a4-e49f-4df2-8a0e-66c90bb80073",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/fish/&lt;id>",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fish",
+						"&lt;id>"
+					]
+				},
+				"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "fish",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "54cfc850-7f7e-4fda-a231-399e2eccf72c",
+						"exec": [
+							"pm.test(\"Successful DELETE request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "83600cac-7a46-4b95-9ed6-c968dd174192",
+						"exec": [
+							"// Define fish IDs",
+							"const existingFishIds = [1, 2, 3, 4, 5];",
+							"",
+							"// Randomly pick",
+							"const randomFishId = existingFishIds[Math.floor(Math.random() * existingFishIds.length)];",
+							"",
+							"pm.environment.set(\"fish_id\", randomFishId);",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "3138d2ef-04df-4e09-914a-2df2269c551b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/fish/&lt;id>",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fish",
+						"&lt;id>"
+					]
+				},
+				"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "e5c69ce6-4e39-464c-8b3c-222de7185756"
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "8c5c9bff-1a8a-4586-b871-0a34608e0b4f"
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "43f85c7c-8c4f-4543-9b6f-208aa5d537e8",
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"id": "9c9ff9dc-2dd1-4fa8-886a-b723f986400a",
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+}

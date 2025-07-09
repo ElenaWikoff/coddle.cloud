@@ -1,0 +1,359 @@
+{
+	"info": {
+		"_postman_id": "c94781ba-84a8-4b97-ae87-ce69249495b2",
+		"name": "Lures",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "46076704-c94781ba-84a8-4b97-ae87-ce69249495b2"
+	},
+	"item": [
+		{
+			"name": "lures",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6f69dd2e-de3c-4e35-94f4-c294ed014baa",
+						"exec": [
+							"// Filter",
+							"const lureTypes = [",
+							"  \"crankbait/plug\", \"spinnerbait\", \"jig\", \"spoon\", \"soft plastic\", \"topwater\"",
+							"];",
+							"",
+							"const applications = [",
+							"  \"casting\", \"trolling\", \"jigging\", \"drifting\", \"bottom bouncing\"",
+							"];",
+							"",
+							"const fishTypes = [",
+							"  \"bass\", \"walleye\", \"trout\", \"salmon\", \"steelhead\", \"pike\", \"muskie\", \"crappie\"",
+							"];",
+							"",
+							"// Randomly value for testing",
+							"const selectedType = lureTypes[Math.floor(Math.random() * lureTypes.length)];",
+							"const selectedApp = applications[Math.floor(Math.random() * applications.length)];",
+							"const selectedFishType = fishTypes[Math.floor(Math.random() * fishTypes.length)];",
+							"",
+							"// Postman variables",
+							"pm.variables.set(\"lure_type\", selectedType);",
+							"pm.variables.set(\"lure_application\", selectedApp);",
+							"pm.variables.set(\"lure_fish_type\", selectedFishType);",
+							"",
+							"// Log",
+							"console.log(\"Selected lure type:\", selectedType);",
+							"console.log(\"Selected application:\", selectedApp);",
+							"console.log(\"Selected fish type:\", selectedFishType);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "682b9544-30f8-4773-98a4-2d546c3e94b0",
+						"exec": [
+							"// Check status",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"// Check response time",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"// Check response is an array",
+							"pm.test(\"Response is an array of lures\", function () {",
+							"    const data = pm.response.json();",
+							"    pm.expect(data).to.be.an(\"array\").that.is.not.empty;",
+							"});",
+							"",
+							"// Check basic structure",
+							"pm.test(\"Each lure has required fields and correct types\", function () {",
+							"    const data = pm.response.json();",
+							"",
+							"    pm.expect(data.Lures).to.be.an(\"array\").that.is.not.empty;",
+							"",
+							"    data.Lures.forEach(lure => {",
+							"        pm.expect(lure).to.be.an(\"object\");",
+							"        pm.expect(lure).to.have.all.keys(",
+							"            \"id\",",
+							"            \"name\",",
+							"            \"type\",",
+							"            \"application\",",
+							"            \"fish_types\",",
+							"            \"image_url\",",
+							"            \"suitable_fish_ids\"",
+							"        );",
+							"",
+							"        pm.expect(lure.id).to.be.a(\"number\");",
+							"        pm.expect(lure.name).to.be.a(\"string\").and.not.empty;",
+							"        pm.expect(lure.type).to.be.a(\"string\").and.not.empty;",
+							"",
+							"        pm.expect(lure.application).to.be.an(\"array\").that.is.not.empty;",
+							"        lure.application.forEach(app => {",
+							"            pm.expect(app).to.be.a(\"string\");",
+							"        });",
+							"",
+							"        pm.expect(lure.fish_types).to.be.an(\"array\").that.is.not.empty;",
+							"        lure.fish_types.forEach(fish => {",
+							"            pm.expect(fish).to.be.a(\"string\");",
+							"        });",
+							"",
+							"        pm.expect(lure.image_url).to.be.a(\"string\").and.to.include(\"http\");",
+							"",
+							"        pm.expect(lure.suitable_fish_ids).to.be.an(\"array\");",
+							"        lure.suitable_fish_ids.forEach(id => {",
+							"            pm.expect(id).to.be.a(\"number\");",
+							"        });",
+							"    });",
+							"",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "d989c0d4-58b6-403b-97bc-7751dd03d37c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/lures",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"lures"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lures",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "2267739b-d84e-485d-b4d9-9a99ea2a57b5",
+						"exec": [
+							"const timestamp = Date.now();",
+							"const lureName = `lure_${timestamp}`;",
+							"",
+							"const types = ['crankbait', 'jig', 'inline spinner', 'spoon', 'topwaters'];",
+							"const brands = ['berkley', 'mepps lures', 'cotton cordell', 'northland fishing tackle', 'river2sea'];",
+							"const applications = ['casting', 'trolling', 'ice fishing', 'vertical fishing'];",
+							"const fishTypes = ['bass', 'walleye', 'trout', 'salmon', 'steelhead', 'pike', 'muskie', 'crappie', 'perch', 'sunfish', 'stripers'];",
+							"",
+							"function pickRandomItems(array, min = 1, max = 3) {",
+							"    const count = Math.floor(Math.random() * (max - min + 1)) + min;",
+							"    return [...new Set(array.sort(() => 0.5 - Math.random()).slice(0, count))];",
+							"}",
+							"",
+							"// Generate random values",
+							"const selectedApplications = pickRandomItems(applications);",
+							"const selectedFishTypes = pickRandomItems(fishTypes);",
+							"",
+							"pm.environment.set(\"lure_name\", lureName);",
+							"pm.environment.set(\"lure_type\", types[Math.floor(Math.random() * types.length)]);",
+							"pm.environment.set(\"lure_brand\", brands[Math.floor(Math.random() * brands.length)]);",
+							"pm.environment.set(\"application\", `{${selectedApplications.join(', ')}}`);",
+							"pm.environment.set(\"fish_types\", `{${selectedFishTypes.join(', ')}}`);",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "eebdaedf-6678-4f38-837e-b77eae6ffa89",
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "5e4b7c1a-d785-40de-94ea-d93283642a3d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/lures",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"lures"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lures",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "b223d7e1-9369-451d-ab55-e4304aa39f5d",
+						"exec": [
+							"const lureId = 2;",
+							"pm.environment.set(\"lure_id\", lureId);",
+							"",
+							"const timestamp = Date.now();",
+							"const types = ['crankbait', 'jig', 'inline spinner', 'spoon', 'topwaters'];",
+							"const brands = ['berkley', 'mepps lures', 'cotton cordell', 'northland fishing tackle', 'river2sea'];",
+							"const applications = ['casting', 'trolling', 'ice fishing', 'vertical fishing'];",
+							"const fishTypes = ['bass', 'walleye', 'trout', 'salmon', 'steelhead', 'pike', 'muskie', 'crappie', 'perch', 'stripers'];",
+							"",
+							"function pickRandomItems(array, min = 1, max = 3) {",
+							"    const count = Math.floor(Math.random() * (max - min + 1)) + min;",
+							"    return [...new Set(array.sort(() => 0.5 - Math.random()).slice(0, count))];",
+							"}",
+							"",
+							"const selectedApplications = pickRandomItems(applications);",
+							"const selectedFishTypes = pickRandomItems(fishTypes);",
+							"",
+							"pm.environment.set(\"lure_name\", `updated_lure_${timestamp}`);",
+							"pm.environment.set(\"lure_type\", types[Math.floor(Math.random() * types.length)]);",
+							"pm.environment.set(\"lure_brand\", brands[Math.floor(Math.random() * brands.length)]);",
+							"pm.environment.set(\"application\", `{${selectedApplications.join(', ')}}`);",
+							"pm.environment.set(\"fish_types\", `{${selectedFishTypes.join(', ')}}`);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "2838931c-cbe1-4b7b-86b0-869d114bf8c1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/lures/&lt;id>",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"lures",
+						"&lt;id>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lures",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "7a898dea-892f-48a4-a916-2f6ba3fa3bbc",
+						"exec": [
+							"// List of existing lure IDs",
+							"const existingLureIds = [1, 2, 3, 4, 5];",
+							"",
+							"const randomLureId = existingLureIds[Math.floor(Math.random() * existingLureIds.length)];",
+							"",
+							"pm.environment.set(\"lure_id\", randomLureId);",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "d389c659-d630-4efc-aa45-461a3ff32377",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/lures/&lt;id>",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"lures",
+						"&lt;id>"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "a61a9953-5b36-4f2d-b4d5-883c1b31c1fb"
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "21c6499c-ae6f-4db0-9b71-b42136ec78c4"
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "43f85c7c-8c4f-4543-9b6f-208aa5d537e8",
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"id": "9c9ff9dc-2dd1-4fa8-886a-b723f986400a",
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+}
