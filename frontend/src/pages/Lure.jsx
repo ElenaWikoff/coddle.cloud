@@ -13,7 +13,7 @@ const Lure = () => {
    return (
       <PageContainer>
          {data && (
-            <Container className="m-4 g-4">
+            <Container className="p-5">
                <a className="cta" onClick={() => navigate(-1)}>
                   <BsArrowLeft /> Go Back
                </a>

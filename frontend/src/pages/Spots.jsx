@@ -3,10 +3,7 @@ import { useNavigate, useParams } from "react-router";
 import Container from "react-bootstrap/esm/Container";
 import PageContainer from "../components/PageContainer";
 import HeroMap from "../components/herobanner/HeroMap.jsx";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import FishCard from "../components/card/FishCard.jsx";
-import FishCarousel from "../components/carousel/fishcarousel.jsx";
+import CustomCarousel from "../components/carousel/CustomCarousel.jsx";
 
 const Spots = () => {
    const navigate = useNavigate();
@@ -63,7 +60,11 @@ const Spots = () => {
          {!loading && data && (
             <HeroMap spots={data} onSelect={handleSelectSpot} />
          )}
-         <FishCarousel items={carousel} loading={carouselLoading} />
+         <CustomCarousel
+            items={carousel}
+            type="fish"
+            loading={carouselLoading}
+         />
       </PageContainer>
    );
 };

@@ -42,8 +42,8 @@ a.card.in-carousel:hover * {
    flex-direction: column;
    justify-content: center;
    align-items: center;
+   margin: 0;
    padding: 16px;
-   margin: 0 auto;
 }
 
 .fish-grid .image-wrapper img {
@@ -60,11 +60,11 @@ a.card.in-carousel:hover * {
    overflow: hidden;
 }
 
-.lures-grid .image-wrapper img {
+/* .lures-grid .image-wrapper img {
    width: 100%;
    height: 100%;
    object-fit: contain;
-}
+} */
 
 .fish-carousel a.card.in-carousel img {
    transition: all 0.5s ease-in-out;
