@@ -13,7 +13,9 @@
             "steelhead",
             "pike",
             "muskie",
-            "crappie"
+            "crappie",
+            "gar",
+            "shad"
          ],
          "image_url": "https://6thsensefishing.com/cdn/shop/products/Q70-4KBluegill.jpg",
          "suitable_fish_ids": [
@@ -34,7 +36,8 @@
             "perch",
             "panfish",
             "sunfish",
-            "stripers"
+            "stripers",
+            "gar"
          ],
          "image_url": "https://www.nomadtackle.com/cdn/shop/products/ATL55-F-CBB_1800x1800.png",
          "suitable_fish_ids": [
@@ -55,7 +58,8 @@
             "pike",
             "muskie",
             "crappie",
-            "salmon"
+            "salmon",
+            "gar"
          ],
          "image_url": "https://www.sportsmans.com/medias/strike-king-pro-model-5-deep-diving-crankbait-summer-sexy-shad-58oz-2-34in-1311254-1.jpg?context=bWFzdGVyfGltYWdlc3w2NzA5NnxpbWFnZS9qcGVnfGFXMWhaMlZ6TDJnMllTOW9ZVE12T1RRNU1qUTRNVE0zTmpJNE5pNXFjR2N8ZGExYjg4MmM5MjkzNjVlNzIxMzk3MTExZGRjNTZiZmE4ZTY0NTg0NTRmZTc5MzE1ZTlkY2FlYTg3OWUzY2U1MQ",
          "suitable_fish_ids": [
@@ -104,7 +108,11 @@
             "panfish",
             "sunfish",
             "bass",
-            "stripers"
+            "stripers",
+            "catfish",
+            "billfish",
+            "damselfish",
+            "triggerfish"
          ],
          "image_url": "https://thefishingfactory.com/cdn/shop/products/CALABR.jpg",
          "suitable_fish_ids": [
@@ -127,7 +135,13 @@
             "panfish",
             "sunfish",
             "bass",
-            "stripers"
+            "stripers",
+            "catfish",
+            "halibut",
+            "sucker",
+            "damselfish",
+            "triggerfish",
+            "cod"
          ],
          "image_url": "https://www.meltontackle.com/media/catalog/product/cache/9c2fe1734c3f534f2601425562834378/m/u/mustad-mezashi-casting-jig-sardine_5.jpg",
          "suitable_fish_ids": [
@@ -150,7 +164,10 @@
             "panfish",
             "sunfish",
             "bass",
-            "stripers"
+            "stripers",
+            "catfish",
+            "billfish",
+            "triggerfish"
          ],
          "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_GGjEhfSmD-H4vzDMmwrMZRKCFr__x5M1mg&s",
          "suitable_fish_ids": [
@@ -173,7 +190,10 @@
             "panfish",
             "sunfish",
             "bass",
-            "stripers"
+            "stripers",
+            "catfish",
+            "billfish",
+            "triggerfish"
          ],
          "image_url": "https://thehookuptackle.com/cdn/shop/products/GRBHiteDelite.jpg",
          "suitable_fish_ids": [
@@ -196,7 +216,9 @@
             "panfish",
             "sunfish",
             "bass",
-            "stripers"
+            "stripers",
+            "catfish",
+            "triggerfish"
          ],
          "image_url": "https://dobynsrods.com/wp-content/uploads/2020/03/001-Midnight-Blue.jpg",
          "suitable_fish_ids": [
@@ -219,7 +241,10 @@
             "panfish",
             "sunfish",
             "bass",
-            "stripers"
+            "stripers",
+            "catfish",
+            "sucker",
+            "triggerfish"
          ],
          "image_url": "https://www.motionfishingco.com/cdn/shop/files/Motion_Fishing_Texas_Craw_Finesse_Jig.jpg",
          "suitable_fish_ids": [
@@ -240,7 +265,13 @@
             "pike",
             "muskie",
             "crappie",
-            "salmon"
+            "salmon",
+            "catfish",
+            "halibut",
+            "sucker",
+            "gar",
+            "shad",
+            "cod"
          ],
          "image_url": "https://discounttackle.com/cdn/shop/products/13070974713911.jpg",
          "suitable_fish_ids": [
@@ -253,7 +284,7 @@
          "name": "safety pin",
          "type": "spinnerbait",
          "application": ["casting", "trolling"],
-         "fish_types": ["bass", "pike", "muskie"],
+         "fish_types": ["bass", "pike", "muskie", "catfish", "halibut", "gar", "shad"],
          "image_url": "https://aaronsbaits.com/cdn/shop/products/1596942293507_1200x1200.png",
          "suitable_fish_ids": [1, 12, 14, 21, 29, 44, 51, 53, 62]
       },
@@ -262,7 +293,7 @@
          "name": "tail spinners",
          "type": "spinnerbait",
          "application": ["casting", "trolling"],
-         "fish_types": ["bass", "pike", "muskie"],
+         "fish_types": ["bass", "pike", "muskie", "catfish", "halibut", "gar", "shad"],
          "image_url": "https://6thsensefishing.com/cdn/shop/products/tailspinner-Jaintjuice.jpg",
          "suitable_fish_ids": [1, 12, 14, 21, 29, 44, 51, 53, 62]
       },
@@ -271,7 +302,7 @@
          "name": "beetle spin",
          "type": "spinnerbait",
          "application": ["casting", "trolling"],
-         "fish_types": ["bass", "pike", "muskie"],
+         "fish_types": ["bass", "pike", "muskie", "catfish"],
          "image_url": "https://m.media-amazon.com/images/I/415MyP4a1rL._UF1000,1000_QL80_.jpg",
          "suitable_fish_ids": [1, 12, 14, 21, 29, 44, 51, 53, 62]
       },
@@ -288,7 +319,12 @@
             "steelhead",
             "kokanee",
             "stripers",
-            "bass"
+            "bass",
+            "halibut",
+            "gar",
+            "tarpon",
+            "weakfish",
+            "drum"
          ],
          "image_url": "https://www.saltstrong.com/wp-content/uploads/weedless-spoon-2.jpg",
          "suitable_fish_ids": [
@@ -309,7 +345,13 @@
             "steelhead",
             "kokanee",
             "stripers",
-            "bass"
+            "bass",
+            "halibut",
+            "sucker",
+            "gar",
+            "tarpon",
+            "weakfish",
+            "drum"
          ],
          "image_url": "https://www.calcuttaoutdoors.com/cdn/shop/products/SES75-1_1a9d837d-d158-4ce4-83ce-b02ec753c30d.jpg",
          "suitable_fish_ids": [
@@ -330,7 +372,12 @@
             "steelhead",
             "kokanee",
             "stripers",
-            "bass"
+            "bass",
+            "halibut",
+            "sucker",
+            "gar",
+            "weakfish",
+            "drum"
          ],
          "image_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/74486314/3164790373.jpg",
          "suitable_fish_ids": [
@@ -351,7 +398,9 @@
             "steelhead",
             "kokanee",
             "stripers",
-            "bass"
+            "bass",
+            "weakfish",
+            "drum"
          ],
          "image_url": "https://www.vtfishandwildlife.com/sites/fishandwildlife/files/images/Fish/Fishing%20Opportunities/fishing_basics/lures/topwaterlures/TWshallow-spoons.jpg",
          "suitable_fish_ids": [
@@ -372,7 +421,10 @@
             "steelhead",
             "kokanee",
             "stripers",
-            "bass"
+            "bass",
+            "halibut",
+            "weakfish",
+            "drum"
          ],
          "image_url": "https://www.reactiontackle.com/cdn/shop/files/silverspoon45.jpg",
          "suitable_fish_ids": [
@@ -481,7 +533,11 @@
             "pike",
             "muskie",
             "stripers",
-            "crappie"
+            "crappie",
+            "tarpon",
+            "shad",
+            "weakfish",
+            "paddlefish"
          ],
          "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-B5WuvrQvpb8wy_YOGtQTcFNEGLArHTC_Gg&s",
          "suitable_fish_ids": [
@@ -507,7 +563,11 @@
             "pike",
             "muskie",
             "stripers",
-            "crappie"
+            "crappie",
+            "sucker",
+            "shad",
+            "weakfish",
+            "paddlefish"
          ],
          "image_url": "https://phantomoutdoors.com/cdn/shop/files/rs_fbf4a497-55dd-464f-a4ca-fcf28204b598_2000x.webp",
          "suitable_fish_ids": [
@@ -533,7 +593,10 @@
             "pike",
             "muskie",
             "stripers",
-            "crappie"
+            "crappie",
+            "shad",
+            "drum",
+            "paddlefish"
          ],
          "image_url": "https://hogylures.com/cdn/shop/files/PT6P-BS.jpg",
          "suitable_fish_ids": [
@@ -554,7 +617,11 @@
             "perch",
             "panfish",
             "stripers",
-            "sunfish"
+            "sunfish",
+            "halibut",
+            "sucker",
+            "gar",
+            "carp"
          ],
          "image_url": "https://www.bigbitebaits.com/wp-content/smush-webp/2018/03/finesse-worm-carolina-rig-shaky-head-grenn-pumpkin-blue-swirl-scaled.jpg.webp",
          "suitable_fish_ids": [
@@ -574,7 +641,10 @@
             "perch",
             "panfish",
             "stripers",
-            "sunfish"
+            "sunfish",
+            "gar",
+            "carp",
+            "cod"
          ],
          "image_url": "https://www.bigbitebaits.com/wp-content/smush-webp/2020/04/plastic-bait-brush-pig-hog-largemouth-bass-crime-scene-scaled.jpg.webp",
          "suitable_fish_ids": [
@@ -594,7 +664,11 @@
             "perch",
             "panfish",
             "stripers",
-            "sunfish"
+            "sunfish",
+            "gar",
+            "carp",
+            "triggerfish",
+            "cod"
          ],
          "image_url": "https://www.berkley-fishing.com/cdn/shop/files/PowerBaitAtomicTubes_Grasshopper_alt1.jpg",
          "suitable_fish_ids": [
@@ -614,7 +688,8 @@
             "perch",
             "panfish",
             "stripers",
-            "sunfish"
+            "sunfish",
+            "carp"
          ],
          "image_url": "https://www.berkley-fishing.com/cdn/shop/files/PowerBaitCrashCraw_GreenPumpkin_alt1.jpg",
          "suitable_fish_ids": [
@@ -634,7 +709,9 @@
             "perch",
             "panfish",
             "stripers",
-            "sunfish"
+            "sunfish",
+            "gar",
+            "carp"
          ],
          "image_url": "https://www.jiggingworld.com/cdn/shop/files/3_fcf746da-5ace-44ca-849b-d9b3448f5f7f.jpg",
          "suitable_fish_ids": [
@@ -654,7 +731,9 @@
             "perch",
             "panfish",
             "stripers",
-            "sunfish"
+            "sunfish",
+            "gar",
+            "carp"
          ],
          "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7jBSuvTGWBtCLFE5--acxHxV8ufwU07sz1Q&s",
          "suitable_fish_ids": [
@@ -674,7 +753,9 @@
             "perch",
             "panfish",
             "stripers",
-            "sunfish"
+            "sunfish",
+            "gar",
+            "carp"
          ],
          "image_url": "https://content.osgnetworks.tv/infisherman/content/photos/Jig-Trailers-for-Bass-Swimmers.jpg",
          "suitable_fish_ids": [
@@ -694,7 +775,10 @@
             "perch",
             "panfish",
             "stripers",
-            "sunfish"
+            "sunfish",
+            "gar",
+            "carp",
+            "shad"
          ],
          "image_url": "https://doalures.com/cdn/shop/files/3inC.A.L.Shad_0652ae6e-ebf2-4846-83c4-cef08c0a4858.jpg",
          "suitable_fish_ids": [
