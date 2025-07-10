@@ -38,7 +38,9 @@ const Splash = () => {
                <div className="content">
                   <h4>Find Nearby Fishing Spots</h4>
                   <p>
-                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                     From pond to pier, we've done the research for you. Find
+                     your fishing oasis or plan your next fishing trip around
+                     our curated location data.
                   </p>
                </div>
                <Link className="cta" to="/spots">
@@ -49,8 +51,8 @@ const Splash = () => {
                <div className="content">
                   <h4>Learn About Local Fish Species</h4>
                   <p>
-                     Doloribus suscipit soluta aliquid temporibus vitae id
-                     totam?
+                     Use our Fish Database to learn everything you can about the
+                     fish species on our world.
                   </p>
                </div>
                <Link className="cta" to="/fish-species">
@@ -59,10 +61,11 @@ const Splash = () => {
             </div>
             <div className="flex-item">
                <div className="content">
-                  <h4>Find Nearby Fishing Spots</h4>
+                  <h4>Get Lure Recommendation</h4>
                   <p>
-                     Ipsam autem alias voluptatibus esse officia, perferendis
-                     illum corrupti cupiditate blanditiis vitae.
+                     Catching fish requires the best tools available. See what
+                     lures are the best options for you when planning your next
+                     outing at the docks.
                   </p>
                </div>
                <Link className="cta" to="/lures">
