@@ -193,3 +193,24 @@ a.list-group-item:hover {
    height: 100%;
    object-fit: contain;
 }
+
+.flex-item:nth-child(1) {
+  background-image: url('/public/images/location_splash.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.flex-item:nth-child(2) {
+  background-image: url('/public/images/species_splash.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.flex-item:nth-child(3) {
+  background-image: url('/public/images/lures_splash.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
