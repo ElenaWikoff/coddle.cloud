@@ -62,7 +62,11 @@ const SpotMarkers = ({ spots, onSelect }) => {
                      }}
                   >
                      <Popup>
+                        <strong>{capitalizeEachWord(spot.location_name)}</strong>
+                        <br />
                         {capitalizeEachWord(spot.feature_name)}
+                        <br />
+                        {`${spot.city}, ${spot.state}`}
                         <br />
                         {`(${spot.coordinates[0].toFixed(
                            2
