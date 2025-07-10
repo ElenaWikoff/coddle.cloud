@@ -40,18 +40,22 @@ const responsive = {
    },
 };
 
-const CustomCarousel = ({ items, type, loading }) => {
+const CustomCarousel = ({ items, type, loading, preMessage, emptyMessage }) => {
    return (
       <Container
          fluid
-         className="fish-carousel position-relative"
+         className={`${type}-carousel position-relative`}
          style={{ height: "175px" }}
       >
          {!items && 
             <div className="w-100 h-100 d-flex flex-column justify-content-center align-items-center">
-                <p>Click on spot to see fish species at location.</p>
+                <p>{preMessage}</p>
             </div>
          }
+         {(items && items.length === 0) && 
+            <div className="w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+                <p>{emptyMessage}</p>
+            </div>}
          <LoadSpinner loading={loading} />
          {(!loading && items) && (
             <Carousel

@@ -10,6 +10,15 @@ const Lure = () => {
    const navigate = useNavigate();
    const data = useLoaderData();
 
+   const getURL = (type) => {
+      // const url = new URL("/fish-species")
+      const searchParams = new URLSearchParams();
+      searchParams.set("page", 1);
+      searchParams.set("limit", 12);
+      searchParams.append("type", type);
+      return "/fish-species?" + searchParams.toString();
+   };
+
    return (
       <PageContainer>
          {data && (
@@ -65,12 +74,17 @@ const Lure = () => {
                      Good For:&nbsp;
                      {data.fish_types.map((item, index, array) => {
                         return (
-                           <span key={`item-${index}`}>
-                              {`
-                                    ${capitalizeEachWord(item)}${
-                                       index !== array.length - 1 ? ", " : ""
-                                    }`}
-                           </span>
+                           <>
+                              <Link
+                                 key={`item-${index}`}
+                                 to={getURL(item)}
+                              >
+                                 {capitalizeEachWord(item)}
+                              </Link>
+                              <span>
+                                 {index !== array.length - 1 ? ", " : ""}
+                              </span>
+                           </>
                         );
                      })}
                   </ListGroup.Item>
