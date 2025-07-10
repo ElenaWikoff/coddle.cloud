@@ -17,7 +17,7 @@ const splashHero = {
       },
    ],
    video: {
-      filename: "splash-bg-video.mp4",
+      filename: "coddle_reel.mp4",
       format: "mp4",
    },
 };
