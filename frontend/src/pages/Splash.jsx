@@ -2,8 +2,6 @@ import { Link } from "react-router";
 import HeroBanner from "../components/herobanner/HeroBanner";
 import PageContainer from "../components/PageContainer";
 import Container from "react-bootstrap/esm/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import { BsArrowRight } from "react-icons/bs";
 import { RiMapPinFill } from "react-icons/ri";
 
@@ -19,7 +17,7 @@ const splashHero = {
       },
    ],
    video: {
-      filename: "coddle_reel.mp4",
+      filename: "splash-bg-video.mp4",
       format: "mp4",
    },
 };
