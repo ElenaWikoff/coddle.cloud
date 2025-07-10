@@ -1,45 +1,98 @@
+import { useState } from 'react';
 import Card from "react-bootstrap/Card";
-import { Link } from "react-router";
-import { capitalizeEachWord } from "../../utils/functions.jsx";
-import Placeholder from 'react-bootstrap/Placeholder';
+import { Placeholder } from 'react-bootstrap';
+import { capitalizeEachWord } from "../../utils/functions.jsx";  // Ensure this function handles undefined or null
 import "./card.css";
 
 const AboutCard = ({ user, loading }) => {
-   return (
-      <>
-         {!loading && user ? (
-            <Card className="h-100">
-               <Card.Body>
-                  <Card.Title>{user.name}</Card.Title>
-                  <Card.Subtitle></Card.Subtitle>
-                  <Card.Text>
-                     <strong>Username: </strong>
-                     {user.username}
-                     <br />
-                     <strong>Gitlab: </strong>
-                     {user.web_url}
-                     <br />
-                     <strong>Commits: </strong>
-                     {user.commits}
-                  </Card.Text>
-               </Card.Body>
-            </Card>
-         ) : (
-            <Card className="h-100">
-               <Card.Body>
-                  <Placeholder as={Card.Title} animation="glow">
-                     <Placeholder xs={6} />
-                  </Placeholder>
-                  <Placeholder as={Card.Text} animation="glow">
-                     <Placeholder xs={6} />
-                     <Placeholder xs={8} />
-                     <Placeholder xs={6} />
-                  </Placeholder>
-               </Card.Body>
-            </Card>
-         )}
-      </>
-   );
+  const [flipped, setFlipped] = useState(false);
+
+  // Handle if user is null or undefined
+  const userRole = user && user.role ? capitalizeEachWord(user.role) : "Unknown Role";  // Default to "Unknown Role" if undefined
+
+  return (
+    <>
+      {!loading && user ? (
+        <div
+          className="flip-card group h-96 w-full perspective-1000"
+          onMouseEnter={() => setFlipped(true)}
+          onMouseLeave={() => setFlipped(false)}
+        >
+          <div
+            className={`flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-preserve-3d ${
+              flipped ? "rotate-y-180" : ""
+            }`}
+          >
+            {/* Front of the card with image */}
+            <div className="flip-card-front absolute w-full h-full backface-hidden bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+              <div className="relative h-full">
+                <img
+                  src={user.avatar_url || "/placeholder.svg"}
+                  alt={user.name}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                  <h3 className="text-xl font-semibold text-white mb-1">{user.name}</h3>
+                  <p className="text-blue-300 font-medium">{userRole}</p> {/* Display the sanitized role */}
+                </div>
+              </div>
+            </div>
+
+            {/* Back of the card with details */}
+            <div className="flip-card-back absolute w-full h-full backface-hidden bg-[#b0d6f5] rounded-lg shadow-lg rotate-y-180 text-gray-900">
+              <div className="h-full p-6 flex flex-col">
+                <div className="flex items-center mb-4">
+                  <img
+                    src={user.avatar_url || "/placeholder.svg"}
+                    alt={user.name}
+                    className="w-16 h-16 rounded-full object-cover border-3 border-white mr-4"
+                  />
+                  <div>
+                    <h3 className="text-lg font-semibold text-left">{user.name}</h3>
+                    <p className="text-[#307eb1] text-sm font-medium text-left">{userRole}</p> {/* Display the sanitized role */}
+                  </div>
+                </div>
+
+                <div className="flex-1 space-y-4">
+                  <div className="flex">
+                    <p className="text-sm font-bold w-20 flex-shrink-0">Username:</p>
+                    <p className="text-sm leading-relaxed flex-1">{user.username}</p>
+                  </div>
+
+                  <div className="flex">
+                    <p className="text-sm font-bold w-32 flex-shrink-0">GitLab:</p>
+                    <p className="text-sm leading-relaxed flex-1">
+                      <a href={user.web_url} target="_blank" rel="noopener noreferrer" className="text-blue-500">
+                        {user.web_url}
+                      </a>
+                    </p>
+                  </div>
+
+                  <div className="flex">
+                    <p className="text-sm font-bold w-32 flex-shrink-0">Commits:</p>
+                    <p className="text-sm leading-relaxed flex-1">{user.commits}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <Card className="h-100">
+          <Card.Body>
+            <Placeholder as={Card.Title} animation="glow">
+              <Placeholder xs={6} />
+            </Placeholder>
+            <Placeholder as={Card.Text} animation="glow">
+              <Placeholder xs={6} />
+              <Placeholder xs={8} />
+              <Placeholder xs={6} />
+            </Placeholder>
+          </Card.Body>
+        </Card>
+      )}
+    </>
+  );
 };
 
 export default AboutCard;
