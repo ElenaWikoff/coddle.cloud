@@ -9,12 +9,10 @@ import AboutCard from "../components/card/AboutCard";
 
 const About = () => {
    const [loading, setLoading] = useState(true);
-   const [data, setData] = useState([null,null,null,null,null,null]);
+   const [data, setData] = useState([null, null, null, null, null, null]);
 
    useEffect(() => {
-      console.log(
-         `Attempting to fetch from endpoint: /api/about`
-      );
+      console.log(`Attempting to fetch from endpoint: /api/about`);
       setLoading(true);
       fetch(`/api/about`)
          .then((res) => res.json())
@@ -35,14 +33,12 @@ const About = () => {
             <Row xs={1} sm={2} md={3} className="g-3">
                {!loading && !data && <p>Error fetching from Gitlab.</p>}
                {data.map((user, index) => {
-                     return (
-                        <AboutCard 
-                           key={`item-${index}`}
-                           user={user}
-                           loading={loading}
-                        />
-                     );
-                  })}
+                  return (
+                     <Col key={`item-${index}`}>
+                        <AboutCard user={user} loading={loading} />
+                     </Col>
+                  );
+               })}
             </Row>
          </Container>
       </PageContainer>
