@@ -3,6 +3,7 @@ import sys
 import unittest
 from backend.models import app
 import backend.main
+import json
 
 # ----------------------
 # Data structure & schema testing
@@ -93,6 +94,14 @@ class ApiGetTests(unittest.TestCase):
         response = self.client.get('/api/locations')
         self.assertEqual(response.status_code, 200)
         self.assertIn('application/json', response.content_type)
+
+    # GET first location
+    def test_get_first_location(self):
+        response = self.client.get('/api/locations/1')
+        self.assertEqual(response.status_code, 200)
+        sample = response.get_json()
+        expected_data = ["Austin", [30.2524, -97.7374], "Lady Bird Lake", [1, 2, 4, 5, 6, 7, 8, 9, 10, 13, 14, 15, 16, 17, 18, 19, 21, 22, 28, 29, 31, 32, 34], 1, "TPWD Paddling Trail 1", "Texas", "lake"]
+        self.assertEquals(expected_data, list(sample.values()))
 
         
 '''
