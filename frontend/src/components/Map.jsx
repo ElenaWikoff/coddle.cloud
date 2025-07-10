@@ -80,9 +80,13 @@ const FilterControl = ({ position, onClick }) => {
 
    const filter = useMemo(() => (
       <div className="map-filter py-2 px-4 d-flex flex-column align-items-center">
-         <h5 className="fw-light">Filter</h5>
+         <h5 className="fw-light">Search & Filter</h5>
          <Form>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Group className="mb-3" controlId="mapFilter">
+               <Form.Label>Search</Form.Label>
+               <Form.Control type="text" placeholder="Search..." />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="mapFilter">
                <Form.Label>Feature</Form.Label>
                <Form.Check type="checkbox" label="River" />
                <Form.Check type="checkbox" label="Lake" />

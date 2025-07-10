@@ -64,6 +64,8 @@ const Spots = () => {
             items={carousel}
             type="fish"
             loading={carouselLoading}
+            preMessage={"Click on spot to see fish species at location."}
+            emptyMessage={"No fish information about spot."}
          />
       </PageContainer>
    );
