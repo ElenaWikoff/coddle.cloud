@@ -1,11 +1,28 @@
 runtime: python310
 entrypoint: gunicorn -b :$PORT backend.main:app
 
+#[START env]
+env_variables:
+    # Replace user, password, database, and instance connection name with the values obtained
+    # when configuring your Cloud SQL instance.
+  DB_STRING: >
+    postgresql+psycopg2://postgres:cs373idb@/postgres?host=/cloudsql/coddle-463619:us-central1:fishingdb
+#[END env]
+
+#[START cloudsql_settings]
+# Replace project and instance with the values obtained  when configuring your
+# Cloud SQL instance.
+beta_settings:
+  cloud_sql_instances: coddle-463619:us-central1:fishingdb
+
+# API routes handled by Flask (FIRST) & Frontend Routes from frontend/dist
 handlers:
-  # API routes handled by Flask (FIRST)
   - url: /api/.*
     script: auto
 
+  - url: /static
+    static_dir: backend/static
+  
   # Serve static folders from Vite build
   - url: /assets
     static_dir: frontend/dist/assets

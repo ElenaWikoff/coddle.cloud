@@ -1,6 +1,6 @@
 .hero-banner {
     color: white;
-    background-color: var(--brand-secondary);
+    /* background-color: var(--brand-secondary); */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,6 +9,10 @@
     padding: 64px;
     height: calc(100dvh - 100px);
     position: relative;
+}
+
+.map-hero-banner {
+    height: calc(100dvh - 300px);
 }
 
 .hero-banner h2,

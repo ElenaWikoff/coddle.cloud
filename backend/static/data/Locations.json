@@ -1,0 +1,214 @@
+{
+  "Locations": [
+    {
+      "id": 1,
+      "location_name": "TPWD Paddling Trail 1",
+      "feature_name": "Lady Bird Lake",
+      "coordinates": [30.2524, -97.7374],
+      "state": "Texas",
+      "city": "Austin",
+      "type": "lake",
+      "fish_ids": [1, 2, 4, 5, 6, 7, 8, 9, 10, 13, 14, 15, 16, 17, 18, 19, 21, 22, 28, 29, 31, 32, 34]
+    },
+    {
+      "id": 2,
+      "location_name": "TPWD Paddling Trail 2",
+      "feature_name": "Lady Bird Lake",
+      "coordinates": [30.2515, -97.7362],
+      "state": "Texas",
+      "city": "Austin",
+      "type": "lake",
+      "fish_ids": [1, 2, 4, 5, 6, 7, 8, 9, 10, 13, 14, 15, 16, 17, 18, 19, 21, 22, 28, 29, 31, 32, 34]
+    },
+    {
+      "id": 3,
+      "location_name": "TPWD Paddling Trail 3",
+      "feature_name": "Lady Bird Lake",
+      "coordinates": [30.2483, -97.72782],
+      "state": "Texas",
+      "city": "Austin",
+      "type": "lake",
+      "fish_ids": [1, 2, 4, 5, 6, 7, 8, 9, 10, 13, 14, 15, 16, 17, 18, 19, 21, 22, 28, 29, 31, 32, 34]
+    },
+    {
+      "id": 4,
+      "location_name": "Historic Montopolis Bridge",
+      "feature_name": "Colorado River (Texas)",
+      "coordinates": [30.2458, -97.6906],
+      "state": "Texas",
+      "city": "Austin",
+      "type": "river",
+      "fish_ids": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 21, 22, 28, 29, 30, 31, 32, 33, 34, 45, 46]
+    },
+    {
+      "id": 5,
+      "location_name": "Imperial Drive",
+      "feature_name": "Colorado River (Texas)",
+      "coordinates": [30.2560, -97.6319],
+      "state": "Texas",
+      "city": "Austin",
+      "type": "river",
+      "fish_ids": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 21, 22, 28, 29, 30, 31, 32, 33, 34, 45, 46]
+    },
+    {
+      "id": 6,
+      "location_name": "Little Webberville Park",
+      "feature_name": "Colorado River (Texas)",
+      "coordinates": [30.2294, -97.5189],
+      "state": "Texas",
+      "city": "Webberville",
+      "type": "river",
+      "fish_ids": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 21, 22, 28, 29, 30, 31, 32, 33, 34, 45, 46]
+    },
+    {
+      "id": 7,
+      "location_name": "Mansfield Dam Park",
+      "feature_name": "Lake Travis",
+      "coordinates": [30.3949, -97.9034],
+      "state": "Texas",
+      "city": "Austin",
+      "type": "lake",
+      "fish_ids": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 13, 14, 15, 16, 18, 19, 21, 22, 28, 29, 30, 31, 32, 33, 34, 46]
+    },
+    {
+      "id": 8,
+      "location_name": "Jones Brothers Park",
+      "feature_name": "Jonestown",
+      "coordinates": [30.4906, -97.9170],
+      "state": "Texas",
+      "city": "Austin",
+      "type": "lake",
+      "fish_ids": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 13, 14, 15, 16, 18, 19, 21, 22, 28, 29, 30, 31, 32, 33, 34, 46]
+    },
+    {
+      "id": 9,
+      "location_name": "Decker Tallgrass Prairie Preserve",
+      "feature_name": "Lake Walter E. Long",
+      "coordinates": [30.2964, -97.5989],
+      "state": "Texas",
+      "city": "Austin",
+      "type": "lake",
+      "fish_ids": [1, 4, 5, 6, 7, 8, 9, 10, 13, 14, 15, 16, 18, 19, 21, 22, 28, 31]
+    },
+    {
+      "id": 10,
+      "location_name": "Mueller Lake Park",
+      "feature_name": "Mueller Lake",
+      "coordinates": [30.2964, -97.7063],
+      "state": "Texas",
+      "city": "Austin",
+      "type": "lake",
+      "fish_ids": [1, 9, 13, 14, 15, 16, 18, 19, 21, 35]
+    },
+    {
+      "id": 11,
+      "location_name": "Camp Mabry Fishing Dock",
+      "feature_name": "Camp Mabry Pond 2",
+      "coordinates": [30.3146, -97.7645],
+      "state": "Texas",
+      "city": "Austin",
+      "type": "pond",
+      "fish_ids": [1, 9, 13, 14, 15, 16, 18, 19, 21, 35]
+    },
+    {
+      "id": 12,
+      "location_name": "Lake Pflugerville Park",
+      "feature_name": "Lake Pflugerville",
+      "coordinates": [30.4410, -97.5706],
+      "state": "Texas",
+      "city": "Pflugerville",
+      "type": "lake",
+      "fish_ids": [1, 9, 13, 14, 15, 16, 18, 19, 21, 35]
+    },
+    {
+      "id": 13,
+      "location_name": "Mills Pond Recreation Area",
+      "feature_name": "Mills Pond",
+      "coordinates": [30.4505,-97.6821],
+      "state": "Texas",
+      "city": "Austin",
+      "type": "pond",
+      "fish_ids": [1, 15, 16, 18, 21]
+    },
+    {
+      "id": 14,
+      "location_name": "McKinney Falls State Park",
+      "feature_name": "Onion Creek",
+      "coordinates": [30.1853, -97.7228],
+      "state": "Texas",
+      "city": "Austin",
+      "type": "creek",
+      "fish_ids": [1, 3, 4, 5, 6, 7, 8, 9, 10, 13, 14, 15, 16, 18, 19, 21, 35]
+    },
+    {
+      "id": 15,
+      "location_name": "Barkley Meadows Park",
+      "feature_name": "Berdoll Pond",
+      "coordinates": [30.1853, -97.7228],
+      "state": "Texas",
+      "city": "Del Valle",
+      "type": "pond",
+      "fish_ids": [1, 3, 9, 16, 21]
+    },
+    {
+      "id": 16,
+      "location_name": "Brushy Creek Lake Park",
+      "feature_name": "Soil Conservation Service Site 7 Reservoir",
+      "coordinates": [30.5061, -97.7699],
+      "state": "Texas",
+      "city": "Austin",
+      "type": "pond",
+      "fish_ids": [1, 9, 14, 21]
+    },
+    {
+      "id": 17,
+      "location_name": "Granger Wildlife Management Area",
+      "feature_name": "Granger Lake",
+      "coordinates": [30.6973, -97.3478],
+      "state": "Texas",
+      "city": "Granger",
+      "type": "lake",
+      "fish_ids": [1, 9, 10, 13, 14, 15, 21]
+    },
+    {
+      "id": 18,
+      "location_name": "Lake Creek Park",
+      "feature_name": "Lake Creek",
+      "coordinates": [30.5053, -97.6754],
+      "state": "Texas",
+      "city": "Round Rock",
+      "type": "creek",
+      "fish_ids": [1, 9, 17]
+    },
+    {
+      "id": 19,
+      "location_name": "Meadow Lake Park",
+      "feature_name": "Meadow Lake",
+      "coordinates": [30.5053, -97.6754],
+      "state": "Texas",
+      "city": "Round Rock",
+      "type": "creek",
+      "fish_ids": [1, 9, 14, 21]
+    },
+    {
+      "id": 20,
+      "location_name": "Llano County Park",
+      "feature_name": "Buchanan Lake",
+      "coordinates": [30.7666,-98.4560],
+      "state": "Texas",
+      "city": "Buchanan Dam",
+      "type": "lake",
+      "fish_ids": [1, 9, 10, 12, 13, 14, 15, 21]
+    },
+    {
+      "id": 21,
+      "location_name": "Stillhouse Hollow Lake",
+      "feature_name": "Buchanan Lake",
+      "coordinates": [31.0158,-97.6238],
+      "state": "Texas",
+      "city": "Salado",
+      "type": "lake",
+      "fish_ids": [1, 2, 3, 9, 10, 13, 15, 21]
+    }
+  ]
+}

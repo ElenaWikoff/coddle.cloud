@@ -30,10 +30,10 @@ const Header = () => {
                   <Nav.Link as={Link} to="/spots">
                      Fishing Spots
                   </Nav.Link>
-                  <Nav.Link as={Link} to="/fish-species">
+                  <Nav.Link as={Link} to="/fish-species?page=1&limit=12">
                      FishDB
                   </Nav.Link>
-                  <Nav.Link as={Link} to="/lures">
+                  <Nav.Link as={Link} to="/lures?page=1&limit=12">
                      Lure Options
                   </Nav.Link>
                   <Nav.Link as={Link} to="/about">

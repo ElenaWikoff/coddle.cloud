@@ -1,0 +1,76 @@
+a.card {
+   outline: 1px solid rgba(0, 0, 0, 0.175);
+   border: none;
+   transition: all 0.2s ease-in-out;
+   border-bottom: 10px solid transparent;
+}
+
+a.card:hover {
+   outline: 1px solid var(--brand-accentYellow);
+   transform: translateY(-5px);
+   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+   border-bottom: 10px solid var(--brand-accentYellow);
+}
+
+a.card.in-carousel {
+    text-align: center;
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+    background-color: transparent !important;
+}
+
+a.card.in-carousel .image-wrapper {
+   height: 100px;
+}
+
+a.card.in-carousel .card-title {
+    font-size: 16px;
+    max-height: 100px;
+}
+
+a.card.in-carousel:focus *,
+a.card.in-carousel:active *,
+a.card.in-carousel:hover * {
+    text-decoration: underline;
+}
+
+.fish-grid .image-wrapper {
+   aspect-ratio: 16/9;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin: 0;
+   padding: 16px;
+}
+
+.fish-grid .image-wrapper img {
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
+}
+
+.lures-grid .image-wrapper {
+   aspect-ratio: 16/9;
+   display: block;
+   padding: 0;
+   margin: 0 auto;
+   overflow: hidden;
+}
+
+/* .lures-grid .image-wrapper img {
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
+} */
+
+.fish-carousel a.card.in-carousel img {
+   transition: all 0.5s ease-in-out;
+}
+
+.fish-carousel a.card.in-carousel:hover img {
+   transform: scale(1.1);
+   filter: drop-shadow(0px 10px 10px rgba(100, 100, 111, 0.2) );
+}

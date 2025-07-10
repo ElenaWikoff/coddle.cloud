@@ -1,19 +1,16 @@
 import Container from "react-bootstrap/esm/Container";
-import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Spinner from "react-bootstrap/Spinner";
 import { useEffect, useState } from "react";
 import PageContainer from "../components/PageContainer";
+import AboutCard from "../components/card/AboutCard";
 
 const About = () => {
    const [loading, setLoading] = useState(true);
-   const [data, setData] = useState(null);
+   const [data, setData] = useState([null, null, null, null, null, null]);
 
    useEffect(() => {
-      console.log(
-         `Attempting to fetch from endpoint: /api/about`
-      );
+      console.log(`Attempting to fetch from endpoint: /api/about`);
       setLoading(true);
       fetch(`/api/about`)
          .then((res) => res.json())
@@ -29,42 +26,27 @@ const About = () => {
 
    return (
       <PageContainer>
-         {loading && (
-            <div className="spinner-wrapper">
-               <Spinner className="spinner" animation="border" role="status">
-                  <span className="visually-hidden">Loading...</span>
-               </Spinner>
-            </div>
-         )}
-         <Container className="mt-4 g-4">
-            <h1>Meet Our Team</h1>
-            <Row xs={1} sm={2} md={3} className="g-3">
-               {!loading && !data && <p>Error fetching from Gitlab.</p>}
-               {!loading &&
-                  data &&
-                  data.map((user, index) => {
+         <Container className="p-4">
+            <h1>About Coddle.cloud</h1>
+            <section id="team">
+               <h2 style={{fontWeight: "300", color: "gray"}}>Meet Our Team</h2>
+               <Row xs={1} sm={2} md={3} className="g-3">
+                  {!loading && !data && <p>Error fetching from Gitlab.</p>}
+                  {data.map((user, index) => {
                      return (
-                        <Col key={index} className="">
-                           <Card className="h-100">
-                              <Card.Body>
-                                 <Card.Title>{user.name}</Card.Title>
-                                 <Card.Subtitle></Card.Subtitle>
-                                 <Card.Text>
-                                    <strong>Username: </strong>
-                                    {user.username}
-                                    <br />
-                                    <strong>Gitlab: </strong>
-                                    {user.web_url}
-                                    <br />
-                                    <strong>Commits: </strong>
-                                    {user.commits}
-                                 </Card.Text>
-                              </Card.Body>
-                           </Card>
+                        <Col key={`item-${index}`}>
+                           <AboutCard user={user} loading={loading} />
                         </Col>
                      );
                   })}
-            </Row>
+               </Row>
+            </section>
+            <section id="design" className="mt-4">
+               <h2 style={{fontWeight: "300", color: "gray"}}>Design</h2>
+               <ul>
+                  <li>Postman API: <a href="https://utcs-cs373-group1.postman.co/workspace/utcs-cs373-group1~3ac00cd0-77b1-4c25-882e-17a6da2430f7/collection/46076704-066f19ff-7f9e-418b-bf6d-71a9dd03c09f?action=share&creator=43121659">Fishing API Collection</a></li>
+               </ul>
+            </section>
          </Container>
       </PageContainer>
    );

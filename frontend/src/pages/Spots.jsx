@@ -1,44 +1,72 @@
-import { Link, useLoaderData } from "react-router";
-import ListGroup from "react-bootstrap/ListGroup";
-import Col from "react-bootstrap/Col";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
 import Container from "react-bootstrap/esm/Container";
 import PageContainer from "../components/PageContainer";
-import { capitalizeEachWord } from "../utils/functions.jsx";
-import { BsArrowRight } from "react-icons/bs";
+import HeroMap from "../components/herobanner/HeroMap.jsx";
+import CustomCarousel from "../components/carousel/CustomCarousel.jsx";
 
 const Spots = () => {
-   const { results, pagination } = useLoaderData();
+   const navigate = useNavigate();
+   const params = useParams();
+   const [loading, setLoading] = useState(true);
+   const [data, setData] = useState(null);
+   const [error, setError] = useState(null);
+   const [fishSpecies, setFishSpecies] = useState(null);
+   const [carousel, setCarousel] = useState(null);
+   const [carouselLoading, setCarouselLoading] = useState(false);
+
+   const handleSelectSpot = (spot) => {
+      navigate(`/spots/${spot.id}`);
+      setFishSpecies(spot.fish_ids);
+   };
+
+   useEffect(() => {
+      setLoading(true);
+      fetch(`/api/locations`)
+         .then((res) => res.json())
+         .then((data) => {
+            setData(data);
+            setLoading(false);
+         })
+         .catch((error) => {
+            setError(`Fetching locations info failed: ${error}`);
+            setLoading(false);
+            console.error(`Fetching locations info failed: ${error}`);
+         });
+   }, []);
+
+   useEffect(() => {
+      if (fishSpecies) {
+         setCarouselLoading(true);
+         fetch(`/api/fish?page=1&limit=100`)
+            .then((res) => res.json())
+            .then((data) => {
+               const f = data.results.filter(({ id }) =>
+                  fishSpecies.includes(id)
+               );
+               setCarouselLoading(false);
+               setCarousel(f);
+            })
+            .catch((error) => {
+               setCarouselLoading(false);
+               setError(`Fetching location fish info failed: ${error}`);
+               console.error(`Fetching location fish info failed: ${error}`);
+            });
+      }
+   }, [fishSpecies]);
 
    return (
       <PageContainer>
-         <Container className="m-4">
-            <h1>Fishing Spots</h1>
-            <ListGroup>
-               {results &&
-                  results.map((spot) => {
-                     return (
-                        <ListGroup.Item
-                           key={spot.id}
-                           className="row d-flex justify-content-between"
-                           as={Link}
-                           to={`/spots/${spot.id}`}
-                        >
-                           <span className="w-auto" style={{ fontWeight: "600" }}>
-                              {capitalizeEachWord(spot.feature_name)}
-                           </span>
-                           <span className="w-auto" style={{fontWeight: "300"}}>
-                              {` (${spot.coordinates.lattitude.toFixed()}, ${spot.coordinates.longitude.toFixed(
-                                 3
-                              )})`}
-                           </span>
-                           {/* <span className="w-auto" >
-                              {new Date(spot.last_updated).toLocaleDateString()}
-                           </span> */}
-                        </ListGroup.Item>
-                     );
-                  })}
-            </ListGroup>
-         </Container>
+         {!loading && data && (
+            <HeroMap spots={data} onSelect={handleSelectSpot} />
+         )}
+         <CustomCarousel
+            items={carousel}
+            type="fish"
+            loading={carouselLoading}
+            preMessage={"Click on spot to see fish species at location."}
+            emptyMessage={"No fish information about spot."}
+         />
       </PageContainer>
    );
 };
