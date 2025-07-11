@@ -46,7 +46,7 @@ const AboutCard = ({ user, loading }) => {
                 />
                 {/* Gradient + Text overlay */}
                 <div className="card-text z-10">
-                  <h3 className="text-xl font-semibold text-black text-bottom mb-1 z-20">{user.name}</h3>
+                  <h3 className="text-xl font-semibold text-orange text-bottom mb-1 z-20">{user.name}</h3>
                   <p className="text-blue-300 font-medium z-20 text-bottom">{userRole}</p>
                 </div>
               </div>

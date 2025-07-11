@@ -39,11 +39,15 @@
 }
 
 .flip-card-front .card-text {
-  position: relative;  /* This will be on top of the image */
+  position: absolute;  /* This will be on top of the image */
   z-index: 2;  /* Ensures the text is above the image */
-  color: white;  /* Adjust text color for contrast */
+  color: #307eb1;  
   font-size: 20px;
+  bottom: 0;
+  left: 0;
+  right: 0;
   text-align: center;
+  vertical-align: bottom;
 }
 
 .flip-card-front,
