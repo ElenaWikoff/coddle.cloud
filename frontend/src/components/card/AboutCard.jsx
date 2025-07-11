@@ -10,6 +10,18 @@ const AboutCard = ({ user, loading }) => {
   // Handle if user is null or undefined
   const userRole = user && user.role ? capitalizeEachWord(user.role) : "Unknown Role";  // Default to "Unknown Role" if undefined
 
+  // Display avatar or default man/woman stock image depending on your name
+  const getAvatar = (user) => {
+  if (user?.avatar_url) return user.avatar_url;
+
+  const name = user?.name?.toLowerCase();
+  if (name == "elena wikoff" || name == "jane huynh") {
+    return "/images/woman_stock_img.jpeg";
+  }
+
+  return "/images/man_stock_img.png";
+  };
+
   return (
     <>
       {!loading && user ? (
@@ -27,7 +39,7 @@ const AboutCard = ({ user, loading }) => {
             <div className="flip-card-front absolute w-full h-full backface-hidden bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
               <div className="relative h-full">
                 <img
-                  src={user.avatar_url || "/public/images/man_stock_img.png"}
+                  src={getAvatar(user)}
                   alt={user.name}
                   className="w-full h-full object-cover"
                 />
