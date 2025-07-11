@@ -37,15 +37,17 @@ const AboutCard = ({ user, loading }) => {
           >
             {/* Front of the card with image */}
             <div className="flip-card-front absolute w-full h-full backface-hidden bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
-              <div className="relative h-full">
+              <div className="relative w-full h-full z-0">
+                {/* Image background */}
                 <img
                   src={getAvatar(user)}
                   alt={user.name}
-                  className="w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-cover z-0"
                 />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
-                  <h3 className="text-xl font-semibold text-white mb-1">{user.name}</h3>
-                  <p className="text-blue-300 font-medium">{userRole}</p> {/* Display the sanitized role */}
+                {/* Gradient + Text overlay */}
+                <div className="card-text z-10">
+                  <h3 className="text-xl font-semibold text-black text-bottom mb-1 z-20">{user.name}</h3>
+                  <p className="text-blue-300 font-medium z-20 text-bottom">{userRole}</p>
                 </div>
               </div>
             </div>
