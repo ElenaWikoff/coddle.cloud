@@ -113,7 +113,7 @@ def aboutIndex():
         "Elena Wikoff": ["elenawikoff@utexas.edu", "elenawikoff@gmail.com"],
         "Jane Huynh": ["janehuynh1411@gmail.com"],
         "Perry Ehimuh": ["perryehimuh@gmail.com"],
-        "Yifan Guo": ["yifan.guo.3517@gmail.com"],
+        "Yifan Guo": ["yifan.guo.3517@gmail.com", "yg8644@my.utexas.edu"],
         "Ethan Do": ["ethando767243@gmail.com"],
         "LegendaryFoxFire": ["jtbukoski@gmail.com"]
     }
