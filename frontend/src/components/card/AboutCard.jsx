@@ -27,7 +27,7 @@ const AboutCard = ({ user, loading }) => {
             <div className="flip-card-front absolute w-full h-full backface-hidden bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
               <div className="relative h-full">
                 <img
-                  src={user.avatar_url || "/placeholder.svg"}
+                  src={user.avatar_url || "/public/images/man_stock_img.png"}
                   alt={user.name}
                   className="w-full h-full object-cover"
                 />
