@@ -7,6 +7,62 @@ import "./card.css";
 const AboutCard = ({ user, loading }) => {
   const [flipped, setFlipped] = useState(false);
 
+  const users = [
+    {
+      name: "Elena Wikoff",
+      role: "Team Lead, Frontend Engineer",
+      avatar_url: "/images/elena_pic.png",
+      bio: "CS Major Senior at UT Austin",
+      responsibilities: "Team Leader, UI/UX Design, and Frontend Developer",
+      email: "something@gmail.com",
+      linkedin: "hey bro",
+    },
+    {
+      name: "Jane Huynh",
+      username: "janeH",
+      role: "Project Manager",
+      avatar_url: null,
+      web_url: "https://gitlab.com/janeH",
+      commits: 42,
+    },
+    {
+      name: "Perry Ehimuh",
+      role: "Frontend Engineer",
+      avatar_url: "/images/perry_pic.png",
+      bio: "CS Major Senior at UT Austin",
+      responsibilities: "UI/UX Design, and Frontend Developer",
+      email: "perryehimuh@gmail.com",
+      linkedin: "https://www.linkedin.com/in/perry-ehimuh/",
+    },
+    {
+      name: "Yifan Guo",
+      username: "carlos_dev",
+      role: "Frontend Developer",
+      avatar_url: null,
+      web_url: "https://gitlab.com/carlos_dev",
+      commits: 56,
+    },
+    {
+      name: "Ethan Do",
+      role: "Technical Reporter",
+      avatar_url: "/images/john_pic.png",
+      bio: "Junior CS Student, UT Austin",
+      responsibilities: "Upcoming Software Engineer",
+      email: "idk@gmail.com",
+      linkedin: "https://www.linkedin.com/in/idk/",
+    },
+    {
+      name: "John Bukoski",
+      role: "Technical Reporter",
+      avatar_url: "/images/john_pic.png",
+      bio: "Senior CS Student @ UT Austin",
+      responsibilities: "Technical Reporter, iOS developer",
+      email: "idk@gmail.com",
+      linkedin: "https://www.linkedin.com/in/idk/",
+    },
+  ];
+
+
   // Handle if user is null or undefined
   const userRole = user && user.role ? capitalizeEachWord(user.role) : "Unknown Role";  // Default to "Unknown Role" if undefined
 
