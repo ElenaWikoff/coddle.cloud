@@ -14,16 +14,16 @@ const AboutCard = ({ user, loading }) => {
       avatar_url: "/images/elena_pic.png",
       bio: "CS Major Senior at UT Austin",
       responsibilities: "Team Leader, UI/UX Design, and Frontend Developer",
-      email: "something@gmail.com",
+      email: "elenawikoff@utexas.edu",
       linkedin: "https://www.linkedin.com/in/idk/",
     },
     {
       name: "Jane Huynh",
       role: "Backend Engineer",
       avatar_url: "/images/jane_pic.png",
-      bio: "MSIS Data Science at UT Austin",
-      responsibilities: "AI Product Manager & Data Scientist",
-      email: "idk@gmail.com",
+      bio: "MSIS Data Science at UT Austin, AI Product Manager & Data Scientist",
+      responsibilities: "Backend engineer & db designer, namecheap host and API design",
+      email: "janehuynh@utexas.edu",
       linkedin: "https://www.linkedin.com/in/idk/",
     },
     {
@@ -41,7 +41,7 @@ const AboutCard = ({ user, loading }) => {
       avatar_url: "/images/tony_pic.png",
       bio: "Senior Computer Science student UT Austin",
       responsibilities: "backend developer, database design",
-      email: "idk@gmail.com",
+      email: "yifan.guo3517@gmail.com",
       linkedin: "https://www.linkedin.com/in/idk/",
     },
     {
@@ -50,7 +50,7 @@ const AboutCard = ({ user, loading }) => {
       avatar_url: "/images/ethan_pic.png",
       bio: "Junior CS Student, UT Austin",
       responsibilities: "Backend Engineer",
-      email: "idk@gmail.com",
+      email: "ethando767243@gmail.com",
       linkedin: "https://www.linkedin.com/in/idk/",
     },
     {
@@ -59,7 +59,7 @@ const AboutCard = ({ user, loading }) => {
       avatar_url: "/images/john_pic.png",
       bio: "Senior CS Student @ UT Austin",
       responsibilities: "Technical Reporter, iOS developer",
-      email: "idk@gmail.com",
+      email: "jtbukoski@gmail.com",
       linkedin: "https://www.linkedin.com/in/idk/",
     },
   ];
