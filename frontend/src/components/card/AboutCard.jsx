@@ -15,7 +15,7 @@ const AboutCard = ({ user, loading }) => {
       bio: "CS Major Senior at UT Austin",
       responsibilities: "Team Leader, UI/UX Design, and Frontend Developer",
       email: "elenawikoff@utexas.edu",
-      linkedin: "https://www.linkedin.com/in/idk/",
+      linkedin: "https://www.linkedin.com/in/elena-wikoff",
     },
     {
       name: "Jane Huynh",
@@ -24,7 +24,7 @@ const AboutCard = ({ user, loading }) => {
       bio: "MSIS Data Science at UT Austin, AI Product Manager & Data Scientist",
       responsibilities: "Backend engineer & db designer, namecheap host and API design",
       email: "janehuynh@utexas.edu",
-      linkedin: "https://www.linkedin.com/in/idk/",
+      linkedin: "https://www.linkedin.com/in/jane-huynh",
     },
     {
       name: "Perry Ehimuh",
@@ -42,7 +42,7 @@ const AboutCard = ({ user, loading }) => {
       bio: "Senior Computer Science student UT Austin",
       responsibilities: "backend developer, database design",
       email: "yifan.guo3517@gmail.com",
-      linkedin: "https://www.linkedin.com/in/idk/",
+      linkedin: "https://www.linkedin.com/in/tony-guo-012c",
     },
     {
       name: "Ethan Do",
@@ -51,7 +51,7 @@ const AboutCard = ({ user, loading }) => {
       bio: "Junior CS Student, UT Austin",
       responsibilities: "Backend Engineer",
       email: "ethando767243@gmail.com",
-      linkedin: "https://www.linkedin.com/in/idk/",
+      linkedin: "https://www.linkedin.com/in/ethan-do",
     },
     {
       name: "John Bukoski",
@@ -60,7 +60,7 @@ const AboutCard = ({ user, loading }) => {
       bio: "Senior CS Student @ UT Austin",
       responsibilities: "Technical Reporter, iOS developer",
       email: "jtbukoski@gmail.com",
-      linkedin: "https://www.linkedin.com/in/idk/",
+      linkedin: "https://www.linkedin.com/in/john-bukoski/",
     },
   ];
 
