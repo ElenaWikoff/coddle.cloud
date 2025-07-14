@@ -20,7 +20,7 @@ const AboutCard = ({ user, loading }) => {
     {
       name: "Jane Huynh",
       role: "Backend Engineer",
-      avatar_url: "/images/jane_pic.png",
+      avatar_url: "/images/jane_pic.jpg",
       bio: "MSIS Data Science at UT Austin, AI Product Manager & Data Scientist",
       responsibilities: "Backend engineer & db designer, namecheap host and API design",
       email: "janehuynh@utexas.edu",
@@ -29,7 +29,7 @@ const AboutCard = ({ user, loading }) => {
     {
       name: "Perry Ehimuh",
       role: "Frontend Engineer",
-      avatar_url: "/images/perry_pic.png",
+      avatar_url: "/images/perry_pic.jpg",
       bio: "CS Major Senior at UT Austin",
       responsibilities: "UI/UX Design, and Frontend Developer",
       email: "perryehimuh@gmail.com",
@@ -38,7 +38,7 @@ const AboutCard = ({ user, loading }) => {
     {
       name: "Yifan Guo",
       role: "Backend Engineer",
-      avatar_url: "/images/tony_pic.png",
+      avatar_url: "/images/tony_pic.jpg",
       bio: "Senior Computer Science student UT Austin",
       responsibilities: "backend developer, database design",
       email: "yifan.guo3517@gmail.com",
@@ -56,7 +56,7 @@ const AboutCard = ({ user, loading }) => {
     {
       name: "John Bukoski",
       role: "Technical Reporter",
-      avatar_url: "/images/john_pic.png",
+      avatar_url: "/images/john_pic.jpg",
       bio: "Senior CS Student @ UT Austin",
       responsibilities: "Technical Reporter, iOS developer",
       email: "jtbukoski@gmail.com",
@@ -64,20 +64,25 @@ const AboutCard = ({ user, loading }) => {
     },
   ];
 
+  const matchedUser = users.find(u => u.name.toLowerCase() === user?.name?.toLowerCase());
+
 
   // Handle if user is null or undefined
   const userRole = user && user.role ? capitalizeEachWord(user.role) : "Unknown Role";  // Default to "Unknown Role" if undefined
 
   // Display avatar or default man/woman stock image depending on your name
   const getAvatar = (user) => {
-  if (user?.avatar_url) return user.avatar_url;
+    if (user?.avatar_url) return user.avatar_url;
 
-  const name = user?.name?.toLowerCase();
-  if (name == "elena wikoff" || name == "jane huynh") {
-    return "/images/woman_stock_img.jpeg";
-  }
+    const name = user?.name?.toLowerCase();
+    const match = users.find((u) => u.name.toLowerCase() === name);
+    if (match && match.avatar_url) return match.avatar_url;
 
-  return "/images/man_stock_img.png";
+    if (name === "elena wikoff" || name === "jane huynh") {
+      return "/images/woman_stock_img.jpeg";
+    }
+
+    return "/images/man_stock_img.png";
   };
 
   return (
