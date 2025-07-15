@@ -1,9 +1,10 @@
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router";
 import { capitalizeEachWord } from "../../utils/functions.jsx";
+import Highlighter from "react-highlight-words";
 import "./card.css";
 
-const FishCard = ({ fish, inCarousel = false }) => {
+const FishCard = ({ fish, query, inCarousel = false }) => {
    return (
       <Card
          key={`card-${fish.id}`}
@@ -22,11 +23,25 @@ const FishCard = ({ fish, inCarousel = false }) => {
             />
          </div>
          <Card.Body>
-            <Card.Title>{capitalizeEachWord(fish.common_name)}</Card.Title>
+            <Card.Title>
+               <Highlighter
+                  highlightClassName="highlight-text"
+                  searchWords={[query]}
+                  autoEscape={true}
+                  textToHighlight={capitalizeEachWord(fish.common_name)}
+               />
+            </Card.Title>
             {!inCarousel && (
                <Card.Subtitle>
-                  {fish.scientific_name[0].toUpperCase() +
-                     fish.scientific_name.slice(1)}
+                  <Highlighter
+                     highlightClassName="highlight-text"
+                     searchWords={[query]}
+                     autoEscape={true}
+                     textToHighlight={
+                        fish.scientific_name[0].toUpperCase() +
+                        fish.scientific_name.slice(1)
+                     }
+                  />
                </Card.Subtitle>
             )}
          </Card.Body>

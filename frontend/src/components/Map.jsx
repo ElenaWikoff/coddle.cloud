@@ -104,7 +104,7 @@ const FilterControl = ({ position, onClick }) => {
    const positionClass =
       (position && POSITION_CLASSES[position]) || POSITION_CLASSES.topright;
    return (
-      <div className={`${positionClass}`}>
+      <div className={`${positionClass}`} zoomControl={false}>
          <div
             className="leaflet-control leaflet-bar"
             style={{ backgroundColor: "white" }}

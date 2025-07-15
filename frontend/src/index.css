@@ -234,3 +234,8 @@ a.list-group-item:hover {
   background-position: center;
   background-repeat: no-repeat;
 }
+
+.highlight-text  {
+   padding: 0;
+   background-color: var(--brand-accentYellow);
+}

@@ -27,7 +27,6 @@ const Search = ({ type }) => {
          fetch("/FiltersExample.json")
             .then((res) => res.json())
             .then((data) => {
-               console.log(data);
                setFilterData(data);
             });
       }
@@ -188,6 +187,7 @@ const Search = ({ type }) => {
                error={error}
                sorts={filterData}
                onSort={handleSort}
+               query={query}
             />
          </Container>
       </PageContainer>
