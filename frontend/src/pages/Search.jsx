@@ -4,12 +4,107 @@ import Container from "react-bootstrap/esm/Container";
 import PageContainer from "../components/PageContainer";
 import { fetch_data } from "../utils/actions/api.jsx";
 import ResultsContainer from "../components/search/ResultsContainer.jsx";
+import FilterContainer from "../components/search/FilterContainer.jsx";
+import { useDebounce } from "../utils/hooks.jsx";
 
 const Search = ({ type }) => {
    const [searchParams, setSearchParams] = useSearchParams();
    const [loading, setLoading] = useState(true);
    const [data, setData] = useState(null);
    const [error, setError] = useState();
+   const [query, setQuery] = useState("");
+   const debouncedQuery = useDebounce(query, 300);
+   const [length, setLength] = useState(0);
+   const debouncedLength = useDebounce(length, 300);
+   const [weight, setWeight] = useState(0);
+   const debouncedWeight = useDebounce(weight, 300);
+   const [depth, setDepth] = useState(0);
+   const debouncedDepth = useDebounce(depth, 300);
+
+   // Set Defaults
+   const handleReset = (searchParams) => {
+      searchParams.set("page", 1);
+      searchParams.set("limit", 12);
+   };
+
+   // Debounce search query for 300 seconds.
+   useEffect(() => {
+      const newSearchParams = new URLSearchParams(searchParams.toString());
+      handleReset(newSearchParams);
+      if (debouncedQuery) {
+         newSearchParams.set("q", debouncedQuery);
+      } else {
+         newSearchParams.delete("q");
+      }
+      setSearchParams(newSearchParams);
+   }, [debouncedQuery]);
+
+   // Handle search query value change
+   const handleSearch = (value) => {
+      setQuery(value);
+   };
+
+   // Debounce length for 300 seconds.
+   useEffect(() => {
+      const newSearchParams = new URLSearchParams(searchParams.toString());
+      handleReset(newSearchParams);
+      if (Number(debouncedLength)) {
+         newSearchParams.set("length", debouncedLength);
+      } else {
+         newSearchParams.delete("length");
+      }
+      setSearchParams(newSearchParams);
+   }, [debouncedLength]);
+
+   // Debounce weight for 300 seconds.
+   useEffect(() => {
+      const newSearchParams = new URLSearchParams(searchParams.toString());
+      handleReset(newSearchParams);
+      if (Number(debouncedWeight)) {
+         newSearchParams.set("weight", debouncedWeight);
+      } else {
+         newSearchParams.delete("weight");
+      }
+      setSearchParams(newSearchParams);
+   }, [debouncedWeight]);
+
+   // Debounce depth for 300 seconds.
+   useEffect(() => {
+      const newSearchParams = new URLSearchParams(searchParams.toString());
+      handleReset(newSearchParams);
+      if (Number(debouncedDepth)) {
+         newSearchParams.set("depth", debouncedDepth);
+      } else {
+         newSearchParams.delete("depth");
+      }
+      setSearchParams(newSearchParams);
+   }, [debouncedDepth]);
+
+   const handleChange = (key, value) => {
+      if (key === "weight" || key === "length" || key === "depth") {
+         switch (key) {
+            case "weight":
+               setWeight(value);
+               break;
+            case "length":
+               setLength(value);
+               break;
+            case "depth":
+               setDepth(value);
+               break;
+            default:
+               return;
+         }
+      } else {
+         const newSearchParams = new URLSearchParams(searchParams.toString());
+         if (value !== "all") {
+            newSearchParams.set(key, value);
+         } else {
+            newSearchParams.delete(key);
+         }
+         setSearchParams(newSearchParams);
+      }
+   };
 
    useEffect(() => {
       setLoading(true);
@@ -48,12 +143,6 @@ const Search = ({ type }) => {
       };
    }, [searchParams, setSearchParams]);
 
-   const handleChange = (key, value) => {
-      const newSearchParams = new URLSearchParams(searchParams.toString());
-      newSearchParams.set(key, value);
-      setSearchParams(newSearchParams);
-   };
-
    const getTitle = () => {
       if (type === "fish") {
          return "Fish Species";
@@ -68,6 +157,10 @@ const Search = ({ type }) => {
       <PageContainer>
          <Container className="p-5">
             <h1>{getTitle()}</h1>
+            <FilterContainer 
+            type={type}
+            onSearch={handleSearch} 
+            onSelect={handleChange} />
             <ResultsContainer
                data={data}
                type={type}

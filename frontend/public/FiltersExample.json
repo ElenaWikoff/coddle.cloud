@@ -1,0 +1,57 @@
+{
+    "filters": [
+        {
+            "key": "type",
+            "options": [
+                "all",
+                "bass",
+                "salmon",
+                "halibut",
+                "gar"
+            ]
+        },
+        {
+            "key": "distribution",
+            "options": [
+                "all",
+                "North America",
+                "South America",
+                "Asia",
+                "Atlantic"
+            ]
+        },
+        {
+            "key": "environment",
+            "options": [
+                "all",
+                "freshwater",
+                "marine",
+                "anadromous"
+            ]
+        }
+    ],
+    "ranges": [
+        {
+            "key": "length",
+            "min": 0,
+            "max": 100
+        },
+        {
+            "key": "weight",
+            "min": 0,
+            "max": 200
+        },
+        {
+            "key": "depth",
+            "min": 0,
+            "max": 300
+        }
+    ],
+    "sort": [
+        "id",
+        "alpha",
+        "length",
+        "weight",
+        "depth"
+    ]
+}

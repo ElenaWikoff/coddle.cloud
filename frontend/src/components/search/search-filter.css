@@ -1,0 +1,13 @@
+.form-label {
+    font-size: 14px;
+}
+
+.range-numbers {
+    font-size: 12px;
+}
+
+.current-range {
+    font-size: 12px;
+    position: absolute;
+    top: 62%;
+}
