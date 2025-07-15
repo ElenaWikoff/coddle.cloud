@@ -20,11 +20,23 @@ const Search = ({ type }) => {
    const debouncedWeight = useDebounce(weight, 300);
    const [depth, setDepth] = useState(0);
    const debouncedDepth = useDebounce(depth, 300);
+   const [filterData, setFilterData] = useState(null);
+
+   useEffect(() => {
+      if (type === "fish") {
+         fetch("/FiltersExample.json")
+            .then((res) => res.json())
+            .then((data) => {
+               console.log(data);
+               setFilterData(data);
+            });
+      }
+   }, []);
 
    // Set Defaults
    const handleReset = (searchParams) => {
       searchParams.set("page", 1);
-      searchParams.set("limit", 12);
+      // searchParams.set("limit", 12);
    };
 
    // Debounce search query for 300 seconds.
@@ -106,6 +118,13 @@ const Search = ({ type }) => {
       }
    };
 
+   const handleSort = (value) => {
+      const newSearchParams = new URLSearchParams(searchParams.toString());
+      handleReset(newSearchParams);
+      newSearchParams.set('sort', value);
+      setSearchParams(newSearchParams);
+   }
+
    useEffect(() => {
       setLoading(true);
       const currentSearchParams = new URLSearchParams(searchParams.toString());
@@ -158,6 +177,7 @@ const Search = ({ type }) => {
          <Container className="p-5">
             <h1>{getTitle()}</h1>
             <FilterContainer 
+            data={filterData}
             type={type}
             onSearch={handleSearch} 
             onSelect={handleChange} />
@@ -166,6 +186,8 @@ const Search = ({ type }) => {
                type={type}
                loading={loading}
                error={error}
+               sorts={filterData}
+               onSort={handleSort}
             />
          </Container>
       </PageContainer>

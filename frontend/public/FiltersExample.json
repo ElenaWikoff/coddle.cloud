@@ -14,10 +14,18 @@
             "key": "distribution",
             "options": [
                 "all",
-                "North America",
-                "South America",
-                "Asia",
-                "Atlantic"
+                "as",
+                "af",
+                "es",
+                "na",
+                "oc",
+                "sa",
+                "an",
+                "ar",
+                "at",
+                "in",
+                "pa",
+                "so"
             ]
         },
         {
@@ -48,10 +56,15 @@
         }
     ],
     "sort": [
-        "id",
-        "alpha",
-        "length",
-        "weight",
-        "depth"
+        "+id",
+        "-id",
+        "+common_name",
+        "-common_name",
+        "+scientific_name",
+        "-scientific_name",
+        "+length",
+        "-length",
+        "+weight",
+        "-weight"
     ]
 }

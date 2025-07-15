@@ -11,3 +11,12 @@
     position: absolute;
     top: 62%;
 }
+
+.sort-select {
+    font-size: 14px;
+    padding: 4px;
+    padding-right: 35px;
+    border: 0;
+    width: auto;
+    text-align: right;
+}

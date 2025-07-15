@@ -2,11 +2,11 @@ import Container from "react-bootstrap/esm/Container";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useEffect, useState } from "react";
-import { capitalizeEachWord } from "../../utils/functions";
+import { capitalizeEachWord, getDistribution } from "../../utils/functions";
 import "./search-filter.css";
 
-const FilterContainer = ({ onSearch, onSelect, type }) => {
-   const [data, setData] = useState(null);
+const FilterContainer = ({ data, onSearch, onSelect, type }) => {
+   // const [data, setData] = useState(null);
    // const [currRanges, setCurrRanges] = useState(null);
 
    // const handleSelect = (key, value, index) => {
@@ -19,23 +19,6 @@ const FilterContainer = ({ onSearch, onSelect, type }) => {
    //    });
    //    setCurrRanges(ranges);
    // }
-
-   useEffect(() => {
-      if (type === "fish") {
-         fetch("/FiltersExample.json")
-            .then((res) => res.json())
-            .then((data) => {
-               setData(data);
-               const ranges = data.ranges.map(({ key, min }) => {
-                  return {
-                     key,
-                     value: min,
-                  };
-               });
-               setCurrRanges(ranges);
-            });
-      }
-   }, []);
 
    return (
       <Container className="mb-3 m-0 p-0">
@@ -64,14 +47,27 @@ const FilterContainer = ({ onSearch, onSelect, type }) => {
                                  onSelect(filter.key, event.target.value)
                               }
                            >
-                              {filter.options.map((option) => (
-                                 <option
-                                    key={`${filter.key}-${option}`}
-                                    value={option}
-                                 >
-                                    {capitalizeEachWord(option)}
-                                 </option>
-                              ))}
+                              {filter.options.map((option) => {
+                                 if (filter.key === "distribution") {
+                                    return (
+                                       <option
+                                          key={`${filter.key}-${option}`}
+                                          value={option}
+                                       >
+                                          {getDistribution(option)}
+                                       </option>
+                                    );
+                                 } else {
+                                    return (
+                                       <option
+                                          key={`${filter.key}-${option}`}
+                                          value={option}
+                                       >
+                                          {capitalizeEachWord(option)}
+                                       </option>
+                                    );
+                                 }
+                              })}
                            </Form.Select>
                         </Form.Group>
                      );
@@ -83,14 +79,19 @@ const FilterContainer = ({ onSearch, onSelect, type }) => {
                {data &&
                   data.ranges.map((range, index) => {
                      return (
-                        <Form.Group key={`range-${range.key}`} className="position-relative">
+                        <Form.Group
+                           key={`range-${range.key}`}
+                           className="position-relative"
+                        >
                            <Form.Label>{`Max ${capitalizeEachWord(range.key)}`}</Form.Label>
                            {/* <Form.Label>{`Max ${capitalizeEachWord(range.key)}: ${currRanges[index].value} m`}</Form.Label> */}
                            <Form.Range
                               defaultValue={range.min}
                               min={range.min}
                               max={range.max}
-                              onChange={(event) => onSelect(range.key, event.target.value)}
+                              onChange={(event) =>
+                                 onSelect(range.key, event.target.value)
+                              }
                            />
                            {/* {currRanges && (
                               <span 

@@ -1,5 +1,6 @@
 export function capitalizeEachWord(str) {
-  const words = str.split(' ');
+  const replace = str.replace('_', ' ');
+  const words = replace.split(' ');
 
   const capitalizedWords = words.map(word => {
     if (word.length === 0) {
@@ -34,6 +35,6 @@ export function getDistribution(str) {
     case 'in': return 'Indian Ocean';
     case 'so': return 'Southern Ocean';
     default:
-      return 'Worldwide';
+      return 'All';
   }
 }

@@ -36,6 +36,7 @@ def build_paginated_url(base_path, current_args, page_num, limit):
     args.update({"page": page_num, "limit": limit})
     return f"{base_path}?{urlencode(args)}"
 
+@app.route 
 @app.route('/api')
 def splash():
     return redirect('/api/docs/')
@@ -100,30 +101,30 @@ def fishIndex():
     fish_total = fish_query.count()
     pages = (fish_total + limit - 1) // limit # Always round up
 
-    if (page <= pages):
-        next_page = page + 1 if page < pages else None
-        prev_page = page - 1 if page > 1 else None
+    # if (page <= pages):
+    next_page = page + 1 if page < pages else None
+    prev_page = page - 1 if page > 1 else None
 
-        offset = (page - 1) * limit
+    offset = (page - 1) * limit
 
-        fish = fish_query.offset(offset).limit(limit).all()
-        fish_json = [f.to_dict() for f in fish]
+    fish = fish_query.offset(offset).limit(limit).all()
+    fish_json = [f.to_dict() for f in fish]
 
-        fish_response = {
-            "pagination": {
-                "limit": limit,
-                "page": page,
-                "pages": pages,
-                "total": fish_total,
-                "first": build_paginated_url("/fish-species", request.args, 1, limit) if page != 1 else None,
-                "last": build_paginated_url("/fish-species", request.args, pages, limit) if page != pages else None,
-                "next": build_paginated_url("/fish-species", request.args, next_page, limit),
-                "prev": build_paginated_url("/fish-species", request.args, prev_page, limit)
-            },
-            "results": fish_json
-        }
+    fish_response = {
+        "pagination": {
+            "limit": limit,
+            "page": page,
+            "pages": pages,
+            "total": fish_total,
+            "first": build_paginated_url("/fish-species", request.args, 1, limit) if page != 1 else None,
+            "last": build_paginated_url("/fish-species", request.args, pages, limit) if page != pages else None,
+            "next": build_paginated_url("/fish-species", request.args, next_page, limit),
+            "prev": build_paginated_url("/fish-species", request.args, prev_page, limit)
+        },
+        "results": fish_json
+    }
 
-        return fish_response
+    return fish_response
 
 @app.route('/api/fish/<int:id>')
 def specificFishIndex(id):
@@ -222,4 +223,4 @@ def aboutIndex():
     return about_json
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=8080, debug=True)

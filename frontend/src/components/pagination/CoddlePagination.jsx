@@ -5,7 +5,7 @@ import Pagination from "react-bootstrap/Pagination";
 import "./pagination.css";
 
 const CoddlePagination = ({ page, pages, onNext, onPrev, onFirst, onLast, onClick }) => {
-   return (
+   return pages > 1 ? (
       <Pagination className="d-flex justify-content-center mt-4 mx-auto w-auto">
          <Pagination.First disabled={!onFirst} onClick={() => onClick(onFirst)} />
          <Pagination.Prev disabled={!onPrev} onClick={() => onClick(onPrev)} />
@@ -13,7 +13,7 @@ const CoddlePagination = ({ page, pages, onNext, onPrev, onFirst, onLast, onClic
          <Pagination.Next disabled={!onNext} onClick={() => onClick(onNext)} />
          <Pagination.Last disabled={!onLast} onClick={() => onClick(onLast)} />
       </Pagination>
-   );
+   ) : null;
 };
 
 export default CoddlePagination;

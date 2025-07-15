@@ -946,22 +946,6 @@
     },
     {
       "id": 60,
-      "common_name": "reef triggerfish",
-      "scientific_name": "rhinecanthus rectangulus",
-      "type": "triggerfish",
-      "environment": "marine",
-      "distribution": "pacific",
-      "length": 30,
-      "weight": null,
-      "depth_min": 0,
-      "depth_max": 20,
-      "temp_min": 53,
-      "temp_max": 85,
-      "image_attribution": "",
-      "ref": "Matsuura, K., 2001. Balistidae. Triggerfishes. p. 3911-3928. In K.E. Carpenter and V. Niem (eds.) FAO species identification guide for fishery purposes. The living marine resources of the Western Central Pacific. Vol. 6. Bony fishes part 4 (Labridae to Latimeriidae), estuarine crocodiles. FAO, Rome."
-    },
-    {
-      "id": 61,
       "common_name": "spotted weakfish",
       "scientific_name": "cynoscion nebulosus",
       "type": "weakfish",
@@ -977,7 +961,7 @@
       "ref": "Robins, C.R. and G.C. Ray, 1986. A field guide to Atlantic coast fishes of North America. Houghton Mifflin Company, Boston, U.S.A. 354 p."
     },
     {
-      "id": 62,
+      "id": 61,
       "common_name": "atlantic cod",
       "scientific_name": "gadmus morhua",
       "type": "cod",
@@ -993,7 +977,7 @@
       "ref": "Cohen, D.M., T. Inada, T. Iwamoto and N. Scialabba, 1990. FAO species catalogue. Vol. 10. Gadiform fishes of the world (Order Gadiformes). An annotated and illustrated catalogue of cods, hakes, grenadiers and other gadiform fishes known to date. FAO Fish. Synop. 125(10). Rome: FAO. 442 p."
     },
     {
-      "id": 63,
+      "id": 62,
       "common_name": "mississippi paddlefish",
       "scientific_name": "polyodon spathula",
       "type": "paddlefish",
@@ -1009,7 +993,7 @@
       "ref": "Page, L.M. and B.M. Burr, 2011. A field guide to freshwater fishes of North America north of Mexico. Boston : Houghton Mifflin Harcourt, 663p."
     },
     {
-      "id": 64,
+      "id": 63,
       "common_name": "muskellunge",
       "scientific_name": "esox masquinongy",
       "type": "muskie",
