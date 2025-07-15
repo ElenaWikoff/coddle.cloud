@@ -43,12 +43,6 @@ const About = () => {
                   })}
                </Row>
             </section>
-            <section id="design" className="mt-4">
-               <h2 style={{fontWeight: "300", color: "gray"}}>Design</h2>
-               <ul>
-                  <li>Postman API: <a href="https://utcs-cs373-group1.postman.co/workspace/utcs-cs373-group1~3ac00cd0-77b1-4c25-882e-17a6da2430f7/collection/46076704-066f19ff-7f9e-418b-bf6d-71a9dd03c09f?action=share&creator=43121659">Fishing API Collection</a></li>
-               </ul>
-            </section>
 
             <section className="mb-16">
 
