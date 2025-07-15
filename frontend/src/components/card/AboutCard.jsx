@@ -66,11 +66,8 @@ const AboutCard = ({ user, loading }) => {
 
   const matchedUser = users.find(u => u.name.toLowerCase() === user?.name?.toLowerCase());
 
+  const userRole = user && user.role ? capitalizeEachWord(user.role) : "Unknown Role";
 
-  // Handle if user is null or undefined
-  const userRole = user && user.role ? capitalizeEachWord(user.role) : "Unknown Role";  // Default to "Unknown Role" if undefined
-
-  // Display avatar or default man/woman stock image depending on your name
   const getAvatar = (user) => {
     if (user?.avatar_url) return user.avatar_url;
 
@@ -101,16 +98,14 @@ const AboutCard = ({ user, loading }) => {
             {/* Front of the card with image */}
             <div className="flip-card-front absolute w-full h-full backface-hidden bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
               <div className="relative w-full h-full z-0">
-                {/* Image background */}
                 <img
                   src={getAvatar(user)}
                   alt={user.name}
                   className="absolute inset-0 w-full h-full object-cover z-0"
                 />
-                {/* Gradient + Text overlay */}
-                <div className="card-text z-10">
-                  <h3 className="text-xl font-semibold text-orange text-bottom mb-1 z-20">{user.name}</h3>
-                  <p className="text-blue-300 font-medium z-20 text-bottom">{userRole}</p>
+                <div className="card-text z-10 font-sans">
+                  <h3 className="text-xl font-semibold text-orange mb-1 z-20">{user.name}</h3>
+                  <p className="text-blue-300 font-medium z-20">{userRole}</p>
                 </div>
               </div>
             </div>
@@ -120,34 +115,34 @@ const AboutCard = ({ user, loading }) => {
               <div className="h-full p-6 flex flex-col">
                 <div className="flex items-center mb-4">
                   <img
-                    src={user.avatar_url || "/placeholder.svg"}
+                    src={getAvatar(user)}
                     alt={user.name}
-                    className="w-16 h-16 rounded-full object-cover border-3 border-white mr-4"
+                    className="w-16 h-16 rounded-full object-cover border-4 border-white mr-4"
                   />
                   <div>
-                    <h3 className="text-lg font-semibold text-left">{user.name}</h3>
-                    <p className="text-[#307eb1] text-sm font-medium text-left">{userRole}</p> {/* Display the sanitized role */}
+                    <h3 className="text-lg font-semibold text-left font-serif">{user.name}</h3>
+                    <p className="text-[#307eb1] text-sm font-medium text-left font-serif">{userRole}</p>
                   </div>
                 </div>
 
                 <div className="flex-1 space-y-4">
                   <div className="flex">
-                    <p className="text-sm font-bold w-20 flex-shrink-0">Username:</p>
-                    <p className="text-sm leading-relaxed flex-1">{user.username}</p>
+                    <p className="text-sm font-bold w-20 flex-shrink-0 font-mono">Username:</p>
+                    <p className="text-sm leading-relaxed flex-1 font-mono">{user.username}</p>
                   </div>
 
                   <div className="flex">
-                    <p className="text-sm font-bold w-32 flex-shrink-0">GitLab:</p>
-                    <p className="text-sm leading-relaxed flex-1">
-                      <a href={user.web_url} target="_blank" rel="noopener noreferrer" className="text-blue-500">
+                    <p className="text-sm font-bold w-32 flex-shrink-0 font-mono">GitLab:</p>
+                    <p className="text-sm leading-relaxed flex-1 font-mono">
+                      <a href={user.web_url} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
                         {user.web_url}
                       </a>
                     </p>
                   </div>
 
                   <div className="flex">
-                    <p className="text-sm font-bold w-32 flex-shrink-0">Commits:</p>
-                    <p className="text-sm leading-relaxed flex-1">{user.commits}</p>
+                    <p className="text-sm font-bold w-32 flex-shrink-0 font-mono">Commits:</p>
+                    <p className="text-sm leading-relaxed flex-1 font-mono">{user.commits}</p>
                   </div>
                 </div>
               </div>

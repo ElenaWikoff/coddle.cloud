@@ -41,7 +41,7 @@
 .flip-card-front .card-text {
   position: absolute;  /* This will be on top of the image */
   z-index: 2;  /* Ensures the text is above the image */
-  color: #307eb1;  
+  color: #286289;  
   font-size: 20px;
   bottom: 0;
   left: 0;
@@ -71,7 +71,18 @@
   background-color: #f0f7fa;
   padding: 16px;
   transform: rotateY(180deg);
-  /* Add any back-specific styles (e.g., details, more info) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Image on the back of the card */
+.flip-card-back img {
+  width: 100px; /* Adjust the size of the image */
+  height: 100px; /* Keep the aspect ratio of the circle */
+  border-radius: 50%; /* This will make the image circular */
+  object-fit: cover; /* Ensures the image covers the circle properly */
 }
 
 /* When the card is hovered, flip it */
