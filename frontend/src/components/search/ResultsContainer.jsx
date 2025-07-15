@@ -7,7 +7,7 @@ import CoddlePagination from "../pagination/CoddlePagination";
 import Form from "react-bootstrap/Form";
 import { capitalizeEachWord } from "../../utils/functions";
 
-const ResultsContainer = ({ data, type, loading, error, sorts, onSort }) => {
+const ResultsContainer = ({ data, type, loading, error, sorts, onSort, query }) => {
    const [searchParams, setSearchParams] = useSearchParams();
    const navigate = useNavigate();
    const [sortValue, setSortValue] = useState(searchParams.get('sort'));
@@ -40,7 +40,7 @@ const ResultsContainer = ({ data, type, loading, error, sorts, onSort }) => {
          {error && <p>Failed to fetch data.</p>}
          {!loading && data && (
             <>
-               <div class="results-header d-flex justify-content-between align-items-center">
+               <div className="results-header d-flex justify-content-between align-items-center">
                   <p>{data.pagination.total} results found.</p>
                   {sorts && (
                      <Form.Select
@@ -51,12 +51,12 @@ const ResultsContainer = ({ data, type, loading, error, sorts, onSort }) => {
                         value={sortValue}
                      >
                         {sorts.sort.map((sort) => (
-                           <option value={sort}>{convertSort(sort)}</option>
+                           <option key={`sort-${sort}`} value={sort}>{convertSort(sort)}</option>
                         ))}
                      </Form.Select>
                   )}
                </div>
-               <ResultsGrid results={data.results} type={type} />
+               <ResultsGrid results={data.results} type={type} query={query} />
                <CoddlePagination
                   page={data.pagination.page}
                   pages={data.pagination.pages}
