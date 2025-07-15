@@ -131,44 +131,83 @@ def specificFishIndex(id):
     specific_fish = db.session.query(Fish).get(id)
     return specific_fish.to_dict()
 
+@app.route('/api/fish/searching_metadata')
+def fishSearchingMetadataIndex():
+    pass
+
 @app.route('/api/lures')
 def luresIndex():
     lures_query = db.session.query(Lures)
 
+    # Almost google like search of bait name and type
+    q = request.args.get('q', type=str)
+    if q:
+        search = f"%{q}%"
+        lures_query = lures_query.filter(
+            or_(
+                func.lower(Lures.name).like(func.lower(search)),
+                func.lower(Lures.type).like(func.lower(search))
+            )
+        )
+    
+    # Lures filters
+    lures_filter_fields = {
+        'application': Lures.application,
+        'fish_types': Lures.fish_types,
+    }
+
+    for field, column in lures_filter_fields.items():
+        value = request.args.get(field)
+        if value:
+            # Match if the value is present in the array
+            lures_query = lures_query.filter(column.any(value))
+
+    # Lures sorts
+    sort_param = request.args.get('sort')
+    allowed_sort_fields = ['name', 'type']
+    sort_clause = get_sort_clause(Lures, sort_param, allowed_sort_fields)
+    if sort_clause is not None:
+        lures_query = lures_query.order_by(sort_clause)
+    
+    # Lures pagination
     page = request.args.get('page', default=1, type=int)
     limit = request.args.get('limit', default=12, type=int)
     lures_total = lures_query.count()
     pages = (lures_total + limit - 1) // limit # Always round up
 
-    if (page <= pages):
-        next_page = page + 1 if page < pages else None
-        prev_page = page - 1 if page > 1 else None
+    # if (page <= pages):
+    next_page = page + 1 if page < pages else None
+    prev_page = page - 1 if page > 1 else None
 
-        offset = (page - 1) * limit
+    offset = (page - 1) * limit
 
-        lures = db.session.query(Lures).offset(offset).limit(limit).all()
-        lures_json = [lure.to_dict() for lure in lures]
+    lures = db.session.query(Lures).offset(offset).limit(limit).all()
+    lures_json = [lure.to_dict() for lure in lures]
 
-        lures_response = {
-            "pagination": {
-                "limit": limit,
-                "page": page,
-                "pages": pages,
-                "total": lures_total,
-                "first": f"/lures?page=1&limit={limit}" if page != 1 else None,
-                "last": f"/lures?page={pages}&limit={limit}" if page != pages else None,
-                "next": f"/lures?page={next_page}&limit={limit}" if next_page else None,
-                "prev": f"/lures?page={prev_page}&limit={limit}" if prev_page else None
-            },
-            "results": lures_json
-        }
+    lures_response = {
+        "pagination": {
+            "limit": limit,
+            "page": page,
+            "pages": pages,
+            "total": lures_total,
+            "first": build_paginated_url("/lures", request.args, 1, limit) if page != 1 else None,
+            "last": build_paginated_url("/lures", request.args, pages, limit) if page != pages else None,
+            "next": build_paginated_url("/lures", request.args, next_page, limit),
+            "prev": build_paginated_url("/lures", request.args, prev_page, limit)
+        },
+        "results": lures_json
+    }
 
-        return lures_response
+    return lures_response
 
 @app.route('/api/lures/<int:id>')
 def specificLuresIndex(id):
     specific_lure = db.session.query(Lures).get(id)
     return specific_lure.to_dict()
+
+@app.route('/api/lures/searching_metadata')
+def luresSearchingMetadataIndex():
+    pass
 
 @app.route('/api/locations')
 def locationsIndex():
