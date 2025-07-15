@@ -135,6 +135,37 @@ def specificFishIndex(id):
 def luresIndex():
     lures_query = db.session.query(Lures)
 
+    # Almost google like search of bait name and type
+    q = request.args.get('q', type=str)
+    if q:
+        search = f"%{q}%"
+        lures_query = lures_query.filter(
+            or_(
+                func.lower(Lures.name).like(func.lower(search)),
+                func.lower(Lures.type).like(func.lower(search))
+            )
+        )
+    
+    # Lures filters
+    lures_filter_fields = {
+        'application': Lures.application,
+        'fish_types': Lures.fish_types,
+    }
+
+    for field, column in lures_filter_fields.items():
+        value = request.args.get(field)
+        if value:
+            # Match if the value is present in the array
+            lures_query = lures_query.filter(column.any(value))
+
+    # Lures sorts
+    sort_param = request.args.get('sort')
+    allowed_sort_fields = ['name', 'type']
+    sort_clause = get_sort_clause(Lures, sort_param, allowed_sort_fields)
+    if sort_clause is not None:
+        lures_query = lures_query.order_by(sort_clause)
+    
+    # Lures pagination
     page = request.args.get('page', default=1, type=int)
     limit = request.args.get('limit', default=12, type=int)
     lures_total = lures_query.count()
@@ -155,10 +186,10 @@ def luresIndex():
                 "page": page,
                 "pages": pages,
                 "total": lures_total,
-                "first": f"/lures?page=1&limit={limit}" if page != 1 else None,
-                "last": f"/lures?page={pages}&limit={limit}" if page != pages else None,
-                "next": f"/lures?page={next_page}&limit={limit}" if next_page else None,
-                "prev": f"/lures?page={prev_page}&limit={limit}" if prev_page else None
+                "first": build_paginated_url("/lures", request.args, 1, limit) if page != 1 else None,
+                "last": build_paginated_url("/lures", request.args, pages, limit) if page != pages else None,
+                "next": build_paginated_url("/lures", request.args, next_page, limit),
+                "prev": build_paginated_url("/lures", request.args, prev_page, limit)
             },
             "results": lures_json
         }

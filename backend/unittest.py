@@ -101,7 +101,7 @@ class ApiGetTests(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         sample = response.get_json()
         expected_data = ["Austin", [30.2524, -97.7374], "Lady Bird Lake", [1, 2, 4, 5, 6, 7, 8, 9, 10, 13, 14, 15, 16, 17, 18, 19, 21, 22, 28, 29, 31, 32, 34], 1, "TPWD Paddling Trail 1", "Texas", "lake"]
-        self.assertEquals(expected_data, list(sample.values()))
+        self.assertEqual(expected_data, list(sample.values()))
 
         
 '''
