@@ -174,3 +174,68 @@ a.card.in-carousel:hover * {
    transform: scale(1.1);
    filter: drop-shadow(0px 10px 10px rgba(100, 100, 111, 0.2) );
 }
+
+/* Overall Stats Container */
+.stats-container {
+  display: flex;
+  flex-direction: column;  /* Stack items vertically (title first, cards below) */
+  align-items: center;     /* Center the content horizontally */
+  gap: 2rem;               /* Space between the title and the cards */
+  margin-bottom: 3rem;
+}
+
+/* Stat Card Styling */
+.stat-card {
+  background-color: #ebf8ff;  /* Blue-100 */
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  width: 200px; /* Fixed width for cards */
+}
+
+/* Title for Section (Project Statistics) */
+.stats-head-title {
+  font-size: 1.875rem; /* 3xl */
+  font-weight: bold;
+  color: black;  /* Primary blue */
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+  text-align: center; /* Center-align the title */
+}
+
+/* Title for Section (Project Statistics) */
+.stats-title {
+  font-size: 1.875rem; /* 3xl */
+  font-weight: bold;
+  color: #307eb1;  /* Primary blue */
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+  text-align: center; /* Center-align the title */
+}
+
+/* Stat Card Title (for each stat card) */
+.stat-card h3 {
+  font-size: 1.25rem; /* 2xl */
+  font-weight: bold;
+  color: #307eb1;
+  margin-bottom: 0.5rem;
+}
+
+/* Hover Effect for Stat Card */
+.stat-card:hover {
+  background-color: #307eb1; /* Darker Blue on Hover */
+}
+
+.stat-card:hover .stat-title,
+.stat-card:hover h3 {
+  color: white; /* Change text color to white on hover */
+}
+
+/* Row of Stat Cards */
+.stat-cards-row {
+  display: flex;          /* Align stat cards in a row */
+  justify-content: center; /* Center the cards horizontally */
+  gap: 2rem;              /* Space between the cards */
+}

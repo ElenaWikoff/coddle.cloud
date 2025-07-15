@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import PageContainer from "../components/PageContainer";
 import AboutCard from "../components/card/AboutCard";
 import CritiqueCard from '../components/card/CritiqueCard';
+import StatsCard from "../components/card/StatsCard";
 
 const About = () => {
    const [loading, setLoading] = useState(true);
@@ -50,21 +51,8 @@ const About = () => {
             </section>
 
             <section className="mb-16">
-               <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Project Statistics</h2>
 
-               {/* Overall Stats */}
-               <div className="flex justify-center gap-8 mb-12">
-                  <div className="bg-blue-100 rounded-lg p-6 text-center hover:bg-[#307eb1] transition-colors duration-300 group">
-                     <h3 className="text-2xl font-bold text-[#307eb1] group-hover:text-white mb-2 transition-colors duration-300">
-                        Total Commits: 200
-                     </h3>
-                  </div>
-                  <div className="bg-blue-100 rounded-lg p-6 text-center hover:bg-[#307eb1] transition-colors duration-300 group">
-                     <h3 className="text-2xl font-bold text-[#307eb1] group-hover:text-white mb-2 transition-colors duration-300">
-                        Total Issues: 137
-                     </h3>
-                  </div>
-               </div>
+               <StatsCard />
 
                <section>
                   {/* Self Critiques */}
@@ -122,9 +110,9 @@ const About = () => {
                         <Col>
                            <CritiqueCard icon="🔗" title="How effective was their RESTful API?">
                               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tristique, sapien et mollis aliquet, nulla libero faucibus libero, euismod convallis metus libero et justo. Cras accumsan justo a lectus euismod, ac scelerisque ligula pharetra. Ut laoreet sollicitudin viverra. Fusce ac arcu eget libero
-
-
-efficitur malesuada. Nam vitae ante vitae risus pretium mollis. Sed at eros quis sem varius laoreet. Curabitur at nunc facilisis, vulputate libero ut, auctor arcu. Mauris sit amet libero neque. </CritiqueCard> </Col>
+                              efficitur malesuada. Nam vitae ante vitae risus pretium mollis. Sed at eros quis sem varius laoreet. Curabitur at nunc facilisis, vulputate libero ut, auctor arcu. Mauris sit amet libero neque. 
+                           </CritiqueCard> 
+                        </Col>
 
                     <Col>
                        <CritiqueCard icon="📋" title="How well did they implement your user stories?">
