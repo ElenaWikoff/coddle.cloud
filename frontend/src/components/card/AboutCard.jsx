@@ -46,7 +46,7 @@ const AboutCard = ({ user, loading }) => {
     },
     {
       name: "Ethan Do",
-      role: "Technical Reporter",
+      role: "Backend Engineer",
       avatar_url: "/images/ethan_pic.png",
       bio: "Junior CS Student, UT Austin",
       responsibilities: "Backend Engineer",
@@ -64,27 +64,22 @@ const AboutCard = ({ user, loading }) => {
     },
   ];
 
-  const matchedUser = users.find(u => u.name.toLowerCase() === user?.name?.toLowerCase());
+  // Find the user in the users array based on the name passed in user prop
+  const matchedUser = users.find((u) => u.name.toLowerCase() === user?.name?.toLowerCase());
 
-  const userRole = user && user.role ? capitalizeEachWord(user.role) : "Unknown Role";
+  // If matched user exists, we merge its data with the passed user data
+  const mergedUser = matchedUser ? { ...matchedUser, ...user } : user;  // Merge matched user and user prop
 
+  const userRole = mergedUser?.role ? capitalizeEachWord(mergedUser.role) : "Unknown Role";
+
+  // Get the avatar for the user
   const getAvatar = (user) => {
-    if (user?.avatar_url) return user.avatar_url;
-
-    const name = user?.name?.toLowerCase();
-    const match = users.find((u) => u.name.toLowerCase() === name);
-    if (match && match.avatar_url) return match.avatar_url;
-
-    if (name === "elena wikoff" || name === "jane huynh") {
-      return "/images/woman_stock_img.jpeg";
-    }
-
-    return "/images/man_stock_img.png";
+    return user?.avatar_url || "/images/default_avatar.png";
   };
 
   return (
     <>
-      {!loading && user ? (
+      {!loading && mergedUser ? (
         <div
           className="flip-card group h-96 w-full perspective-1000"
           onMouseEnter={() => setFlipped(true)}
@@ -99,12 +94,12 @@ const AboutCard = ({ user, loading }) => {
             <div className="flip-card-front absolute w-full h-full backface-hidden bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
               <div className="relative w-full h-full z-0">
                 <img
-                  src={getAvatar(user)}
-                  alt={user.name}
+                  src={getAvatar(mergedUser)}
+                  alt={mergedUser.name}
                   className="absolute inset-0 w-full h-full object-cover z-0"
                 />
                 <div className="card-text z-10 font-sans">
-                  <h3 className="text-xl font-semibold text-orange mb-1 z-20">{user.name}</h3>
+                  <h3 className="text-xl font-semibold text-orange mb-1 z-20">{mergedUser.name}</h3>
                   <p className="text-blue-300 font-medium z-20">{userRole}</p>
                 </div>
               </div>
@@ -115,34 +110,53 @@ const AboutCard = ({ user, loading }) => {
               <div className="h-full p-6 flex flex-col">
                 <div className="flex items-center mb-4">
                   <img
-                    src={getAvatar(user)}
-                    alt={user.name}
+                    src={getAvatar(mergedUser)}
+                    alt={mergedUser.name}
                     className="w-16 h-16 rounded-full object-cover border-4 border-white mr-4"
                   />
                   <div>
-                    <h3 className="text-lg font-semibold text-left font-serif">{user.name}</h3>
+                    <h3 className="text-lg font-semibold text-left font-serif">{mergedUser.name}</h3>
                     <p className="text-[#307eb1] text-sm font-medium text-left font-serif">{userRole}</p>
                   </div>
                 </div>
 
                 <div className="flex-1 space-y-4">
+                  {/* Display Bio */}
                   <div className="flex">
-                    <p className="text-sm font-bold w-20 flex-shrink-0 font-mono">Username:</p>
-                    <p className="text-sm leading-relaxed flex-1 font-mono">{user.username}</p>
+                    <p className="text-sm font-bold w-32 flex-shrink-0 font-mono">Bio:</p>
+                    <p className="text-sm leading-relaxed flex-1 font-mono">{mergedUser.bio}</p>
                   </div>
 
+                  {/* Display Responsibilities */}
+                  <div className="flex">
+                    <p className="text-sm font-bold w-32 flex-shrink-0 font-mono">Responsibilities:</p>
+                    <p className="text-sm leading-relaxed flex-1 font-mono">{mergedUser.responsibilities}</p>
+                  </div>
+
+                  {/* Display GitLab URL */}
                   <div className="flex">
                     <p className="text-sm font-bold w-32 flex-shrink-0 font-mono">GitLab:</p>
                     <p className="text-sm leading-relaxed flex-1 font-mono">
-                      <a href={user.web_url} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
-                        {user.web_url}
+                      <a href={mergedUser.web_url} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
+                        {mergedUser.web_url}
                       </a>
                     </p>
                   </div>
 
+                  {/* Display Commits */}
                   <div className="flex">
                     <p className="text-sm font-bold w-32 flex-shrink-0 font-mono">Commits:</p>
-                    <p className="text-sm leading-relaxed flex-1 font-mono">{user.commits}</p>
+                    <p className="text-sm leading-relaxed flex-1 font-mono">{mergedUser.commits || 'No commits yet'}</p>
+                  </div>
+
+                  {/* Display LinkedIn URL */}
+                  <div className="flex">
+                    <p className="text-sm font-bold w-32 flex-shrink-0 font-mono">LinkedIn:</p>
+                    <p className="text-sm leading-relaxed flex-1 font-mono">
+                      <a href={mergedUser.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
+                        {mergedUser.linkedin}
+                      </a>
+                    </p>
                   </div>
                 </div>
               </div>
