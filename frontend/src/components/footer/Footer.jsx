@@ -7,17 +7,16 @@ const Footer = () => {
       <div className="footer-inner-container">
         <div className="footer-grid">
           {/* Mission Statement - Left Side */}
-          <div className="footer-column">
-            <div className="logo-container">
-              <div className="logo-icon"></div> {/* Placeholder for icon */}
-              <div>
-                <h3 className="footer-title">Coddle</h3>
-              </div>
+        <div className="footer-column">
+        <div className="logo-container">
+            <div className="logo-icon">
+            <img src="icon.svg" alt="Coddle logo" className="logo-icon-img" />
             </div>
-            <p className="footer-description">
-              Discover top fishing spots, explore local species, and find the best lures—all in one place.
-            </p>
-          </div>
+        </div>
+        <p className="footer-description">
+            One-stop fish app for spots & species.
+        </p>
+        </div>
 
           {/* Data Sources Column */}
           <div className="footer-column">

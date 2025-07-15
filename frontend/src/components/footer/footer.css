@@ -97,3 +97,32 @@
   font-size: 0.875rem;
   color: #a1c6e3;
 }
+
+/* Style for the container to align items on the same line */
+.logo-container {
+  display: flex;
+  align-items: center; /* Vertically center items */
+  gap: 10px; /* Add some spacing between icon and text */
+  height: 100%;
+}
+
+/* Style for the icon image */
+.logo-icon {
+  display: flex; /* Flex container for the icon */
+  justify-content: center; /* Center the image horizontally */
+  align-items: center; /* Center the image vertically */
+}
+
+.logo-icon-img {
+  width: 220px; /* Adjust size of the icon */
+  height: 120px; /* Adjust size of the icon */
+  object-fit: contain; /* Ensure the icon maintains its aspect ratio */
+  
+}
+
+/* Style for the title text */
+.footer-title {
+  font-size: 1.5rem; /* Adjust the font size as needed */
+  font-weight: bold;
+  color: white; /* Text color */
+}
