@@ -106,59 +106,68 @@ const AboutCard = ({ user, loading }) => {
             </div>
 
             {/* Back of the card with details */}
-            <div className="flip-card-back absolute w-full h-full backface-hidden bg-[#b0d6f5] rounded-lg shadow-lg rotate-y-180 text-gray-900">
-              <div className="h-full p-6 flex flex-col">
-                <div className="flex items-center mb-4">
+            <div className="flip-card-back absolute w-full h-full backface-hidden bg-[#307eb1] rounded-lg shadow-lg rotate-y-180 text-black overflow-auto">
+              <div className="h-full p-4 flex flex-col space-y-3">
+                {/* Top Section with Image, Name, and Role */}
+                <div className="flex items-center">
                   <img
                     src={getAvatar(mergedUser)}
                     alt={mergedUser.name}
-                    className="w-16 h-16 rounded-full object-cover border-4 border-white mr-4"
+                    className="w-14 h-14 rounded-full object-cover border-2 border-black mr-3"
                   />
                   <div>
-                    <h3 className="text-lg font-semibold text-left font-serif">{mergedUser.name}</h3>
-                    <p className="text-[#307eb1] text-sm font-medium text-left font-serif">{userRole}</p>
+                    <h3 className="text-base font-bold">{mergedUser.name}</h3>
+                    <p className="text-sm">{userRole}</p>
                   </div>
                 </div>
 
-                <div className="flex-1 space-y-4">
-                  {/* Display Bio */}
-                  <div className="flex">
-                    <p className="text-sm font-bold w-32 flex-shrink-0 font-mono">Bio:</p>
-                    <p className="text-sm leading-relaxed flex-1 font-mono">{mergedUser.bio}</p>
-                  </div>
-
-                  {/* Display Responsibilities */}
-                  <div className="flex">
-                    <p className="text-sm font-bold w-32 flex-shrink-0 font-mono">Responsibilities:</p>
-                    <p className="text-sm leading-relaxed flex-1 font-mono">{mergedUser.responsibilities}</p>
-                  </div>
-
-                  {/* Display GitLab URL */}
-                  <div className="flex">
-                    <p className="text-sm font-bold w-32 flex-shrink-0 font-mono">GitLab:</p>
-                    <p className="text-sm leading-relaxed flex-1 font-mono">
-                      <a href={mergedUser.web_url} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
-                        {mergedUser.web_url}
-                      </a>
-                    </p>
-                  </div>
-
-                  {/* Display Commits */}
-                  <div className="flex">
-                    <p className="text-sm font-bold w-32 flex-shrink-0 font-mono">Commits:</p>
-                    <p className="text-sm leading-relaxed flex-1 font-mono">{mergedUser.commits || 'No commits yet'}</p>
-                  </div>
-
-                  {/* Display LinkedIn URL */}
-                  <div className="flex">
-                    <p className="text-sm font-bold w-32 flex-shrink-0 font-mono">LinkedIn:</p>
-                    <p className="text-sm leading-relaxed flex-1 font-mono">
-                      <a href={mergedUser.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
-                        {mergedUser.linkedin}
-                      </a>
-                    </p>
-                  </div>
+                {/* Bio */}
+                <div className="text-sm">
+                  <span className="font-bold">Bio: </span>
+                  <span className="font-normal">{mergedUser.bio}</span>
                 </div>
+
+                {/* Responsibilities */}
+                <div className="text-sm">
+                  <span className="font-bold">Responsibilities: </span>
+                  <span className="font-normal">{mergedUser.responsibilities}</span>
+                </div>
+
+                {/* GitLab URL */}
+                {mergedUser.web_url && (
+                  <div className="text-sm break-words">
+                    <span className="font-bold">GitLab: </span>
+                    <a
+                      href={mergedUser.web_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline text-black hover:text-yellow-100"
+                    >
+                      {mergedUser.web_url}
+                    </a>
+                  </div>
+                )}
+
+                {/* Commits */}
+                <div className="text-sm">
+                  <span className="font-bold">Commits: </span>
+                  <span className="font-normal">{mergedUser.commits || 'No commits yet'}</span>
+                </div>
+
+                {/* LinkedIn URL */}
+                {mergedUser.linkedin && (
+                  <div className="text-sm break-words">
+                    <span className="font-bold">LinkedIn: </span>
+                    <a
+                      href={mergedUser.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline text-black hover:text-yellow-100"
+                    >
+                      {mergedUser.linkedin}
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           </div>

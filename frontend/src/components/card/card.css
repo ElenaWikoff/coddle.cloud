@@ -50,40 +50,76 @@
   vertical-align: bottom;
 }
 
-.flip-card-front,
-.flip-card-back {
+
+/* Front of the card */
+.flip-card-front {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
 }
 
-/* Front of the card */
-.flip-card-front {
-  /* You can customize the front styles here */
-  background-color: white;
-  padding: 16px;
-  /* Add any front-specific styles (e.g., image, text) */
-}
-
 /* Back of the card */
 .flip-card-back {
-  background-color: #f0f7fa;
+  background-color: #b0d6f5;
   padding: 16px;
   transform: rotateY(180deg);
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;  /* Stack elements vertically by default */
+  justify-content: flex-start; /* Align items at the top */
+  align-items: flex-start;  /* Align items to the left (default) */
   overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  overflow-y: auto; /* Allow vertical scrolling if content exceeds height */
+  padding: 1rem;
 }
 
-/* Image on the back of the card */
-.flip-card-back img {
-  width: 100px; /* Adjust the size of the image */
-  height: 100px; /* Keep the aspect ratio of the circle */
-  border-radius: 50%; /* This will make the image circular */
-  object-fit: cover; /* Ensures the image covers the circle properly */
+.flip-card-back::-webkit-scrollbar {
+  width: 4px;
 }
+
+.flip-card-back::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+
+.flip-card-back .top-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.flip-card-back img {
+  width: 60px;  /* Adjust the size of the image */
+  height: 60px;
+  border-radius: 50%;  /* Circular image */
+  object-fit: cover;  /* Ensure the image fills the circle */
+  margin-right: 12px;  /* Space between the image and text */
+}
+
+.flip-card-back .user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.flip-card-back .user-info h3 {
+  font-size: 1.2rem;  /* Adjust font size for name */
+  font-weight: bold;
+  color: black;
+  margin: 0;
+}
+
+.flip-card-back .user-info p {
+  font-size: 0.875rem;
+  color: #307eb1;
+  margin: 0;
+}
+
 
 /* When the card is hovered, flip it */
 .flip-card-inner.rotate-y-180 {
