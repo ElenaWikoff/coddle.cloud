@@ -181,7 +181,7 @@ def luresIndex():
 
     offset = (page - 1) * limit
 
-    lures = db.session.query(Lures).offset(offset).limit(limit).all()
+    lures = lures_query.offset(offset).limit(limit).all()
     lures_json = [lure.to_dict() for lure in lures]
 
     lures_response = {
@@ -260,6 +260,35 @@ def aboutIndex():
         })
 
     return about_json
+
+@app.route('/api/lures/lures_fish_info')
+def fishIdsToLuresIndex():
+    # Parse query parameters
+    fish_id_list = request.args.get("fish_ids").split(",")
+    required_fish_fields_list = request.args.get("fields").split(",")
+
+    # Convert fish ids to integers
+    try:
+        fish_ids = list(map(int, fish_id_list))
+    except ValueError:
+        return jsonify({"error": "fish_ids must be integers"}), 400
+
+    # Query fish table for matching ids
+    lures_fish_info_query = db.session.query(Fish).filter(Fish.id.in_(fish_ids)).all()
+
+    # Construct response
+    result = []
+    for fish in lures_fish_info_query:
+        fish_data = {}
+        for field in required_fish_fields_list:
+            if hasattr(fish, field):
+                fish_data[field] = getattr(fish, field)
+            else:
+                fish_data[field] = None  # Or raise an error if strict schema is required
+        fish_data['id'] = fish.id  # Always include the id for matching
+        result.append(fish_data)
+
+    return jsonify(result)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080, debug=True)
