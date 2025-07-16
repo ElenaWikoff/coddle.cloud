@@ -209,6 +209,26 @@
       "city": "Salado",
       "type": "lake",
       "fish_ids": [1, 2, 3, 9, 10, 13, 15, 21]
+    },
+    {
+      "id": 22,
+      "location_name": "Seward Boating Charters",
+      "feature_name": "Resurrection Bay",
+      "coordinates": [60.0658, -149.3942],
+      "state": "Alaska",
+      "city": "Seward",
+      "type": "ocean",
+      "fish_ids": [41, 42, 63, 35, 23]
+    },
+    {
+      "id": 23,
+      "location_name": "Salmon Creek",
+      "feature_name": "Salmon Creek",
+      "coordinates": [60.1455, -149.4117],
+      "state": "Alaska",
+      "city": "Seward",
+      "type": "creek",
+      "fish_ids": [41, 42, 63, 35]
     }
   ]
 }

@@ -1007,6 +1007,22 @@
       "temp_max": 86,
       "image_attribution": "",
       "ref": "Crossman, E.J., 1996. Taxonomy and distribution. p. 1-11. In J.F. Craig (ed.) Pike biology and exploration. Chapman and Hall, London. 298 p."
+    },
+    {
+      "id": 64,
+      "common_name": "king salmon",
+      "scientific_name": "oncorhynchus tshawytscha",
+      "type": "salmon",
+      "environment": "anadromous",
+      "distribution": "pacific",
+      "length": 150,
+      "weight": 61.4,
+      "depth_min": 0,
+      "depth_max": 375,
+      "temp_min": 36,
+      "temp_max": 86,
+      "image_attribution": "",
+      "ref": "Crossman, E.J., 1996. Taxonomy and distribution. p. 1-11. In J.F. Craig (ed.) Pike biology and exploration. Chapman and Hall, London. 298 p."
     }
   ]
 }
