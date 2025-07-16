@@ -21,6 +21,9 @@ const POSITION_CLASSES = {
 const BOUNDS_STYLE = { weight: 1 };
 
 function getCentroid(spots) {
+   if (!spots || spots.length === 0) {
+      return [0,0];
+   }
    let sumX = 0;
    let sumY = 0;
    const n = spots.length;
@@ -34,6 +37,8 @@ function getCentroid(spots) {
 
 const SpotMarkers = ({ spots, onSelect }) => {
    const map = useMap();
+
+   console.log(spots);
 
    useEffect(() => {
       if (spots.length > 0) {
@@ -50,7 +55,7 @@ const SpotMarkers = ({ spots, onSelect }) => {
 
    return (
       <>
-         {spots &&
+         {(spots && spots.length > 0) &&
             spots.map((spot, index) => {
                return (
                   <Marker
