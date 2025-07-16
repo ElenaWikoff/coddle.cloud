@@ -202,17 +202,17 @@ def fishSearchingMetadataIndex():
         "ranges": [
             {
                 "key": "length",
-                "min": length_min,
+                "min": 0,
                 "max": length_max
             },
             {
                 "key": "weight",
-                "min": weight_min,
+                "min": 0,
                 "max": weight_max
             },
             {
                 "key": "depth",
-                "min": depth_min,
+                "min": 0,
                 "max": depth_max
             }
         ],
@@ -404,7 +404,7 @@ def locationsIndex():
 @app.route('/api/locations/<int:id>')
 def specificLocationIndex(id):
     specific_location = db.session.query(Locations).get(id)
-    
+
     return specific_location.to_dict()
 
 # -- ABOUT CODDLE.ME ROUTE --
