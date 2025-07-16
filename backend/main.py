@@ -1,6 +1,6 @@
 from flask import render_template, jsonify, redirect, request
 from backend.models import app, db, Fish, Lures, Locations  # Import app, database, and models from models.py
-from sqlalchemy import asc, desc, or_, func
+from sqlalchemy import asc, desc, or_, func, ARRAY
 from urllib.parse import urlencode
 import gitlab
 
@@ -250,8 +250,10 @@ def luresIndex():
     for field, column in lures_filter_fields.items():
         value = request.args.get(field)
         if value:
-            # Match if the value is present in the array
-            lures_query = lures_query.filter(column.any(value))
+            if isinstance(column.type, ARRAY):
+                lures_query = lures_query.filter(column.any(value)) # Match with any value in list
+            else:
+                lures_query = lures_query.filter(column == value) # Otherwise match lure type name
 
     # Lures sorts
     sort_param = request.args.get('sort')
