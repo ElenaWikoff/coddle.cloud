@@ -211,8 +211,32 @@ def luresSearchingMetadataIndex():
 
 @app.route('/api/locations')
 def locationsIndex():
-    locations = db.session.query(Locations).all()
-    locations_json = [location.to_dict() for location in locations]
+    locations_query = db.session.query(Locations)
+
+    # Almost google like search of location name and feature name
+    q = request.args.get('q')
+    if q:
+        search = f"%{q}%"
+        locations_query = locations_query.filter(
+            or_(
+                func.lower(Locations.location_name).like(func.lower(search)),
+                func.lower(Locations.feature_name).like(func.lower(search))
+            )
+        )
+
+    # Locations filters
+    locations_filter_fields = {
+        'type': Locations.type
+    }
+
+    for field, column in locations_filter_fields.items():
+        value = request.args.get(field)
+        if value:
+            # Match if the type is the same as the request argument type
+            locations_query = locations_query.filter(column == value)
+
+    locations_json = [location.to_dict() for location in locations_query]
+    
     return locations_json
 
 @app.route('/api/locations/<int:id>')
