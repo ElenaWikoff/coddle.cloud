@@ -62,7 +62,9 @@ const SpotMarkers = ({ spots, onSelect }) => {
                      }}
                   >
                      <Popup>
-                        <strong>{capitalizeEachWord(spot.location_name)}</strong>
+                        <strong>
+                           {capitalizeEachWord(spot.location_name)}
+                        </strong>
                         <br />
                         {capitalizeEachWord(spot.feature_name)}
                         <br />
@@ -79,22 +81,32 @@ const SpotMarkers = ({ spots, onSelect }) => {
    );
 };
 
-const FilterControl = ({ position, onClick }) => {
+const FilterControl = ({ position, query, onSearch, onFilter }) => {
    const map = useMap();
 
    const filter = useMemo(() => (
       <div className="map-filter py-2 px-4 d-flex flex-column align-items-center">
          <h5 className="fw-light">Search & Filter</h5>
-         <Form>
-            <Form.Group className="mb-3" controlId="mapFilter">
-               <Form.Label>Search</Form.Label>
-               <Form.Control type="text" placeholder="Search..." />
+         <Form className="mb-2">
+            <Form.Group className="" controlId="search">
+               <Form.Control
+                  type="text"
+                  placeholder="Search"
+                  value={query}
+                  onChange={(event) => onSearch(event.target.value)}
+               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="mapFilter">
-               <Form.Label>Feature</Form.Label>
-               <Form.Check type="checkbox" label="River" />
-               <Form.Check type="checkbox" label="Lake" />
-               <Form.Check type="checkbox" label="Pond" />
+            <Form.Group controlId="filter">
+               <Form.Label>Feature Type</Form.Label>
+               <Form.Select
+                  size="sm"
+                  onChange={(event) => onFilter("type", event.target.value)}
+               >
+                  <option value={"river"}>River</option>
+                  <option value={"lake"}>Lake</option>
+                  <option value={"pond"}>Pond</option>
+                  <option value={"creek"}>Creek</option>
+               </Form.Select>
             </Form.Group>
          </Form>
          <small>Under Construction</small>
@@ -104,7 +116,7 @@ const FilterControl = ({ position, onClick }) => {
    const positionClass =
       (position && POSITION_CLASSES[position]) || POSITION_CLASSES.topright;
    return (
-      <div className={`${positionClass}`} zoomControl={false}>
+      <div className={`${positionClass}`}>
          <div
             className="leaflet-control leaflet-bar"
             style={{ backgroundColor: "white" }}
@@ -115,7 +127,7 @@ const FilterControl = ({ position, onClick }) => {
    );
 };
 
-const Map = ({ spots, onSelect }) => {
+const Map = ({ spots, onSelect, query, onSearch, onFilter }) => {
    const centroid = getCentroid(spots);
 
    return (
@@ -125,7 +137,7 @@ const Map = ({ spots, onSelect }) => {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
          />
          <SpotMarkers spots={spots} onSelect={onSelect} />
-         <FilterControl position="topright" />
+         <FilterControl position="topright" query={query} onSearch={onSearch} onFilter={onFilter} />
       </MapContainer>
    );
 };

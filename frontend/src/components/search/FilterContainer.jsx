@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { capitalizeEachWord, getDistribution } from "../../utils/functions";
 import "./search-filter.css";
 
-const FilterContainer = ({ data, onSearch, onSelect, type }) => {
+const FilterContainer = ({ data, query, onSearch, onSelect, type }) => {
    // const [data, setData] = useState(null);
    // const [currRanges, setCurrRanges] = useState(null);
 
@@ -28,6 +28,7 @@ const FilterContainer = ({ data, onSearch, onSelect, type }) => {
                <Form.Control
                   type="text"
                   placeholder="Search"
+                  value={query}
                   onChange={(event) => onSearch(event.target.value)}
                />
             </Form.Group>

@@ -74,17 +74,14 @@ const Lure = () => {
                      Good For:&nbsp;
                      {data.fish_types.map((item, index, array) => {
                         return (
-                           <>
-                              <Link
-                                 key={`item-${index}`}
-                                 to={getURL(item)}
-                              >
+                           <span key={`item-${index}`}>
+                              <Link to={getURL(item)}>
                                  {capitalizeEachWord(item)}
                               </Link>
                               <span>
                                  {index !== array.length - 1 ? ", " : ""}
                               </span>
-                           </>
+                           </span>
                         );
                      })}
                   </ListGroup.Item>

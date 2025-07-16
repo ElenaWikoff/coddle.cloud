@@ -1,8 +1,9 @@
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router";
-import { capitalizeEachWord } from "../../utils/functions.jsx";
+import { capitalizeEachWord, getDistribution } from "../../utils/functions.jsx";
 import Highlighter from "react-highlight-words";
 import "./card.css";
+import Tag from "./Tag.jsx";
 
 const FishCard = ({ fish, query, inCarousel = false }) => {
    return (
@@ -32,17 +33,26 @@ const FishCard = ({ fish, query, inCarousel = false }) => {
                />
             </Card.Title>
             {!inCarousel && (
-               <Card.Subtitle>
-                  <Highlighter
-                     highlightClassName="highlight-text"
-                     searchWords={[query]}
-                     autoEscape={true}
-                     textToHighlight={
-                        fish.scientific_name[0].toUpperCase() +
-                        fish.scientific_name.slice(1)
-                     }
-                  />
-               </Card.Subtitle>
+               <>
+                  <Card.Subtitle>
+                     <Highlighter
+                        highlightClassName="highlight-text"
+                        searchWords={[query]}
+                        autoEscape={true}
+                        textToHighlight={
+                           fish.scientific_name[0].toUpperCase() +
+                           fish.scientific_name.slice(1)
+                        }
+                     />
+                  </Card.Subtitle>
+                  <Card.Footer>
+                     <div className="tags-container">
+                        <Tag label={fish.environment} />
+                        <Tag label={fish.type} type={"type"} />
+                        <Tag label={getDistribution(fish.distribution)} />
+                     </div>
+                  </Card.Footer>
+               </>
             )}
          </Card.Body>
       </Card>

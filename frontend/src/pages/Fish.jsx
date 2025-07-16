@@ -7,6 +7,7 @@ import PageContainer from "../components/PageContainer";
 import { BsArrowLeft } from "react-icons/bs";
 import parse from "html-react-parser";
 import CustomCarousel from "../components/carousel/CustomCarousel.jsx";
+import { fetch_complex } from "../utils/actions/api.jsx";
 
 const Fish = () => {
    const navigate = useNavigate();
@@ -17,17 +18,10 @@ const Fish = () => {
    useEffect(() => {
       if (data) {
          setCarouselLoading(true);
-         fetch(`/api/lures?page=1&limit=100`)
-            .then((res) => res.json())
+         fetch_complex("lures", data.lures.map((lure) => lure.id), ["id", "name", "image_url"])
             .then((lures) => {
-               const data_lure_ids = data.lures.map((lure) => lure.id);
-               const lure_ids = lures.results.map((lure) => lure.id);
-               const f = lures.results.filter((lure) => {
-                  return data_lure_ids.includes(lure.id);
-               });
-               console.log(f);
                setCarouselLoading(false);
-               setCarousel(f);
+               setCarousel(lures);
             })
             .catch((error) => {
                setCarouselLoading(false);
@@ -78,7 +72,8 @@ const Fish = () => {
                      Distribution: {getDistribution(data.distribution)}
                   </ListGroup.Item>
                   <ListGroup.Item>
-                     Depth Range: {`${(data.depth_min) ? data.depth_min : "?"}-${(data.depth_max) ? data.depth_max : "?"} m`}
+                     Depth Range:{" "}
+                     {`${data.depth_min ? data.depth_min : "?"}-${data.depth_max ? data.depth_max : "?"} m`}
                   </ListGroup.Item>
                   <ListGroup.Item>{`Max Length: ${data.length} cm`}</ListGroup.Item>
                   <ListGroup.Item>{`Max Weight: ${data.weight} kg`}</ListGroup.Item>

@@ -40,7 +40,7 @@ const responsive = {
    },
 };
 
-const CustomCarousel = ({ items, type, loading, preMessage, emptyMessage }) => {
+const CustomCarousel = ({ items, type, loading, preMessage, emptyMessage, query }) => {
    return (
       <Container
          fluid
@@ -74,6 +74,7 @@ const CustomCarousel = ({ items, type, loading, preMessage, emptyMessage }) => {
                            key={`item-${item.id}`}
                            fish={item}
                            inCarousel={true}
+                           query={query}
                         />;
                      }
                      if (type === "lures") {
@@ -81,6 +82,7 @@ const CustomCarousel = ({ items, type, loading, preMessage, emptyMessage }) => {
                            key={`item-${item.id}`}
                            lure={item}
                            inCarousel={true}
+                           query={query}
                         />;
                      }
                   })}

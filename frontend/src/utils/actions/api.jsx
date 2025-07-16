@@ -24,6 +24,24 @@ export async function fetch_data(route, searchParams) {
     return result;
 }
 
+export async function fetch_complex(route, ids, fields=[id]) {
+
+    const path = (route === 'lures') ? 'lures/lure_info' : 'fish/fish_info';
+
+    const param = (route === 'lures') ? 'lure_ids' : 'fish_ids';
+
+    const url = `${base_url}${path}?${param}=${ids.toString()}&fields=${fields.toString()}`;
+
+    let result = undefined;
+
+    await fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+        result = data;
+    });
+    return result;
+}
+
 export async function spotLoader({ params }) {
    const data = await spotsLoader(params);
    return data.results.find((spot) => spot.id == params.id);

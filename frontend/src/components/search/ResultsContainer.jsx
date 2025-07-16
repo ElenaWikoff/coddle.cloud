@@ -48,7 +48,7 @@ const ResultsContainer = ({ data, type, loading, error, sorts, onSort, query }) 
                         aria-label="Sort Results"
                         onChange={(event) => handleSort(event.target.value)}
                         size="sm"
-                        value={sortValue}
+                        value={sortValue || "+id"}
                      >
                         {sorts.sort.map((sort) => (
                            <option key={`sort-${sort}`} value={sort}>{convertSort(sort)}</option>

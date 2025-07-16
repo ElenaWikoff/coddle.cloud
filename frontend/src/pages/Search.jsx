@@ -38,7 +38,7 @@ const Search = ({ type }) => {
       // searchParams.set("limit", 12);
    };
 
-   // Debounce search query for 300 seconds.
+   // Debounce search query for 300 milliseconds.
    useEffect(() => {
       const newSearchParams = new URLSearchParams(searchParams.toString());
       handleReset(newSearchParams);
@@ -55,7 +55,7 @@ const Search = ({ type }) => {
       setQuery(value);
    };
 
-   // Debounce length for 300 seconds.
+   // Debounce length for 300 milliseconds.
    useEffect(() => {
       const newSearchParams = new URLSearchParams(searchParams.toString());
       handleReset(newSearchParams);
@@ -67,7 +67,7 @@ const Search = ({ type }) => {
       setSearchParams(newSearchParams);
    }, [debouncedLength]);
 
-   // Debounce weight for 300 seconds.
+   // Debounce weight for 300 milliseconds.
    useEffect(() => {
       const newSearchParams = new URLSearchParams(searchParams.toString());
       handleReset(newSearchParams);
@@ -79,7 +79,7 @@ const Search = ({ type }) => {
       setSearchParams(newSearchParams);
    }, [debouncedWeight]);
 
-   // Debounce depth for 300 seconds.
+   // Debounce depth for 300 milliseconds.
    useEffect(() => {
       const newSearchParams = new URLSearchParams(searchParams.toString());
       handleReset(newSearchParams);
@@ -138,6 +138,10 @@ const Search = ({ type }) => {
          needsUpdate = true;
       }
 
+      if (currentSearchParams.has("q")) {
+         setQuery(currentSearchParams.get("q"));
+      }
+
       // When search params set, fetch data
       if (needsUpdate) {
          setSearchParams(currentSearchParams);
@@ -178,6 +182,7 @@ const Search = ({ type }) => {
             <FilterContainer 
             data={filterData}
             type={type}
+            query={query}
             onSearch={handleSearch} 
             onSelect={handleChange} />
             <ResultsContainer

@@ -1,0 +1,44 @@
+{
+    "filters": [
+        {
+            "key": "type",
+            "options": [
+                "all",
+                "crankbait/plug",
+                "jig",
+                "spinnerbait",
+                "spoon"
+            ]
+        },
+        {
+            "key": "application",
+            "application": [
+                "all",
+                "casting",
+                "vertical fishing",
+                "ice fishing",
+                "trolling",
+                "finesse tactics",
+                "ultra light fishing",
+                "fly fishing"
+            ]
+        },
+        {
+            "key": "fish_types",
+            "options": [
+                "all",
+                "bass",
+                "salmon",
+                "trout"
+            ]
+        }
+    ],
+    "sort": [
+        "+id",
+        "-id",
+        "+name",
+        "-name",
+        "+type",
+        "-type"
+    ]
+}
