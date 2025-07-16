@@ -242,8 +242,9 @@ def luresIndex():
     
     # Lures filters
     lures_filter_fields = {
+        'type': Lures.type,
         'application': Lures.application,
-        'fish_types': Lures.fish_types,
+        'fish_types': Lures.fish_types
     }
 
     for field, column in lures_filter_fields.items():
