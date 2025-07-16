@@ -8,6 +8,14 @@ const Tag = ({ label, type }) => {
             return "var(--brand-accentGold)";
         }
 
+        if (type === "distribution") {
+            if (label.toLowerCase().includes("ocean")) {
+                return "#0981D1";
+            } else {
+                return "#61934e";
+            }
+        }
+
         switch (label) {
             case "freshwater": return "var(--brand-secondary)";
             case "marine": return "var(--brand-primaryLight)";

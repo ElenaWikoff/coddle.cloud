@@ -6,19 +6,14 @@ import { capitalizeEachWord, getDistribution } from "../../utils/functions";
 import "./search-filter.css";
 
 const FilterContainer = ({ data, query, onSearch, onSelect, type }) => {
-   // const [data, setData] = useState(null);
-   // const [currRanges, setCurrRanges] = useState(null);
-
-   // const handleSelect = (key, value, index) => {
-   //    onSelect(key, value);
-
-   //    const ranges = currRanges.map((range) => {
-   //       if (range.key === key) {
-   //          range.value = value;
-   //       }
-   //    });
-   //    setCurrRanges(ranges);
-   // }
+   const getUnit = (key) => {
+      switch (key) {
+         case "weight":
+            return "kg";
+         default:
+            return "m";
+      }
+   };
 
    return (
       <Container className="mb-3 m-0 p-0">
@@ -76,9 +71,9 @@ const FilterContainer = ({ data, query, onSearch, onSelect, type }) => {
             </fieldset>
 
             {/* Sliders */}
-            <fieldset className="ranges d-flex flex-wrap gap-3 justify-content-around">
-               {data &&
-                  data.ranges.map((range, index) => {
+            {data && data.ranges && (
+               <fieldset className="ranges d-flex flex-wrap gap-3 justify-content-around">
+                  {data.ranges.map((range, index) => {
                      return (
                         <Form.Group
                            key={`range-${range.key}`}
@@ -102,13 +97,14 @@ const FilterContainer = ({ data, query, onSearch, onSelect, type }) => {
                               </span>
                            )} */}
                            <div className="range-numbers w-100 d-flex justify-content-between">
-                              <span>{`${range.min} m`}</span>
-                              <span>{`${range.max} m`}</span>
+                              <span>{`${range.min} ${getUnit(range.key)}`}</span>
+                              <span>{`${range.max} ${getUnit(range.key)}`}</span>
                            </div>
                         </Form.Group>
                      );
                   })}
-            </fieldset>
+               </fieldset>
+            )}
          </Form>
       </Container>
    );

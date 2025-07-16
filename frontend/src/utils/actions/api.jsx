@@ -1,7 +1,7 @@
 const base_url = '/api/';
 
 export async function fetch_instance(route, id=null) {
-    const url = `${base_url}/${route}/${id}`;
+    const url = `${base_url}${route}/${id}`;
     let result = undefined;
 
     await fetch(url)
@@ -13,7 +13,7 @@ export async function fetch_instance(route, id=null) {
 }
 
 export async function fetch_data(route, searchParams) {
-    const url = `${base_url}/${route}?${searchParams.toString()}`;
+    const url = `${base_url}${route}?${searchParams.toString()}`;
     let result = undefined;
 
     await fetch(url)
@@ -27,11 +27,20 @@ export async function fetch_data(route, searchParams) {
 export async function fetch_complex(route, ids, fields=[id]) {
 
     const path = (route === 'lures') ? 'lures/lure_info' : 'fish/fish_info';
-
     const param = (route === 'lures') ? 'lure_ids' : 'fish_ids';
-
     const url = `${base_url}${path}?${param}=${ids.toString()}&fields=${fields.toString()}`;
+    let result = undefined;
 
+    await fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+        result = data;
+    });
+    return result;
+}
+
+export async function fetch_metadata(route) {
+    const url = `${base_url}${route}/searching_metadata`;
     let result = undefined;
 
     await fetch(url)

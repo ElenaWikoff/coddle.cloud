@@ -2,7 +2,7 @@ import { useSearchParams, useLocation } from "react-router";
 import { useState, useEffect } from "react";
 import Container from "react-bootstrap/esm/Container";
 import PageContainer from "../components/PageContainer";
-import { fetch_data } from "../utils/actions/api.jsx";
+import { fetch_data, fetch_metadata } from "../utils/actions/api.jsx";
 import ResultsContainer from "../components/search/ResultsContainer.jsx";
 import FilterContainer from "../components/search/FilterContainer.jsx";
 import { useDebounce } from "../utils/hooks.jsx";
@@ -23,13 +23,13 @@ const Search = ({ type }) => {
    const [filterData, setFilterData] = useState(null);
 
    useEffect(() => {
-      if (type === "fish") {
-         fetch("/FiltersExample.json")
-            .then((res) => res.json())
-            .then((data) => {
-               setFilterData(data);
-            });
-      }
+      fetch_metadata(type)
+      .then((data) => {
+         setFilterData(data);
+      })
+      .catch((error) => {
+         setError(error);
+      })
    }, []);
 
    // Set Defaults

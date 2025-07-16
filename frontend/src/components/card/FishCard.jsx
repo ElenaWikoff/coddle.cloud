@@ -49,7 +49,7 @@ const FishCard = ({ fish, query, inCarousel = false }) => {
                      <div className="tags-container">
                         <Tag label={fish.environment} />
                         <Tag label={fish.type} type={"type"} />
-                        <Tag label={getDistribution(fish.distribution)} />
+                        <Tag label={getDistribution(fish.distribution)} type="distribution"/>
                      </div>
                   </Card.Footer>
                </>
