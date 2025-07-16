@@ -7,6 +7,8 @@ import gitlab
 PROJECT_ID = 71006060
 gl = gitlab.Gitlab('https://gitlab.com', private_token='glpat-WYswdfja-RfLBggGwHq9')
 
+# -- HELPERS/UTILITY START HERE --
+
 # Might split off these helper functions into utils.py later?
 def get_sort_clause(model, sort_param, allowed_fields):
     if not sort_param:
@@ -34,9 +36,11 @@ def build_paginated_url(base_path, current_args, page_num, limit):
     
     args = {k: v for k, v in current_args.items() if k != "page"}
     args.update({"page": page_num, "limit": limit})
+
     return f"{base_path}?{urlencode(args)}"
 
-@app.route 
+# -- GENERAL/PRIVATE ROUTES START HERE --
+
 @app.route('/api')
 def splash():
     return redirect('/api/docs/')
@@ -48,6 +52,8 @@ def docs():
 @app.route('/api/ping')
 def ping():
     return jsonify({"status": "backend alive"})
+
+# -- FISH ROUTES START HERE --
 
 @app.route('/api/fish')
 def fishIndex():
@@ -129,11 +135,95 @@ def fishIndex():
 @app.route('/api/fish/<int:id>')
 def specificFishIndex(id):
     specific_fish = db.session.query(Fish).get(id)
+
     return specific_fish.to_dict()
+
+@app.route('/api/fish/fish_info')
+def fishInfoIndex():
+    # Parse query parameters
+    fish_id_list = request.args.get("fish_ids").split(",")
+    required_fish_fields_list = request.args.get("fields").split(",")
+
+    # Convert fish ids to integers
+    try:
+        fish_ids = list(map(int, fish_id_list))
+    except ValueError:
+        return jsonify({"error": "fish_ids must be integers"}), 400
+
+    # Query fish table for matching ids
+    lures_fish_info_query = db.session.query(Fish).filter(Fish.id.in_(fish_ids)).all()
+
+    # Construct response
+    result = []
+    for fish in lures_fish_info_query:
+        fish_data = {}
+        for field in required_fish_fields_list:
+            if hasattr(fish, field):
+                fish_data[field] = getattr(fish, field)
+            else:
+                fish_data[field] = None  # Or raise an error if strict schema is required
+        fish_data['id'] = fish.id  # Always include the id for matching
+        result.append(fish_data)
+
+    return jsonify(result)
 
 @app.route('/api/fish/searching_metadata')
 def fishSearchingMetadataIndex():
-    pass
+    # Filter options (distinct categorical values)
+    type_options = [t[0] for t in db.session.query(Fish.type).distinct().order_by(Fish.type).all()]
+    distribution_options = [d[0] for d in db.session.query(Fish.distribution).distinct().order_by(Fish.distribution).all()]
+    environment_options = [e[0] for e in db.session.query(Fish.environment).distinct().order_by(Fish.environment).all()]
+
+    # Prepend "all" to each filter option list
+    type_options.insert(0, "all")
+    distribution_options.insert(0, "all")
+    environment_options.insert(0, "all")
+
+    # Range metadata (min/max)
+    length_min, length_max = db.session.query(func.min(Fish.length), func.max(Fish.length)).first()
+    weight_min, weight_max = db.session.query(func.min(Fish.weight), func.max(Fish.weight)).first()
+    depth_min, depth_max = db.session.query(func.min(Fish.depth_min), func.max(Fish.depth_max)).first()
+
+    return jsonify({
+        "filters": [
+            {
+                "key": "type",
+                "options": type_options
+            },
+            {
+                "key": "distribution",
+                "options": distribution_options
+            },
+            {
+                "key": "environment",
+                "options": environment_options
+            }
+        ],
+        "ranges": [
+            {
+                "key": "length",
+                "min": length_min,
+                "max": length_max
+            },
+            {
+                "key": "weight",
+                "min": weight_min,
+                "max": weight_max
+            },
+            {
+                "key": "depth",
+                "min": depth_min,
+                "max": depth_max
+            }
+        ],
+        "sort": [
+            "+id", "-id",
+            "+length", "-length",
+            "+weight", "-weight",
+        ]
+    })
+
+# -- LURES ROUTES START HERE --
 
 @app.route('/api/lures')
 def luresIndex():
@@ -205,9 +295,81 @@ def specificLuresIndex(id):
     specific_lure = db.session.query(Lures).get(id)
     return specific_lure.to_dict()
 
+@app.route('/api/lures/lure_info')
+def lureInfoIndex():
+    # Parse query parameters
+    lure_id_list = request.args.get("lure_ids").split(",")
+    required_lure_fields_list = request.args.get("fields").split(",")
+
+    # Convert fish ids to integers
+    try:
+        lure_ids = list(map(int, lure_id_list))
+    except ValueError:
+        return jsonify({"error": "lure_ids must be integers"}), 400
+
+    # Query lures table for matching ids
+    lures_to_fish_query = db.session.query(Lures).filter(Lures.id.in_(lure_ids)).all()
+
+    # Construct response
+    result = []
+    for lure in lures_to_fish_query:
+        lure_data = {}
+        for field in required_lure_fields_list:
+            if hasattr(lure, field):
+                lure_data[field] = getattr(lure, field)
+            else:
+                lure_data[field] = None  # Or raise an error if strict schema is required
+        lure_data['id'] = lure.id  # Always include the id for matching
+        result.append(lure_data)
+
+    return jsonify(result)
+
 @app.route('/api/lures/searching_metadata')
 def luresSearchingMetadataIndex():
-    pass
+    # Query all rows from Lures
+    all_lures = db.session.query(Lures).all()
+
+    # Use sets to deduplicate
+    type_set = set()
+    application_set = set()
+    fish_types_set = set()
+
+    for lure in all_lures:
+        if lure.type:
+            type_set.add(lure.type)
+        if lure.application:
+            application_set.update(lure.application)  # Assume it's a list
+        if lure.fish_types:
+            fish_types_set.update(lure.fish_types)  # Assume it's a list
+
+    # Convert sets to sorted lists and prepend "all"
+    type_options = ["all"] + sorted(type_set)
+    application_options = ["all"] + sorted(application_set)
+    fish_types_options = ["all"] + sorted(fish_types_set)
+
+    return jsonify({
+        "filters": [
+            {
+                "key": "type",
+                "options": type_options
+            },
+            {
+                "key": "application",
+                "options": application_options
+            },
+            {
+                "key": "fish_types",
+                "options": fish_types_options
+            }
+        ],
+        "sort": [
+            "+id", "-id",
+            "+name", "-name",
+            "+type", "-type"
+        ]
+    })
+
+# -- LOCATIONS ROUTES START HERE --
 
 @app.route('/api/locations')
 def locationsIndex():
@@ -242,7 +404,10 @@ def locationsIndex():
 @app.route('/api/locations/<int:id>')
 def specificLocationIndex(id):
     specific_location = db.session.query(Locations).get(id)
+    
     return specific_location.to_dict()
+
+# -- ABOUT CODDLE.ME ROUTE --
 
 @app.route('/api/about')
 def aboutIndex():
@@ -284,64 +449,6 @@ def aboutIndex():
         })
 
     return about_json
-
-@app.route('/api/fish/fish_info')
-def fishInfoIndex():
-    # Parse query parameters
-    fish_id_list = request.args.get("fish_ids").split(",")
-    required_fish_fields_list = request.args.get("fields").split(",")
-
-    # Convert fish ids to integers
-    try:
-        fish_ids = list(map(int, fish_id_list))
-    except ValueError:
-        return jsonify({"error": "fish_ids must be integers"}), 400
-
-    # Query fish table for matching ids
-    lures_fish_info_query = db.session.query(Fish).filter(Fish.id.in_(fish_ids)).all()
-
-    # Construct response
-    result = []
-    for fish in lures_fish_info_query:
-        fish_data = {}
-        for field in required_fish_fields_list:
-            if hasattr(fish, field):
-                fish_data[field] = getattr(fish, field)
-            else:
-                fish_data[field] = None  # Or raise an error if strict schema is required
-        fish_data['id'] = fish.id  # Always include the id for matching
-        result.append(fish_data)
-
-    return jsonify(result)
-
-@app.route('/api/lures/lure_info')
-def lureInfoIndex():
-    # Parse query parameters
-    lure_id_list = request.args.get("lure_ids").split(",")
-    required_lure_fields_list = request.args.get("fields").split(",")
-
-    # Convert fish ids to integers
-    try:
-        lure_ids = list(map(int, lure_id_list))
-    except ValueError:
-        return jsonify({"error": "lure_ids must be integers"}), 400
-
-    # Query lures table for matching ids
-    lures_to_fish_query = db.session.query(Lures).filter(Lures.id.in_(lure_ids)).all()
-
-    # Construct response
-    result = []
-    for lure in lures_to_fish_query:
-        lure_data = {}
-        for field in required_lure_fields_list:
-            if hasattr(lure, field):
-                lure_data[field] = getattr(lure, field)
-            else:
-                lure_data[field] = None  # Or raise an error if strict schema is required
-        lure_data['id'] = lure.id  # Always include the id for matching
-        result.append(lure_data)
-
-    return jsonify(result)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080, debug=True)
