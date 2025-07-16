@@ -236,7 +236,7 @@ def locationsIndex():
             locations_query = locations_query.filter(column == value)
 
     locations_json = [location.to_dict() for location in locations_query]
-    
+
     return locations_json
 
 @app.route('/api/locations/<int:id>')
@@ -285,8 +285,8 @@ def aboutIndex():
 
     return about_json
 
-@app.route('/api/lures/lures_fish_info')
-def fishIdsToLuresIndex():
+@app.route('/api/fish/fish_info')
+def fishInfoIndex():
     # Parse query parameters
     fish_id_list = request.args.get("fish_ids").split(",")
     required_fish_fields_list = request.args.get("fields").split(",")
@@ -311,6 +311,35 @@ def fishIdsToLuresIndex():
                 fish_data[field] = None  # Or raise an error if strict schema is required
         fish_data['id'] = fish.id  # Always include the id for matching
         result.append(fish_data)
+
+    return jsonify(result)
+
+@app.route('/api/lures/lure_info')
+def lureInfoIndex():
+    # Parse query parameters
+    lure_id_list = request.args.get("lure_ids").split(",")
+    required_lure_fields_list = request.args.get("fields").split(",")
+
+    # Convert fish ids to integers
+    try:
+        lure_ids = list(map(int, lure_id_list))
+    except ValueError:
+        return jsonify({"error": "lure_ids must be integers"}), 400
+
+    # Query lures table for matching ids
+    lures_to_fish_query = db.session.query(Lures).filter(Lures.id.in_(lure_ids)).all()
+
+    # Construct response
+    result = []
+    for lure in lures_to_fish_query:
+        lure_data = {}
+        for field in required_lure_fields_list:
+            if hasattr(lure, field):
+                lure_data[field] = getattr(lure, field)
+            else:
+                lure_data[field] = None  # Or raise an error if strict schema is required
+        lure_data['id'] = lure.id  # Always include the id for matching
+        result.append(lure_data)
 
     return jsonify(result)
 
