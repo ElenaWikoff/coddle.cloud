@@ -94,8 +94,8 @@ Git SHA: b96de06a09dff10c83e2e8320124709e21f72c8e
 
 ### Phase II
 
-Git SHA: In Progress
+Git SHA: In Progress (will most likely be the same SHA as Phase III)
 
 ### Phase III
 
-Git SHA: Not Started
+Git SHA: In Progress
