@@ -429,6 +429,7 @@ def aboutIndex():
     project = gl.projects.get(PROJECT_ID)
     members = project.members.list(get_all=True)
     all_commits = project.commits.list(get_all=True)
+    total_commits = len(all_commits)
 
     # Get total number of issues
     all_issues = project.issues.list(get_all=True)
@@ -457,7 +458,8 @@ def aboutIndex():
             "username": username,
             "web_url": web_url,
             "commits": commit_count,
-            "total_issues": issue_count
+            "total_issues": issue_count,
+            "total_commits": total_commits
         })
 
     return about_json
