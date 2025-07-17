@@ -308,7 +308,7 @@ def lureInfoIndex():
     try:
         lure_ids = list(map(int, lure_id_list))
     except ValueError:
-        return jsonify({"error": "lure_ids must be integers"}), 400
+        return jsonify([]), 400
 
     # Query lures table for matching ids
     lures_to_fish_query = db.session.query(Lures).filter(Lures.id.in_(lure_ids)).all()
