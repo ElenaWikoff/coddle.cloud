@@ -21,6 +21,7 @@ export function capitalizeEachWord(str) {
  */
 export function getDistribution(str) {
   switch (str) {
+    case 'aa': return 'All Oceans';
     case 'as': return 'Asia';
     case 'eu': return 'Europe';
     case 'es': return 'Eurasia';

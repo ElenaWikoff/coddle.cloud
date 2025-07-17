@@ -240,3 +240,35 @@ a.list-group-item:hover {
    padding: 0;
    background-color: var(--brand-accentYellow);
 }
+
+.btn-tag,
+.tag {
+   display: inline !important;
+   white-space: nowrap !important;
+   color: white !important;
+   height: auto !important;
+   background-color: gray;
+   padding: 5px 8px !important;
+   border-radius: 20px !important;
+   font-size: 12px !important;
+   font-weight: 600 !important;
+   box-shadow: none !important;
+}
+
+.btn-tag,
+a.tag {
+   cursor: pointer;
+   text-decoration: none;
+}
+
+.btn-tag:hover,
+a.tag:hover {
+   text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+      .tag {
+        text-align: center;
+        font-size: 10px;
+      }
+   }

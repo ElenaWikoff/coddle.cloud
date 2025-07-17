@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams, useSearchParams } from "react-router";
+import { useNavigate, useParams, useSearchParams, createSearchParams } from "react-router";
 import PageContainer from "../components/PageContainer";
 import HeroMap from "../components/herobanner/HeroMap.jsx";
 import CustomCarousel from "../components/carousel/CustomCarousel.jsx";
@@ -17,7 +17,6 @@ const Spots = () => {
    const [carousel, setCarousel] = useState(null);
    const [carouselLoading, setCarouselLoading] = useState(false);
    const [query, setQuery] = useState("");
-   const debouncedQuery = useDebounce(query, 300);
 
    const handleReset = () => {
       navigate('/spots');
@@ -73,24 +72,26 @@ const Spots = () => {
       setQuery(value);
    };
 
-   // Debounce search query for 300 milliseconds.
-   useEffect(() => {
-      handleReset();
-      const newSearchParams = new URLSearchParams(searchParams.toString());
-      if (debouncedQuery) {
-         newSearchParams.set("q", debouncedQuery);
-      } else {
-         newSearchParams.delete("q");
+   // Handle search query value change
+   const handleSubmitSearch = (event) => {
+      event.preventDefault();
+      if (query === '') {
+         navigate("/spots");
       }
-      setSearchParams(newSearchParams);
-   }, [debouncedQuery]);
-
-   const handleFilter = (key, value) => {
-      handleReset();
       const newSearchParams = new URLSearchParams(searchParams.toString());
-      newSearchParams.set(key, value);
-      setSearchParams(newSearchParams);
+      newSearchParams.set("q", query);
+      navigate({
+         pathname: "/spots",
+         search: newSearchParams.toString(),
+      });
+      navigate(0);
    };
+
+   useEffect(() => {
+      if (searchParams.has("q")) {
+         setQuery(searchParams.get("q"));
+      }
+   }, []);
 
    return (
       <PageContainer>
@@ -100,7 +101,7 @@ const Spots = () => {
                onSelect={handleSelectSpot}
                query={query}
                onSearch={handleSearch}
-               onFilter={handleFilter}
+               onSubmit={handleSubmitSearch}
             />
          )}
          <CustomCarousel

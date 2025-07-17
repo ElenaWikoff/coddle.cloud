@@ -5,24 +5,20 @@ import PageContainer from "../components/PageContainer";
 import { BsArrowLeft } from "react-icons/bs";
 import { capitalizeEachWord } from "../utils/functions.jsx";
 import { useEffect, useState } from "react";
+import Tag from "../components/card/Tag.jsx";
 
 const Lure = () => {
    const navigate = useNavigate();
    const data = useLoaderData();
 
-   const getURL = (type) => {
-      // const url = new URL("/fish-species")
-      const searchParams = new URLSearchParams();
-      searchParams.set("page", 1);
-      searchParams.set("limit", 12);
-      searchParams.append("type", type);
-      return "/fish-species?" + searchParams.toString();
-   };
+   const handleClick = (base_url, label, type) => {
+      navigate(`${base_url}?${type}=${label}`);
+   }
 
    return (
       <PageContainer>
          {data && (
-            <Container className="p-5">
+            <Container className="py-5">
                <a className="cta" onClick={() => navigate(-1)}>
                   <BsArrowLeft /> Go Back
                </a>
@@ -31,7 +27,7 @@ const Lure = () => {
                   <figure>
                      <div
                         className="image-wrapper"
-                        style={{ maxWidth: "500px" }}
+                        style={{ maxWidth: "500px", overflow: "hidden" }}
                      >
                         <img
                            style={{ objectFit: "contain" }}
@@ -39,51 +35,54 @@ const Lure = () => {
                            alt={capitalizeEachWord(data.name)}
                         />
                      </div>
-                     {/* {data.image_attribution && (
-                     <figcaption>{parse(data.image_attribution)}</figcaption>
-                  )} */}
+                     {data.image_url && (
+                     <figcaption><a href={data.image_url}>Image Link</a></figcaption>
+                  )}
                   </figure>
                )}
 
-               <h2 className="page-title mt-4">
-                  {capitalizeEachWord(data.name)}
-               </h2>
-
-               <h3
-                  className="page-subtitle"
-                  style={{ fontWeight: "400", fontSize: "1.5em" }}
-               >
-                  {capitalizeEachWord(data.type)}
-               </h3>
+               <div className="d-flex gap-2 align-items-center">
+                  <h2 className="page-title">
+                     {capitalizeEachWord(data.name)}
+                  </h2>
+                  <h3
+                     className="page-subtitle"
+                     style={{ fontWeight: "400", fontSize: "1.5em" }}
+                  >
+                     <Tag label={data.type} type="lure-type" onClick={() => handleClick("/lures", data.type, "type")} />
+                  </h3>
+               </div>
 
                <ListGroup>
                   <ListGroup.Item>
                      Application:&nbsp;
+                     <span className="d-inline-flex gap-1 align-items-center flex-wrap">
                      {data.application.map((item, index, array) => {
                         return (
-                           <span key={`item-${index}`}>
-                              {`
-                                    ${capitalizeEachWord(item)}${
-                                       index !== array.length - 1 ? ", " : ""
-                                    }`}
-                           </span>
+                           <Tag
+                                 key={`item-${index}`}
+                                 label={item}
+                                 type="application"
+                                 onClick={() => handleClick("/lures", item, "application")}
+                              />
                         );
                      })}
+                     </span>
                   </ListGroup.Item>
                   <ListGroup.Item>
                      Good For:&nbsp;
-                     {data.fish_types.map((item, index, array) => {
-                        return (
-                           <span key={`item-${index}`}>
-                              <Link to={getURL(item)}>
-                                 {capitalizeEachWord(item)}
-                              </Link>
-                              <span>
-                                 {index !== array.length - 1 ? ", " : ""}
-                              </span>
-                           </span>
-                        );
-                     })}
+                     <span className="d-inline-flex gap-1 align-items-center flex-wrap">
+                        {data.fish_types.map((item, index) => {
+                           return (
+                              <Tag
+                                 key={`item-${index}`}
+                                 label={item}
+                                 type="type"
+                                 onClick={() => handleClick("/fish-species", item, "type")}
+                              />
+                           );
+                        })}
+                     </span>
                   </ListGroup.Item>
                </ListGroup>
             </Container>

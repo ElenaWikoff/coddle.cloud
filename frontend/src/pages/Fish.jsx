@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLoaderData, useNavigate } from "react-router";
+import { createSearchParams, Link, useLoaderData, useNavigate } from "react-router";
 import Container from "react-bootstrap/esm/Container";
 import ListGroup from "react-bootstrap/esm/ListGroup";
 import { capitalizeEachWord, getDistribution } from "../utils/functions.jsx";
@@ -8,12 +8,22 @@ import { BsArrowLeft } from "react-icons/bs";
 import parse from "html-react-parser";
 import CustomCarousel from "../components/carousel/CustomCarousel.jsx";
 import { fetch_complex } from "../utils/actions/api.jsx";
+import Tag from "../components/card/Tag.jsx";
 
 const Fish = () => {
    const navigate = useNavigate();
    const data = useLoaderData();
    const [carousel, setCarousel] = useState(null);
    const [carouselLoading, setCarouselLoading] = useState(false);
+
+   const handleTagClick = (label, type) => {
+      const searchParams = createSearchParams();
+      searchParams.set(type, label);
+      navigate({
+         pathname: '/fish-species',
+         search: searchParams.toString(),
+      });
+   }
 
    useEffect(() => {
       if (data) {
@@ -33,7 +43,7 @@ const Fish = () => {
    return (
       <PageContainer>
          {data && (
-            <Container className="p-5">
+            <Container className="py-5">
                <a className="cta" onClick={() => navigate(-1)}>
                   <BsArrowLeft /> Go Back
                </a>
@@ -63,13 +73,13 @@ const Fish = () => {
                </h3>
                <ListGroup>
                   <ListGroup.Item>
-                     Type: {capitalizeEachWord(data.type)}
+                     Type:&nbsp;<Tag label={data.type} type="type" onClick={() => handleTagClick(data.type, "type")} />
+                  </ListGroup.Item>
+                  <ListGroup.Item className="d-flex">
+                     Environment:&nbsp;<Tag label={data.environment} type="environment" onClick={() => handleTagClick(data.environment, "environment")} />
                   </ListGroup.Item>
                   <ListGroup.Item>
-                     Environment: {capitalizeEachWord(data.environment)}
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                     Distribution: {getDistribution(data.distribution)}
+                     Distribution:&nbsp;<Tag label={data.distribution} type="distribution" onClick={() => handleTagClick(data.distribution, "distribution")} />
                   </ListGroup.Item>
                   <ListGroup.Item>
                      Depth Range:{" "}

@@ -8,6 +8,8 @@ import "./search-filter.css";
 const FilterContainer = ({ data, query, onSearch, onSelect, type }) => {
    const getUnit = (key) => {
       switch (key) {
+         case "length":
+            return "cm";
          case "weight":
             return "kg";
          default:
@@ -17,7 +19,7 @@ const FilterContainer = ({ data, query, onSearch, onSelect, type }) => {
 
    return (
       <Container className="mb-3 m-0 p-0">
-         <Form className="d-flex flex-column gap-2">
+         <Form className="d-flex flex-column gap-2" onSubmit={(event) => event.preventDefault()}>
             {/* Search */}
             <Form.Group className="" controlId="search">
                <Form.Control
@@ -30,7 +32,7 @@ const FilterContainer = ({ data, query, onSearch, onSelect, type }) => {
 
             {/* Filters */}
             <fieldset className="filters d-flex flex-wrap gap-3">
-               {data &&
+               {data && data.filters && data.filters.length > 0 &&
                   data.filters.map((filter) => {
                      return (
                         <Form.Group key={`filter-${filter.key}`}>
@@ -39,6 +41,7 @@ const FilterContainer = ({ data, query, onSearch, onSelect, type }) => {
                            </Form.Label>
                            <Form.Select
                               size="sm"
+                              value={filter.value}
                               onChange={(event) =>
                                  onSelect(filter.key, event.target.value)
                               }
@@ -71,7 +74,7 @@ const FilterContainer = ({ data, query, onSearch, onSelect, type }) => {
             </fieldset>
 
             {/* Sliders */}
-            {data && data.ranges && (
+            {data && data.ranges && data.ranges.length > 0 && (
                <fieldset className="ranges d-flex flex-wrap gap-3 justify-content-around">
                   {data.ranges.map((range, index) => {
                      return (
@@ -82,7 +85,7 @@ const FilterContainer = ({ data, query, onSearch, onSelect, type }) => {
                            <Form.Label>{`Max ${capitalizeEachWord(range.key)}`}</Form.Label>
                            {/* <Form.Label>{`Max ${capitalizeEachWord(range.key)}: ${currRanges[index].value} m`}</Form.Label> */}
                            <Form.Range
-                              defaultValue={range.min}
+                              value={range.value}
                               min={range.min}
                               max={range.max}
                               onChange={(event) =>

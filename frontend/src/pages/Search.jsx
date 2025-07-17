@@ -25,7 +25,28 @@ const Search = ({ type }) => {
    useEffect(() => {
       fetch_metadata(type)
       .then((data) => {
-         setFilterData(data);
+         const newFilters = data.filters.map((filter) => {
+            const value = searchParams.has(filter.key) ? searchParams.get(filter.key) : filter.options[0];
+            const newFilter = {
+               ...filter,
+               value,
+            };
+            return newFilter;
+         });
+         const newRanges = data.ranges.map((range) => {
+            const value = searchParams.has(range.key) ? searchParams.get(range.key) : range.min;
+            const newRange = {
+               ...range,
+               value,
+            };
+            return newRange;
+         });
+         const newData = {
+            ...data,
+            filters: newFilters,
+            ranges: newRanges,
+         };
+         setFilterData(newData);
       })
       .catch((error) => {
          setError(error);
@@ -106,6 +127,22 @@ const Search = ({ type }) => {
             default:
                return;
          }
+         const newRanges = filterData.ranges.map((range) => {
+            if (range.key === key) {
+               const newRange = {
+                  ...range,
+                  value: value,
+               };
+               return newRange;
+            } else {
+               return range;
+            }
+         });
+         const newFilterData = {
+            ...filterData,
+            ranges: newRanges,
+         }
+         setFilterData(newFilterData);
       } else {
          const newSearchParams = new URLSearchParams(searchParams.toString());
          if (value !== "all") {
@@ -114,6 +151,22 @@ const Search = ({ type }) => {
             newSearchParams.delete(key);
          }
          setSearchParams(newSearchParams);
+          const newFilters = filterData.filters.map((filter) => {
+            if (filter.key === key) {
+               const newFilter = {
+                  ...filter,
+                  value: value,
+               };
+               return newFilter;
+            } else {
+               return filter;
+            }
+         });
+         const newFilterData = {
+            ...filterData,
+            filters: newFilters,
+         }
+         setFilterData(newFilterData);
       }
    };
 
@@ -140,6 +193,18 @@ const Search = ({ type }) => {
 
       if (currentSearchParams.has("q")) {
          setQuery(currentSearchParams.get("q"));
+      }
+
+      if (currentSearchParams.has("weight")) {
+         setWeight(currentSearchParams.get("weight"));
+      }
+
+      if (currentSearchParams.has("length")) {
+         setLength(currentSearchParams.get("length"));
+      }
+
+      if (currentSearchParams.has("depth")) {
+         setDepth(currentSearchParams.get("depth"));
       }
 
       // When search params set, fetch data
@@ -177,7 +242,7 @@ const Search = ({ type }) => {
 
    return (
       <PageContainer>
-         <Container className="p-5">
+         <Container className="py-5">
             <h1>{getTitle()}</h1>
             <FilterContainer 
             data={filterData}

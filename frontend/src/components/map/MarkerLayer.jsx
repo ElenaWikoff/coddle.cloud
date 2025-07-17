@@ -1,5 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
-import { LayersControl, Marker, Popup, useMap, LayerGroup } from "react-leaflet";
+import {
+   LayersControl,
+   Marker,
+   Popup,
+   useMap,
+   LayerGroup,
+} from "react-leaflet";
 import { LatLngBounds } from "leaflet";
 import { capitalizeEachWord } from "../../utils/functions";
 import {
@@ -10,8 +16,9 @@ import {
    violetIcon,
 } from "./CustomMarkers";
 import "./map.css";
+import Highlighter from "react-highlight-words";
 
-const SpotMarker = ({ spot, onSelect }) => {
+const SpotMarker = ({ spot, onSelect, query }) => {
    const getIcon = (type) => {
       switch (type) {
          case "river":
@@ -38,21 +45,43 @@ const SpotMarker = ({ spot, onSelect }) => {
          icon={getIcon(spot.type)}
       >
          <Popup>
-            <strong>{capitalizeEachWord(spot.location_name)}</strong>
+            <strong>
+               <Highlighter
+                  highlightClassName="highlight-text"
+                  searchWords={[query]}
+                  autoEscape={true}
+                  textToHighlight={capitalizeEachWord(spot.location_name)}
+               />
+            </strong>
             <br />
-            {capitalizeEachWord(spot.feature_name)}
+            <Highlighter
+               highlightClassName="highlight-text"
+               searchWords={[query]}
+               autoEscape={true}
+               textToHighlight={capitalizeEachWord(spot.feature_name)}
+            />
             <br />
-            {`${spot.city}, ${spot.state}`}
+            <Highlighter
+               highlightClassName="highlight-text"
+               searchWords={[query]}
+               autoEscape={true}
+               textToHighlight={`${spot.city}, ${spot.state}`}
+            />
             <br />
-            {`(${spot.coordinates[0].toFixed(
+            <Highlighter
+               highlightClassName="highlight-text"
+               searchWords={[query]}
+               autoEscape={true}
+               textToHighlight={`(${spot.coordinates[0].toFixed(
                2
             )}, ${spot.coordinates[1].toFixed(2)})`}
+            />
          </Popup>
       </Marker>
    );
 };
 
-const MarkerLayer = ({ spots, onSelect }) => {
+const MarkerLayer = ({ spots, onSelect, query }) => {
    const map = useMap();
 
    const splitByType = () => {
@@ -66,7 +95,6 @@ const MarkerLayer = ({ spots, onSelect }) => {
          };
          result.push(object);
       });
-      console.log(result);
       return result;
    };
 
@@ -101,6 +129,7 @@ const MarkerLayer = ({ spots, onSelect }) => {
                                  key={`${split.type}-spot-${index}`}
                                  spot={spot}
                                  onSelect={onSelect}
+                                 query={query}
                               />
                            );
                         })}

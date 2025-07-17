@@ -1,23 +1,9 @@
-import { useEffect, useMemo, useState } from "react";
 import {
    MapContainer,
    TileLayer,
-   Marker,
-   Popup,
-   useMap,
-   useMapEvents,
 } from "react-leaflet";
-import { LatLngBounds } from "leaflet";
-import { capitalizeEachWord } from "../../utils/functions";
-import Form from "react-bootstrap/Form";
 import MarkerLayer from "./MarkerLayer";
-
-const POSITION_CLASSES = {
-   bottomleft: "leaflet-bottom leaflet-left",
-   bottomright: "leaflet-bottom leaflet-right",
-   topleft: "leaflet-top leaflet-left",
-   topright: "leaflet-top leaflet-right",
-};
+import MapSearch from "./MapSearch";
 
 function getCentroid(spots) {
    if (!spots || spots.length === 0) {
@@ -34,53 +20,7 @@ function getCentroid(spots) {
    return centroid;
 }
 
-const FilterControl = ({ position, query, onSearch, onFilter }) => {
-   const map = useMap();
-
-   const filter = useMemo(() => (
-      <div className="map-filter py-2 px-4 d-flex flex-column align-items-center">
-         <h5 className="fw-light">Search & Filter</h5>
-         <Form className="mb-2">
-            <Form.Group className="" controlId="search">
-               <Form.Control
-                  type="text"
-                  placeholder="Search"
-                  value={query}
-                  onChange={(event) => onSearch(event.target.value)}
-               />
-            </Form.Group>
-            <Form.Group controlId="filter">
-               <Form.Label>Feature Type</Form.Label>
-               <Form.Select
-                  size="sm"
-                  onChange={(event) => onFilter("type", event.target.value)}
-               >
-                  <option value={"river"}>River</option>
-                  <option value={"lake"}>Lake</option>
-                  <option value={"pond"}>Pond</option>
-                  <option value={"creek"}>Creek</option>
-               </Form.Select>
-            </Form.Group>
-         </Form>
-         <small>Under Construction</small>
-      </div>
-   ));
-
-   const positionClass =
-      (position && POSITION_CLASSES[position]) || POSITION_CLASSES.topright;
-   return (
-      <div className={`${positionClass}`}>
-         <div
-            className="leaflet-control leaflet-bar"
-            style={{ backgroundColor: "white" }}
-         >
-            {filter}
-         </div>
-      </div>
-   );
-};
-
-const Map = ({ spots, onSelect, query, onSearch, onFilter }) => {
+const Map = ({ spots, onSelect, query, onSearch, onSubmit }) => {
    const centroid = getCentroid(spots);
 
    return (
@@ -89,9 +29,8 @@ const Map = ({ spots, onSelect, query, onSearch, onFilter }) => {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
          />
-         <MarkerLayer spots={spots} onSelect={onSelect} />
-         {/* <SpotMarkers spots={spots} onSelect={onSelect} /> */}
-         {/* <FilterControl position="topright" query={query} onSearch={onSearch} onFilter={onFilter} /> */}
+         <MarkerLayer spots={spots} onSelect={onSelect} query={query} />
+         <MapSearch position="bottomleft" query={query} onSearch={onSearch} onSubmit={onSubmit} />
       </MapContainer>
    );
 };
