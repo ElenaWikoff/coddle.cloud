@@ -3,6 +3,8 @@ from backend.models import app, db, Fish, Lures, Locations  # Import app, databa
 from sqlalchemy import asc, desc, or_, func, ARRAY
 from urllib.parse import urlencode
 import gitlab
+import unittest
+import os
 
 PROJECT_ID = 71006060
 gl = gitlab.Gitlab('https://gitlab.com', private_token='glpat-WYswdfja-RfLBggGwHq9')
@@ -434,6 +436,12 @@ def aboutIndex():
     # Get total number of issues
     all_issues = project.issues.list(get_all=True)
     issue_count = len(all_issues)
+
+    # Get total number of unit tests
+    loader = unittest.TestLoader()
+    backend_dir = os.path.join(os.path.dirname(__file__))
+    suite = loader.discover(backend_dir, pattern='mainT.py')
+    total_unittests = suite.countTestCases()
     
     about_json = []
 
@@ -459,7 +467,8 @@ def aboutIndex():
             "web_url": web_url,
             "commits": commit_count,
             "total_issues": issue_count,
-            "total_commits": total_commits
+            "total_commits": total_commits,
+            "total_unittests": total_unittests
         })
 
     return about_json

@@ -2,7 +2,6 @@ import os
 import sys
 import unittest
 from backend.models import app
-import backend.main
 import json
 
 # ----------------------
