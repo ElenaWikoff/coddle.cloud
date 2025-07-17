@@ -211,7 +211,7 @@ def fishSearchingMetadataIndex():
                 "max": weight_max
             },
             {
-                "key": "depth",
+                "key": "depth_max",
                 "min": 0,
                 "max": depth_max
             }
