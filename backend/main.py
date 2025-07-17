@@ -77,7 +77,7 @@ def fishIndex():
         'distribution': Fish.distribution,
         'length': Fish.length,
         'weight': Fish.weight,
-        'depth_max': Fish.depth_max
+        # 'depth_max': Fish.depth_max
     }
 
     for field, column in fish_filter_fields.items():
@@ -209,12 +209,12 @@ def fishSearchingMetadataIndex():
                 "key": "weight",
                 "min": 0,
                 "max": weight_max
-            },
-            {
-                "key": "depth_max",
-                "min": 0,
-                "max": depth_max
             }
+            # {
+            #     "key": "depth_max",
+            #     "min": 0,
+            #     "max": depth_max
+            # }
         ],
         "sort": [
             "+id", "-id",
@@ -257,7 +257,7 @@ def luresIndex():
 
     # Lures sorts
     sort_param = request.args.get('sort')
-    allowed_sort_fields = ['name', 'type']
+    allowed_sort_fields = ['id', 'name', 'type']
     sort_clause = get_sort_clause(Lures, sort_param, allowed_sort_fields)
     if sort_clause is not None:
         lures_query = lures_query.order_by(sort_clause)
@@ -426,8 +426,13 @@ def aboutIndex():
         "Ethan Do": ["ethando767243@gmail.com"],
         "LegendaryFoxFire": ["jtbukoski@gmail.com"]
     }
-    members = gl.projects.get(PROJECT_ID).members.list(get_all=True)
-    all_commits = gl.projects.get(PROJECT_ID).commits.list(get_all=True)
+    project = gl.projects.get(PROJECT_ID)
+    members = project.members.list(get_all=True)
+    all_commits = project.commits.list(get_all=True)
+
+    # Get total number of issues
+    all_issues = project.issues.list(get_all=True)
+    issue_count = len(all_issues)
     
     about_json = []
 
@@ -451,7 +456,8 @@ def aboutIndex():
             "name": name,
             "username": username,
             "web_url": web_url,
-            "commits": commit_count
+            "commits": commit_count,
+            "total_issues": issue_count
         })
 
     return about_json
