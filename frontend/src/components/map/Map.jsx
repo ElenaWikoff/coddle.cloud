@@ -26,7 +26,7 @@ const Map = ({ spots, onSelect, query, onSearch, onSubmit }) => {
    return (
       <MapContainer center={centroid} zoom={13} className="w-100 h-100">
          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors. <a href="https://www.flaticon.com/free-icons/river" title="icons">River Icon created by Freepik - Flaticon</a>'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
          />
          <MarkerLayer spots={spots} onSelect={onSelect} query={query} />

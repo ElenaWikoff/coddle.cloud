@@ -9,11 +9,11 @@ import {
 import { LatLngBounds } from "leaflet";
 import { capitalizeEachWord } from "../../utils/functions";
 import {
-   blueIcon,
-   goldIcon,
-   orangeIcon,
-   greenIcon,
-   violetIcon,
+   blueWaterIcon,
+   darkBlueWaterIcon,
+   greenWaterIcon,
+   lightGreenWaterIcon,
+   whiteWaterIcon,
 } from "./CustomMarkers";
 import "./map.css";
 import Highlighter from "react-highlight-words";
@@ -22,16 +22,16 @@ const SpotMarker = ({ spot, onSelect, query }) => {
    const getIcon = (type) => {
       switch (type) {
          case "river":
-            return goldIcon;
+            return blueWaterIcon;
          case "creek":
-            return orangeIcon;
+            return whiteWaterIcon;
          case "lake":
-            return greenIcon;
+            return greenWaterIcon;
          case "pond":
-            return violetIcon;
+            return lightGreenWaterIcon;
          case "ocean":
          default:
-            return blueIcon;
+            return darkBlueWaterIcon;
       }
    };
 

@@ -1,8 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
-import { Marker, useMap } from "react-leaflet";
-import { LatLngBounds } from "leaflet";
-import { capitalizeEachWord } from "../../utils/functions";
-import { redIcon } from "./CustomMarkers";
+import { useMemo } from "react";
+import { useMap } from "react-leaflet";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
