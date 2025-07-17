@@ -8,8 +8,9 @@ import {
    useMapEvents,
 } from "react-leaflet";
 import { LatLngBounds } from "leaflet";
-import { capitalizeEachWord } from "../utils/functions";
+import { capitalizeEachWord } from "../../utils/functions";
 import Form from "react-bootstrap/Form";
+import MarkerLayer from "./MarkerLayer";
 
 const POSITION_CLASSES = {
    bottomleft: "leaflet-bottom leaflet-left",
@@ -17,8 +18,6 @@ const POSITION_CLASSES = {
    topleft: "leaflet-top leaflet-left",
    topright: "leaflet-top leaflet-right",
 };
-
-const BOUNDS_STYLE = { weight: 1 };
 
 function getCentroid(spots) {
    if (!spots || spots.length === 0) {
@@ -34,57 +33,6 @@ function getCentroid(spots) {
    const centroid = [sumX / n, sumY / n];
    return centroid;
 }
-
-const SpotMarkers = ({ spots, onSelect }) => {
-   const map = useMap();
-
-   console.log(spots);
-
-   useEffect(() => {
-      if (spots.length > 0) {
-         const bounds = new LatLngBounds(
-            spots.map((spot) => {
-               const x = spot.coordinates[0];
-               const y = spot.coordinates[1];
-               return [x, y];
-            })
-         );
-         map.fitBounds(bounds);
-      }
-   }, []);
-
-   return (
-      <>
-         {(spots && spots.length > 0) &&
-            spots.map((spot, index) => {
-               return (
-                  <Marker
-                     key={`spot-${index}`}
-                     position={spot.coordinates}
-                     eventHandlers={{
-                        click: () => onSelect(spot),
-                        touch: () => onSelect(spot),
-                     }}
-                  >
-                     <Popup>
-                        <strong>
-                           {capitalizeEachWord(spot.location_name)}
-                        </strong>
-                        <br />
-                        {capitalizeEachWord(spot.feature_name)}
-                        <br />
-                        {`${spot.city}, ${spot.state}`}
-                        <br />
-                        {`(${spot.coordinates[0].toFixed(
-                           2
-                        )}, ${spot.coordinates[1].toFixed(2)})`}
-                     </Popup>
-                  </Marker>
-               );
-            })}
-      </>
-   );
-};
 
 const FilterControl = ({ position, query, onSearch, onFilter }) => {
    const map = useMap();
@@ -141,8 +89,9 @@ const Map = ({ spots, onSelect, query, onSearch, onFilter }) => {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
          />
-         <SpotMarkers spots={spots} onSelect={onSelect} />
-         <FilterControl position="topright" query={query} onSearch={onSearch} onFilter={onFilter} />
+         <MarkerLayer spots={spots} onSelect={onSelect} />
+         {/* <SpotMarkers spots={spots} onSelect={onSelect} /> */}
+         {/* <FilterControl position="topright" query={query} onSearch={onSearch} onFilter={onFilter} /> */}
       </MapContainer>
    );
 };

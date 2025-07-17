@@ -1,0 +1,13 @@
+
+.leaflet-touch .leaflet-control-layers-expanded {
+    padding: 5px 15px;
+    height: auto;
+}
+
+.leaflet-control-layers-list {
+    padding: 0;
+}
+
+.leaflet-control-layers-list::before {
+    content: "Filter by Type";
+}

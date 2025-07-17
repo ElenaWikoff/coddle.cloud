@@ -1,4 +1,4 @@
-import Map from "../Map.jsx";
+import Map from "../map/Map.jsx";
 import "./herobanner.css";
 import Container from "react-bootstrap/Container";
 
