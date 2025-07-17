@@ -6,6 +6,7 @@ import PageContainer from "../components/PageContainer";
 import AboutCard from "../components/card/AboutCard";
 import CritiqueCard from '../components/card/CritiqueCard';
 import StatsCard from "../components/card/StatsCard";
+import { ToolsCarousel } from "../components/carousel/ToolsCarousel";
 
 const About = () => {
    const [loading, setLoading] = useState(true);
@@ -43,9 +44,12 @@ const About = () => {
                </Row>
             </section>
 
+            
+
             <section className="mb-16">
 
                <StatsCard />
+               <ToolsCarousel />
 
                <section>
                   {/* Self Critiques */}

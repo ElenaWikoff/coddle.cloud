@@ -13,13 +13,12 @@ import {
   Palette,
   Server,
   Zap,
-  Figma,
 } from "lucide-react";
-import "./ToolsCarousel.css"; // Import the CSS file
+import "./carousel.css"; 
 
 const tools = [
   { name: "React", icon: Code, color: "#61DAFB" },
-  { name: "Bootstrap CSS", icon: Palette, color: "#7952B3" },
+  { name: "Bootstrap", icon: Palette, color: "#7952B3" },
   { name: "Python", icon: Code, color: "#3776AB" },
   { name: "Flask", icon: Server, color: "#000000" },
   { name: "PostgreSQL", icon: Database, color: "#336791" },
@@ -29,7 +28,6 @@ const tools = [
   { name: "GitLab", icon: GitBranch, color: "#FC6D26" },
   { name: "NameCheap", icon: Server, color: "#FF6C2C" },
   { name: "Postman", icon: Zap, color: "#FF6C37" },
-  { name: "Figma", icon: Figma, color: "#F24E1E" },
 ];
 
 export function ToolsCarousel() {
@@ -76,6 +74,7 @@ export function ToolsCarousel() {
 
   return (
     <div className="carousel-container">
+      <h2 className="section-heading">Tools</h2>
       <div className="carousel-wrapper">
         <button
           onClick={prevSlide}
