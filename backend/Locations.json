@@ -229,6 +229,96 @@
       "city": "Seward",
       "type": "creek",
       "fish_ids": [41, 42, 63, 35]
+    },
+    {
+      "id": 24,
+      "location_name": "Ship Creek Trail 1",
+      "feature_name": "Ship Creek",
+      "coordinates": [60.1455, -149.4117],
+      "state": "Alaska",
+      "city": "Anchorange",
+      "type": "creek",
+      "fish_ids": [64, 42, 41, 35, 46, 65, 66]
+    },
+    {
+      "id": 25,
+      "location_name": "Ship Creek Trail 2",
+      "feature_name": "Ship Creek",
+      "coordinates": [61.2243, -149.8491],
+      "state": "Alaska",
+      "city": "Anchorange",
+      "type": "creek",
+      "fish_ids": [64, 42, 41, 35, 46, 65, 66]
+    },
+    {
+      "id": 26,
+      "location_name": "Ship Creek Trail 3",
+      "feature_name": "Ship Creek",
+      "coordinates": [61.2259, -149.8374],
+      "state": "Alaska",
+      "city": "Anchorange",
+      "type": "creek",
+      "fish_ids": [64, 42, 41, 35, 46, 65, 66]
+    },
+    {
+      "id": 27,
+      "location_name": "Campbell Creek Trail 1",
+      "feature_name": "Campbell Creek",
+      "coordinates": [61.1426, -149.9145],
+      "state": "Alaska",
+      "city": "Anchorange",
+      "type": "creek",
+      "fish_ids": [64, 42, 41, 35, 46, 65, 66, 43]
+    },
+    {
+      "id": 28,
+      "location_name": "Campbell Creek Trail 2",
+      "feature_name": "Campbell Creek",
+      "coordinates": [61.1456, -149.8924],
+      "state": "Alaska",
+      "city": "Anchorange",
+      "type": "creek",
+      "fish_ids": [64, 42, 41, 35, 46, 65, 66]
+    },
+    {
+      "id": 29,
+      "location_name": "Campbell Creek Trail 3",
+      "feature_name": "Taku Lake",
+      "coordinates": [61.2259, -149.8374],
+      "state": "Alaska",
+      "city": "Anchorange",
+      "type": "lake",
+      "fish_ids": [35, 64, 41]
+    },
+    {
+      "id": 30,
+      "location_name": "Eagle River Campground",
+      "feature_name": "Eagle River",
+      "coordinates": [61.3095, -149.5754],
+      "state": "Alaska",
+      "city": "Anchorange",
+      "type": "river",
+      "fish_ids": [41, 65, 67]
+    },
+    {
+      "id": 31,
+      "location_name": "Bird Creek Regional Park 1",
+      "feature_name": "Penguin Creek",
+      "coordinates": [60.9761, -149.4333],
+      "state": "Alaska",
+      "city": "Anchorange",
+      "type": "creek",
+      "fish_ids": [41, 42, 68]
+    },
+    {
+      "id": 32,
+      "location_name": "Bird Creek Regional Park 2",
+      "feature_name": "Bird Creek",
+      "coordinates": [60.9760, -149.4575],
+      "state": "Alaska",
+      "city": "Anchorange",
+      "type": "creek",
+      "fish_ids": [41, 65, 67]
     }
   ]
 }
