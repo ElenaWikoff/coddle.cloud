@@ -365,6 +365,9 @@ def luresSearchingMetadataIndex():
                 "options": fish_types_options
             }
         ],
+        "ranges": [
+
+        ],
         "sort": [
             "+id", "-id",
             "+name", "-name",
