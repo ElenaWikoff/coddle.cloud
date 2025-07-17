@@ -1087,6 +1087,22 @@
       "temp_max": 86,
       "image_attribution": "",
       "ref": "Page, L.M. and B.M. Burr, 2011. A field guide to freshwater fishes of North America north of Mexico. Boston : Houghton Mifflin Harcourt, 663p."
+    },
+    {
+      "id": 69,
+      "common_name": "chum salmon",
+      "scientific_name": "oncorhynchus keta",
+      "type": "salmon",
+      "environment": "anadromous",
+      "distribution": "pa",
+      "length": 100.0,
+      "weight": 18.1,
+      "depth_min": 0,
+      "depth_max": 250,
+      "temp_min": 36,
+      "temp_max": 86,
+      "image_attribution": "",
+      "ref": "Page, L.M. and B.M. Burr, 2011. A field guide to freshwater fishes of North America north of Mexico. Boston : Houghton Mifflin Harcourt, 663p."
     }
   ]
 }
