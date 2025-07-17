@@ -50,91 +50,60 @@ const About = () => {
 
                <section>
                   {/* Self Critiques */}
-                  <div className="mb-12">
-                     <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Self Critiques</h3>
-                     <Row xs={1} sm={2} md={3} className="g-4">
+                  <div className="critique-section">
+                     <h3 className="section-heading">Self Critiques</h3>
+                     <Row xs={1} sm={2} md={2} className="g-4">
                         <Col>
-                           <CritiqueCard icon="🎯" title="What did we do well?">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tristique, sapien et mollis aliquet, nulla libero faucibus libero, euismod convallis metus libero et justo. Cras accumsan justo a lectus euismod, ac scelerisque ligula pharetra. Ut laoreet sollicitudin viverra. Fusce ac arcu eget libero efficitur malesuada. Nam vitae ante vitae risus pretium mollis. Sed at eros quis sem varius laoreet. Curabitur at nunc facilisis, vulputate libero ut, auctor arcu. Mauris sit amet libero neque.
-                           </CritiqueCard>
+                        <CritiqueCard icon="🎯" title="What did we do well?">
+                           Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                        </CritiqueCard>
                         </Col>
-
                         <Col>
-                           <CritiqueCard icon="📚" title="What did we learn?">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tristique, sapien et mollis aliquet, nulla libero faucibus libero, euismod convallis metus libero et justo. Cras accumsan justo a lectus euismod, ac scelerisque ligula pharetra. Ut laoreet sollicitudin viverra. Fusce ac arcu eget libero efficitur malesuada. Nam vitae ante vitae risus pretium mollis. Sed at eros quis sem varius laoreet. Curabitur at nunc facilisis, vulputate libero ut, auctor arcu. Mauris sit amet libero neque.
-                           </CritiqueCard>
+                        <CritiqueCard icon="📚" title="What did we learn?">
+                           Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                        </CritiqueCard>
                         </Col>
-
                         <Col>
-                           <CritiqueCard icon="🤝" title="What did we teach each other?">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tristique, sapien et mollis aliquet, nulla libero faucibus libero, euismod convallis metus libero et justo. Cras accumsan justo a lectus euismod, ac scelerisque ligula pharetra. Ut laoreet sollicitudin viverra. Fusce ac arcu eget libero efficitur malesuada. Nam vitae ante vitae risus pretium mollis. Sed at eros quis sem varius laoreet. Curabitur at nunc facilisis, vulputate libero ut, auctor arcu. Mauris sit amet libero neque.
-                           </CritiqueCard>
+                        <CritiqueCard icon="🔧" title="What can we do better?">
+                           Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                        </CritiqueCard>
                         </Col>
-
                         <Col>
-                           <CritiqueCard icon="🔧" title="What can we do better?">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tristique, sapien et mollis aliquet, nulla libero faucibus libero, euismod convallis metus libero et justo. Cras accumsan justo a lectus euismod, ac scelerisque ligula pharetra. Ut laoreet sollicitudin viverra. Fusce ac arcu eget libero efficitur malesuada. Nam vitae ante vitae risus pretium mollis. Sed at eros quis sem varius laoreet. Curabitur at nunc facilisis, vulputate libero ut, auctor arcu. Mauris sit amet libero neque.
-                           </CritiqueCard>
-                        </Col>
-
-                        <Col>
-                           <CritiqueCard icon="👥" title="What effect did the peer reviews have?">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tristique, sapien et mollis aliquet, nulla libero faucibus libero, euismod convallis metus libero et justo. Cras accumsan justo a lectus euismod, ac scelerisque ligula pharetra. Ut laoreet sollicitudin viverra. Fusce ac arcu eget libero efficitur malesuada. Nam vitae ante vitae risus pretium mollis. Sed at eros quis sem varius laoreet. Curabitur at nunc facilisis, vulputate libero ut, auctor arcu. Mauris sit amet libero neque.
-                           </CritiqueCard>
-                        </Col>
-
-                        <Col>
-                           <CritiqueCard icon="🤔" title="What puzzles us?">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tristique, sapien et mollis aliquet, nulla libero faucibus libero, euismod convallis metus libero et justo. Cras accumsan justo a lectus euismod, ac scelerisque ligula pharetra. Ut laoreet sollicitudin viverra. Fusce ac arcu eget libero efficitur malesuada. Nam vitae ante vitae risus pretium mollis. Sed at eros quis sem varius laoreet. Curabitur at nunc facilisis, vulputate libero ut, auctor arcu. Mauris sit amet libero neque.
-                           </CritiqueCard>
+                        <CritiqueCard icon="🤔" title="What puzzles us?">
+                           Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                        </CritiqueCard>
                         </Col>
                      </Row>
                   </div>
 
                   {/* Provider Critiques */}
-                  <div className="mb-12">
-                     <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Provider Critiques</h3>
-                     <Row xs={1} sm={2} md={3} className="g-4">
+                  <div className="critique-section">
+                     <h3 className="section-heading">Provider Critiques</h3>
+                     <Row xs={1} sm={2} md={2} className="g-4">
                         <Col>
-                           <CritiqueCard icon="✅" title="What did they do well?">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tristique, sapien et mollis aliquet, nulla libero faucibus libero, euismod convallis metus libero et justo. Cras accumsan justo a lectus euismod, ac scelerisque ligula pharetra. Ut laoreet sollicitudin viverra. Fusce ac arcu eget libero efficitur malesuada. Nam vitae ante vitae risus pretium mollis. Sed at eros quis sem varius laoreet. Curabitur at nunc facilisis, vulputate libero ut, auctor arcu. Mauris sit amet libero neque.
-                           </CritiqueCard>
+                        <CritiqueCard icon="✅" title="What did they do well?">
+                           Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                        </CritiqueCard>
                         </Col>
-
                         <Col>
-                           <CritiqueCard icon="🔗" title="How effective was their RESTful API?">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tristique, sapien et mollis aliquet, nulla libero faucibus libero, euismod convallis metus libero et justo. Cras accumsan justo a lectus euismod, ac scelerisque ligula pharetra. Ut laoreet sollicitudin viverra. Fusce ac arcu eget libero
-                              efficitur malesuada. Nam vitae ante vitae risus pretium mollis. Sed at eros quis sem varius laoreet. Curabitur at nunc facilisis, vulputate libero ut, auctor arcu. Mauris sit amet libero neque. 
-                           </CritiqueCard> 
+                        <CritiqueCard icon="💡" title="What did we learn from their website?">
+                           Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                        </CritiqueCard>
                         </Col>
-
-                    <Col>
-                       <CritiqueCard icon="📋" title="How well did they implement your user stories?">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tristique, sapien et mollis aliquet, nulla libero faucibus libero, euismod convallis metus libero et justo. Cras accumsan justo a lectus euismod, ac scelerisque ligula pharetra. Ut laoreet sollicitudin viverra. Fusce ac arcu eget libero efficitur malesuada. Nam vitae ante vitae risus pretium mollis. Sed at eros quis sem varius laoreet. Curabitur at nunc facilisis, vulputate libero ut, auctor arcu. Mauris sit amet libero neque.
-                       </CritiqueCard>
-                    </Col>
-
-                    <Col>
-                       <CritiqueCard icon="💡" title="What did we learn from their website?">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tristique, sapien et mollis aliquet, nulla libero faucibus libero, euismod convallis metus libero et justo. Cras accumsan justo a lectus euismod, ac scelerisque ligula pharetra. Ut laoreet sollicitudin viverra. Fusce ac arcu eget libero efficitur malesuada. Nam vitae ante vitae risus pretium mollis. Sed at eros quis sem varius laoreet. Curabitur at nunc facilisis, vulputate libero ut, auctor arcu. Mauris sit amet libero neque.
-                       </CritiqueCard>
-                    </Col>
-
-                    <Col>
-                       <CritiqueCard icon="⚡" title="What can they do better?">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tristique, sapien et mollis aliquet, nulla libero faucibus libero, euismod convallis metus libero et justo. Cras accumsan justo a lectus euismod, ac scelerisque ligula pharetra. Ut laoreet sollicitudin viverra. Fusce ac arcu eget libero efficitur malesuada. Nam vitae ante vitae risus pretium mollis. Sed at eros quis sem varius laoreet. Curabitur at nunc facilisis, vulputate libero ut, auctor arcu. Mauris sit amet libero neque.
-                       </CritiqueCard>
-                    </Col>
-
-                    <Col>
-                       <CritiqueCard icon="❓" title="What puzzles us about their website?">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tristique, sapien et mollis aliquet, nulla libero faucibus libero, euismod convallis metus libero et justo. Cras accumsan justo a lectus euismod, ac scelerisque ligula pharetra. Ut laoreet sollicitudin viverra. Fusce ac arcu eget libero efficitur malesuada. Nam vitae ante vitae risus pretium mollis. Sed at eros quis sem varius laoreet. Curabitur at nunc facilisis, vulputate libero ut, auctor arcu. Mauris sit amet libero neque.
-                       </CritiqueCard>
-                    </Col>
-                 </Row>
-              </div>
-           </section>
-        </section>
+                        <Col>
+                        <CritiqueCard icon="⚡" title="What can they do better?">
+                           Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                        </CritiqueCard>
+                        </Col>
+                        <Col>
+                        <CritiqueCard icon="❓" title="What puzzles us about their website?">
+                           Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                        </CritiqueCard>
+                        </Col>
+                     </Row>
+                  </div>
+               </section>
+            </section>
      </Container>
   </PageContainer>
 );

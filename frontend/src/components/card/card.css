@@ -326,3 +326,42 @@ a.card .card-footer {
       }
    }
 }
+
+.critique-card {
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  border: 1px solid #e5e7eb; /* light gray border */
+  transition: all 0.3s ease-in-out;
+}
+
+.critique-card:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.critique-card-title {
+  font-weight: 600;
+  color: #212529;
+  font-size: 0.875rem; /* ~text-sm */
+  margin-bottom: 0.5rem;
+}
+
+.critique-card-text {
+  font-size: 0.75rem; /* ~text-xs */
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+.critique-section {
+  margin-bottom: 3rem; /* ~mb-12 */
+}
+
+.section-heading {
+  font-size: 1.75rem; /* ~text-2xl */
+  font-weight: bold;
+  color: #212529;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}

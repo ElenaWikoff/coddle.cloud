@@ -2,8 +2,10 @@
 import React from 'react';
 import "./card.css";
 
-const StatsCard = () => {
+const StatsCard = ({ user, loading }) => {
+  
   return (
+    
     <div className="stats-container">
   <h2 className="stats-head-title">Project Statistics</h2>
   
