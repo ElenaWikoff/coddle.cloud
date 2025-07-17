@@ -7,6 +7,8 @@ import AboutCard from "../components/card/AboutCard";
 import CritiqueCard from '../components/card/CritiqueCard';
 import StatsCard from "../components/card/StatsCard";
 import { ToolsCarousel } from "../components/carousel/ToolsCarousel";
+import "../components/card/card.css";
+
 
 const About = () => {
    const [loading, setLoading] = useState(true);
@@ -29,6 +31,7 @@ const About = () => {
 
    return (
       <PageContainer>
+         <div className="about-page">
          <Container className="p-4">
             <section id="team">
                <h2 className="section-heading">Our Team</h2>
@@ -108,6 +111,7 @@ const About = () => {
                </section>
             </section>
      </Container>
+     </div>
   </PageContainer>
 );
 };
