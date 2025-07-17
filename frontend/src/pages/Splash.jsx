@@ -10,7 +10,7 @@ const splashHero = {
    subtitle: "Your premiere spot for fishing locales.",
    buttons: [
       {
-         label: "Find Fishing Spots Now",
+         label: "Find Fish Spots",
          href: "/spots",
          leadingIcon: null,
          trailingIcon: <RiMapPinFill />,
