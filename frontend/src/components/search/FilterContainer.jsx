@@ -40,6 +40,7 @@ const FilterContainer = ({ data, query, onSearch, onSelect, type }) => {
                               {capitalizeEachWord(filter.key)}
                            </Form.Label>
                            <Form.Select
+                              className="filter-select"
                               size="sm"
                               value={filter.value}
                               onChange={(event) =>
@@ -75,7 +76,7 @@ const FilterContainer = ({ data, query, onSearch, onSelect, type }) => {
 
             {/* Sliders */}
             {data && data.ranges && data.ranges.length > 0 && (
-               <fieldset className="ranges d-flex flex-wrap gap-3 justify-content-around">
+               <fieldset className="ranges d-flex flex-wrap gap-3">
                   {data.ranges.map((range, index) => {
                      return (
                         <Form.Group
@@ -83,7 +84,6 @@ const FilterContainer = ({ data, query, onSearch, onSelect, type }) => {
                            className="position-relative"
                         >
                            <Form.Label>{`Max ${capitalizeEachWord(range.key)}`}</Form.Label>
-                           {/* <Form.Label>{`Max ${capitalizeEachWord(range.key)}: ${currRanges[index].value} m`}</Form.Label> */}
                            <Form.Range
                               value={range.value}
                               min={range.min}
@@ -92,13 +92,6 @@ const FilterContainer = ({ data, query, onSearch, onSelect, type }) => {
                                  onSelect(range.key, event.target.value)
                               }
                            />
-                           {/* {currRanges && (
-                              <span 
-                              className="current-range"
-                              style={{left: `calc(4px + 1% * ${currRanges[index].value / range.max})`}}>
-                                 {currRanges[index].value}
-                              </span>
-                           )} */}
                            <div className="range-numbers w-100 d-flex justify-content-between">
                               <span>{`${range.min} ${getUnit(range.key)}`}</span>
                               <span>{`${range.max} ${getUnit(range.key)}`}</span>

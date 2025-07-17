@@ -1,3 +1,4 @@
+// Deprecated
 import { Link, useLoaderData, useParams, useNavigate } from "react-router";
 import Container from "react-bootstrap/esm/Container";
 import ListGroup from "react-bootstrap/esm/ListGroup";

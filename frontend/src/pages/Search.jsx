@@ -24,33 +24,37 @@ const Search = ({ type }) => {
 
    useEffect(() => {
       fetch_metadata(type)
-      .then((data) => {
-         const newFilters = data.filters.map((filter) => {
-            const value = searchParams.has(filter.key) ? searchParams.get(filter.key) : filter.options[0];
-            const newFilter = {
-               ...filter,
-               value,
+         .then((data) => {
+            const newFilters = data.filters.map((filter) => {
+               const value = searchParams.has(filter.key)
+                  ? searchParams.get(filter.key)
+                  : filter.options[0];
+               const newFilter = {
+                  ...filter,
+                  value,
+               };
+               return newFilter;
+            });
+            const newRanges = data.ranges.map((range) => {
+               const value = searchParams.has(range.key)
+                  ? searchParams.get(range.key)
+                  : range.min;
+               const newRange = {
+                  ...range,
+                  value,
+               };
+               return newRange;
+            });
+            const newData = {
+               ...data,
+               filters: newFilters,
+               ranges: newRanges,
             };
-            return newFilter;
+            setFilterData(newData);
+         })
+         .catch((error) => {
+            setError(error);
          });
-         const newRanges = data.ranges.map((range) => {
-            const value = searchParams.has(range.key) ? searchParams.get(range.key) : range.min;
-            const newRange = {
-               ...range,
-               value,
-            };
-            return newRange;
-         });
-         const newData = {
-            ...data,
-            filters: newFilters,
-            ranges: newRanges,
-         };
-         setFilterData(newData);
-      })
-      .catch((error) => {
-         setError(error);
-      })
    }, []);
 
    // Set Defaults
@@ -76,40 +80,67 @@ const Search = ({ type }) => {
       setQuery(value);
    };
 
+   const setNewRangeData = (key, value) => {
+      const newRanges = filterData.ranges.map((range) => {
+         if (range.key === key) {
+            const newRange = {
+               ...range,
+               value: value,
+            };
+            return newRange;
+         } else {
+            return range;
+         }
+      });
+      const newFilterData = {
+         ...filterData,
+         ranges: newRanges,
+      };
+      setFilterData(newFilterData);
+   };
+
    // Debounce length for 300 milliseconds.
    useEffect(() => {
-      const newSearchParams = new URLSearchParams(searchParams.toString());
-      handleReset(newSearchParams);
-      if (Number(debouncedLength)) {
-         newSearchParams.set("length", debouncedLength);
-      } else {
-         newSearchParams.delete("length");
+      if (filterData) {
+         const newSearchParams = new URLSearchParams(searchParams.toString());
+         handleReset(newSearchParams);
+         if (Number(debouncedLength)) {
+            newSearchParams.set("length", debouncedLength);
+         } else {
+            newSearchParams.delete("length");
+         }
+         setSearchParams(newSearchParams);
+         setNewRangeData("length", debouncedLength);
       }
-      setSearchParams(newSearchParams);
    }, [debouncedLength]);
 
    // Debounce weight for 300 milliseconds.
    useEffect(() => {
-      const newSearchParams = new URLSearchParams(searchParams.toString());
-      handleReset(newSearchParams);
-      if (Number(debouncedWeight)) {
-         newSearchParams.set("weight", debouncedWeight);
-      } else {
-         newSearchParams.delete("weight");
+      if (filterData) {
+         const newSearchParams = new URLSearchParams(searchParams.toString());
+         handleReset(newSearchParams);
+         if (Number(debouncedWeight)) {
+            newSearchParams.set("weight", debouncedWeight);
+         } else {
+            newSearchParams.delete("weight");
+         }
+         setSearchParams(newSearchParams);
+         setNewRangeData("weight", debouncedWeight);
       }
-      setSearchParams(newSearchParams);
    }, [debouncedWeight]);
 
    // Debounce depth for 300 milliseconds.
    useEffect(() => {
-      const newSearchParams = new URLSearchParams(searchParams.toString());
-      handleReset(newSearchParams);
-      if (Number(debouncedDepth)) {
-         newSearchParams.set("depth", debouncedDepth);
-      } else {
-         newSearchParams.delete("depth");
+      if (filterData) {
+         const newSearchParams = new URLSearchParams(searchParams.toString());
+         handleReset(newSearchParams);
+         if (Number(debouncedDepth)) {
+            newSearchParams.set("depth", debouncedDepth);
+         } else {
+            newSearchParams.delete("depth");
+         }
+         setSearchParams(newSearchParams);
       }
-      setSearchParams(newSearchParams);
    }, [debouncedDepth]);
 
    const handleChange = (key, value) => {
@@ -127,22 +158,6 @@ const Search = ({ type }) => {
             default:
                return;
          }
-         const newRanges = filterData.ranges.map((range) => {
-            if (range.key === key) {
-               const newRange = {
-                  ...range,
-                  value: value,
-               };
-               return newRange;
-            } else {
-               return range;
-            }
-         });
-         const newFilterData = {
-            ...filterData,
-            ranges: newRanges,
-         }
-         setFilterData(newFilterData);
       } else {
          const newSearchParams = new URLSearchParams(searchParams.toString());
          if (value !== "all") {
@@ -151,7 +166,7 @@ const Search = ({ type }) => {
             newSearchParams.delete(key);
          }
          setSearchParams(newSearchParams);
-          const newFilters = filterData.filters.map((filter) => {
+         const newFilters = filterData.filters.map((filter) => {
             if (filter.key === key) {
                const newFilter = {
                   ...filter,
@@ -165,7 +180,7 @@ const Search = ({ type }) => {
          const newFilterData = {
             ...filterData,
             filters: newFilters,
-         }
+         };
          setFilterData(newFilterData);
       }
    };
@@ -173,9 +188,9 @@ const Search = ({ type }) => {
    const handleSort = (value) => {
       const newSearchParams = new URLSearchParams(searchParams.toString());
       handleReset(newSearchParams);
-      newSearchParams.set('sort', value);
+      newSearchParams.set("sort", value);
       setSearchParams(newSearchParams);
-   }
+   };
 
    useEffect(() => {
       setLoading(true);
@@ -244,12 +259,13 @@ const Search = ({ type }) => {
       <PageContainer>
          <Container className="py-5">
             <h1>{getTitle()}</h1>
-            <FilterContainer 
-            data={filterData}
-            type={type}
-            query={query}
-            onSearch={handleSearch} 
-            onSelect={handleChange} />
+            <FilterContainer
+               data={filterData}
+               type={type}
+               query={query}
+               onSearch={handleSearch}
+               onSelect={handleChange}
+            />
             <ResultsContainer
                data={data}
                type={type}
