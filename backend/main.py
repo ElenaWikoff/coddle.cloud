@@ -88,7 +88,7 @@ def fishIndex():
                 python_type = column.type.python_type
                 if python_type in [int, float]:
                     value = python_type(value)
-                    fish_query = fish_query.filter(column <= value) # Upper bound for NUMERIC fields
+                    fish_query = fish_query.filter(or_(column <= value, column == None)) # Upper bound for NUMERIC fields
                 else:
                     fish_query = fish_query.filter(column == value) # Case for exact STRING match
             except (ValueError, TypeError):
@@ -308,7 +308,7 @@ def lureInfoIndex():
     try:
         lure_ids = list(map(int, lure_id_list))
     except ValueError:
-        return jsonify([]), 400
+        return jsonify([]) # Don't error, its expected to return an empty array if no suitable lures are found for a fish
 
     # Query lures table for matching ids
     lures_to_fish_query = db.session.query(Lures).filter(Lures.id.in_(lure_ids)).all()
