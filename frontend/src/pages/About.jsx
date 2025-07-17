@@ -29,9 +29,8 @@ const About = () => {
    return (
       <PageContainer>
          <Container className="p-4">
-            <h1>About Coddle.cloud</h1>
             <section id="team">
-               <h2 style={{fontWeight: "300", color: "gray"}}>Meet Our Team</h2>
+               <h2 className="section-heading">Our Team</h2>
                <Row xs={1} sm={2} md={3} className="g-3">
                   {!loading && !data && <p>Error fetching from Gitlab.</p>}
                   {data.map((user, index) => {
