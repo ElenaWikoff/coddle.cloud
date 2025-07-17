@@ -3,8 +3,6 @@ from backend.models import app, db, Fish, Lures, Locations  # Import app, databa
 from sqlalchemy import asc, desc, or_, func, ARRAY
 from urllib.parse import urlencode
 import gitlab
-import unittest
-import os
 
 PROJECT_ID = 71006060
 gl = gitlab.Gitlab('https://gitlab.com', private_token='glpat-WYswdfja-RfLBggGwHq9')
