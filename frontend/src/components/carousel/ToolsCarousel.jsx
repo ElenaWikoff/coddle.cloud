@@ -13,8 +13,9 @@ import {
   Palette,
   Server,
   Zap,
+  Map,
 } from "lucide-react";
-import "./carousel.css"; 
+import "./carousel.css";
 
 const tools = [
   { name: "React", icon: Code, color: "#61DAFB" },
@@ -28,6 +29,7 @@ const tools = [
   { name: "GitLab", icon: GitBranch, color: "#FC6D26" },
   { name: "NameCheap", icon: Server, color: "#FF6C2C" },
   { name: "Postman", icon: Zap, color: "#FF6C37" },
+  { name: "Leaflet", icon: Map, color: "#199900" },
 ];
 
 export function ToolsCarousel() {

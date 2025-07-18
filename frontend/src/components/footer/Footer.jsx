@@ -108,6 +108,11 @@ const Footer = () => {
                            Lures
                         </Link>
                      </li>
+                     <li>
+                        <Link to="/about" className="footer-link">
+                           About
+                        </Link>
+                     </li>
                   </ul>
                </div>
 
