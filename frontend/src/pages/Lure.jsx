@@ -85,6 +85,10 @@ const Lure = () => {
                      </span>
                   </ListGroup.Item>
                </ListGroup>
+               <div className="mt-4" style={{textAlign: "center"}}>
+                     Reference:&nbsp;
+                     <em><a href="https://www.sportsmans.com/fishing-lures-types-chart?srsltid=AfmBOoqPFASy-g_T43gRWZ_EQmLTcWGinJYA_eq6oR3f6jaPKSvACNWU" target="_blank">Fish Lures Type Chart</a></em>
+               </div>
             </Container>
          )}
       </PageContainer>

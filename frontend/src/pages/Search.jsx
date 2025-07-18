@@ -66,7 +66,6 @@ const Search = ({ type }) => {
    // Debounce search query for 300 milliseconds.
    useEffect(() => {
       const newSearchParams = new URLSearchParams(searchParams.toString());
-      console.log("<1>");
       if (debouncedQuery) {
          newSearchParams.set("q", debouncedQuery);
       } else {

@@ -97,6 +97,10 @@ const Fish = () => {
                      emptyMessage={"No recommended lures for this fish."}
                   />
                </div>
+               <div className="mt-4" style={{textAlign: "center"}}>
+                     Reference:&nbsp;
+                     <em>{data.ref}</em>
+               </div>
             </Container>
          )}
       </PageContainer>
