@@ -1,4 +1,4 @@
-/* Flip Card */
+/* Flip Card Container */
 .flip-card {
    perspective: 1000px;
    width: 100%;
@@ -43,21 +43,23 @@
    bottom: 0;
    left: 0;
    right: 0;
+   padding: 1.5rem 1.5rem 1.5rem 1.5rem;
    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-   padding: 1.5rem;
+   color: white !important;
+   text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
+   background-color: rgba(0,0,0, 0.35);
 }
 
 .front-header h3 {
    font-size: 1.25rem;
    font-weight: 600;
-   color: white;
    margin-bottom: 0.25rem;
 }
 
 .front-header p {
    font-size: 1rem;
    font-weight: 500;
-   color: #66b3ff; /* blue */
+   color: #66b3ff;
 }
 
 /* Back of the card */
@@ -75,6 +77,7 @@
    padding: 1rem;
    display: flex;
    flex-direction: column;
+   gap: 1rem;
 }
 
 .flip-card-back .top-section {
@@ -104,6 +107,8 @@
 .flip-card-back .text-section {
    font-size: 0.875rem;
    margin-bottom: 0.5rem;
+   flex: 1;
+   min-width: 200px;
 }
 
 .flip-card-back .text-section span {
@@ -119,7 +124,88 @@
    color: #f1c40f;
 }
 
-/* Social Media Icons */
+/* Bottom Section Layout */
+.flip-card-back .bottom-section {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   gap: 1rem;
+}
+
+/* Stats Section */
+.stats-section {
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+   flex: 1;
+   min-width: 200px;
+   margin-top: 1.5rem;
+   padding-top: 1rem;
+}
+
+/* Stat Card */
+.stat-card {
+   background-color: #307eb1;
+   color: white;
+   border-radius: 0.5rem;
+   padding: 1rem;
+   text-align: center;
+   transition: background-color 0.3s ease;
+   width: 120px;
+   cursor: pointer;
+}
+
+.stat-card:hover {
+   background-color: #2563eb;
+}
+
+.stat-card h3 {
+   font-size: 1.25rem;
+   font-weight: bold;
+   color: white;
+   margin-bottom: 0.5rem;
+}
+
+.stat-value {
+   font-size: 1.25rem;
+   font-weight: bold;
+   margin-bottom: 0.25rem;
+}
+
+.stat-label {
+   font-size: 0.875rem;
+   font-weight: 600;
+   text-transform: uppercase;
+   color: #f0f0f0;
+}
+
+/* Stats Title */
+.stats-title,
+.stats-head-title {
+   font-size: 1.875rem;
+   font-weight: bold;
+   color: #307eb1;
+   text-align: center;
+   margin-bottom: 1rem;
+   transition: color 0.3s ease;
+}
+
+.stats-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 2rem;
+   margin-top: 1rem;
+   margin-bottom: 3rem;
+}
+
+.stat-cards-row {
+   display: flex;
+   justify-content: center;
+   gap: 2rem;
+}
+
+/* Social Icons */
 .social-icons {
    display: flex;
    justify-content: center;
@@ -127,32 +213,28 @@
    gap: 1rem;
 }
 
-/* Ensuring all social icons are the same size */
 .social-icons a {
    background-color: #307eb1;
    padding: 0.5rem;
    border-radius: 50%;
    transition: background-color 0.3s;
-   width: 2.5rem; /* Set the width of each icon */
-   height: 2.5rem; /* Set the height of each icon */
+   width: 2.5rem;
+   height: 2.5rem;
    display: flex;
    justify-content: center;
    align-items: center;
 }
 
-/* Hover effect for the icons */
 .social-icons a:hover {
    background-color: #2563eb;
    color: white;
 }
 
-/* Ensuring the icons are consistent in size */
 .social-icons .icon {
-   width: 1.5rem; /* Set the icon size to 1.5rem */
-   height: 1.5rem; /* Set the icon size to 1.5rem */
+   width: 1.5rem;
+   height: 1.5rem;
 }
 
-/* Social Icon Circle (LinkedIn, GitLab) */
 .social-icon-circle {
    display: inline-flex;
    justify-content: center;
@@ -168,7 +250,7 @@
    background-color: #2563eb;
 }
 
-/* Spinner when loading */
+/* Spinner */
 .spinner {
    width: 24px;
    height: 24px;
@@ -183,12 +265,13 @@
    100% { transform: rotate(360deg); }
 }
 
+/* Section */
 section {
    padding: 2rem 0;
    margin: 0;
 }
 
-/* Other styles for card hover and interactivity (already present in your code) */
+/* Card Interactivity */
 a.card {
    outline: 1px solid rgba(0, 0, 0, 0.175);
    border: none;
@@ -227,28 +310,23 @@ a.card.in-carousel:hover * {
    text-decoration: underline;
 }
 
-.fish-grid .image-wrapper {
+/* Grid Image Wrappers */
+.fish-grid .image-wrapper,
+.lures-grid .image-wrapper {
    aspect-ratio: 16/9;
    display: flex;
-   flex-direction: column;
    justify-content: center;
    align-items: center;
-   margin: 0;
    padding: 16px;
+   margin: 0 auto;
+   overflow: hidden;
 }
 
-.fish-grid .image-wrapper img {
+.fish-grid .image-wrapper img,
+.lures-grid .image-wrapper img {
    width: 100%;
    height: 100%;
    object-fit: contain;
-}
-
-.lures-grid .image-wrapper {
-   aspect-ratio: 16/9;
-   display: block;
-   padding: 0;
-   margin: 0 auto;
-   overflow: hidden;
 }
 
 .fish-carousel a.card.in-carousel img {
@@ -260,71 +338,7 @@ a.card.in-carousel:hover * {
    filter: drop-shadow(0px 10px 10px rgba(100, 100, 111, 0.2));
 }
 
-/* Overall Stats Container */
-.stats-container {
-   display: flex;
-   flex-direction: column; /* Stack items vertically (title first, cards below) */
-   align-items: center; /* Center the content horizontally */
-   gap: 2rem; /* Space between the title and the cards */
-   margin-bottom: 3rem;
-}
-
-/* Stat Card Styling */
-.stat-card {
-   background-color: #ebf8ff; /* Blue-100 */
-   border-radius: 0.5rem;
-   padding: 1.5rem;
-   text-align: center;
-   transition: background-color 0.3s ease;
-   cursor: pointer;
-   width: 200px; /* Fixed width for cards */
-}
-
-/* Title for Section (Project Statistics) */
-.stats-head-title {
-   font-size: 1.875rem; /* 3xl */
-   font-weight: bold;
-   color: black; /* Primary blue */
-   margin-bottom: 1rem;
-   transition: color 0.3s ease;
-   text-align: center; /* Center-align the title */
-}
-
-/* Title for Section (Project Statistics) */
-.stats-title {
-   font-size: 1.875rem; /* 3xl */
-   font-weight: bold;
-   color: #307eb1; /* Primary blue */
-   margin-bottom: 1rem;
-   transition: color 0.3s ease;
-   text-align: center; /* Center-align the title */
-}
-
-/* Stat Card Title (for each stat card) */
-.stat-card h3 {
-   font-size: 1.25rem; /* 2xl */
-   font-weight: bold;
-   color: #307eb1;
-   margin-bottom: 0.5rem;
-}
-
-/* Hover Effect for Stat Card */
-.stat-card:hover {
-   background-color: #307eb1; /* Darker Blue on Hover */
-}
-
-.stat-card:hover .stat-title,
-.stat-card:hover h3 {
-   color: white; /* Change text color to white on hover */
-}
-
-/* Row of Stat Cards */
-.stat-cards-row {
-   display: flex; /* Align stat cards in a row */
-   justify-content: center; /* Center the cards horizontally */
-   gap: 2rem; /* Space between the cards */
-}
-
+/* Tags */
 .tags-container {
    display: flex;
    flex-flow: row wrap;
@@ -335,7 +349,6 @@ a.card.in-carousel:hover * {
 a.card .tag {
    white-space: nowrap;
    color: white;
-   width: auto;
    background-color: gray;
    padding: 5px 8px;
    border-radius: 20px;
@@ -347,8 +360,24 @@ a.card .tag {
    .tags-container .tag {
       flex: 1 1 0;
    }
+
+   .fish-grid .card-title,
+   .lures-grid .card-title {
+      font-size: 16px;
+   }
+
+   .fish-grid .card-subtitle,
+   .lures-grid .card-subtitle {
+      font-size: 14px;
+   }
+
+   .tags-container .tag {
+      text-align: center;
+      font-size: 10px;
+   }
 }
 
+/* Card Body/Footer */
 a.card .card-body {
    padding-bottom: 5px;
 }
@@ -358,118 +387,55 @@ a.card .card-footer {
    background-color: transparent;
 }
 
-.fish-grid,
-.lure-grid {
-   @media screen and (max-width: 768px) {
-      .card-title {
-         font-size: 16px;
-      }
-
-      .card-subtitle {
-        font-size: 14px;
-      }
-
-      .tags-container .tag {
-        text-align: center;
-        font-size: 10px;
-      }
-   }
-}
-
+/* Critique Card */
 .critique-card {
-  background-color: #ffffff;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  border: 1px solid #e5e7eb; /* light gray border */
-  transition: all 0.3s ease-in-out;
+   background-color: #ffffff;
+   border-radius: 0.5rem;
+   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+   padding: 1rem;
+   border: 1px solid #e5e7eb;
+   transition: all 0.3s ease-in-out;
 }
 
 .critique-card:hover {
-  transform: translateY(-0.5rem);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+   transform: translateY(-0.5rem);
+   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .critique-card-title {
-  font-weight: 600;
-  color: #212529;
-  font-size: 0.875rem; /* ~text-sm */
-  margin-bottom: 0.5rem;
+   font-weight: 600;
+   color: #212529;
+   font-size: 0.875rem;
+   margin-bottom: 0.5rem;
 }
 
 .critique-card-text {
-  font-size: 0.75rem; /* ~text-xs */
-  color: #6c757d;
-  line-height: 1.6;
+   font-size: 0.75rem;
+   color: #6c757d;
+   line-height: 1.6;
 }
 
 .critique-section {
-  margin-bottom: 3rem; /* ~mb-12 */
+   margin-bottom: 3rem;
 }
 
 .section-heading {
-  font-size: 1.75rem; /* ~text-2xl */
-  font-weight: bold;
-  color: #212529;
-  margin-bottom: 1.5rem;
-  text-align: center;
+   font-size: 1.75rem;
+   font-weight: bold;
+   color: #212529;
+   margin-bottom: 1.5rem;
+   text-align: center;
 }
 
 .about-page {
    background-color: #fafafa;
 }
 
-.front-header {
-   padding-top: 10px;
-   color: white !important;
-   text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
-   background-color: rgba(0,0,0, 0.35);
-}
-
-/* Stats Section */
-.stats-section {
-   margin-top: 1.5rem;
-   padding-top: 1rem;
-}
-
-.stats-title {
-   font-size: 1rem;
-   font-weight: bold;
-   color: #307eb1;
-   margin-bottom: 0.5rem;
-   text-align: center;
-}
-
-.stats-container {
-   display: flex;
-   justify-content: space-around;
-   gap: 1rem;
-   margin-top: 1rem;
-}
-
-.stat-card {
-   background-color: #307eb1;
-   color: white;
-   border-radius: 0.5rem;
-   padding: 1rem;
-   text-align: center;
-   width: 120px;
-   transition: background-color 0.3s ease;
-}
-
-.stat-card:hover {
-   background-color: #2563eb;
-}
-
-.stat-value {
-   font-size: 1.25rem;
-   font-weight: bold;
-   margin-bottom: 0.25rem;
-}
-
-.stat-label {
-   font-size: 0.875rem;
-   font-weight: 600;
-   text-transform: uppercase;
-   color: #f0f0f0;
+/* Label style for stat boxes on flip card */
+.flip-card-stat-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #f0f0f0;
+  text-transform: none;
+  margin-top: 0.25rem;
 }
