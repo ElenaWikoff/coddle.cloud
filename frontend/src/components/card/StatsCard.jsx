@@ -13,17 +13,20 @@ const StatsCard = ({ user, loading }) => {
   <div className="stat-cards-row">
     {/* Stat Card for Total Commits */}
     <div className="stat-card">
-      <h3 className="stat-title">Total Commits: 102</h3>
+      <h3 className="stat-title">Total Commits:</h3>
+      <h3 className="stat-title">202</h3>
     </div>
 
     {/* Stat Card for Total Issues */}
     <div className="stat-card">
-      <h3 className="stat-title">Total Issues: 137</h3>
+      <h3 className="stat-title">Total Issues:</h3>
+      <h3 className="stat-title">45</h3>
     </div>
 
     {/* Stat Card for Total Unit Tests */}
     <div className="stat-card">
-      <h3 className="stat-title">Total Unit Tests: 21</h3>
+      <h3 className="stat-title">Total Unit Tests:</h3>
+      <h3 className="stat-title">21</h3>
     </div>
   </div>
 </div>

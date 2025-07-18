@@ -6,11 +6,11 @@ import { BsArrowRight } from "react-icons/bs";
 import { RiMapPinFill } from "react-icons/ri";
 
 const splashHero = {
-   title: "Welcome to Coddle.cloud",
-   subtitle: "Your premiere spot for fishing locales.",
+   title: "Coddle.cloud",
+   subtitle: "Reel Spots in Real Time",
    buttons: [
       {
-         label: "Find Fishing Spots Now",
+         label: "Find Fish Spots",
          href: "/spots",
          leadingIcon: null,
          trailingIcon: <RiMapPinFill />,
