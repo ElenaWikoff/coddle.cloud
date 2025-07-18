@@ -6,7 +6,7 @@ env_variables:
     # Replace user, password, database, and instance connection name with the values obtained
     # when configuring your Cloud SQL instance.
   DB_STRING: >
-    postgresql+psycopg2://postgres:cs373idb@/postgres?host=/cloudsql/coddle-463619:us-central1:fishingdb
+    postgresql+psycopg2://postgres:cs373idb@/fishingdb?host=/cloudsql/coddle-463619:us-central1:fishingdb
 #[END env]
 
 #[START cloudsql_settings]
