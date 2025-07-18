@@ -458,9 +458,15 @@ def aboutIndex():
             "username": username,
             "web_url": web_url,
             "commits": commit_count,
-            "total_issues": issue_count,
-            "total_commits": total_commits
         })
+
+    # For repository total information
+    about_json.append(
+        {
+            "total_commits": total_commits,
+            "total_issues": issue_count
+        }
+    )
 
     return about_json
 
