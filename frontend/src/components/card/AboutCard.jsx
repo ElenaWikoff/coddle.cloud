@@ -33,7 +33,7 @@ const AboutCard = ({ user, gitlab, loading }) => {
                      alt={user.name}
                      className="absolute inset-0 w-full h-full object-cover z-0"
                   />
-                  <div className="card-text z-10 font-sans">
+                  <div className="front-header card-text z-10 font-sans">
                      <h3 className="text-xl font-semibold text-orange mb-1 z-20">
                         {user.name}
                      </h3>

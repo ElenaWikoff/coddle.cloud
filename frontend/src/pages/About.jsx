@@ -97,7 +97,7 @@ const About = () => {
                   {users.map((user, index) => {
                      return (
                         <Col key={`item-${index}`}>
-                           <AboutCard user={user} gitlab={loading ? null : data[0]} loading={loading} />
+                           <AboutCard user={user} gitlab={loading ? null : data.members[index]} loading={loading} />
                         </Col>
                      );
                   })}
@@ -108,7 +108,7 @@ const About = () => {
 
             <section className="mb-16">
 
-               <StatsCard stats={data} loading={loading} />
+               <StatsCard stats={loading ? null : data.totals} loading={loading} />
                <ToolsCarousel />
 
                <section>
