@@ -127,21 +127,29 @@
    gap: 1rem;
 }
 
+/* Ensuring all social icons are the same size */
 .social-icons a {
    background-color: #307eb1;
    padding: 0.5rem;
    border-radius: 50%;
    transition: background-color 0.3s;
+   width: 2.5rem; /* Set the width of each icon */
+   height: 2.5rem; /* Set the height of each icon */
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 
+/* Hover effect for the icons */
 .social-icons a:hover {
    background-color: #2563eb;
    color: white;
 }
 
+/* Ensuring the icons are consistent in size */
 .social-icons .icon {
-   width: 1.25rem;
-   height: 1.25rem;
+   width: 1.5rem; /* Set the icon size to 1.5rem */
+   height: 1.5rem; /* Set the icon size to 1.5rem */
 }
 
 /* Social Icon Circle (LinkedIn, GitLab) */

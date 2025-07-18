@@ -64,22 +64,6 @@ const AboutCard = ({ user, gitlab, loading }) => {
                   <span>{user.responsibilities}</span>
                </div>
 
-               {/* GitLab URL */}
-               <div className="text-section">
-                  <span className="font-bold">GitLab: </span>
-                  {!loading && gitlab ? (
-                     <a
-                        href={gitlab.web_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                     >
-                        {gitlab.web_url}
-                     </a>
-                  ) : (
-                     <div className="spinner"></div>
-                  )}
-               </div>
-
                {/* Commits */}
                <div className="text-section">
                   <span className="font-bold">Commits: </span>
