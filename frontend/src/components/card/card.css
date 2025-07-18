@@ -1,12 +1,8 @@
-/* Flip Card styles */
+/* Flip Card */
 .flip-card {
-   position: relative;
+   perspective: 1000px;
    width: 100%;
-   height: 100%;
-   transform-style: preserve-3d;
-   transition: transform 0.6s;
-   display: flex;
-   aspect-ratio: 3 / 4;
+   height: 24rem;
 }
 
 .flip-card-inner {
@@ -14,125 +10,154 @@
    width: 100%;
    height: 100%;
    transform-style: preserve-3d;
-   transition: transform 0.6s;
+   transition: transform 0.7s;
+}
+
+.flip-card:hover .flip-card-inner {
+   transform: rotateY(180deg);
 }
 
 /* Front of the card */
 .flip-card-front {
-   position: relative; /* To position text on top of the image */
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   backface-visibility: hidden;
    background-color: white;
-   padding: 16px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   overflow: hidden; /* To make sure no content overflows */
+   border-radius: 0.5rem;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   border: 1px solid #e0e0e0;
+   overflow: hidden;
 }
 
 .flip-card-front img {
-   position: absolute; /* The image will be positioned in the background */
-   top: 0;
-   left: 0;
+   position: absolute;
+   inset: 0;
    width: 100%;
    height: 100%;
-   object-fit: cover; /* Ensures the image covers the card completely */
-   z-index: 1; /* Ensures the image is at the back */
+   object-fit: cover;
 }
 
-.flip-card-front .card-text {
-   position: absolute; /* This will be on top of the image */
-   z-index: 2; /* Ensures the text is above the image */
-   color: #286289;
-   font-size: 20px;
+.front-header {
+   position: absolute;
    bottom: 0;
    left: 0;
    right: 0;
-   text-align: center;
-   vertical-align: bottom;
+   background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+   padding: 1.5rem;
 }
 
+.front-header h3 {
+   font-size: 1.25rem;
+   font-weight: 600;
+   color: white; /* orange */
+   margin-bottom: 0.25rem;
+}
 
-/* Front of the card */
-.flip-card-front {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
+.front-header p {
+   font-size: 1rem;
+   font-weight: 500;
+   color: #66b3ff; /* blue */
 }
 
 /* Back of the card */
 .flip-card-back {
-  background-color: #b0d6f5;
-  padding: 16px;
-  transform: rotateY(180deg);
-  display: flex;
-  flex-direction: column;  /* Stack elements vertically by default */
-  justify-content: flex-start; /* Align items at the top */
-  align-items: flex-start;  /* Align items to the left (default) */
-  overflow: hidden;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  overflow-y: auto; /* Allow vertical scrolling if content exceeds height */
-  padding: 1rem;
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   backface-visibility: hidden;
+   background-color: #307eb1;
+   border-radius: 0.5rem;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   transform: rotateY(180deg);
+   color: black;
+   overflow: auto;
+   padding: 1rem;
+   display: flex;
+   flex-direction: column;
 }
-
-.flip-card-back::-webkit-scrollbar {
-  width: 4px;
-}
-
-.flip-card-back::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 10px;
-}
-
 
 .flip-card-back .top-section {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-  width: 100%;
+   display: flex;
+   align-items: center;
+   margin-bottom: 1rem;
 }
 
-.flip-card-back img {
-  width: 60px;  /* Adjust the size of the image */
-  height: 60px;
-  border-radius: 50%;  /* Circular image */
-  object-fit: cover;  /* Ensure the image fills the circle */
-  margin-right: 12px;  /* Space between the image and text */
+.flip-card-back .top-section img {
+   width: 3.5rem;
+   height: 3.5rem;
+   border-radius: 50%;
+   object-fit: cover;
+   border: 2px solid black;
+   margin-right: 1rem;
 }
 
-.flip-card-back .user-info {
-  display: flex;
-  flex-direction: column;
+.flip-card-back .top-section h3 {
+   font-size: 1rem;
+   font-weight: 700;
 }
 
-.flip-card-back .user-info h3 {
-  font-size: 1.2rem;  /* Adjust font size for name */
-  font-weight: bold;
-  color: black;
-  margin: 0;
+.flip-card-back .top-section p {
+   font-size: 0.875rem;
 }
 
-.flip-card-back .user-info p {
-  font-size: 0.875rem;
-  color: #307eb1;
-  margin: 0;
+.flip-card-back .text-section {
+   font-size: 0.875rem;
+   margin-bottom: 0.5rem;
 }
 
-
-/* When the card is hovered, flip it */
-.flip-card-inner.rotate-y-180 {
-   transform: rotateY(180deg);
+.flip-card-back .text-section span {
+   font-weight: 600;
 }
 
-.perspective-1000 {
-   perspective: 1000px;
+.flip-card-back a {
+   text-decoration: underline;
+   color: black;
 }
 
-.group:hover .flip-card-inner {
-   transform: rotateY(180deg);
+.flip-card-back a:hover {
+   color: #f1c40f;
 }
+
+.social-icons {
+   display: flex;
+   justify-content: center;
+   margin-top: 1rem;
+   gap: 1rem;
+}
+
+.social-icons a {
+   background-color: #307eb1;
+   padding: 0.5rem;
+   border-radius: 50%;
+   transition: background-color 0.3s;
+}
+
+.social-icons a:hover {
+   background-color: #2563eb;
+   color: white;
+}
+
+.social-icons .icon {
+   width: 1.25rem;
+   height: 1.25rem;
+}
+
+/* Spinner when loading */
+.spinner {
+   width: 24px;
+   height: 24px;
+   border: 3px solid #f3f3f3;
+   border-top: 3px solid #3498db;
+   border-radius: 50%;
+   animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+   0% { transform: rotate(0deg); }
+   100% { transform: rotate(360deg); }
+}
+
 
 section {
    padding: 2rem 0;
