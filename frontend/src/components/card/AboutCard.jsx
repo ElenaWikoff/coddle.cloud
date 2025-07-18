@@ -82,7 +82,7 @@ const AboutCard = ({ user, gitlab, loading }) => {
     </div>
     <div className="col bg-primary rounded p-2 mx-1">
       <div className="h5 mb-0">
-        {!loading && gitlab ? gitlab.unitTests ?? 17 : "Loading..."}
+        {!loading && gitlab ? gitlab.unitTests ?? 11 : "Loading..."}
       </div>
       <div className="flip-card-stat-label">Unit Tests</div>
     </div>
