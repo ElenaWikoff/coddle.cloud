@@ -1,3 +1,5 @@
+Custom Markers: https://github.com/pointhi/leaflet-color-markers
+
 BSD 2-Clause License
 
 Copyright (c) 2010-2019, Vladimir Agafonkin
