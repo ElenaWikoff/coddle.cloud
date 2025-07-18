@@ -50,7 +50,7 @@
 .front-header h3 {
    font-size: 1.25rem;
    font-weight: 600;
-   color: white; 
+   color: white;
    margin-bottom: 0.25rem;
 }
 
@@ -66,7 +66,7 @@
    width: 100%;
    height: 100%;
    backface-visibility: hidden;
-   background-color: #307eb1;
+   background-color: #b0d6f5;
    border-radius: 0.5rem;
    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
    transform: rotateY(180deg);
@@ -119,6 +119,7 @@
    color: #f1c40f;
 }
 
+/* Social Media Icons */
 .social-icons {
    display: flex;
    justify-content: center;
@@ -126,21 +127,45 @@
    gap: 1rem;
 }
 
+/* Ensuring all social icons are the same size */
 .social-icons a {
    background-color: #307eb1;
    padding: 0.5rem;
    border-radius: 50%;
    transition: background-color 0.3s;
+   width: 2.5rem; /* Set the width of each icon */
+   height: 2.5rem; /* Set the height of each icon */
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 
+/* Hover effect for the icons */
 .social-icons a:hover {
    background-color: #2563eb;
    color: white;
 }
 
+/* Ensuring the icons are consistent in size */
 .social-icons .icon {
-   width: 1.25rem;
-   height: 1.25rem;
+   width: 1.5rem; /* Set the icon size to 1.5rem */
+   height: 1.5rem; /* Set the icon size to 1.5rem */
+}
+
+/* Social Icon Circle (LinkedIn, GitLab) */
+.social-icon-circle {
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   width: 2rem;
+   height: 2rem;
+   border-radius: 50%;
+   background-color: #307eb1;
+   transition: background-color 0.3s ease;
+}
+
+.social-icon-circle:hover {
+   background-color: #2563eb;
 }
 
 /* Spinner when loading */
@@ -157,7 +182,6 @@
    0% { transform: rotate(0deg); }
    100% { transform: rotate(360deg); }
 }
-
 
 section {
    padding: 2rem 0;

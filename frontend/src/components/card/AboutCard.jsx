@@ -64,41 +64,11 @@ const AboutCard = ({ user, gitlab, loading }) => {
                   <span>{user.responsibilities}</span>
                </div>
 
-               {/* GitLab URL */}
-               <div className="text-section">
-                  <span className="font-bold">GitLab: </span>
-                  {!loading && gitlab ? (
-                     <a
-                        href={gitlab.web_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                     >
-                        {gitlab.web_url}
-                     </a>
-                  ) : (
-                     <div className="spinner"></div>
-                  )}
-               </div>
-
                {/* Commits */}
                <div className="text-section">
                   <span className="font-bold">Commits: </span>
                   <span>{!loading && gitlab ? gitlab.commits : "Loading..."}</span>
                </div>
-
-               {/* LinkedIn URL */}
-               {user.linkedin && (
-                  <div className="text-section">
-                     <span className="font-bold">LinkedIn: </span>
-                     <a
-                        href={user.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                     >
-                        {user.linkedin}
-                     </a>
-                  </div>
-               )}
 
                {/* Social Media Icons */}
                <div className="social-icons">
@@ -108,22 +78,28 @@ const AboutCard = ({ user, gitlab, loading }) => {
                   >
                      <Mail className="icon" />
                   </a>
+
+                  {/* LinkedIn Icon only, no description */}
                   {user.linkedin && (
                      <a
                         href={user.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="LinkedIn profile"
+                        className="social-icon-circle"
                      >
                         <Linkedin className="icon" />
                      </a>
                   )}
+
+                  {/* GitLab Icon */}
                   {gitlab && (
                      <a
                         href={gitlab.web_url}
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="GitLab profile"
+                        className="social-icon-circle"
                      >
                         <GitBranch className="icon" />
                      </a>
