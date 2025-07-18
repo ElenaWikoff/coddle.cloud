@@ -78,7 +78,7 @@ const Splash = () => {
                <div className="d-flex align-items-center justify-content-between">
                   <div className="image-container">
                      <img
-                        src="/path-to-your-image/fishing-club.jpg"
+                        src="\images\fish_hold.png"
                         alt="Fishing Club"
                         className="img-fluid rounded"
                      />
