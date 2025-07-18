@@ -64,10 +64,23 @@ const AboutCard = ({ user, gitlab, loading }) => {
                   <span>{user.responsibilities}</span>
                </div>
 
-               {/* Commits */}
-               <div className="text-section">
-                  <span className="font-bold">Commits: </span>
-                  <span>{!loading && gitlab ? gitlab.commits : "Loading..."}</span>
+               {/* Stats Section */}
+               <div className="stats-section">
+                  <p className="stats-title">Stats:</p>
+                  <div className="stats-container">
+                     <div className="stat-card">
+                        <div className="stat-value">{!loading && gitlab ? gitlab.commits : "Loading..."}</div>
+                        <div className="stat-label">Commits</div>
+                     </div>
+                     <div className="stat-card">
+                        <div className="stat-value">{!loading && gitlab ? gitlab.issues : "Loading..."}</div>
+                        <div className="stat-label">Issues</div>
+                     </div>
+                     <div className="stat-card">
+                        <div className="stat-value">{!loading && gitlab ? gitlab.unitTests : "Loading..."}</div>
+                        <div className="stat-label">Unit Tests</div>
+                     </div>
+                  </div>
                </div>
 
                {/* Social Media Icons */}
