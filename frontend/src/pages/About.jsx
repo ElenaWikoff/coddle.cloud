@@ -9,10 +9,68 @@ import StatsCard from "../components/card/StatsCard";
 import { ToolsCarousel } from "../components/carousel/ToolsCarousel";
 import "../components/card/card.css";
 
+const users_init = [
+    {
+      name: "Elena Wikoff",
+      role: "Team Lead, Frontend Engineer",
+      avatar_url: "/images/elena_pic.png",
+      bio: "CS Major Senior at UT Austin",
+      responsibilities: "Team Leader, UI/UX Design, and Frontend Developer",
+      email: "elenawikoff@utexas.edu",
+      linkedin: "https://www.linkedin.com/in/elena-wikoff",
+    },
+    {
+      name: "Jane Huynh",
+      role: "Backend Engineer",
+      avatar_url: "/images/jane_pic.jpg",
+      bio: "MSIS Data Science at UT Austin, AI Product Manager & Data Scientist",
+      responsibilities: "Backend engineer & db designer, namecheap host and API design",
+      email: "janehuynh@utexas.edu",
+      linkedin: "https://www.linkedin.com/in/jane-huynh",
+    },
+    {
+      name: "Perry Ehimuh",
+      role: "Frontend Engineer",
+      avatar_url: "/images/perry_pic.jpg",
+      bio: "CS Major Senior at UT Austin",
+      responsibilities: "UI/UX Design, and Frontend Developer",
+      email: "perryehimuh@gmail.com",
+      linkedin: "https://www.linkedin.com/in/perry-ehimuh/",
+    },
+    {
+      name: "Yifan Guo",
+      role: "Backend Engineer",
+      avatar_url: "/images/tony_pic.jpg",
+      bio: "Senior Computer Science student UT Austin",
+      responsibilities: "backend developer, database design",
+      email: "yifan.guo3517@gmail.com",
+      linkedin: "https://www.linkedin.com/in/tony-guo-012c",
+    },
+    {
+      name: "Ethan Do",
+      role: "Backend Engineer",
+      avatar_url: "/images/ethan_pic.png",
+      bio: "Junior CS Student, UT Austin",
+      responsibilities: "Backend Engineer",
+      email: "ethando767243@gmail.com",
+      linkedin: "https://www.linkedin.com/in/ethan-do",
+    },
+    {
+      name: "John Bukoski",
+      role: "Technical Reporter",
+      avatar_url: "/images/john_pic.jpg",
+      bio: "Senior CS Student @ UT Austin",
+      responsibilities: "Technical Reporter, iOS developer",
+      email: "jtbukoski@gmail.com",
+      linkedin: "https://www.linkedin.com/in/john-bukoski/",
+    },
+  ];
+
 
 const About = () => {
    const [loading, setLoading] = useState(true);
-   const [data, setData] = useState([null, null, null, null, null, null]);
+   const [users, setUsers] = useState([...users_init]);
+   const [data, setData] = useState();
 
    useEffect(() => {
       console.log(`Attempting to fetch from endpoint: /api/about`);
@@ -36,11 +94,10 @@ const About = () => {
             <section id="team">
                <h2 className="section-heading">Our Team</h2>
                <Row xs={1} sm={2} md={3} className="g-3">
-                  {!loading && !data && <p>Error fetching from Gitlab.</p>}
-                  {data.map((user, index) => {
+                  {users.map((user, index) => {
                      return (
                         <Col key={`item-${index}`}>
-                           <AboutCard user={user} loading={loading} />
+                           <AboutCard user={user} gitlab={loading ? null : data[0]} loading={loading} />
                         </Col>
                      );
                   })}
@@ -51,7 +108,7 @@ const About = () => {
 
             <section className="mb-16">
 
-               <StatsCard />
+               <StatsCard stats={data} loading={loading} />
                <ToolsCarousel />
 
                <section>
