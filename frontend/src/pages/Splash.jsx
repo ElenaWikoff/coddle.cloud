@@ -59,7 +59,7 @@ const Splash = () => {
             </div>
             <div className="flex-item">
                <div className="content">
-                  <h4>Get Lure Recommendation</h4>
+                  <h4>Get Lure Recommendations</h4>
                   <p>
                      Catching fish requires the best tools available. See what
                      lures are the best options for you when planning your next
@@ -71,6 +71,33 @@ const Splash = () => {
                </Link>
             </div>
          </Container>
+
+         {/* Welcome to Fishing Club Section with Image */}
+         <div className="welcome-section bg-light py-5">
+            <Container>
+               <div className="d-flex align-items-center justify-content-between">
+                  <div className="image-container">
+                     <img
+                        src="/path-to-your-image/fishing-club.jpg"
+                        alt="Fishing Club"
+                        className="img-fluid rounded"
+                     />
+                  </div>
+                  <div className="text-container ms-4">
+                     <h3>Welcome to the Fishing Club</h3>
+                     <p className="lead">
+                        Join the community of passionate anglers and get the
+                        latest tips, tricks, and fishing updates. Whether you're
+                        a seasoned pro or just starting out, there's always
+                        something new to learn.
+                     </p>
+                     <Link to="/about" className="btn btn-primary mt-3">
+                        Learn More About Us
+                     </Link>
+                  </div>
+               </div>
+            </Container>
+         </div>
       </PageContainer>
    );
 };
