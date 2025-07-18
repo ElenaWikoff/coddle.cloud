@@ -458,11 +458,18 @@ def aboutIndex():
             "username": username,
             "web_url": web_url,
             "commits": commit_count,
-            "total_issues": issue_count,
-            "total_commits": total_commits
         })
 
-    return about_json
+    # Make JSON object
+    about_stats = {
+        "members": about_json,
+        "totals": {
+            "total_commits": total_commits,
+            "total_issues": issue_count
+        }
+    }
+
+    return jsonify(about_stats)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080)
