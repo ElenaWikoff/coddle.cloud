@@ -116,7 +116,7 @@ const About = () => {
                <div className="critique-section">
                   <h3 className="section-heading">Self Critiques</h3>
                   <Row xs={1} sm={2} md={2} className="g-4">
-                     <Col>
+                     <Col className="d-flex">
                      <CritiqueCard icon="🎯" title="What did we do well?">
                         <ul>
                            <li>Close cooperation between backend and frontend. Flask and React were often built together.</li>
@@ -125,7 +125,7 @@ const About = () => {
                         </ul>
                      </CritiqueCard>
                      </Col>
-                     <Col>
+                     <Col className="d-flex">
                      <CritiqueCard icon="📚" title="What did we learn?">
                         <ul>
                            <li>Flip card styling requires <code>preserve-3d</code> for full sandwich-style flipping.</li>
@@ -134,7 +134,7 @@ const About = () => {
                         </ul>
                      </CritiqueCard>
                      </Col>
-                     <Col>
+                     <Col className="d-flex">
                      <CritiqueCard icon="🔧" title="What can we do better?">
                         <ul>
                            <li>Bootstrap limited our UI — a more robust framework is recommended.</li>
@@ -147,7 +147,7 @@ const About = () => {
                         </ul>
                      </CritiqueCard>
                      </Col>
-                     <Col>
+                     <Col className="d-flex">
                      <CritiqueCard icon="🤔" title="What puzzles us?">
                         <ul>
                            <li>How would this website look if we had an on-site customer for human-centered design?</li>
@@ -163,7 +163,7 @@ const About = () => {
                <div className="critique-section">
                   <h3 className="section-heading">Provider Critiques</h3>
                   <Row xs={1} sm={2} md={2} className="g-4">
-                     <Col>
+                     <Col className="d-flex">
                      <CritiqueCard icon="✅" title="What did they do well?">
                         <ul>
                            <li>Attractive hover effects on the navbar logo and card glow interactions.</li>
@@ -172,7 +172,7 @@ const About = () => {
                         </ul>
                      </CritiqueCard>
                      </Col>
-                     <Col>
+                     <Col className="d-flex">
                      <CritiqueCard icon="💡" title="What did we learn from their website?">
                         <ul>
                            <li>Frontend presentation significantly impacts user experience.</li>
@@ -180,7 +180,7 @@ const About = () => {
                         </ul>
                      </CritiqueCard>
                      </Col>
-                     <Col>
+                     <Col className="d-flex">
                      <CritiqueCard icon="⚡" title="What can they do better?">
                         <ul>
                            <li>Tag system breaks down with too many tags — consider simpler formats like lists.</li>
@@ -192,7 +192,7 @@ const About = () => {
                         </ul>
                      </CritiqueCard>
                      </Col>
-                     <Col>
+                     <Col className="d-flex">
                      <CritiqueCard icon="❓" title="What puzzles us about their website?">
                         <ul>
                            <li>No way to jump to the first or last page — clicking 30+ times to navigate feels inefficient.</li>

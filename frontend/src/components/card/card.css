@@ -398,6 +398,9 @@ a.card .card-footer {
    padding: 1rem;
    border: 1px solid #e5e7eb;
    transition: all 0.3s ease-in-out;
+   display: flex;
+   flex-direction: column;
+   flex: 1;
 }
 
 .critique-card:hover {
