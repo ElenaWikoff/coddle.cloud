@@ -14,3 +14,25 @@
 .leaflet-control-layers-expanded input[type="checkbox"] {
    accent-color: var(--brand-accentYellow);
 }
+
+.btn-dir {
+   font-size: 12px;
+   font-weight: bold;
+   color: white !important;
+   background-color: var(--brand-primaryLight);
+   display: inline-flex;
+   align-items: center;
+   padding: 5px;
+   border: 1px solid var(--brand-primaryLight) !important;
+}
+
+.btn-dir:focus,
+.btn-dir:active,
+.btn-dir:hover {
+   color: var(--brand-primaryLight) !important;
+   background-color: white !important;
+}
+
+.leaflet-popup-content {
+   /* font-size: 13px; */
+}

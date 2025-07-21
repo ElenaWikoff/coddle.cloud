@@ -17,6 +17,7 @@ import {
 } from "./CustomMarkers";
 import "./map.css";
 import Highlighter from "react-highlight-words";
+import DirectionsButton from "./DirectionsButton";
 
 const SpotMarker = ({ spot, onSelect, query }) => {
    const getIcon = (type) => {
@@ -76,6 +77,8 @@ const SpotMarker = ({ spot, onSelect, query }) => {
                2
             )}, ${spot.coordinates[1].toFixed(2)})`}
             />
+            <br />
+            <DirectionsButton coordinates={spot.coordinates} />
          </Popup>
       </Marker>
    );
