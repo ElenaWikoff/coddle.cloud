@@ -7,15 +7,23 @@ import CoddlePagination from "../pagination/CoddlePagination";
 import Form from "react-bootstrap/Form";
 import { capitalizeEachWord } from "../../utils/functions";
 
-const ResultsContainer = ({ data, type, loading, error, sorts, onSort, query }) => {
+const ResultsContainer = ({
+   data,
+   type,
+   loading,
+   error,
+   sorts,
+   onSort,
+   query,
+}) => {
    const [searchParams, setSearchParams] = useSearchParams();
    const navigate = useNavigate();
-   const [sortValue, setSortValue] = useState(searchParams.get('sort'));
+   const [sortValue, setSortValue] = useState(searchParams.get("sort"));
 
    const handleSort = (value) => {
       setSortValue(value);
       onSort(value);
-   }
+   };
 
    const handleNavigate = (url) => {
       navigate(url, { resetScroll: false });
@@ -43,17 +51,22 @@ const ResultsContainer = ({ data, type, loading, error, sorts, onSort, query }) 
                <div className="results-header d-flex justify-content-between align-items-center">
                   <p>{data.pagination.total} results found.</p>
                   {sorts && (
-                     <Form.Select
-                        className="sort-select"
-                        aria-label="Sort Results"
-                        onChange={(event) => handleSort(event.target.value)}
-                        size="sm"
-                        value={sortValue || "+id"}
-                     >
-                        {sorts.sort.map((sort) => (
-                           <option key={`sort-${sort}`} value={sort}>{convertSort(sort)}</option>
-                        ))}
-                     </Form.Select>
+                     <Form className="d-flex align-items-center">
+                        <Form.Label className="m-0">Sort:</Form.Label>
+                        <Form.Select
+                           className="sort-select"
+                           aria-label="Sort Results"
+                           onChange={(event) => handleSort(event.target.value)}
+                           size="sm"
+                           value={sortValue || "+id"}
+                        >
+                           {sorts.sort.map((sort) => (
+                              <option key={`sort-${sort}`} value={sort}>
+                                 {convertSort(sort)}
+                              </option>
+                           ))}
+                        </Form.Select>
+                     </Form>
                   )}
                </div>
                <ResultsGrid results={data.results} type={type} query={query} />
