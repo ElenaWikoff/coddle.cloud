@@ -1,0 +1,93 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  replicas: 3       # Regenerate pods because they're ephermal 
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      serviceAccountName: frontend
+      containers:
+      - name: frontend-container
+        image: frontend-image:latest
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: TEST
+          value: "Hello World!"
+        ports:
+        - containerPort: 5001
+        volumeMounts:
+        - name: frontend-volume
+          mountPath: /hostfolder
+      volumes:
+      - name: frontend-volume
+        configMap:
+          name: frontend-config
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: frontend
+  labels:
+    app: frontend
+spec:
+  type: LoadBalancer
+  selector:
+      app: frontend
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 5001
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-config
+  labels:
+    app: frontend
+data:
+  filenames.txt: |
+    Dockerfile.frontend
+    build.sh
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: frontend
+  namespace: default
+  labels:
+    app: frontend
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: frontend-reader-role
+  labels:
+    app: frontend
+rules:
+- apiGroups: [""]
+  resources: ["pods", "configmaps", "serviceaccounts"]
+  verbs: ["get", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: frontend-reader-rolebinding
+  labels:
+    app: frontend
+subjects:
+- kind: ServiceAccount
+  name: frontend
+  namespace: default
+  apiGroup: ""
+roleRef:
+  kind: Role
+  name: frontend-reader-role
+  apiGroup: rbac.authorization.k8s.io
+---
