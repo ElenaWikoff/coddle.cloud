@@ -33,6 +33,7 @@
    background-color: white !important;
 }
 
-.leaflet-popup-content {
-   /* font-size: 13px; */
+.locate-button {
+   margin-top: 70px;
+   font-size: 18px;
 }
