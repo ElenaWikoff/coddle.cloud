@@ -34,7 +34,7 @@ const StatsCard = ({ stats, loading }) => {
     {/* Stat Card for Total Unit Tests */}
     <div className="stat-card">
       <h3 className="stat-title">Total Unit Tests:</h3>
-      <h3 className="stat-title">21</h3>
+      <h3 className="stat-title">11</h3>
     </div>
   </div>
 </div>

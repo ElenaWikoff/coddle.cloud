@@ -66,7 +66,6 @@ const Search = ({ type }) => {
    // Debounce search query for 300 milliseconds.
    useEffect(() => {
       const newSearchParams = new URLSearchParams(searchParams.toString());
-      handleReset(newSearchParams);
       if (debouncedQuery) {
          newSearchParams.set("q", debouncedQuery);
       } else {
@@ -77,7 +76,10 @@ const Search = ({ type }) => {
 
    // Handle search query value change
    const handleSearch = (value) => {
+      const newSearchParams = new URLSearchParams(searchParams.toString());
+      handleReset(newSearchParams);
       setQuery(value);
+      setSearchParams(newSearchParams);
    };
 
    const setNewRangeData = (key, value) => {
@@ -103,7 +105,6 @@ const Search = ({ type }) => {
    useEffect(() => {
       if (filterData) {
          const newSearchParams = new URLSearchParams(searchParams.toString());
-         handleReset(newSearchParams);
          if (Number(debouncedLength)) {
             newSearchParams.set("length", debouncedLength);
          } else {
@@ -118,7 +119,6 @@ const Search = ({ type }) => {
    useEffect(() => {
       if (filterData) {
          const newSearchParams = new URLSearchParams(searchParams.toString());
-         handleReset(newSearchParams);
          if (Number(debouncedWeight)) {
             newSearchParams.set("weight", debouncedWeight);
          } else {
@@ -133,7 +133,6 @@ const Search = ({ type }) => {
    useEffect(() => {
       if (filterData) {
          const newSearchParams = new URLSearchParams(searchParams.toString());
-         handleReset(newSearchParams);
          if (Number(debouncedDepth)) {
             newSearchParams.set("depth", debouncedDepth);
          } else {
@@ -144,7 +143,11 @@ const Search = ({ type }) => {
    }, [debouncedDepth]);
 
    const handleChange = (key, value) => {
+      const newSearchParams = new URLSearchParams(searchParams.toString());
+      handleReset(newSearchParams);
       if (key === "weight" || key === "length" || key === "depth") {
+         
+         handleReset(newSearchParams);
          switch (key) {
             case "weight":
                setWeight(value);
@@ -159,7 +162,6 @@ const Search = ({ type }) => {
                return;
          }
       } else {
-         const newSearchParams = new URLSearchParams(searchParams.toString());
          if (value !== "all") {
             newSearchParams.set(key, value);
          } else {
@@ -183,6 +185,7 @@ const Search = ({ type }) => {
          };
          setFilterData(newFilterData);
       }
+      setSearchParams(newSearchParams);
    };
 
    const handleSort = (value) => {
