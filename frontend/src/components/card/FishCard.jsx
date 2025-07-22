@@ -21,6 +21,11 @@ const FishCard = ({ fish, query, inCarousel = false }) => {
                      ? `/images/fish/${fish.id}.png`
                      : `/images/fish/placeholder.png`
                }
+               alt={
+                  fish.image_attribution
+                     ? `Illustration of a ${capitalizeEachWord(fish.common_name)}`
+                     : "Placeholder fish image"
+               }
             />
          </div>
          <Card.Body>
@@ -49,7 +54,7 @@ const FishCard = ({ fish, query, inCarousel = false }) => {
                      <div className="tags-container">
                         <Tag label={fish.environment} type="environment" />
                         <Tag label={fish.type} type="type" />
-                        <Tag label={fish.distribution} type="distribution"/>
+                        <Tag label={fish.distribution} type="distribution" />
                      </div>
                   </Card.Footer>
                </>

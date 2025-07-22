@@ -110,7 +110,7 @@ const FilterContainer = ({ data, query, onSearch, onSelect, onClear }) => {
                      })}
                </fieldset>
 
-               <Button variant="filter" className="align-self-center" onClick={() => onClear()}>Clear Filters&nbsp;<LuFilterX /></Button>
+               <Button variant="filter" className="align-self-end" onClick={() => onClear()}>Clear Filters&nbsp;<LuFilterX /></Button>
             </div>
          </Form>
       </Container>

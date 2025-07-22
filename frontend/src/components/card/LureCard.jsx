@@ -12,7 +12,7 @@ const LureCard = ({ lure, query, inCarousel = false }) => {
          to={`/lures/${lure.id}`}
       >
          <div className="image-wrapper">
-            <Card.Img variant="top" src={lure.image_url} />
+            <Card.Img variant="top" src={lure.image_url} alt={capitalizeEachWord(lure.name)} />
          </div>
          <Card.Body>
             <Card.Title>
