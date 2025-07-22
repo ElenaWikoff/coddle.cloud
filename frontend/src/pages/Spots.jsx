@@ -1,10 +1,16 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams, useSearchParams, createSearchParams } from "react-router";
+import {
+   useNavigate,
+   useParams,
+   useSearchParams,
+   createSearchParams,
+} from "react-router";
 import PageContainer from "../components/PageContainer";
 import HeroMap from "../components/herobanner/HeroMap.jsx";
 import CustomCarousel from "../components/carousel/CustomCarousel.jsx";
 import { fetch_complex, fetch_data } from "../utils/actions/api.jsx";
 import { useDebounce } from "../utils/hooks.jsx";
+import LoadSpinner from "../components/LoadSpinner.jsx";
 
 const Spots = () => {
    const navigate = useNavigate();
@@ -19,7 +25,7 @@ const Spots = () => {
    const [query, setQuery] = useState("");
 
    const handleReset = () => {
-      navigate('/spots');
+      navigate("/spots");
    };
 
    // Select fishing spot marker
@@ -36,7 +42,9 @@ const Spots = () => {
             setData(data);
             setLoading(false);
             if (!fishSpecies && id) {
-               setFishSpecies(data.find((spot) => Number(spot.id) === Number(id)).fish_ids);
+               setFishSpecies(
+                  data.find((spot) => Number(spot.id) === Number(id)).fish_ids
+               );
             }
          })
          .catch((error) => {
@@ -75,7 +83,7 @@ const Spots = () => {
    // Handle search query value change
    const handleSubmitSearch = (event) => {
       event.preventDefault();
-      if (query === '') {
+      if (query === "") {
          navigate("/spots");
       }
       const newSearchParams = new URLSearchParams(searchParams.toString());
@@ -95,23 +103,26 @@ const Spots = () => {
 
    return (
       <PageContainer>
-         {!loading && data && (
-            <HeroMap
-               spots={data}
-               onSelect={handleSelectSpot}
-               query={query}
-               onSearch={handleSearch}
-               onSubmit={handleSubmitSearch}
-            />
+         <LoadSpinner loading={loading} message="Location data loading"  />
+         {(!loading && data) && (
+            <>
+               <HeroMap
+                  spots={data}
+                  onSelect={handleSelectSpot}
+                  query={query}
+                  onSearch={handleSearch}
+                  onSubmit={handleSubmitSearch}
+               />
+               <CustomCarousel
+                  items={carousel}
+                  type="fish"
+                  loading={carouselLoading}
+                  preMessage={"Click on spot to see fish species at location."}
+                  emptyMessage={"No fish information about spot."}
+                  query={query}
+               />
+            </>
          )}
-         <CustomCarousel
-            items={carousel}
-            type="fish"
-            loading={carouselLoading}
-            preMessage={"Click on spot to see fish species at location."}
-            emptyMessage={"No fish information about spot."}
-            query={query}
-         />
       </PageContainer>
    );
 };
