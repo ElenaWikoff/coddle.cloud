@@ -20,7 +20,22 @@ const Search = ({ type }) => {
    const debouncedWeight = useDebounce(weight, 300);
    const [depth, setDepth] = useState(0);
    const debouncedDepth = useDebounce(depth, 300);
+   const [defaultFilterData, setDefaultFilterData] = useState();
    const [filterData, setFilterData] = useState(null);
+
+   const handleClear = () => {
+      const newSearchParams = new URLSearchParams();
+      newSearchParams.set("page", 1);
+      if (searchParams.has("limit")) {
+         newSearchParams.set("limit", searchParams.get("limit"));
+      } else {
+         newSearchParams.set("limit", 12);
+      }
+      setSearchParams(newSearchParams);
+      const newFilterData = {...defaultFilterData};
+      setFilterData(newFilterData);
+      setQuery("");
+   };
 
    useEffect(() => {
       fetch_metadata(type)
@@ -51,6 +66,7 @@ const Search = ({ type }) => {
                ranges: newRanges,
             };
             setFilterData(newData);
+            setDefaultFilterData(newData);
          })
          .catch((error) => {
             setError(error);
@@ -268,6 +284,7 @@ const Search = ({ type }) => {
                query={query}
                onSearch={handleSearch}
                onSelect={handleChange}
+               onClear={handleClear}
             />
             <ResultsContainer
                data={data}
