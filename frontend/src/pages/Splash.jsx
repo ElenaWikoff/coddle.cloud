@@ -35,12 +35,8 @@ const Splash = () => {
          <Container fluid className="m-0 p-0 columns light">
             <div className="flex-item">
                <div className="content">
-                  <h4>Find Nearby Fishing Spots</h4>
-                  <p>
-                     From pond to pier, we've done the research for you. Find
-                     your fishing oasis or plan your next fishing trip around
-                     our curated location data.
-                  </p>
+                  <h6>Texas</h6>
+                  <h2>Locations</h2>
                </div>
                <Link className="cta" to="/spots">
                   View Spots <BsArrowRight />
@@ -48,14 +44,11 @@ const Splash = () => {
             </div>
             <div className="flex-item">
                <div className="content">
-                  <h4>Learn About Local Fish Species</h4>
-                  <p>
-                     Use our Fish Database to learn everything you can about the
-                     fish species on our world.
-                  </p>
+                  <h6>From FishBase</h6>
+                  <h2>Species</h2>
                </div>
                <Link className="cta" to="/fish-species">
-                  See FishDB <BsArrowRight />
+                  See Species <BsArrowRight />
                </Link>
             </div>
             <div className="flex-item">
@@ -68,7 +61,7 @@ const Splash = () => {
                   </p>
                </div>
                <Link className="cta" to="/lures">
-                  Learn More <BsArrowRight />
+                  Check Baits <BsArrowRight />
                </Link>
             </div>
          </Container>

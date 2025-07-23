@@ -8,12 +8,12 @@
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
 
-   --brand-primary: #0a3d62;
-   --brand-primaryLight: #00adef;
-   --brand-secondary: #2e5635;
-   --brand-accentYellow: #ffe15c;
+   --brand-primary: #307eb1;
+   --brand-primaryLight: #b0d6f5;
+   --brand-secondary: #387024;
+   --brand-accentYellow: #307eb1;
    --brand-accentGold: #d9913c;
-   --brand-accentBeige: #cbbba0;
+   --brand-accentBeige: #f2d2a9;
    --brand-secondarySlate: #505a64;
 }
 
@@ -387,3 +387,4 @@ a.tag:hover {
   background-color: #0056b3;
   color: #fff;
 }
+
