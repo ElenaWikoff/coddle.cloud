@@ -50,7 +50,6 @@ h6 {
 }
 
 body {
-   /* min-height: 100vh; */
    overflow: auto;
 }
 
@@ -65,7 +64,6 @@ main {
    display: flex;
    flex-direction: column;
    justify-content: flex-start;
-   /* background-color: var(--brand-primaryLight); */
 }
 
 a {
@@ -93,13 +91,13 @@ a.card {
 }
 
 .columns {
-   flex: 1 1 0;
-   text-align: center;
-   margin: 0;
-   padding: 0;
-   display: flex;
-   flex-flow: row wrap;
-   height: auto;
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 100%;
+  flex-wrap: nowrap;
 }
 
 .columns.light {
@@ -107,20 +105,22 @@ a.card {
    background-color: var(--brand-primaryLight);
 }
 
-.columns .flex-item {
+.columns .flex-item-link {
    position: relative;
    flex: 1 1 0;
    min-width: 100px;
-   height: auto;
+   height: 250px;
    margin: 0;
    padding: 32px;
    display: flex;
    flex-direction: column;
    justify-content: space-between;
    gap: 1em;
+   text-decoration: none;
+   color: inherit;
 }
 
-.columns .flex-item::after {
+.columns .flex-item-link::after {
    content: "";
    position: absolute;
    top: 0;
@@ -131,22 +131,22 @@ a.card {
    z-index: 1;
 }
 
-.columns .flex-item:last-child::after {
+.columns .flex-item-link:last-child::after {
    display: none;
 }
 
 @media screen and (max-width: 1024px) {
-   .columns .flex-item::after {
+   .columns .flex-item-link::after {
       display: none;
    }
 
-   .columns .flex-item {
+   .columns .flex-item-link {
       align-items: stretch;
       flex: 1 1 auto;
    }
 }
 
-.columns .flex-item a {
+.columns .flex-item-link a {
    color: inherit;
 }
 
@@ -195,46 +195,44 @@ a.list-group-item:hover {
    object-fit: contain;
 }
 
-.flex-item {
-   position: relative; /* Ensure the pseudo-element is positioned relative to this container */
-}
-
-.flex-item::before {
-   content: ""; /* Required to create the pseudo-element */
+.flex-item-link::before {
+   content: "";
    position: absolute;
    top: 0;
    left: 0;
    right: 0;
    bottom: 0;
-   background-color: rgba(50, 72, 80, 0.6); /* Dark blue color with opacity*/
-   z-index: 1; /* Ensure the overlay is above the image but below the content */
+   background-color: rgba(50, 72, 80, 0.6);
+   z-index: 1;
 }
 
-.flex-item .content {
-   position: relative; /* Keep content on top of the overlay */
-   z-index: 2; /* Ensure content is above the overlay */
+.flex-item-link .content {
+   position: relative;
+   z-index: 2;
+   cursor: pointer;
 }
 
-.flex-item:nth-child(1) {
+.flex-item-link:nth-child(1) {
    background-image: url("/images/location_splash.png");
    background-size: cover;
    background-position: center;
    background-repeat: no-repeat;
 }
 
-.flex-item:nth-child(2) {
+.flex-item-link:nth-child(2) {
    background-image: url("/images/species_splash.png");
    background-size: cover;
    background-position: center;
    background-repeat: no-repeat;
 }
 
-.flex-item:nth-child(3) {
+.flex-item-link:nth-child(3) {
    background-image: url("/images/lures_splash.png");
    background-size: cover;
    background-position: center;
    background-repeat: no-repeat;
 }
+
 
 .highlight-text {
    padding: 0;
@@ -388,3 +386,19 @@ a.tag:hover {
   color: #fff;
 }
 
+.flex-item-link {
+  display: block; /* make it behave like a block */
+  text-decoration: none; /* remove underline */
+  color: inherit; /* inherit text color */
+  cursor: pointer; /* pointer cursor */
+  transition: background-color 0.3s ease;
+}
+
+.flex-item-link:hover {
+  background-color: rgba(48, 126, 177, 0.1); /* subtle hover bg */
+}
+
+/* Optional: if you want the cursor pointer on child elements */
+.flex-item-link .content {
+  cursor: pointer;
+}

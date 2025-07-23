@@ -33,35 +33,31 @@ const Splash = () => {
             video={splashHero.video}
          />
          <Container fluid className="m-0 p-0 columns light">
-            <div className="flex-item">
-               <div className="content">
-                  <h6>Texas</h6>
-                  <h2>Locations</h2>
+            <Link to="/spots" className="flex-item-link">
+               <div className="flex-item">
+                  <div className="content">
+                  <h6 style={{ color: "#307eb1" }}>Texas</h6>
+                  <h1>Locations</h1>
+                  </div>
                </div>
-               <Link className="cta" to="/spots">
-                  View Spots <BsArrowRight />
-               </Link>
-            </div>
-            <div className="flex-item">
-               <div className="content">
-                  <h6>From FishBase</h6>
-                  <h2>Species</h2>
+            </Link>
+            <Link to="/fish-species" className="flex-item-link">
+               <div className="flex-item">
+                  <div className="content">
+                  <h6 style={{ color: "#307eb1" }}>From FishBase</h6>
+                  <h1>Species</h1>
+                  </div>
                </div>
-               <Link className="cta" to="/fish-species">
-                  See Species <BsArrowRight />
-               </Link>
-            </div>
-            <div className="flex-item">
-               <div className="content">
-                  <h6>The Latest</h6>
-                  <h2>Lures</h2>
+            </Link>
+            <Link to="/lures" className="flex-item-link">
+               <div className="flex-item">
+                  <div className="content">
+                  <h6 style={{ color: "#307eb1" }}>The Latest</h6>
+                  <h1>Lures</h1>
+                  </div>
                </div>
-               <Link className="cta" to="/lures">
-                  Check Baits <BsArrowRight />
-               </Link>
-            </div>
-         </Container>
-
+            </Link>
+            </Container>
          {/* Welcome to Fishing Club Section with Image */}
          <div className="welcome-section bg-light py-5">
             <Container>
