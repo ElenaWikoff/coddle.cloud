@@ -84,7 +84,7 @@ const Splash = () => {
                      />
                   </div>
                   <div className="text-container ms-4">
-                     <h3>Welcome to the Fishing Club</h3>
+                     <h3>Coddle's Mission Statment</h3>
                      <p className="lead">
                         Join the community of passionate anglers and get the
                         latest tips, tricks, and fishing updates. Whether you're
