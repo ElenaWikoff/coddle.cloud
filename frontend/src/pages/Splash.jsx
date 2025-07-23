@@ -11,7 +11,7 @@ const splashHero = {
    subtitle: "Coddle.cloud",
    buttons: [
       {
-         label: "Find Fish Spots",
+         label: "🎣Find Spots",
          href: "/spots",
          leadingIcon: null,
          trailingIcon: <RiMapPinFill />,

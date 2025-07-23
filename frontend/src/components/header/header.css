@@ -48,6 +48,7 @@
 /* Nav links */
 .navbar .nav-link {
   padding: 10px 20px !important;
+  font-size: 22px;
   font-weight: 600;
   color: white;
   border-bottom: 5px solid transparent;
