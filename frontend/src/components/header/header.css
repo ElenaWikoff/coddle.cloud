@@ -56,3 +56,34 @@
       border-left: 5px solid transparent;
    }
 }
+
+.navbar .navbar-brand {
+   flex: 1; /* left 1/3 */
+   max-width: 33%;
+}
+
+.navbar-collapse {
+   flex: 2; /* right 2/3 */
+   justify-content: flex-end;
+}
+
+/* 3. Optional: improve nav link spacing */
+.navbar .nav-link {
+   padding: 10px 20px;
+   font-weight: 600;
+   color: white;
+   border-bottom: 5px solid transparent;
+}
+
+/* 4. Logo image tweaks */
+.navbar .logo-wrapper {
+   display: flex;
+   align-items: center;
+   height: 100%;
+   width: fit-content;
+}
+
+.navbar .header-logo {
+   height: auto;
+   width: 150px;
+}
