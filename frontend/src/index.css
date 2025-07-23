@@ -207,8 +207,10 @@ a.list-group-item:hover {
 }
 
 .flex-item-link .content {
-   position: relative;
+   position: absolute;
    z-index: 2;
+   bottom: 20px; /* adjust as needed */
+   left: 20px;
    cursor: pointer;
 }
 
@@ -387,11 +389,13 @@ a.tag:hover {
 }
 
 .flex-item-link {
-  display: block; /* make it behave like a block */
+  display: flex; /* make it behave like a block */
   text-decoration: none; /* remove underline */
   color: inherit; /* inherit text color */
   cursor: pointer; /* pointer cursor */
   transition: background-color 0.3s ease;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .flex-item-link:hover::before {
