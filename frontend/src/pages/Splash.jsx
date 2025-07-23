@@ -36,7 +36,7 @@ const Splash = () => {
             <Link to="/spots" className="flex-item-link">
                <div className="flex-item">
                   <div className="content">
-                  <h6 style={{ color: "#307eb1" }}>Texas</h6>
+                  <h6>Texas</h6>
                   <h1>Locations</h1>
                   </div>
                </div>
@@ -44,7 +44,7 @@ const Splash = () => {
             <Link to="/fish-species" className="flex-item-link">
                <div className="flex-item">
                   <div className="content">
-                  <h6 style={{ color: "#307eb1" }}>From FishBase</h6>
+                  <h6>From FishBase</h6>
                   <h1>Species</h1>
                   </div>
                </div>
@@ -52,13 +52,13 @@ const Splash = () => {
             <Link to="/lures" className="flex-item-link">
                <div className="flex-item">
                   <div className="content">
-                  <h6 style={{ color: "#307eb1" }}>The Latest</h6>
+                  <h6>The Latest</h6>
                   <h1>Lures</h1>
                   </div>
                </div>
             </Link>
          </Container>
-         
+
          {/* Welcome to Fishing Club Section with Image */}
          <div className="welcome-section bg-light py-5">
             <Container>

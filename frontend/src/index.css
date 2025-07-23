@@ -388,6 +388,10 @@ a.tag:hover {
   color: #fff;
 }
 
+.flex-item-link .content h6 {
+  color: #307eb1; /* #b0d6f5 */
+}
+
 .flex-item-link {
   display: flex; /* make it behave like a block */
   text-decoration: none; /* remove underline */
@@ -403,7 +407,7 @@ a.tag:hover {
 }
 
 .flex-item-link:hover .content h6 {
-  color: var(--brand-primaryLight); /* #b0d6f5 */
+  color: black; /* #b0d6f5 */
 }
 
 .flex-item-link:hover .content h1 {
