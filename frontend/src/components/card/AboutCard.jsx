@@ -68,19 +68,19 @@ const AboutCard = ({ user, gitlab, loading }) => {
 <div>
   <p className="text-center fw-bold small mb-2">Contribution Stats:</p>
   <div className="row text-center text-white">
-    <div className="col bg-primary rounded p-2 mx-1">
+    <div className="col rounded p-2 mx-1" style={{ backgroundColor: "#307eb1" }}>
       <div className="h5 mb-0">
         {!loading && gitlab ? gitlab.commits : 0}
       </div>
       <div className="flip-card-stat-label">Commits</div>
     </div>
-    <div className="col bg-primary rounded p-2 mx-1">
+    <div className="col rounded p-2 mx-1" style={{ backgroundColor: "#307eb1" }}>
       <div className="h5 mb-0">
         {!loading && gitlab ? gitlab.issues ?? 32 : 0}
       </div>
       <div className="flip-card-stat-label">Issues</div>
     </div>
-    <div className="col bg-primary rounded p-2 mx-1">
+    <div className="col rounded p-2 mx-1" style={{ backgroundColor: "#307eb1" }}>
       <div className="h5 mb-0">
         {!loading && gitlab ? gitlab.unitTests ?? 11 : 0}
       </div>

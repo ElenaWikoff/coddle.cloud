@@ -96,26 +96,23 @@
 }
 
 .flip-card-back .top-section h3 {
-   font-size: 1rem;
+   font-size: 1.05 rem;
    font-weight: 600;
    margin: 0;
 }
 
 .flip-card-back .top-section p {
-   font-size: 0.8rem;
+   font-size: .95 rem;
    margin: 0;
    color: #333;
 }
 
 .flip-card-back .text-section {
-   font-size: 0.75rem;
-   margin-bottom: 0.25rem;
-   line-height: 1.2;
+   font-size: 1.05rem;
+   margin-bottom: 0.15rem;
+   line-height: 1.05;
 }
 
-.flip-card-back .text-section span {
-   font-weight: 600;
-}
 
 
 .flip-card-back a {
@@ -154,12 +151,12 @@
    padding: 1rem;
    text-align: center;
    transition: background-color 0.3s ease;
-   width: 120px;
+   width: 180px;
    cursor: pointer;
 }
 
 .stat-card:hover {
-   background-color: #2563eb;
+   background-color: #b0d6f5;
 }
 
 .stat-card h3 {
