@@ -398,9 +398,12 @@ a.tag:hover {
   background-color: rgba(176, 214, 245, 0.4); /* light blue tint */
 }
 
-.flex-item-link:hover .content h1,
 .flex-item-link:hover .content h6 {
   color: var(--brand-primaryLight); /* #b0d6f5 */
+}
+
+.flex-item-link:hover .content h1 {
+  color: black; 
 }
 
 .flex-item-link:hover {
