@@ -31,6 +31,9 @@ const Search = ({ type }) => {
       } else {
          newSearchParams.set("limit", 12);
       }
+      if (searchParams.has("sort")) {
+         newSearchParams.set("sort", searchParams.get("sort"));
+      }
       setSearchParams(newSearchParams);
       const newFilterData = {...defaultFilterData};
       setFilterData(newFilterData);
