@@ -1,96 +1,87 @@
+/* Navbar background */
 .navbar {
-   background-color: #307eb1;
+  background-color: #307eb1;
 }
 
+/* Container layout */
 .navbar .container {
-   max-width: 66.66%;
-   margin: 0 auto;
-   padding: 0 1rem;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
+  max-width: 66.66%;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+/* Brand styles */
+.navbar .navbar-brand {
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+
+/* Logo wrapper */
+.navbar .logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: fit-content;
+  aspect-ratio: 2/1;
+  overflow: hidden;
+}
+
+/* Logo image */
+.navbar .header-logo {
+  width: 150px;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Nav container */
+.navbar .nav {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+/* Nav links */
 .navbar .nav-link {
-   padding: 10px 20px !important;
-   font-weight: 600;
-   color: white;
-   border-bottom: 5px solid transparent;
+  padding: 10px 20px !important;
+  font-weight: 600;
+  color: white;
+  border-bottom: 5px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .navbar-brand:hover {
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .navbar .nav-link:focus,
 .navbar .navbar-brand:focus,
 .navbar .nav-link:active,
 .navbar .navbar-brand:active {
-   color: white;
-   border-color: white;
+  color: white;
+  border-color: white;
 }
 
-.navbar .nav-link:hover,
-.navbar .navbar-brand:hover {
-   border-color: rgba(255, 255, 255, 0.5);
-}
-
-.navbar .logo-wrapper {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   aspect-ratio: 2/1;
-   overflow: hidden;
-}
-
-.navbar .header-logo {
-   width: 100%;
-   height: 100%;
-   object-fit: cover;
-}
-
-@media screen and (max-width: 992px) {
-   .navbar .navbar-brand {
-      margin: 0 auto;
-   }
-
-   .navbar .nav-link {
-      padding-left: 10px;
-      border-bottom: none;
-      border-left: 5px solid transparent;
-   }
-}
-
-.navbar .navbar-brand {
-   flex-shrink: 0;
-   margin-left: 1rem;
-}
-
+/* Navbar collapse area */
 .navbar-collapse {
-   justify-content: flex-end;
-   margin-right: 1rem;
+  justify-content: flex-end;
+  margin-right: 1rem;
 }
 
-/* 3. Optional: improve nav link spacing */
-.navbar .nav-link {
-   padding: 10px 20px;
-   font-weight: 600;
-   color: white;
-   border-bottom: 5px solid transparent;
-}
+/* Responsive adjustments */
+@media screen and (max-width: 992px) {
+  .navbar .navbar-brand {
+    margin: 0 auto;
+  }
 
-.navbar .nav {
-   display: flex;
-   justify-content: flex-end;
-   width: 100%;
-}
-
-/* 4. Logo image tweaks */
-.navbar .logo-wrapper {
-   display: flex;
-   align-items: center;
-   height: 100%;
-   width: fit-content;
-}
-
-.navbar .header-logo {
-   height: auto;
-   width: 150px;
+  .navbar .nav-link {
+    padding-left: 10px;
+    border-bottom: none;
+    border-left: 5px solid transparent;
+  }
 }
