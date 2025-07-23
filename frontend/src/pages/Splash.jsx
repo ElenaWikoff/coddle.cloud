@@ -57,7 +57,8 @@ const Splash = () => {
                   </div>
                </div>
             </Link>
-            </Container>
+         </Container>
+         
          {/* Welcome to Fishing Club Section with Image */}
          <div className="welcome-section bg-light py-5">
             <Container>

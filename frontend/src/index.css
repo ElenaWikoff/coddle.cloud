@@ -394,8 +394,17 @@ a.tag:hover {
   transition: background-color 0.3s ease;
 }
 
+.flex-item-link:hover::before {
+  background-color: rgba(176, 214, 245, 0.4); /* light blue tint */
+}
+
+.flex-item-link:hover .content h1,
+.flex-item-link:hover .content h6 {
+  color: var(--brand-primaryLight); /* #b0d6f5 */
+}
+
 .flex-item-link:hover {
-  background-color: rgba(48, 126, 177, 0.1); /* subtle hover bg */
+  background-color: #b0d6f5; /* subtle hover bg */
 }
 
 /* Optional: if you want the cursor pointer on child elements */
