@@ -86,10 +86,9 @@ const Splash = () => {
                   <div className="text-container ms-4">
                      <h3>Coddle's Mission Statment</h3>
                      <p className="lead">
-                        Join the community of passionate anglers and get the
-                        latest tips, tricks, and fishing updates. Whether you're
-                        a seasoned pro or just starting out, there's always
-                        something new to learn.
+                        Coddle is your all-in-one fishing guide, helping anglers discover top fishing spots, 
+                        learn about fish species, and choose the best bait and lures—everything you need to 
+                        fish smarter, explore more, and catch better, all in one place.
                      </p>
                      <Link to="/about" className="btn btn-primary mt-3">
                         Learn More About Us
