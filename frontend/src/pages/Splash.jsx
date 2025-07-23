@@ -53,12 +53,8 @@ const Splash = () => {
             </div>
             <div className="flex-item">
                <div className="content">
-                  <h4>Get Lure Recommendations</h4>
-                  <p>
-                     Catching fish requires the best tools available. See what
-                     lures are the best options for you when planning your next
-                     outing at the docks.
-                  </p>
+                  <h6>The Latest</h6>
+                  <h2>Lures</h2>
                </div>
                <Link className="cta" to="/lures">
                   Check Baits <BsArrowRight />
