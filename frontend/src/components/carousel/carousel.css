@@ -194,7 +194,7 @@
   transition: all 0.3s ease;
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments */ 
 @media screen and (max-width: 768px) {
   .carousel-grid {
     grid-template-columns: repeat(2, 1fr);
