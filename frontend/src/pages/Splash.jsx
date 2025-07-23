@@ -14,7 +14,7 @@ const splashHero = {
          label: "🎣Find Spots",
          href: "/spots",
          leadingIcon: null,
-         trailingIcon: <RiMapPinFill />,
+         trailingIcon: <RiMapPinFill />, 
       },
    ],
    video: {
