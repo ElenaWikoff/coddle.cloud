@@ -220,7 +220,7 @@ a.list-group-item:hover {
 }
 
 .flex-item-link:nth-child(2) {
-   background-image: url("/images/species_splash.jpg");
+   background-image: url("/public/images/species_splash.jpg");
    background-size: cover;
    background-position: center;
    background-repeat: no-repeat;
