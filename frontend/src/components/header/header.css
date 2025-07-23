@@ -1,6 +1,6 @@
 /* Navbar background */
 .navbar {
-  background-color: #307eb1;
+  background-color: var(--brand-primaryLight);
 }
 
 /* Container layout */

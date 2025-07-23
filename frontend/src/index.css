@@ -8,13 +8,14 @@
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
 
-   --brand-primary: #307eb1;
-   --brand-primaryLight: #b0d6f5;
-   --brand-secondary: #387024;
-   --brand-accentYellow: #307eb1;
+   --brand-primary: #0a3d62;
+   --brand-primaryLight: #00adef;
+   --brand-secondary: #2e5635;
+   --brand-accentYellow: #ffe15c;
    --brand-accentGold: #d9913c;
-   --brand-accentBeige: #f2d2a9;
+   --brand-accentBeige: #cbbba0;
    --brand-secondarySlate: #505a64;
+
 }
 
 .spinner-wrapper {
@@ -366,12 +367,12 @@ a.tag:hover {
    box-shadow: 0 0 0 0.25rem rgba(255, 225, 92, 0.25) !important;
 }
 
-.cta {
+/* .cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: white; /* change to something with contrast if needed */
-  background-color: #007bff; /* bootstrap primary or any contrasting color */
+  color: white;
+  background-color: #007bff;
   padding: 10px 16px;
   margin-top: 10px;
   font-weight: bold;
@@ -386,10 +387,10 @@ a.tag:hover {
 .cta:hover {
   background-color: #0056b3;
   color: #fff;
-}
+} */
 
 .flex-item-link .content h6 {
-  color: #307eb1; /* #b0d6f5 */
+  color: white; /* #b0d6f5 */
 }
 
 .flex-item-link {
@@ -407,11 +408,13 @@ a.tag:hover {
 }
 
 .flex-item-link:hover .content h6 {
-  color: black; /* #b0d6f5 */
+  color: white; /* #b0d6f5 */
+  filter: drop-shadow(1px 3px 3px rgba(0, 0, 0, 0.8))
 }
 
 .flex-item-link:hover .content h1 {
-  color: black; 
+  color: white; 
+  filter: drop-shadow(1px 3px 3px rgba(0, 0, 0, 0.8))
 }
 
 .flex-item-link:hover {

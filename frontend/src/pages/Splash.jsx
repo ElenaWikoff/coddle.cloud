@@ -2,18 +2,19 @@ import { Link } from "react-router";
 import HeroBanner from "../components/herobanner/HeroBanner";
 import PageContainer from "../components/PageContainer";
 import Container from "react-bootstrap/esm/Container";
-import { BsArrowRight } from "react-icons/bs";
 import { RiMapPinFill } from "react-icons/ri";
+import { IoFish } from "react-icons/io5";
 import '../index.css';
+import Button from "react-bootstrap/esm/Button";
 
 const splashHero = {
    title: "Reel Spots in Real Time",
    subtitle: "Coddle.cloud",
    buttons: [
       {
-         label: "🎣Find Spots",
+         label: "Find Fishing Spots",
          href: "/spots",
-         leadingIcon: null,
+         leadingIcon: <IoFish />,
          trailingIcon: <RiMapPinFill />, 
       },
    ],
@@ -36,7 +37,7 @@ const Splash = () => {
             <Link to="/spots" className="flex-item-link">
                <div className="flex-item">
                   <div className="content">
-                  <h6>Texas</h6>
+                  <h6>Local</h6>
                   <h1>Locations</h1>
                   </div>
                </div>
@@ -77,9 +78,9 @@ const Splash = () => {
                         learn about fish species, and choose the best bait and lures—everything you need to 
                         fish smarter, explore more, and catch better, all in one place.
                      </p>
-                     <Link to="/about" className="btn btn-primary mt-3">
+                     <Button as={Link} to="/about">
                         Learn More About Us
-                     </Link>
+                     </Button>
                   </div>
                </div>
             </Container>

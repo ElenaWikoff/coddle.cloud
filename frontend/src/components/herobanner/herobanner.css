@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1em;
+    /* gap: 1em; */
     padding: 64px;
     height: calc(100dvh - 100px);
     position: relative;
@@ -38,11 +38,12 @@
 
 .hero-banner h2 {
     font-size: 64px;
+    font-weight: 400;
 }
 
 .hero-banner h3 {
-    font-weight: 400;
-    font-size: 32px;
+    font-weight: 800;
+    font-size: 24px;
 }
 
 .hero-banner .btn-hero {
@@ -51,11 +52,11 @@
 
 .hero-banner h2,
 .hero-banner h3 {
-    filter: drop-shadow(10px 4px 4px rgba(0, 0, 0, 0.5))
+    filter: drop-shadow(10px 5px 5px rgba(0, 0, 0, 0.8))
 }
 
 .btn-hero {
-    background-color: #307eb1;
+    background-color: var(--brand-primaryLight);
     color: white;
     font-weight: bold;
 }

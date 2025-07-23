@@ -1,6 +1,6 @@
 /* Footer container */
 .footer-container {
-   background-color: #307eb1;
+   background-color: var(--brand-primary);
    padding-top: 3rem;
    padding-bottom: 1.5rem;
 }

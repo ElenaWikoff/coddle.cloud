@@ -33,7 +33,7 @@ const Header = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="nav-links">
               <Nav.Link as={Link} to="/spots">Spots</Nav.Link>
-              <Nav.Link as={Link} to="/fish-species?page=1&limit=12">Species</Nav.Link>
+              <Nav.Link as={Link} to="/fish-species?page=1&limit=12">FishDB</Nav.Link>
               <Nav.Link as={Link} to="/lures?page=1&limit=12">Lures</Nav.Link>
               <Nav.Link as={Link} to="/about">About</Nav.Link>
             </Nav>
