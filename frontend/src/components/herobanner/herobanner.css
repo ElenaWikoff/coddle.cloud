@@ -55,7 +55,7 @@
 }
 
 .btn-hero {
-    background-color: var(--brand-primary);
+    background-color: #307eb1;
     color: white;
     font-weight: bold;
 }
@@ -63,7 +63,7 @@
 .btn-hero:focus,
 .btn-hero:active,
 .btn-hero:hover {
-    background-color: var(--brand-primaryLight);
+    background-color: #b0d6f5;
 }
 
 @media screen and (max-width: 1024px) {

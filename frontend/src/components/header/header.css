@@ -3,10 +3,12 @@
 }
 
 .navbar .container {
+   max-width: 66.66%;
+   margin: 0 auto;
+   padding: 0 1rem;
    display: flex;
    justify-content: space-between;
    align-items: center;
-   padding: 0 1rem;
 }
 
 .navbar .nav-link {
@@ -57,15 +59,13 @@
 }
 
 .navbar .navbar-brand {
-   flex-basis: 33.33%;
-   max-width: 33.33%;
+   flex-shrink: 0;
+   margin-left: 1rem;
 }
 
 .navbar-collapse {
-   flex-basis: 66.66%;
-   max-width: 66.66%;
-   display: flex !important;
    justify-content: flex-end;
+   margin-right: 1rem;
 }
 
 /* 3. Optional: improve nav link spacing */
