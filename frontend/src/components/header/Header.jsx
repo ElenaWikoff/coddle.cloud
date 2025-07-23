@@ -26,7 +26,7 @@ const Header = () => {
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-               <Nav className="ms-auto d-flex w-100">
+               <Nav className="d-flex justify-content-end w-100">
                   <Nav.Link as={Link} to="/spots">
                      Fishing Spots
                   </Nav.Link>

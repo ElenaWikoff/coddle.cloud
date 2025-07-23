@@ -62,7 +62,9 @@
 }
 
 .navbar-collapse {
-   flex: 2; /* right 2/3 */
+   flex-basis: 66.66%;
+   max-width: 66.66%;
+   display: flex !important;
    justify-content: flex-end;
 }
 
@@ -72,6 +74,12 @@
    font-weight: 600;
    color: white;
    border-bottom: 5px solid transparent;
+}
+
+.navbar .nav {
+   display: flex;
+   justify-content: flex-end;
+   width: 100%;
 }
 
 /* 4. Logo image tweaks */
