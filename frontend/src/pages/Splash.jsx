@@ -4,6 +4,7 @@ import PageContainer from "../components/PageContainer";
 import Container from "react-bootstrap/esm/Container";
 import { BsArrowRight } from "react-icons/bs";
 import { RiMapPinFill } from "react-icons/ri";
+import '../index.css';
 
 const splashHero = {
    title: "Reel Spots in Real Time",

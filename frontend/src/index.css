@@ -365,3 +365,25 @@ a.tag:hover {
    outline: 0;
    box-shadow: 0 0 0 0.25rem rgba(255, 225, 92, 0.25) !important;
 }
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* change to something with contrast if needed */
+  background-color: #007bff; /* bootstrap primary or any contrasting color */
+  padding: 10px 16px;
+  margin-top: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  z-index: 10;
+  position: relative;
+}
+
+.cta:hover {
+  background-color: #0056b3;
+  color: #fff;
+}
