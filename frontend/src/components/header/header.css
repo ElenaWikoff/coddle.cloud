@@ -1,5 +1,13 @@
 .navbar {
-   background-color: var(--brand-primary);
+   background-color: #307eb1;
+}
+
+.navbar .container {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding-left: 0;
+   padding-right: 0;
 }
 
 .navbar .nav-link {
