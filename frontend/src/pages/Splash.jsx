@@ -6,8 +6,8 @@ import { BsArrowRight } from "react-icons/bs";
 import { RiMapPinFill } from "react-icons/ri";
 
 const splashHero = {
-   title: "Coddle.cloud",
-   subtitle: "Reel Spots in Real Time",
+   title: "Reel Spots in Real Time",
+   subtitle: "Coddle.cloud",
    buttons: [
       {
          label: "Find Fish Spots",
