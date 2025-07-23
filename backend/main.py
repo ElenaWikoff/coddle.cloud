@@ -220,6 +220,8 @@ def fishSearchingMetadataIndex():
             "+id", "-id",
             "+length", "-length",
             "+weight", "-weight",
+            "+common_name", "-common_name",
+            "+scientific_name", "-scientific_name"
         ]
     })
 
