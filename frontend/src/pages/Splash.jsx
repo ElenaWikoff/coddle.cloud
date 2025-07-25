@@ -42,7 +42,7 @@ const Splash = () => {
                   </div>
                </div>
             </Link>
-            <Link to="/fish-species" className="flex-item-link">
+            <Link to="/fish-species?page=1&limit=12" className="flex-item-link">
                <div className="flex-item">
                   <div className="content">
                   <h6>From FishBase</h6>
@@ -50,7 +50,7 @@ const Splash = () => {
                   </div>
                </div>
             </Link>
-            <Link to="/lures" className="flex-item-link">
+            <Link to="/lures?page=1&limit=12" className="flex-item-link">
                <div className="flex-item">
                   <div className="content">
                   <h6>The Latest</h6>

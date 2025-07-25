@@ -24,6 +24,8 @@ const Fish = () => {
    const handleTagClick = (label, type) => {
       const searchParams = createSearchParams();
       searchParams.set(type, label);
+      searchParams.set("page", 1);
+      searchParams.set("limit", 12);
       navigate({
          pathname: "/fish-species",
          search: searchParams.toString(),

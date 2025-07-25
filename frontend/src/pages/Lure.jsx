@@ -12,7 +12,7 @@ const Lure = () => {
    const data = useLoaderData();
 
    const handleClick = (base_url, label, type) => {
-      navigate(`${base_url}?${type}=${label}`);
+      navigate(`${base_url}?page=1&limit=12&${type}=${label}`);
    }
 
    return (
