@@ -1,4 +1,4 @@
-# CS373 Summer 2025 Group 1
+# UT CS373 Summer 2025 Group 1
 
 ## Coddle.cloud
 
@@ -28,12 +28,12 @@ To display local fishing spots for use by the user.
 
 - Number of Instances: ~100
     - Database Attributes:
-        - Coordinates: Lattitude and longitube (clickable map pin)
+        - Coordinates: Latitude and longitude (clickable map pin)
         - Feature Name: Name of body of water
-        - Type: Body of water type (ex. river, pond, etc.)
+        - Type: Body of water type (ex., river, pond, etc.)
         - City: City or nearest city from coordinates
         - Zip Code: Postal code (For weather information)
-        - Fish Species: Fish that can be found at fishing spot (carousel)
+        - Fish Species: Fish that can be found at the fishing spot (carousel)
         - Last Updated: When location data was last updated (YYYY-MM-DDTHH:MM:SSZ)
     - Extra Attributes:
         - Weather: Will display local weather information
@@ -50,30 +50,30 @@ To display general info and information useful for catching the fish.
         - Type: Fish type for use by Lures model (tag/param)
         - Environment: Freshwater | Marine (tag/param)
         - Distribution: Native Continent(s) or Ocean(s) (Contitnent/Ocean image)
-        - Native Countries: Countries the fish species can be found (to populate map)
+        - Native Countries: Countries where the fish species can be found (to populate map)
         - Max Sizes: Max Length and Weight
         - Max Sizes Units: Metric (cm) or Imperial (in)
         - Biting Temperature: Temperature biting range based on Fishermap
-        - Depth Range: Minumum and maximum swimming depth
+        - Depth Range: Minimum and maximum swimming depth
         - Depth Range Units: Metric (m/km) or Imperial (ft/miles)
-        - Description: Short summary of the fish and the fishing experience.
+        - Description: Summary of the fish and the fishing experience.
         - Image URL: URL to public domain image
     - Extra Attributes
         - Locations: Fishing spot locations based on location data.
         - Weather: Will display local weather information (relates to biting temperature)
-        - Related Fish: Other fish of same type
+        - Related Fish: Other fish of the same type
 - Types: images, text
 
 ### Lures
 
-Information about lures that provide the user with advice on what lures are best to catch certains types of fishes.
+Information about lures that provide the user with advice on what lures are best to catch certain types of fish.
 
 - Number of Instances: 46
     - Database Attributes:
         - Name: The lure subtype
         - Type: The lure type
         - Application: How the lure is best used
-        - Fish Types: What types of fish this lure is best used for
+        - Fish Types: What types of fish is this lure best used for
         - Image URL: URL to public domain image
 - Types: images, text
 
