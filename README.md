@@ -4,6 +4,10 @@
 
 Website Link: [https://coddle.cloud/](https://coddle.cloud/)
 
+> [!Important]
+>
+> Website domain shutdown after completion of project circa July 2025, please consult the [Wiki](https://github.com/ElenaWikoff/coddle.cloud/wiki) to learn about the site and see videos of the [Frontend](https://github.com/ElenaWikoff/coddle.cloud/wiki/Frontend-%E2%80%90-Website-Navigation-v3) in action.
+
 ## Team Members
 
 - Elena Wikoff - @elenawikoff
